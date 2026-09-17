@@ -57,7 +57,7 @@ function Index() {
 
       <section className="mx-auto max-w-7xl px-6 py-14">
         <div className="glass grid items-center gap-8 rounded-3xl p-8 lg:grid-cols-[1fr_auto] lg:p-12">
-          <div><p className="text-xs font-semibold uppercase tracking-[0.25em] text-terracotta">Choose how we travel with you</p><h2 className="mt-2 max-w-2xl font-display text-4xl text-ink">Download the guide. Create with chat. Or talk directly to us.</h2><p className="mt-4 max-w-xl leading-relaxed text-soft">Three clear levels, one place to compare them. Every guide includes our travel intelligence and access to the VeM WhatsApp group.</p></div>
+          <div><p className="text-xs font-semibold uppercase tracking-[0.25em] text-terracotta">Choose how we travel with you</p><h2 className="mt-2 max-w-2xl font-display text-4xl text-ink">Download the guide. Create with chat. Or talk directly to us.</h2><p className="mt-4 max-w-xl leading-relaxed text-soft">Three clear levels, one place to compare them. The VeM WhatsApp group opens with Guide + Chat and Guide + Us.</p></div>
           <Link to="/pricing" className="rounded-xl bg-ink px-6 py-3 text-center font-semibold text-onink transition hover:bg-royal">Open packages →</Link>
         </div>
       </section>

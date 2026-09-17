@@ -1,6 +1,7 @@
 import { createFileRoute, Link } from "@tanstack/react-router";
 import { EuropeMap } from "@/components/site/EuropeMap";
 import { ItineraryCard } from "@/components/site/ItineraryCard";
+import { Button } from "@/components/ui/button";
 import { itineraries } from "@/lib/content";
 import founderOne from "@/assets/founder-one.jpg";
 import founderTwo from "@/assets/founder-two.jpg";
@@ -23,36 +24,46 @@ export const Route = createFileRoute("/")({
 function Index() {
   return (
     <main>
-      <section className="mx-auto grid max-w-7xl gap-10 px-6 pb-14 pt-12 lg:grid-cols-[0.85fr_1.15fr] lg:items-center lg:pt-16">
-        <div>
-          <p className="text-xs font-semibold uppercase tracking-[0.22em] text-royal">travel intelligence by VeM</p>
-          <h1 className="mt-5 max-w-xl font-display text-5xl leading-[1.02] text-ink lg:text-6xl">
-            Europe, already <span className="italic text-terracotta">figured out.</span>
-          </h1>
-          <p className="mt-6 max-w-lg text-lg leading-relaxed text-soft">
-            Not another list of sights. We turn the routes we have travelled into clear decisions:
-            where to move next, what it really costs, where to save, and what is worth the splurge.
-          </p>
-          <div className="mt-8 flex flex-wrap gap-3">
-            <Link to="/itineraries" className="rounded-lg bg-ink px-6 py-3 font-semibold text-onink transition hover:bg-royal">Explore the map</Link>
-            <Link to="/pricing" className="rounded-lg border border-border bg-card px-6 py-3 font-semibold text-ink transition hover:border-royal">Choose a package</Link>
+      <section className="relative overflow-hidden border-b border-border">
+        <div className="mx-auto grid min-h-[650px] max-w-7xl gap-12 px-6 pb-16 pt-12 lg:grid-cols-[0.92fr_1.08fr] lg:items-center lg:pt-16">
+          <div className="relative z-10">
+            <div className="mb-7 flex items-center gap-4">
+              <div className="flex -space-x-3">
+                <img src={founderOne} alt="Veronika" className="size-12 rounded-full border-2 border-paper object-cover" />
+                <img src={founderTwo} alt="Monika" className="size-12 rounded-full border-2 border-paper object-cover" />
+              </div>
+              <p className="max-w-44 text-xs font-semibold uppercase tracking-[0.18em] text-soft">Travelled, tested &amp; written by V &amp; eM</p>
+            </div>
+            <p className="text-xs font-semibold uppercase tracking-[0.22em] text-royal">travel intelligence by VeM</p>
+            <h1 className="mt-5 max-w-2xl font-display text-5xl leading-[0.98] text-ink sm:text-6xl lg:text-7xl">
+              Don’t just visit Europe. <span className="italic text-terracotta">Move through it.</span>
+            </h1>
+            <p className="mt-6 max-w-xl text-lg leading-relaxed text-soft">
+              Routes we have lived, with exact connections, honest budgets and the calls that turn more movement into a better trip.
+            </p>
+            <div className="mt-9 grid max-w-xl gap-3 sm:grid-cols-2">
+              <Button asChild size="lg" className="group h-auto justify-between bg-royal px-5 py-4 text-onink shadow-none hover:bg-ink">
+                <Link to="/itineraries"><span className="text-left"><span className="block font-display text-xl">Download</span><span className="block text-xs font-normal opacity-75">Choose a ready-to-go guide</span></span><span className="text-xl transition-transform group-hover:translate-x-1">↓</span></Link>
+              </Button>
+              <Button asChild size="lg" className="group h-auto justify-between bg-terracotta px-5 py-4 text-onink shadow-none hover:bg-ink">
+                <Link to="/pricing"><span className="text-left"><span className="block font-display text-xl">Create</span><span className="block text-xs font-normal opacity-75">Shape the trip with support</span></span><span className="text-xl transition-transform group-hover:translate-x-1">↗</span></Link>
+              </Button>
+            </div>
           </div>
-          <dl className="mt-10 grid grid-cols-3 gap-4 border-t border-border pt-6">
-            <div><dt className="font-display text-2xl text-ink">Real</dt><dd className="mt-1 text-xs text-soft">routes we travelled</dd></div>
-            <div><dt className="font-display text-2xl text-ink">Exact</dt><dd className="mt-1 text-xs text-soft">transport details</dd></div>
-            <div><dt className="font-display text-2xl text-ink">Honest</dt><dd className="mt-1 text-xs text-soft">budget estimates</dd></div>
-          </dl>
+          <div className="relative">
+            <span className="absolute -right-10 -top-9 hidden rotate-6 bg-gold px-5 py-3 font-display text-lg text-ink shadow-sm sm:block">9 routes. Zero guesswork.</span>
+            <EuropeMap />
+          </div>
         </div>
-        <EuropeMap />
       </section>
 
-      <section className="border-y border-border bg-card/60">
+      <section className="border-b border-border bg-gold/25">
         <div className="mx-auto grid max-w-7xl gap-10 px-6 py-16 lg:grid-cols-[0.7fr_1.3fr]">
           <div>
             <p className="text-xs font-semibold uppercase tracking-[0.22em] text-terracotta">What intelligence means</p>
             <h2 className="mt-3 font-display text-4xl leading-tight text-ink">The useful layer between inspiration and booking.</h2>
           </div>
-          <div className="grid gap-px overflow-hidden rounded-2xl border border-border bg-border sm:grid-cols-3">
+          <div className="grid gap-px overflow-hidden rounded-lg border border-border bg-border sm:grid-cols-3">
             {[
               ["Move smarter", "Connections, timing and route order tested in real life."],
               ["Spend deliberately", "Save where it adds nothing. Spend once where it changes the trip."],
@@ -72,10 +83,10 @@ function Index() {
         <div className="grid gap-6 md:grid-cols-3">{itineraries.slice(0, 3).map((item) => <ItineraryCard key={item.slug} itinerary={item} />)}</div>
       </section>
 
-      <section className="mx-auto max-w-7xl px-6 pb-16">
-        <div className="grid gap-8 border-y border-border py-12 lg:grid-cols-[1fr_auto] lg:items-center">
-          <div><p className="text-xs font-semibold uppercase tracking-[0.22em] text-gold">Pick how close we travel with you</p><h2 className="mt-3 max-w-2xl font-display text-4xl text-ink">A guide, a guide with chat, or direct communication with us.</h2><p className="mt-4 max-w-xl text-soft">The packages now have their own clear space, so you can compare only what changes.</p></div>
-          <Link to="/pricing" className="rounded-lg bg-terracotta px-6 py-3 text-center font-semibold text-onink transition hover:bg-ink">Open packages →</Link>
+       <section className="bg-royal text-onink">
+         <div className="mx-auto grid max-w-7xl gap-8 px-6 py-14 lg:grid-cols-[1fr_auto] lg:items-center">
+           <div><p className="text-xs font-semibold uppercase tracking-[0.22em] text-gold">Need more than a download?</p><h2 className="mt-3 max-w-2xl font-display text-4xl text-onink">Create your version with a chat — or directly with us.</h2><p className="mt-4 max-w-xl text-onink/75">One clear place to compare the support that comes with your route.</p></div>
+           <Button asChild size="lg" className="bg-onink text-ink shadow-none hover:bg-gold"><Link to="/pricing">Open Create options →</Link></Button>
         </div>
       </section>
 
@@ -87,10 +98,10 @@ function Index() {
         <div><p className="text-xs font-semibold uppercase tracking-[0.22em] text-sage">V &amp; eM</p><h2 className="mt-3 font-display text-4xl text-ink">Two friends. Years of routes. The details we wish someone had told us.</h2><p className="mt-5 max-w-lg leading-relaxed text-soft">Veronika and Monika turn lived experience into practical travel intelligence — personal enough to trust and precise enough to book from.</p><Link to="/about" className="mt-6 inline-block text-sm font-semibold text-royal">Meet us →</Link></div>
       </section>
 
-      <section className="border-t border-border bg-lilac/10">
+      <section className="border-t border-border bg-lilac/15">
         <div className="mx-auto flex max-w-7xl flex-col justify-between gap-7 px-6 py-12 sm:flex-row sm:items-center">
-          <div><p className="text-xs font-semibold uppercase tracking-[0.22em] text-lilac">Monthly postcard · €12</p><h2 className="mt-2 font-display text-3xl text-ink">A country we know, delivered on paper.</h2><p className="mt-3 max-w-xl text-sm leading-relaxed text-soft">Not necessarily where we have just returned from — always somewhere we have already been and have a story worth sending.</p></div>
-          <Link to="/letters" className="shrink-0 rounded-lg border border-ink px-6 py-3 text-center font-semibold text-ink transition hover:bg-ink hover:text-onink">Discover the postcard</Link>
+          <div><p className="text-xs font-semibold uppercase tracking-[0.22em] text-lilac">Monthly postcard · €12</p><h2 className="mt-2 font-display text-3xl text-ink">Just a little hello from somewhere.</h2><p className="mt-3 max-w-xl text-sm leading-relaxed text-soft">A physical postcard from a place we have been. Personal, collectible and entirely separate from our guides — no itinerary, no budget, no travel tips.</p></div>
+          <Button asChild variant="outline" size="lg" className="shrink-0 border-ink bg-transparent text-ink shadow-none hover:bg-ink hover:text-onink"><Link to="/letters">Discover the postcard</Link></Button>
         </div>
       </section>
     </main>

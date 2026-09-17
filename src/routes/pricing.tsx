@@ -47,8 +47,8 @@ function PricingPage() {
       <section id="packages" className="scroll-mt-20 bg-card py-20">
         <div className="mx-auto max-w-7xl px-6">
           <div className="mb-14 grid gap-6 lg:grid-cols-2 lg:items-end">
-            <div><p className="text-xs font-semibold uppercase tracking-[0.22em] text-royal">One route. Three experiences.</p><h2 className="mt-3 font-display text-5xl leading-none text-ink">Pick the distance between us.</h2></div>
-            <p className="max-w-lg text-base leading-relaxed text-soft lg:justify-self-end">Every option begins with tested travel intelligence: where to move, what it really costs and which detail saves the day.</p>
+            <div><p className="text-xs font-semibold uppercase tracking-[0.22em] text-royal">One route. Two experiences.</p><h2 className="mt-3 font-display text-5xl leading-none text-ink">Pick the distance between us.</h2></div>
+            <p className="max-w-lg text-base leading-relaxed text-soft lg:justify-self-end">Both options begin with tested travel intelligence and a chatbot that reshapes the trip: where to move, what it really costs and which detail saves the day.</p>
           </div>
           <TierCards />
         </div>
@@ -57,9 +57,9 @@ function PricingPage() {
       <section className="mx-auto max-w-7xl px-6 py-20">
         <div className="mb-10 max-w-2xl"><p className="text-xs font-semibold uppercase tracking-[0.22em] text-terracotta">What changes between them</p><h2 className="mt-3 font-display text-4xl text-ink">From our notebook to your own trip.</h2></div>
         <div className="grid gap-4 md:grid-cols-3">
-          <article className="border-t-4 border-sage py-6"><Compass className="size-7 text-sage"/><p className="mt-6 text-xs font-semibold uppercase tracking-[0.18em] text-soft">In every package</p><h3 className="mt-2 font-display text-2xl text-ink">The intelligence</h3><p className="mt-3 text-sm leading-relaxed text-soft">A moving day-by-day route, exact transport logic, realistic costs and the places worth spending more on.</p></article>
-          <article className="border-t-4 border-royal py-6"><Bot className="size-7 text-royal"/><p className="mt-6 text-xs font-semibold uppercase tracking-[0.18em] text-soft">From Guide + Chat</p><h3 className="mt-2 font-display text-2xl text-ink">The conversation</h3><p className="mt-3 text-sm leading-relaxed text-soft">A chatbot to reshape the route, plus entry to the travel intelligence by VeM WhatsApp group.</p></article>
-          <article className="border-t-4 border-terracotta py-6"><MessageCircle className="size-7 text-terracotta"/><p className="mt-6 text-xs font-semibold uppercase tracking-[0.18em] text-soft">Only in Guide + Us</p><h3 className="mt-2 font-display text-2xl text-ink">The two of us</h3><p className="mt-3 text-sm leading-relaxed text-soft">Direct communication with Veronika and Monika for the decisions where lived experience matters most.</p></article>
+          <article className="border-t-4 border-sage py-6"><Compass className="size-7 text-sage"/><p className="mt-6 text-xs font-semibold uppercase tracking-[0.18em] text-soft">In both packages</p><h3 className="mt-2 font-display text-2xl text-ink">The intelligence</h3><p className="mt-3 text-sm leading-relaxed text-soft">A moving day-by-day route, exact transport logic, realistic costs and the places worth spending more on.</p></article>
+          <article className="border-t-4 border-royal py-6"><Bot className="size-7 text-royal"/><p className="mt-6 text-xs font-semibold uppercase tracking-[0.18em] text-soft">In both packages</p><h3 className="mt-2 font-display text-2xl text-ink">The conversation</h3><p className="mt-3 text-sm leading-relaxed text-soft">A trip chatbot that answers questions and reshapes the route around your dates and rhythm.</p></article>
+          <article className="border-t-4 border-terracotta py-6"><MessageCircle className="size-7 text-terracotta"/><p className="mt-6 text-xs font-semibold uppercase tracking-[0.18em] text-soft">Only in Guide + Us</p><h3 className="mt-2 font-display text-2xl text-ink">The two of us</h3><p className="mt-3 text-sm leading-relaxed text-soft">Direct communication with Veronika and Monika, plus the travel intelligence by VeM WhatsApp group.</p></article>
         </div>
       </section>
 

@@ -1,63 +1,36 @@
+import { Link } from "@tanstack/react-router";
 import { accentBg, tiers } from "@/lib/content";
 
 export function TierCards() {
   return (
-    <div className="grid md:grid-cols-3 gap-6 items-stretch">
-      {tiers.map((tier) =>
-        tier.featured ? (
-          <div
-            key={tier.name}
-            className="rounded-3xl p-7 flex flex-col bg-ink text-onink relative overflow-hidden"
+    <div className="grid gap-px overflow-hidden rounded-2xl border border-border bg-border lg:grid-cols-3">
+      {tiers.map((tier, index) => (
+        <article key={tier.name} className="flex min-h-[380px] flex-col bg-card p-7 lg:p-8">
+          <div className="flex items-center justify-between">
+            <span className="text-xs font-semibold uppercase tracking-[0.2em] text-soft">0{index + 1}</span>
+            {tier.featured && <span className="text-xs font-semibold text-terracotta">Most flexible</span>}
+          </div>
+          <h2 className="mt-7 font-display text-3xl text-ink">{tier.name}</h2>
+          <p className="mt-2 min-h-10 text-sm leading-relaxed text-soft">{tier.tagline}</p>
+          <p className="mt-6 font-display text-3xl text-ink">
+            {tier.price} <span className="font-body text-sm font-medium text-soft">{tier.unit}</span>
+          </p>
+          <ul className="mt-6 space-y-3 text-sm leading-relaxed text-soft">
+            {tier.features.map((feature) => (
+              <li key={feature} className="flex gap-3">
+                <span className={`mt-2 size-1.5 shrink-0 rounded-full ${accentBg[tier.accent]}`} />
+                {feature}
+              </li>
+            ))}
+          </ul>
+          <Link
+            to="/about"
+            className={tier.featured ? "mt-auto rounded-lg bg-ink px-5 py-3 text-center text-sm font-semibold text-onink transition hover:bg-royal" : "mt-auto rounded-lg border border-border px-5 py-3 text-center text-sm font-semibold text-ink transition hover:border-royal"}
           >
-            <span className="absolute top-5 right-5 text-[10px] font-bold uppercase tracking-[0.2em] bg-terracotta text-onink px-2.5 py-1 rounded-full">
-              Most popular
-            </span>
-            <h3 className="font-display text-2xl">{tier.name}</h3>
-            <p className="mt-1 text-sm text-onink/70">{tier.tagline}</p>
-            <p className="mt-4 font-display text-4xl">
-              {tier.price}
-              <span className="text-base text-onink/60 font-body font-medium">{tier.unit}</span>
-            </p>
-            <ul className="mt-5 space-y-3 text-sm text-onink/80">
-              {tier.features.map((f) => (
-                <li key={f} className="flex gap-2.5">
-                  <span className={`mt-1.5 size-1.5 rounded-full shrink-0 ${accentBg[tier.accent]}`} />
-                  {f}
-                </li>
-              ))}
-            </ul>
-            <a
-              href="mailto:hello@vagrantandveela.com"
-              className="mt-6 text-center bg-terracotta text-onink font-semibold px-5 py-3 rounded-xl hover:bg-white hover:text-ink transition"
-            >
-              {tier.cta}
-            </a>
-          </div>
-        ) : (
-          <div key={tier.name} className="glass rounded-3xl p-7 flex flex-col">
-            <h3 className="font-display text-2xl text-ink">{tier.name}</h3>
-            <p className="mt-1 text-sm text-soft">{tier.tagline}</p>
-            <p className="mt-4 font-display text-4xl text-ink">
-              {tier.price}
-              <span className="text-base text-soft font-body font-medium">{tier.unit}</span>
-            </p>
-            <ul className="mt-5 space-y-3 text-sm text-soft">
-              {tier.features.map((f) => (
-                <li key={f} className="flex gap-2.5">
-                  <span className={`mt-1.5 size-1.5 rounded-full shrink-0 ${accentBg[tier.accent]}`} />
-                  {f}
-                </li>
-              ))}
-            </ul>
-            <a
-              href="mailto:hello@vagrantandveela.com"
-              className="mt-6 text-center glass-soft text-ink font-semibold px-5 py-3 rounded-xl hover:bg-white transition"
-            >
-              {tier.cta}
-            </a>
-          </div>
-        ),
-      )}
+            {tier.cta}
+          </Link>
+        </article>
+      ))}
     </div>
   );
 }

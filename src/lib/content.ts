@@ -176,7 +176,7 @@ export const tiers = [
     tagline: "Open it. Ask it. Go.",
     description:
       "Our exact route, plus a trip chatbot that answers, shortens, extends and reshapes it around your dates.",
-    price: "€49",
+    price: "€29",
     unit: "/ trip",
     accent: "royal" as const,
     features: [

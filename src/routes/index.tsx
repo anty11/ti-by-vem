@@ -37,6 +37,7 @@ function Index() {
           <div className="mt-7 flex flex-wrap gap-3">
             <Link to="/itineraries" className="rounded-xl bg-terracotta px-6 py-3 font-semibold text-onink transition hover:bg-ink">Explore the map</Link>
             <Link to="/pricing" className="glass-soft rounded-xl px-6 py-3 font-semibold text-ink transition hover:bg-card">See the packages</Link>
+            <Link to="/letters" className="rounded-xl border border-gold/60 bg-gold/20 px-6 py-3 font-semibold text-ink transition hover:bg-gold/40">Postcard club · €12/mo</Link>
           </div>
           <div className="mt-8 flex flex-wrap gap-x-8 gap-y-3 text-sm text-soft">
             <span className="flex items-center gap-2"><span className="size-2 rounded-full bg-sage" /> Budget included</span>
@@ -57,7 +58,7 @@ function Index() {
 
       <section className="mx-auto max-w-7xl px-6 py-14">
         <div className="glass grid items-center gap-8 rounded-3xl p-8 lg:grid-cols-[1fr_auto] lg:p-12">
-          <div><p className="text-xs font-semibold uppercase tracking-[0.25em] text-terracotta">Choose how we travel with you</p><h2 className="mt-2 max-w-2xl font-display text-4xl text-ink">Take the guide with chat. Or take the two of us with it.</h2><p className="mt-4 max-w-xl leading-relaxed text-soft">Two clear options, one place to compare them. The VeM WhatsApp group opens with Guide + Us.</p></div>
+          <div><p className="text-xs font-semibold uppercase tracking-[0.25em] text-terracotta">Choose how we travel with you</p><h2 className="mt-2 max-w-2xl font-display text-4xl text-ink">Take the guide with chat. Or take the two of us with it.</h2><p className="mt-4 max-w-xl leading-relaxed text-soft">Two clear options, one place to compare them. The VeM WhatsApp group opens with Guide + Us.</p><p className="mt-3 text-sm text-soft">Rather just a hello in your letterbox? The <Link to="/letters" className="font-semibold text-royal underline decoration-gold decoration-2 underline-offset-4 transition hover:text-terracotta">postcard membership</Link> runs separately at €12/month.</p></div>
           <Link to="/pricing" className="rounded-xl bg-ink px-6 py-3 text-center font-semibold text-onink transition hover:bg-royal">Open packages →</Link>
         </div>
       </section>

@@ -8,7 +8,7 @@ import founderTwo from "@/assets/founder-two.jpg";
 export const Route = createFileRoute("/pricing")({
   head: () => ({ meta: [
     { title: "Travel guide packages — travel intelligence by VeM" },
-    { name: "description", content: "Compare three travel guide packages: guide, guide with chatbot, or direct communication with Veronika and Monika." },
+    { name: "description", content: "Compare two travel guide packages: guide with trip chatbot, or direct communication with Veronika and Monika." },
     { property: "og:title", content: "Travel guide packages — travel intelligence by VeM" },
     { property: "og:description", content: "Choose how much support you want around your European route." },
     { property: "og:type", content: "website" },

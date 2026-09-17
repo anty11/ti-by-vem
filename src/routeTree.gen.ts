@@ -10,33 +10,102 @@
 
 import { Route as rootRouteImport } from './routes/__root'
 import { Route as IndexRouteImport } from './routes/index'
+import { Route as AboutRouteImport } from './routes/about'
+import { Route as LettersRouteImport } from './routes/letters'
+import { Route as PricingRouteImport } from './routes/pricing'
+import { Route as ItinerariesIndexRouteImport } from './routes/itineraries.index'
+import { Route as ItinerariesSlugRouteImport } from './routes/itineraries.$slug'
 
 const IndexRoute = IndexRouteImport.update({
   id: '/',
   path: '/',
   getParentRoute: () => rootRouteImport,
 } as any)
+const AboutRoute = AboutRouteImport.update({
+  id: '/about',
+  path: '/about',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const LettersRoute = LettersRouteImport.update({
+  id: '/letters',
+  path: '/letters',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const PricingRoute = PricingRouteImport.update({
+  id: '/pricing',
+  path: '/pricing',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const ItinerariesIndexRoute = ItinerariesIndexRouteImport.update({
+  id: '/itineraries/',
+  path: '/itineraries/',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const ItinerariesSlugRoute = ItinerariesSlugRouteImport.update({
+  id: '/itineraries/$slug',
+  path: '/itineraries/$slug',
+  getParentRoute: () => rootRouteImport,
+} as any)
 
 export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
+  '/about': typeof AboutRoute
+  '/letters': typeof LettersRoute
+  '/pricing': typeof PricingRoute
+  '/itineraries/$slug': typeof ItinerariesSlugRoute
+  '/itineraries/': typeof ItinerariesIndexRoute
 }
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
+  '/about': typeof AboutRoute
+  '/letters': typeof LettersRoute
+  '/pricing': typeof PricingRoute
+  '/itineraries/$slug': typeof ItinerariesSlugRoute
+  '/itineraries': typeof ItinerariesIndexRoute
 }
 export interface FileRoutesById {
   __root__: typeof rootRouteImport
   '/': typeof IndexRoute
+  '/about': typeof AboutRoute
+  '/letters': typeof LettersRoute
+  '/pricing': typeof PricingRoute
+  '/itineraries/$slug': typeof ItinerariesSlugRoute
+  '/itineraries/': typeof ItinerariesIndexRoute
 }
 export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
-  fullPaths: '/'
+  fullPaths:
+    | '/'
+    | '/about'
+    | '/letters'
+    | '/pricing'
+    | '/itineraries/$slug'
+    | '/itineraries/'
   fileRoutesByTo: FileRoutesByTo
-  to: '/'
-  id: '__root__' | '/'
+  to:
+    | '/'
+    | '/about'
+    | '/letters'
+    | '/pricing'
+    | '/itineraries/$slug'
+    | '/itineraries'
+  id:
+    | '__root__'
+    | '/'
+    | '/about'
+    | '/letters'
+    | '/pricing'
+    | '/itineraries/$slug'
+    | '/itineraries/'
   fileRoutesById: FileRoutesById
 }
 export interface RootRouteChildren {
   IndexRoute: typeof IndexRoute
+  AboutRoute: typeof AboutRoute
+  LettersRoute: typeof LettersRoute
+  PricingRoute: typeof PricingRoute
+  ItinerariesSlugRoute: typeof ItinerariesSlugRoute
+  ItinerariesIndexRoute: typeof ItinerariesIndexRoute
 }
 
 declare module '@tanstack/react-router' {
@@ -48,11 +117,51 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof IndexRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/about': {
+      id: '/about'
+      path: '/about'
+      fullPath: '/about'
+      preLoaderRoute: typeof AboutRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/letters': {
+      id: '/letters'
+      path: '/letters'
+      fullPath: '/letters'
+      preLoaderRoute: typeof LettersRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/pricing': {
+      id: '/pricing'
+      path: '/pricing'
+      fullPath: '/pricing'
+      preLoaderRoute: typeof PricingRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/itineraries/': {
+      id: '/itineraries/'
+      path: '/itineraries'
+      fullPath: '/itineraries/'
+      preLoaderRoute: typeof ItinerariesIndexRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/itineraries/$slug': {
+      id: '/itineraries/$slug'
+      path: '/itineraries/$slug'
+      fullPath: '/itineraries/$slug'
+      preLoaderRoute: typeof ItinerariesSlugRouteImport
+      parentRoute: typeof rootRouteImport
+    }
   }
 }
 
 const rootRouteChildren: RootRouteChildren = {
   IndexRoute: IndexRoute,
+  AboutRoute: AboutRoute,
+  LettersRoute: LettersRoute,
+  PricingRoute: PricingRoute,
+  ItinerariesSlugRoute: ItinerariesSlugRoute,
+  ItinerariesIndexRoute: ItinerariesIndexRoute,
 }
 export const routeTree = rootRouteImport
   ._addFileChildren(rootRouteChildren)

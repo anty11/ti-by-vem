@@ -179,6 +179,7 @@ export const tiers = [
     features: [
       "Moving itinerary, day by day",
       "Real budget estimate and booking details",
+      "Access to the travel intelligence by VeM WhatsApp group",
       "Our tested saves and one worthwhile splurge",
     ],
     cta: "Choose Guide",
@@ -192,6 +193,7 @@ export const tiers = [
     accent: "gold" as const,
     features: [
       "Everything in Guide",
+      "Access to the travel intelligence by VeM WhatsApp group",
       "Trip chatbot for questions and changes",
       "Updated route and budget suggestions",
     ],
@@ -206,6 +208,7 @@ export const tiers = [
     accent: "terracotta" as const,
     features: [
       "Everything in Guide + Chat",
+      "Access to the travel intelligence by VeM WhatsApp group",
       "Direct contact with Veronika and Monika",
       "Personal decisions checked with us",
     ],

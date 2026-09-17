@@ -73,7 +73,8 @@ function ItineraryDetail() {
         </ul>
         <p className="mt-6 text-sm text-soft italic">
           The full guide adds the day-by-day plan, every connection and booking detail, and the
-          budget broken down line by line.
+          budget broken down line by line. Every guide also includes access to the “travel
+          intelligence by VeM” WhatsApp group.
         </p>
       </div>
 

@@ -6,8 +6,11 @@ import { europeCountries } from "@/lib/europe-map";
 const availableCountries = new Set(itineraries.map((item) => item.country));
 
 export function EuropeMap() {
-  const [activeSlug, setActiveSlug] = useState(itineraries[0].slug);
-  const active = itineraries.find((item) => item.slug === activeSlug) ?? itineraries[0];
+  const firstItinerary = itineraries.at(0);
+  const [activeSlug, setActiveSlug] = useState(firstItinerary?.slug ?? "");
+  const active = itineraries.find((item) => item.slug === activeSlug) ?? firstItinerary;
+
+  if (!active) return null;
 
   return (
     <div className="map-shell relative overflow-hidden rounded-2xl border border-border bg-card">

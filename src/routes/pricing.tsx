@@ -27,7 +27,7 @@ function PricingPage() {
         <div><h2 className="font-display text-xl text-ink">Chatbot support</h2><p className="mt-2 text-sm leading-relaxed text-soft">Ask questions, change the pace or budget, and reshape the route around your trip.</p></div>
         <div><h2 className="font-display text-xl text-ink">Communication with us</h2><p className="mt-2 text-sm leading-relaxed text-soft">In the third package, Veronika and Monika help you make the decisions that need human experience.</p></div>
       </div>
-      <div className="mt-12 flex flex-col justify-between gap-5 rounded-xl bg-ink p-7 text-onink sm:flex-row sm:items-center"><div><p className="text-xs font-semibold uppercase tracking-[0.2em] text-gold">Separate membership</p><h2 className="mt-2 font-display text-2xl">Monthly postcard · €12/month</h2><p className="mt-2 text-sm text-onink/70">A physical story from a country we have travelled before.</p></div><Link to="/letters" className="rounded-lg bg-onink px-5 py-3 text-center text-sm font-semibold text-ink">See the postcard</Link></div>
+       <div className="mt-12 flex flex-col justify-between gap-5 rounded-xl bg-ink p-7 text-onink sm:flex-row sm:items-center"><div><p className="text-xs font-semibold uppercase tracking-[0.2em] text-gold">Separate from our guides</p><h2 className="mt-2 font-display text-2xl">Monthly postcard · €12/month</h2><p className="mt-2 text-sm text-onink/70">One physical, personal hello from a place we have visited — no itinerary or travel advice.</p></div><Link to="/letters" className="rounded-lg bg-onink px-5 py-3 text-center text-sm font-semibold text-ink">See the postcard</Link></div>
     </main>
   );
 }

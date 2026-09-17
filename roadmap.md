@@ -1,9 +1,7 @@
 # Roadmap
 
-- [x] Rebrand as travel intelligence by VeM and correct founder names
-- [x] Make the Europe map geographically realistic and interactive
-- [x] Simplify the homepage and move packages to their own focused page
-- [x] Make direct communication with Veronika and Monika the third guide package
-- [x] Separate the €12 monthly postcard membership and correct its story
-- [x] Add legal pages and update route metadata
-- [x] Verify desktop, mobile, interactions, and diagnostics
+- [x] Rebuild the opening around Download / Create and founder portraits
+- [x] Add bolder editorial colour and motion without clutter
+- [x] Keep and visually integrate the interactive Europe map
+- [x] Rewrite postcards as personal greetings, separate from guides
+- [x] Verify desktop, mobile, links, map, and errors

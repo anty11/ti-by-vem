@@ -23,6 +23,7 @@ export const Route = createFileRoute("/itineraries/$slug")({
         { property: "og:title", content: title },
         { property: "og:description", content: itinerary.blurb },
         { property: "og:type", content: "article" },
+        { name: "twitter:card", content: "summary_large_image" },
         { property: "og:url", content: `/itineraries/${params.slug}` },
       ],
       links: [{ rel: "canonical", href: `/itineraries/${params.slug}` }],

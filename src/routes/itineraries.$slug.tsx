@@ -23,6 +23,7 @@ export const Route = createFileRoute("/itineraries/$slug")({
         { property: "og:title", content: title },
         { property: "og:description", content: itinerary.blurb },
         { property: "og:type", content: "article" },
+        { name: "twitter:card", content: "summary_large_image" },
         { property: "og:url", content: `/itineraries/${params.slug}` },
       ],
       links: [{ rel: "canonical", href: `/itineraries/${params.slug}` }],
@@ -72,7 +73,8 @@ function ItineraryDetail() {
         </ul>
         <p className="mt-6 text-sm text-soft italic">
           The full guide adds the day-by-day plan, every connection and booking detail, and the
-          budget broken down line by line.
+          budget broken down line by line. Every guide also includes access to the “travel
+          intelligence by VeM” WhatsApp group.
         </p>
       </div>
 

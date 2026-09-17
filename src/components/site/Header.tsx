@@ -2,40 +2,23 @@ import { Link } from "@tanstack/react-router";
 
 export function Header() {
   return (
-    <header className="max-w-7xl mx-auto px-6 pt-6">
-      <nav className="glass rounded-2xl px-6 py-3.5 flex items-center justify-between">
-        <Link to="/" className="flex items-center gap-2.5">
-          <span className="grid place-items-center size-9 rounded-xl bg-ink text-onink font-display text-lg">
-            V
+    <header className="mx-auto max-w-7xl px-5 pt-5 sm:px-6">
+      <nav className="flex items-center justify-between border-b border-border py-4">
+        <Link to="/" className="flex items-center gap-3" aria-label="travel intelligence by VeM home">
+          <span className="grid size-10 place-items-center rounded-lg bg-ink font-display text-base text-onink">VeM</span>
+          <span className="leading-tight">
+            <span className="block text-sm font-semibold text-ink">travel intelligence</span>
+            <span className="block text-xs text-soft">by VeM</span>
           </span>
-          <div className="leading-tight">
-            <span className="font-display text-lg text-ink">Vagrant</span>
-            <span className="hidden sm:inline font-display italic text-lilac text-lg"> &amp; </span>
-            <span className="font-display text-lg text-ink">Veela</span>
-            <span className="hidden md:block text-[10px] uppercase tracking-[0.28em] text-soft -mt-1">
-              travel intelligence
-            </span>
-          </div>
         </Link>
-        <div className="hidden lg:flex items-center gap-8 text-sm font-medium text-soft">
-          <Link to="/itineraries" className="hover:text-ink transition">
-            Itineraries
-          </Link>
-          <Link to="/pricing" className="hover:text-ink transition">
-            Pricing
-          </Link>
-          <Link to="/letters" className="hover:text-ink transition">
-            Membership
-          </Link>
-          <Link to="/about" className="hover:text-ink transition">
-            Our story
-          </Link>
+        <div className="hidden items-center gap-7 text-sm font-medium text-soft lg:flex">
+          <Link to="/itineraries" className="transition hover:text-ink">Itineraries</Link>
+          <Link to="/pricing" className="transition hover:text-ink">Packages</Link>
+          <Link to="/letters" className="transition hover:text-ink">Postcard</Link>
+          <Link to="/about" className="transition hover:text-ink">V &amp; eM</Link>
         </div>
-        <Link
-          to="/pricing"
-          className="bg-ink text-onink text-sm font-semibold px-5 py-2.5 rounded-xl hover:bg-royal transition"
-        >
-          Get the guide
+        <Link to="/pricing" className="rounded-lg bg-ink px-4 py-2.5 text-sm font-semibold text-onink transition hover:bg-royal">
+          View packages
         </Link>
       </nav>
     </header>

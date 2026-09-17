@@ -6,18 +6,19 @@ import { itineraries } from "@/lib/content";
 export const Route = createFileRoute("/itineraries/")({
   head: () => ({
     meta: [
-      { title: "European itineraries — Vagrant & Veela" },
+      { title: "European itineraries — travel intelligence by VeM" },
       {
         name: "description",
         content:
           "Every route we've walked, with days, budget estimates and travel details. Pick a country on the map or browse the full list.",
       },
-      { property: "og:title", content: "European itineraries — Vagrant & Veela" },
+      { property: "og:title", content: "European itineraries — travel intelligence by VeM" },
       {
         property: "og:description",
-        content: "Always-moving European routes with honest budgets and exact travel details.",
+        content: "European routes travelled by Veronika and Monika, with honest budgets and exact details.",
       },
       { property: "og:type", content: "website" },
+      { name: "twitter:card", content: "summary_large_image" },
       { property: "og:url", content: "/itineraries" },
     ],
     links: [{ rel: "canonical", href: "/itineraries" }],

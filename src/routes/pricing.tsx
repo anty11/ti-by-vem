@@ -1,66 +1,33 @@
-import { createFileRoute } from "@tanstack/react-router";
+import { createFileRoute, Link } from "@tanstack/react-router";
 import { TierCards } from "@/components/site/TierCards";
 
 export const Route = createFileRoute("/pricing")({
-  head: () => ({
-    meta: [
-      { title: "Pricing — Guide, Companion and Letter | Vagrant & Veela" },
-      {
-        name: "description",
-        content:
-          "Three levels: the guide with budget and details, the companion with trip chat, and the monthly letter membership.",
-      },
-      { property: "og:title", content: "Pricing — Vagrant & Veela" },
-      {
-        property: "og:description",
-        content: "The guide, the companion with trip chat, and the monthly letter membership.",
-      },
-      { property: "og:type", content: "website" },
-      { property: "og:url", content: "/pricing" },
-    ],
-    links: [{ rel: "canonical", href: "/pricing" }],
-  }),
+  head: () => ({ meta: [
+    { title: "Travel guide packages — travel intelligence by VeM" },
+    { name: "description", content: "Compare three travel guide packages: guide, guide with chatbot, or direct communication with Veronika and Monika." },
+    { property: "og:title", content: "Travel guide packages — travel intelligence by VeM" },
+    { property: "og:description", content: "Choose how much support you want around your European route." },
+    { property: "og:type", content: "website" },
+    { name: "twitter:card", content: "summary_large_image" },
+  ]}),
   component: PricingPage,
 });
 
 function PricingPage() {
   return (
-    <main className="max-w-7xl mx-auto px-6 py-12">
-      <div className="text-center max-w-2xl mx-auto mb-12">
-        <span className="text-xs font-semibold uppercase tracking-[0.25em] text-terracotta">
-          Three ways to travel
-        </span>
-        <h1 className="mt-2 font-display text-5xl leading-[1.05] text-ink">Choose your level</h1>
-        <p className="mt-4 text-soft text-lg leading-relaxed">
-          Every level starts from the same place: a real route, a real budget, and the details you
-          actually need on the day.
-        </p>
+    <main className="mx-auto max-w-7xl px-6 py-14">
+      <div className="mb-12 max-w-2xl">
+        <p className="text-xs font-semibold uppercase tracking-[0.22em] text-terracotta">Guide packages</p>
+        <h1 className="mt-3 font-display text-5xl leading-[1.04] text-ink">Choose how close we travel with you.</h1>
+        <p className="mt-5 text-lg leading-relaxed text-soft">Every package starts with the same travel intelligence: a route we know, an honest budget and exact details. What changes is how personally we help you adapt it.</p>
       </div>
       <TierCards />
-
-      <div className="glass rounded-3xl p-8 lg:p-12 mt-14 grid md:grid-cols-3 gap-8">
-        <div>
-          <h2 className="font-display text-xl text-ink">What's always included</h2>
-          <p className="mt-2 text-sm text-soft leading-relaxed">
-            A day-by-day plan built around movement, a budget estimate per person, and the exact
-            transport, timing and booking details.
-          </p>
-        </div>
-        <div>
-          <h2 className="font-display text-xl text-ink">How the trip chat works</h2>
-          <p className="mt-2 text-sm text-soft leading-relaxed">
-            With the Companion you can talk through the plan, swap a city, add a day or shift the
-            budget — and get the updated route back.
-          </p>
-        </div>
-        <div>
-          <h2 className="font-display text-xl text-ink">Refunds</h2>
-          <p className="mt-2 text-sm text-soft leading-relaxed">
-            Digital guides are delivered instantly, so they're non-refundable once opened. The
-            membership can be cancelled any month.
-          </p>
-        </div>
+      <div className="mt-12 grid gap-8 border-t border-border pt-10 md:grid-cols-3">
+        <div><h2 className="font-display text-xl text-ink">Always included</h2><p className="mt-2 text-sm leading-relaxed text-soft">Day-by-day movement, transport logic, realistic costs, plus access to the “travel intelligence by VeM” WhatsApp group.</p></div>
+        <div><h2 className="font-display text-xl text-ink">Chatbot support</h2><p className="mt-2 text-sm leading-relaxed text-soft">Ask questions, change the pace or budget, and reshape the route around your trip.</p></div>
+        <div><h2 className="font-display text-xl text-ink">Communication with us</h2><p className="mt-2 text-sm leading-relaxed text-soft">In the third package, Veronika and Monika help you make the decisions that need human experience.</p></div>
       </div>
+      <div className="mt-12 flex flex-col justify-between gap-5 rounded-xl bg-ink p-7 text-onink sm:flex-row sm:items-center"><div><p className="text-xs font-semibold uppercase tracking-[0.2em] text-gold">Separate membership</p><h2 className="mt-2 font-display text-2xl">Monthly postcard · €12/month</h2><p className="mt-2 text-sm text-onink/70">A physical story from a country we have travelled before.</p></div><Link to="/letters" className="rounded-lg bg-onink px-5 py-3 text-center text-sm font-semibold text-ink">See the postcard</Link></div>
     </main>
   );
 }

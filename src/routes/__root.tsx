@@ -80,13 +80,13 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
     meta: [
       { charSet: "utf-8" },
       { name: "viewport", content: "width=device-width, initial-scale=1" },
-      { title: "Vagrant & Veela — Travel intelligence for Europe" },
+      { title: "travel intelligence by VeM — Europe, already figured out" },
       {
         name: "description",
         content:
           "Always-moving European itineraries from two real travellers, with honest budget estimates and exact travel details.",
       },
-      { property: "og:site_name", content: "Vagrant & Veela" },
+      { property: "og:site_name", content: "travel intelligence by VeM" },
       { property: "og:type", content: "website" },
       { name: "twitter:card", content: "summary_large_image" },
     ],
@@ -130,10 +130,7 @@ function RootComponent() {
 
   return (
     <QueryClientProvider client={queryClient}>
-      <div className="fixed inset-0 -z-10 bg-gradient-to-br from-paper via-white to-lilac/30" />
-      <div className="fixed -top-40 -right-32 -z-10 size-[520px] rounded-full bg-royal/20 blur-[90px]" />
-      <div className="fixed top-1/3 -left-40 -z-10 size-[460px] rounded-full bg-terracotta/20 blur-[90px]" />
-      <div className="fixed bottom-0 right-1/4 -z-10 size-[420px] rounded-full bg-sage/25 blur-[90px]" />
+      <div className="fixed inset-0 -z-10 bg-paper" />
       <Header />
       {/* Required: nested routes render here. Removing <Outlet /> breaks all child routes. */}
       <Outlet />

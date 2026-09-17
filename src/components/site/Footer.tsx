@@ -2,29 +2,19 @@ import { Link } from "@tanstack/react-router";
 
 export function Footer() {
   return (
-    <footer className="max-w-7xl mx-auto px-6 py-12">
-      <div className="glass rounded-3xl p-8 flex flex-col md:flex-row md:items-center justify-between gap-5">
-        <div className="flex items-center gap-2.5">
-          <span className="grid place-items-center size-9 rounded-xl bg-ink text-onink font-display text-lg">
-            V
-          </span>
-          <span className="font-display text-lg text-ink">Vagrant &amp; Veela</span>
+    <footer className="mx-auto max-w-7xl px-6 py-12">
+      <div className="flex flex-col justify-between gap-6 border-t border-border pt-8 md:flex-row md:items-center">
+        <div>
+          <p className="font-display text-lg text-ink">travel intelligence <span className="italic text-royal">by VeM</span></p>
+          <p className="mt-1 text-xs text-soft">Routes lived by Veronika &amp; Monika.</p>
         </div>
         <div className="flex flex-wrap gap-x-6 gap-y-2 text-sm text-soft">
-          <Link to="/terms" className="hover:text-ink transition">
-            Terms of trade
-          </Link>
-          <Link to="/privacy" className="hover:text-ink transition">
-            Privacy
-          </Link>
-          <Link to="/delivery" className="hover:text-ink transition">
-            Delivery
-          </Link>
-          <Link to="/about" className="hover:text-ink transition">
-            Contact
-          </Link>
+          <Link to="/terms" className="transition hover:text-ink">Terms</Link>
+          <Link to="/privacy" className="transition hover:text-ink">Privacy</Link>
+          <Link to="/delivery" className="transition hover:text-ink">Delivery</Link>
+          <Link to="/about" className="transition hover:text-ink">Contact</Link>
         </div>
-        <p className="text-xs text-soft">© 2026 · Travel intelligence, delivered.</p>
+        <p className="text-xs text-soft">© 2026 travel intelligence by VeM</p>
       </div>
     </footer>
   );

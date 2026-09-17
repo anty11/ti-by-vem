@@ -11,8 +11,11 @@
 import { Route as rootRouteImport } from './routes/__root'
 import { Route as IndexRouteImport } from './routes/index'
 import { Route as AboutRouteImport } from './routes/about'
+import { Route as DeliveryRouteImport } from './routes/delivery'
 import { Route as LettersRouteImport } from './routes/letters'
 import { Route as PricingRouteImport } from './routes/pricing'
+import { Route as PrivacyRouteImport } from './routes/privacy'
+import { Route as TermsRouteImport } from './routes/terms'
 import { Route as ItinerariesIndexRouteImport } from './routes/itineraries.index'
 import { Route as ItinerariesSlugRouteImport } from './routes/itineraries.$slug'
 
@@ -26,6 +29,11 @@ const AboutRoute = AboutRouteImport.update({
   path: '/about',
   getParentRoute: () => rootRouteImport,
 } as any)
+const DeliveryRoute = DeliveryRouteImport.update({
+  id: '/delivery',
+  path: '/delivery',
+  getParentRoute: () => rootRouteImport,
+} as any)
 const LettersRoute = LettersRouteImport.update({
   id: '/letters',
   path: '/letters',
@@ -34,6 +42,16 @@ const LettersRoute = LettersRouteImport.update({
 const PricingRoute = PricingRouteImport.update({
   id: '/pricing',
   path: '/pricing',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const PrivacyRoute = PrivacyRouteImport.update({
+  id: '/privacy',
+  path: '/privacy',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const TermsRoute = TermsRouteImport.update({
+  id: '/terms',
+  path: '/terms',
   getParentRoute: () => rootRouteImport,
 } as any)
 const ItinerariesIndexRoute = ItinerariesIndexRouteImport.update({
@@ -50,16 +68,22 @@ const ItinerariesSlugRoute = ItinerariesSlugRouteImport.update({
 export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
   '/about': typeof AboutRoute
+  '/delivery': typeof DeliveryRoute
   '/letters': typeof LettersRoute
   '/pricing': typeof PricingRoute
+  '/privacy': typeof PrivacyRoute
+  '/terms': typeof TermsRoute
   '/itineraries/$slug': typeof ItinerariesSlugRoute
   '/itineraries/': typeof ItinerariesIndexRoute
 }
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
   '/about': typeof AboutRoute
+  '/delivery': typeof DeliveryRoute
   '/letters': typeof LettersRoute
   '/pricing': typeof PricingRoute
+  '/privacy': typeof PrivacyRoute
+  '/terms': typeof TermsRoute
   '/itineraries/$slug': typeof ItinerariesSlugRoute
   '/itineraries': typeof ItinerariesIndexRoute
 }
@@ -67,8 +91,11 @@ export interface FileRoutesById {
   __root__: typeof rootRouteImport
   '/': typeof IndexRoute
   '/about': typeof AboutRoute
+  '/delivery': typeof DeliveryRoute
   '/letters': typeof LettersRoute
   '/pricing': typeof PricingRoute
+  '/privacy': typeof PrivacyRoute
+  '/terms': typeof TermsRoute
   '/itineraries/$slug': typeof ItinerariesSlugRoute
   '/itineraries/': typeof ItinerariesIndexRoute
 }
@@ -77,24 +104,33 @@ export interface FileRouteTypes {
   fullPaths:
     | '/'
     | '/about'
+    | '/delivery'
     | '/letters'
     | '/pricing'
+    | '/privacy'
+    | '/terms'
     | '/itineraries/$slug'
     | '/itineraries/'
   fileRoutesByTo: FileRoutesByTo
   to:
     | '/'
     | '/about'
+    | '/delivery'
     | '/letters'
     | '/pricing'
+    | '/privacy'
+    | '/terms'
     | '/itineraries/$slug'
     | '/itineraries'
   id:
     | '__root__'
     | '/'
     | '/about'
+    | '/delivery'
     | '/letters'
     | '/pricing'
+    | '/privacy'
+    | '/terms'
     | '/itineraries/$slug'
     | '/itineraries/'
   fileRoutesById: FileRoutesById
@@ -102,8 +138,11 @@ export interface FileRouteTypes {
 export interface RootRouteChildren {
   IndexRoute: typeof IndexRoute
   AboutRoute: typeof AboutRoute
+  DeliveryRoute: typeof DeliveryRoute
   LettersRoute: typeof LettersRoute
   PricingRoute: typeof PricingRoute
+  PrivacyRoute: typeof PrivacyRoute
+  TermsRoute: typeof TermsRoute
   ItinerariesSlugRoute: typeof ItinerariesSlugRoute
   ItinerariesIndexRoute: typeof ItinerariesIndexRoute
 }
@@ -124,6 +163,13 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof AboutRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/delivery': {
+      id: '/delivery'
+      path: '/delivery'
+      fullPath: '/delivery'
+      preLoaderRoute: typeof DeliveryRouteImport
+      parentRoute: typeof rootRouteImport
+    }
     '/letters': {
       id: '/letters'
       path: '/letters'
@@ -136,6 +182,20 @@ declare module '@tanstack/react-router' {
       path: '/pricing'
       fullPath: '/pricing'
       preLoaderRoute: typeof PricingRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/privacy': {
+      id: '/privacy'
+      path: '/privacy'
+      fullPath: '/privacy'
+      preLoaderRoute: typeof PrivacyRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/terms': {
+      id: '/terms'
+      path: '/terms'
+      fullPath: '/terms'
+      preLoaderRoute: typeof TermsRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/itineraries/': {
@@ -158,8 +218,11 @@ declare module '@tanstack/react-router' {
 const rootRouteChildren: RootRouteChildren = {
   IndexRoute: IndexRoute,
   AboutRoute: AboutRoute,
+  DeliveryRoute: DeliveryRoute,
   LettersRoute: LettersRoute,
   PricingRoute: PricingRoute,
+  PrivacyRoute: PrivacyRoute,
+  TermsRoute: TermsRoute,
   ItinerariesSlugRoute: ItinerariesSlugRoute,
   ItinerariesIndexRoute: ItinerariesIndexRoute,
 }

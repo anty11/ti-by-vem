@@ -1,24 +1,23 @@
 import { Link } from "@tanstack/react-router";
-import { ArrowUpRight, Check, MessageCircle, Sparkles, Users } from "lucide-react";
+import { ArrowUpRight, Check, MessageCircle, Users } from "lucide-react";
 import { tiers } from "@/lib/content";
 import { Button } from "@/components/ui/button";
 
 const visuals = [
-  { shell: "bg-sage/35", number: "text-ink/15", icon: Sparkles },
   { shell: "bg-royal text-onink", number: "text-onink/15", icon: MessageCircle },
   { shell: "bg-terracotta/25", number: "text-terracotta/25", icon: Users },
 ];
 
 export function TierCards() {
   return (
-    <div className="grid gap-5 lg:grid-cols-3 lg:items-stretch">
+    <div className="grid gap-5 lg:grid-cols-2 lg:items-stretch">
       {tiers.map((tier, index) => {
         const visual = visuals[index];
         if (!visual) return null;
         const Icon = visual.icon;
-        const inverse = index === 1;
+        const inverse = index === 0;
         return (
-        <article key={tier.name} className={`relative flex min-h-[540px] flex-col overflow-hidden rounded-2xl p-7 lg:p-8 ${visual.shell} ${index === 1 ? "lg:-translate-y-5" : ""}`}>
+        <article key={tier.name} className={`relative flex min-h-[540px] flex-col overflow-hidden rounded-2xl p-7 lg:p-8 ${visual.shell}`}>
           <span className={`pointer-events-none absolute -right-2 -top-10 font-display text-[9rem] leading-none ${visual.number}`}>0{index + 1}</span>
           <div className="relative flex items-center justify-between">
             <span className={`text-xs font-semibold uppercase tracking-[0.2em] ${inverse ? "text-onink/70" : "text-soft"}`}>{tier.eyebrow}</span>

@@ -171,35 +171,19 @@ export const itineraries: Itinerary[] = [
 
 export const tiers = [
   {
-    name: "Guide",
-    eyebrow: "I want the route",
-    tagline: "Open it. Book it. Go.",
-    description: "For travellers who want our exact route without giving up the joy of travelling it their own way.",
+    name: "Guide + Chat",
+    eyebrow: "I want the route, my way",
+    tagline: "Open it. Ask it. Go.",
+    description:
+      "Our exact route, plus a trip chatbot that answers, shortens, extends and reshapes it around your dates.",
     price: "€49",
     unit: "/ trip",
     accent: "royal" as const,
     features: [
       "Moving itinerary, day by day",
       "Real budget estimate and booking details",
-      "Our tested saves and one worthwhile splurge",
-      "A route made from our own notes, not a search result",
-    ],
-    cta: "Choose Guide",
-    featured: false,
-  },
-  {
-    name: "Guide + Chat",
-    eyebrow: "I want room to change it",
-    tagline: "Your trip, still in motion.",
-    description: "Start with our route, then ask, shorten, extend and reshape it around your dates and rhythm.",
-    price: "€129",
-    unit: "/ trip",
-    accent: "gold" as const,
-    features: [
-      "Everything in Guide",
-      "Access to the travel intelligence by VeM WhatsApp group",
       "Trip chatbot for questions and changes",
-      "Updated route and budget suggestions",
+      "Our tested saves and one worthwhile splurge",
     ],
     cta: "Choose Guide + Chat",
     featured: true,
@@ -208,7 +192,8 @@ export const tiers = [
     name: "Guide + Us",
     eyebrow: "I want V & eM beside me",
     tagline: "Two travellers in your corner.",
-    description: "For the trip that deserves a human conversation, honest opinions and decisions made together.",
+    description:
+      "For the trip that deserves a human conversation, honest opinions and decisions made together.",
     price: "On request",
     unit: "",
     accent: "terracotta" as const,

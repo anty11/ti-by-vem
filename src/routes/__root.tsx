@@ -11,6 +11,9 @@ import { useEffect, type ReactNode } from "react";
 
 import appCss from "../styles.css?url";
 import { reportLovableError } from "../lib/lovable-error-reporting";
+import { Header } from "../components/site/Header";
+import { Footer } from "../components/site/Footer";
+
 
 function NotFoundComponent() {
   return (
@@ -77,23 +80,31 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
     meta: [
       { charSet: "utf-8" },
       { name: "viewport", content: "width=device-width, initial-scale=1" },
-      { title: "Lovable App" },
-      { name: "description", content: "Lovable Generated Project" },
-      { name: "author", content: "Lovable" },
-      { property: "og:title", content: "Lovable App" },
-      { property: "og:description", content: "Lovable Generated Project" },
+      { title: "Vagrant & Veela — Travel intelligence for Europe" },
+      {
+        name: "description",
+        content:
+          "Always-moving European itineraries from two real travellers, with honest budget estimates and exact travel details.",
+      },
+      { property: "og:site_name", content: "Vagrant & Veela" },
       { property: "og:type", content: "website" },
       { name: "twitter:card", content: "summary_large_image" },
-      { name: "twitter:site", content: "@Lovable" },
     ],
     links: [
       {
         rel: "stylesheet",
         href: appCss,
       },
+      { rel: "preconnect", href: "https://fonts.googleapis.com" },
+      { rel: "preconnect", href: "https://fonts.gstatic.com", crossOrigin: "anonymous" },
+      {
+        rel: "stylesheet",
+        href: "https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400;0,9..144,500;0,9..144,600;1,9..144,400&family=Inter:wght@400;500;600;700&display=swap",
+      },
       { rel: "icon", href: "/favicon.ico", type: "image/x-icon" },
     ],
   }),
+
   shellComponent: RootShell,
   component: RootComponent,
   notFoundComponent: NotFoundComponent,
@@ -119,8 +130,15 @@ function RootComponent() {
 
   return (
     <QueryClientProvider client={queryClient}>
+      <div className="fixed inset-0 -z-10 bg-gradient-to-br from-paper via-white to-lilac/30" />
+      <div className="fixed -top-40 -right-32 -z-10 size-[520px] rounded-full bg-royal/20 blur-[90px]" />
+      <div className="fixed top-1/3 -left-40 -z-10 size-[460px] rounded-full bg-terracotta/20 blur-[90px]" />
+      <div className="fixed bottom-0 right-1/4 -z-10 size-[420px] rounded-full bg-sage/25 blur-[90px]" />
+      <Header />
       {/* Required: nested routes render here. Removing <Outlet /> breaks all child routes. */}
       <Outlet />
+      <Footer />
     </QueryClientProvider>
   );
 }
+

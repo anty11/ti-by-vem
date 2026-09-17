@@ -1,5 +1,5 @@
 import { Link } from "@tanstack/react-router";
-import { ArrowUpRight, Check, MessageCircle, Sparkles, Users } from "lucide-react";
+import { ArrowUpRight, Check, MessageCircle, Users } from "lucide-react";
 import { tiers } from "@/lib/content";
 import { Button } from "@/components/ui/button";
 

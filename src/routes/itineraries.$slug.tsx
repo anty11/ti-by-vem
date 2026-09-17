@@ -73,8 +73,8 @@ function ItineraryDetail() {
         </ul>
         <p className="mt-6 text-sm text-soft italic">
           The full guide adds the day-by-day plan, every connection, booking detail and the budget
-          broken down line by line. Choose Guide + Chat or Guide + Us to also join the “travel
-          intelligence by VeM” WhatsApp group.
+          broken down line by line — with a trip chatbot in both packages. Choose Guide + Us to also
+          join the “travel intelligence by VeM” WhatsApp group.
         </p>
       </div>
 

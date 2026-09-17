@@ -194,8 +194,8 @@ export const tiers = [
     tagline: "Two travellers in your corner.",
     description:
       "For the trip that deserves a human conversation, honest opinions and decisions made together.",
-    price: "On request",
-    unit: "",
+    price: "€99",
+    unit: "/ trip",
     accent: "terracotta" as const,
     features: [
       "Everything in Guide + Chat",

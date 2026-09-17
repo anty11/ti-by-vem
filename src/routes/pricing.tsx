@@ -1,5 +1,9 @@
 import { createFileRoute, Link } from "@tanstack/react-router";
+import { ArrowDown, Bot, Compass, MessageCircle, MoveRight } from "lucide-react";
 import { TierCards } from "@/components/site/TierCards";
+import { Button } from "@/components/ui/button";
+import founderOne from "@/assets/founder-one.jpg";
+import founderTwo from "@/assets/founder-two.jpg";
 
 export const Route = createFileRoute("/pricing")({
   head: () => ({ meta: [
@@ -15,19 +19,58 @@ export const Route = createFileRoute("/pricing")({
 
 function PricingPage() {
   return (
-    <main className="mx-auto max-w-7xl px-6 py-14">
-      <div className="mb-12 max-w-2xl">
-        <p className="text-xs font-semibold uppercase tracking-[0.22em] text-terracotta">Guide packages</p>
-        <h1 className="mt-3 font-display text-5xl leading-[1.04] text-ink">Choose how close we travel with you.</h1>
-        <p className="mt-5 text-lg leading-relaxed text-soft">Every package starts with the same travel intelligence: a route we know, an honest budget and exact details. What changes is how personally we help you adapt it.</p>
-      </div>
-      <TierCards />
-      <div className="mt-12 grid gap-8 border-t border-border pt-10 md:grid-cols-3">
-        <div><h2 className="font-display text-xl text-ink">Always included</h2><p className="mt-2 text-sm leading-relaxed text-soft">Day-by-day movement, transport logic, realistic costs, plus access to the “travel intelligence by VeM” WhatsApp group.</p></div>
-        <div><h2 className="font-display text-xl text-ink">Chatbot support</h2><p className="mt-2 text-sm leading-relaxed text-soft">Ask questions, change the pace or budget, and reshape the route around your trip.</p></div>
-        <div><h2 className="font-display text-xl text-ink">Communication with us</h2><p className="mt-2 text-sm leading-relaxed text-soft">In the third package, Veronika and Monika help you make the decisions that need human experience.</p></div>
-      </div>
-       <div className="mt-12 flex flex-col justify-between gap-5 rounded-xl bg-ink p-7 text-onink sm:flex-row sm:items-center"><div><p className="text-xs font-semibold uppercase tracking-[0.2em] text-gold">Separate from our guides</p><h2 className="mt-2 font-display text-2xl">Monthly postcard · €12/month</h2><p className="mt-2 text-sm text-onink/70">One physical, personal hello from a place we have visited — no itinerary or travel advice.</p></div><Link to="/letters" className="rounded-lg bg-onink px-5 py-3 text-center text-sm font-semibold text-ink">See the postcard</Link></div>
+    <main className="overflow-hidden">
+      <section className="relative mx-auto grid min-h-[610px] max-w-7xl items-center gap-12 px-6 py-14 lg:grid-cols-[1.1fr_.9fr]">
+        <div className="relative z-10">
+          <p className="text-xs font-semibold uppercase tracking-[0.22em] text-terracotta">Choose your way in</p>
+          <h1 className="mt-4 max-w-3xl font-display text-6xl leading-[.95] text-ink lg:text-7xl">The route is ready. <span className="italic text-royal">How far</span> do you want to make it yours?</h1>
+          <p className="mt-6 max-w-xl text-lg leading-relaxed text-soft">No generic PDF and no endless planning spiral. Begin with a journey we have actually lived, then choose how much freedom and human help you want around it.</p>
+          <Button asChild size="lg" className="mt-8"><a href="#packages">Find my package <ArrowDown aria-hidden="true" /></a></Button>
+        </div>
+        <div className="relative mx-auto h-[380px] w-full max-w-md" aria-label="Notes from Veronika and Monika">
+          <div className="absolute left-2 top-7 w-64 -rotate-6 rounded-lg bg-gold p-6 shadow-xl">
+            <Compass className="size-7 text-ink" aria-hidden="true" />
+            <p className="mt-12 font-display text-3xl leading-tight text-ink">Save on the train.<br/>Splurge on the view.</p>
+            <p className="mt-5 text-sm text-ink/70">— one of our favourite rules</p>
+          </div>
+          <div className="absolute bottom-4 right-0 w-64 rotate-3 rounded-lg bg-terracotta p-6 text-onink shadow-xl">
+            <p className="text-xs font-semibold uppercase tracking-[0.2em] text-onink/70">Field note 27</p>
+            <p className="mt-10 font-display text-3xl leading-tight">The best route is rarely a straight line.</p>
+          </div>
+          <div className="absolute right-2 top-1 flex -space-x-3">
+            <img src={founderOne} alt="Veronika" className="size-14 rounded-full border-4 border-paper object-cover" />
+            <img src={founderTwo} alt="Monika" className="size-14 rounded-full border-4 border-paper object-cover" />
+          </div>
+        </div>
+      </section>
+
+      <section id="packages" className="scroll-mt-20 bg-card py-20">
+        <div className="mx-auto max-w-7xl px-6">
+          <div className="mb-14 grid gap-6 lg:grid-cols-2 lg:items-end">
+            <div><p className="text-xs font-semibold uppercase tracking-[0.22em] text-royal">One route. Three experiences.</p><h2 className="mt-3 font-display text-5xl leading-none text-ink">Pick the distance between us.</h2></div>
+            <p className="max-w-lg text-base leading-relaxed text-soft lg:justify-self-end">Every option begins with tested travel intelligence: where to move, what it really costs and which detail saves the day.</p>
+          </div>
+          <TierCards />
+        </div>
+      </section>
+
+      <section className="mx-auto max-w-7xl px-6 py-20">
+        <div className="mb-10 max-w-2xl"><p className="text-xs font-semibold uppercase tracking-[0.22em] text-terracotta">What changes between them</p><h2 className="mt-3 font-display text-4xl text-ink">From our notebook to your own trip.</h2></div>
+        <div className="grid gap-4 md:grid-cols-3">
+          <article className="border-t-4 border-sage py-6"><Compass className="size-7 text-sage"/><p className="mt-6 text-xs font-semibold uppercase tracking-[0.18em] text-soft">In every package</p><h3 className="mt-2 font-display text-2xl text-ink">The intelligence</h3><p className="mt-3 text-sm leading-relaxed text-soft">A moving day-by-day route, exact transport logic, realistic costs and the places worth spending more on.</p></article>
+          <article className="border-t-4 border-royal py-6"><Bot className="size-7 text-royal"/><p className="mt-6 text-xs font-semibold uppercase tracking-[0.18em] text-soft">From Guide + Chat</p><h3 className="mt-2 font-display text-2xl text-ink">The conversation</h3><p className="mt-3 text-sm leading-relaxed text-soft">A chatbot to reshape the route, plus entry to the travel intelligence by VeM WhatsApp group.</p></article>
+          <article className="border-t-4 border-terracotta py-6"><MessageCircle className="size-7 text-terracotta"/><p className="mt-6 text-xs font-semibold uppercase tracking-[0.18em] text-soft">Only in Guide + Us</p><h3 className="mt-2 font-display text-2xl text-ink">The two of us</h3><p className="mt-3 text-sm leading-relaxed text-soft">Direct communication with Veronika and Monika for the decisions where lived experience matters most.</p></article>
+        </div>
+      </section>
+
+      <section className="bg-lilac/15 py-16">
+        <div className="mx-auto flex max-w-7xl flex-col justify-between gap-8 px-6 md:flex-row md:items-center">
+          <div className="max-w-2xl"><p className="text-xs font-semibold uppercase tracking-[0.2em] text-lilac">Not ready to choose?</p><h2 className="mt-2 font-display text-4xl text-ink">Start with a place that pulls you in.</h2><p className="mt-3 text-soft">Explore the routes first. The right level of support usually becomes obvious once you see where you are going.</p></div>
+          <Button asChild variant="outline" size="lg"><Link to="/itineraries">Explore itineraries <MoveRight aria-hidden="true" /></Link></Button>
+        </div>
+      </section>
+
+      <div className="mx-auto max-w-7xl px-6 py-10"><p className="text-center text-sm text-soft">Looking for the €12 monthly postcard? It is a personal hello, completely separate from our guides. <Link to="/letters" className="font-semibold text-ink underline decoration-terracotta underline-offset-4">See the postcard</Link></p></div>
     </main>
   );
 }

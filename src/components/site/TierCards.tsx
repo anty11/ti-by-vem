@@ -23,8 +23,10 @@ export function TierCards() {
             <span className={`text-xs font-semibold uppercase tracking-[0.2em] ${inverse ? "text-onink/70" : "text-soft"}`}>{tier.eyebrow}</span>
             <Icon className="size-5" aria-hidden="true" />
           </div>
-          <div className="relative mt-16">
-            {tier.featured && <span className="mb-4 inline-flex rounded-full bg-gold px-3 py-1 text-xs font-semibold text-ink">Most alive</span>}
+          <div className="relative mt-14 flex-1">
+            <div className="mb-4 flex h-6 items-center">
+              {tier.featured && <span className="inline-flex rounded-full bg-gold px-3 py-1 text-xs font-semibold text-ink">Most alive</span>}
+            </div>
             <h2 className={`font-display text-4xl ${inverse ? "text-onink" : "text-ink"}`}>{tier.name}</h2>
             <p className={`mt-2 font-display text-2xl italic ${inverse ? "text-gold" : "text-royal"}`}>{tier.tagline}</p>
             <p className={`mt-4 text-sm leading-relaxed ${inverse ? "text-onink/75" : "text-soft"}`}>{tier.description}</p>
@@ -32,7 +34,7 @@ export function TierCards() {
           <p className={`relative mt-7 font-display text-4xl ${inverse ? "text-onink" : "text-ink"}`}>
             {tier.price} <span className={`font-body text-sm font-medium ${inverse ? "text-onink/65" : "text-soft"}`}>{tier.unit}</span>
           </p>
-          <ul className={`relative mt-7 space-y-3 text-sm leading-relaxed ${inverse ? "text-onink/80" : "text-ink"}`}>
+          <ul className={`relative mt-7 space-y-3 text-sm leading-relaxed lg:min-h-[10.5rem] ${inverse ? "text-onink/80" : "text-ink"}`}>
             {tier.features.map((feature) => (
               <li key={feature} className="flex gap-3">
                 <Check className={`mt-0.5 size-4 shrink-0 ${inverse ? "text-gold" : "text-terracotta"}`} aria-hidden="true" />
@@ -40,7 +42,7 @@ export function TierCards() {
               </li>
             ))}
           </ul>
-          <Button asChild variant={inverse ? "secondary" : "default"} size="lg" className="relative mt-auto w-full">
+          <Button asChild variant={inverse ? "secondary" : "default"} size="lg" className="relative mt-7 w-full">
             <Link to="/about">{tier.cta}<ArrowUpRight aria-hidden="true" /></Link>
           </Button>
         </article>

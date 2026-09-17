@@ -1,7 +1,7 @@
 # Roadmap
 
-- [x] Rebuild the opening around Download / Create and founder portraits
-- [x] Add bolder editorial colour and motion without clutter
-- [x] Keep and visually integrate the interactive Europe map
-- [x] Rewrite postcards as personal greetings, separate from guides
-- [x] Verify desktop, mobile, links, map, and errors
+- [x] Restore the richer earlier home-page design
+- [x] Keep the realistic interactive map and current VeM identity
+- [x] Keep packages in their own page
+- [x] Keep postcards clearly separate from guides
+- [x] Verify the restored design on desktop and mobile

@@ -2,9 +2,9 @@ import { createFileRoute } from "@tanstack/react-router";
 import { LegalPage } from "@/components/pages/LegalPage";
 import { copy } from "@/lib/copy";
 
-const t = copy.en.legal.privacy;
+const t = copy.sk.legal.privacy;
 
-export const Route = createFileRoute("/privacy")({
+export const Route = createFileRoute("/sk/privacy")({
   head: () => ({
     meta: [
       { title: t.title },
@@ -15,10 +15,10 @@ export const Route = createFileRoute("/privacy")({
       { name: "twitter:card", content: "summary_large_image" },
     ],
     links: [
-      { rel: "canonical", href: "/privacy" },
-      { rel: "alternate", hrefLang: "sk", href: "/sk/privacy" },
+      { rel: "canonical", href: "/sk/privacy" },
       { rel: "alternate", hrefLang: "en", href: "/privacy" },
+      { rel: "alternate", hrefLang: "sk", href: "/sk/privacy" },
     ],
   }),
-  component: () => <LegalPage lang="en" kind="privacy" />,
+  component: () => <LegalPage lang="sk" kind="privacy" />,
 });

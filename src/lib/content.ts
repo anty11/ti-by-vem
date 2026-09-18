@@ -1,16 +1,22 @@
-export type Itinerary = {
-  slug: string;
+import type { Lang } from "./i18n";
+
+export type ItineraryText = {
   country: string;
   title: string;
-  days: number;
   stops: string;
-  budget: string;
   blurb: string;
+  highlights: string[];
+};
+
+export type Itinerary = ItineraryText & {
+  slug: string;
+  days: number;
+  budget: string;
   accent: "terracotta" | "royal" | "sage" | "gold" | "lilac";
-  /** Map position in the 400x320 SVG viewBox */
+  /** Map position in the 700x500 SVG viewBox */
   x: number;
   y: number;
-  highlights: string[];
+  sk: ItineraryText;
 };
 
 export const itineraries: Itinerary[] = [
@@ -30,6 +36,17 @@ export const itineraries: Itinerary[] = [
       "Cable car at sunrise, long sledding runs, free village saunas",
       "One splurge: a mountain-hut fondue dinner after dark",
     ],
+    sk: {
+      country: "Švajčiarsko",
+      title: "Zimná rozprávka",
+      stops: "3 doliny",
+      blurb: "Vlaky namiesto požičaného auta, lanovky za východu slnka a dlhé sánkarské zjazdy. Dedinské sauny sú zadarmo.",
+      highlights: [
+        "Švajčiarske vlakové pasy v zime porazia požičané auto",
+        "Lanovka za východu slnka, dlhé sánkarské zjazdy, sauny v dedine zadarmo",
+        "Jedno priplatenie: fondue v horskej chate po zotmení",
+      ],
+    },
   },
   {
     slug: "riviera",
@@ -47,6 +64,17 @@ export const itineraries: Itinerary[] = [
       "Markets, beach coves and hilltop villages between the famous stops",
       "One splurge: a seafront dinner you book a month ahead",
     ],
+    sk: {
+      country: "Francúzsko",
+      title: "Francúzska riviéra autom",
+      stops: "5 miest",
+      blurb: "Požičané auto s už prepočítaným palivom. Trhy, skryté zátoky a dedinky na kopcoch medzi slávnymi zastávkami.",
+      highlights: [
+        "Požičané auto s už prepočítaným palivom",
+        "Trhy, skryté zátoky a dedinky na kopcoch medzi slávnymi zastávkami",
+        "Jedno priplatenie: večera pri mori, ktorú rezervujete mesiac dopredu",
+      ],
+    },
   },
   {
     slug: "italy",
@@ -64,10 +92,45 @@ export const itineraries: Itinerary[] = [
       "Hut-to-hut hiking with a packed lunch budget",
       "One splurge: a rifugio dinner above the clouds",
     ],
+    sk: {
+      country: "Taliansko",
+      title: "Okruh Dolomitmi",
+      stops: "4 regióny",
+      blurb: "Vlakom hore, pešo dole, a znova. Rozpočet na štart túry, priplatenie v horskej chate.",
+      highlights: [
+        "Verona → Bolzano vlakom, lanovkou hore za svitania",
+        "Prechod z chaty do chaty s rozpočtom na balený obed",
+        "Jedno priplatenie: večera v rifugiu nad oblakmi",
+      ],
+    },
   },
 ];
 
-export const tiers = [
+export function itineraryText(item: Itinerary, lang: Lang): ItineraryText {
+  if (lang === "sk") return item.sk;
+  return {
+    country: item.country,
+    title: item.title,
+    stops: item.stops,
+    blurb: item.blurb,
+    highlights: item.highlights,
+  };
+}
+
+export type Tier = {
+  name: string;
+  eyebrow: string;
+  tagline: string;
+  description: string;
+  price: string;
+  unit: string;
+  accent: "royal" | "terracotta";
+  features: string[];
+  cta: string;
+  featured: boolean;
+};
+
+export const tiers: Tier[] = [
   {
     name: "Guide + Chat",
     eyebrow: "I want the route, my way",
@@ -76,7 +139,7 @@ export const tiers = [
       "Our exact route, plus a trip chatbot that answers, shortens, extends and reshapes it around your dates.",
     price: "€29",
     unit: "/ trip",
-    accent: "royal" as const,
+    accent: "royal",
     features: [
       "Moving itinerary, day by day",
       "Real budget estimate and booking details",
@@ -94,7 +157,7 @@ export const tiers = [
       "For the trip that deserves a human conversation, honest opinions and decisions made together.",
     price: "€99",
     unit: "/ trip",
-    accent: "terracotta" as const,
+    accent: "terracotta",
     features: [
       "Everything in Guide + Chat",
       "Access to the travel intelligence by VeM WhatsApp group",
@@ -105,6 +168,47 @@ export const tiers = [
     featured: false,
   },
 ];
+
+const tiersSk: Tier[] = [
+  {
+    name: "Guide + Chat",
+    eyebrow: "Chcem trasu po svojom",
+    tagline: "Otvor. Opýtaj sa. Choď.",
+    description:
+      "Naša presná trasa plus chatbot k ceste, ktorý odpovedá, skracuje, predlžuje a prispôsobí ju vašim termínom.",
+    price: "29 €",
+    unit: "/ cesta",
+    accent: "royal",
+    features: [
+      "Itinerár v pohybe, deň po dni",
+      "Reálny odhad rozpočtu a detaily rezervácií",
+      "Chatbot k ceste na otázky a zmeny",
+      "Naše overené úspory a jedno priplatenie, ktoré stojí za to",
+    ],
+    cta: "Vybrať Guide + Chat",
+    featured: true,
+  },
+  {
+    name: "Guide + Us",
+    eyebrow: "Chcem V & eM po boku",
+    tagline: "Dve cestovateľky vo vašom tíme.",
+    description:
+      "Pre cestu, ktorá si zaslúži ľudský rozhovor, úprimný názor a rozhodnutia robené spoločne.",
+    price: "99 €",
+    unit: "/ cesta",
+    accent: "terracotta",
+    features: [
+      "Všetko z Guide + Chat",
+      "Prístup do WhatsApp skupiny travel intelligence by VeM",
+      "Priamy kontakt s Veronikou a Monikou",
+      "Osobné rozhodnutia prekonzultované s nami",
+    ],
+    cta: "Napíšte nám",
+    featured: false,
+  },
+];
+
+export const tiersByLang: Record<Lang, Tier[]> = { en: tiers, sk: tiersSk };
 
 export const accentText: Record<string, string> = {
   terracotta: "text-terracotta",

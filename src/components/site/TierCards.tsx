@@ -1,14 +1,19 @@
 import { Link } from "@tanstack/react-router";
 import { ArrowUpRight, Check, MessageCircle, Users } from "lucide-react";
-import { tiers } from "@/lib/content";
+import { tiersByLang } from "@/lib/content";
 import { Button } from "@/components/ui/button";
+import { copy } from "@/lib/copy";
+import { path, type Lang } from "@/lib/i18n";
 
 const visuals = [
   { shell: "bg-royal text-onink", number: "text-onink/15", icon: MessageCircle },
   { shell: "bg-terracotta/25", number: "text-terracotta/25", icon: Users },
 ];
 
-export function TierCards() {
+export function TierCards({ lang = "en" }: { lang?: Lang }) {
+  const tiers = tiersByLang[lang];
+  const t = copy[lang].tiers;
+
   return (
     <div className="grid gap-5 lg:grid-cols-2 lg:items-stretch">
       {tiers.map((tier, index) => {
@@ -25,7 +30,7 @@ export function TierCards() {
           </div>
           <div className="relative mt-14 flex-1">
             <div className="mb-4 flex h-6 items-center">
-              {tier.featured && <span className="inline-flex rounded-full bg-gold px-3 py-1 text-xs font-semibold text-ink">Most alive</span>}
+              {tier.featured && <span className="inline-flex rounded-full bg-gold px-3 py-1 text-xs font-semibold text-ink">{t.featured}</span>}
             </div>
             <h2 className={`font-display text-4xl ${inverse ? "text-onink" : "text-ink"}`}>{tier.name}</h2>
             <p className={`mt-2 font-display text-2xl italic ${inverse ? "text-gold" : "text-royal"}`}>{tier.tagline}</p>
@@ -43,7 +48,7 @@ export function TierCards() {
             ))}
           </ul>
           <Button asChild variant={inverse ? "secondary" : "default"} size="lg" className="relative mt-7 w-full">
-            <Link to="/about">{tier.cta}<ArrowUpRight aria-hidden="true" /></Link>
+            <Link to={path(lang, "about")}>{tier.cta}<ArrowUpRight aria-hidden="true" /></Link>
           </Button>
         </article>
       )})}

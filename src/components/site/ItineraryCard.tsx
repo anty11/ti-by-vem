@@ -1,6 +1,7 @@
 import { Link } from "@tanstack/react-router";
 import type { Itinerary } from "@/lib/content";
 import { accentHex } from "@/lib/content";
+import { Button } from "@/components/ui/button";
 import italy from "@/assets/italy.jpg";
 import switzerland from "@/assets/switzerland.jpg";
 import riviera from "@/assets/riviera.jpg";
@@ -44,17 +45,28 @@ export function ItineraryCard({ itinerary }: { itinerary: Itinerary }) {
         </div>
         <h3 className="mt-2 font-display text-2xl text-ink">{itinerary.title}</h3>
         <p className="mt-2 text-sm text-soft leading-relaxed">{itinerary.blurb}</p>
-        <div className="mt-4 flex items-center justify-between">
+        <div className="mt-4 flex items-center justify-between gap-3">
           <span className="text-sm font-semibold text-ink">
             {itinerary.budget} <span className="text-soft font-normal text-xs">/ person</span>
           </span>
-          <Link
-            to="/itineraries/$slug"
-            params={{ slug: itinerary.slug }}
-            className="text-sm font-semibold text-royal hover:text-ink transition"
-          >
-            Open →
-          </Link>
+          <div className="flex items-center gap-2">
+            <Link
+              to="/itineraries/$slug"
+              params={{ slug: itinerary.slug }}
+              className="text-sm font-semibold text-soft hover:text-ink transition"
+            >
+              Open
+            </Link>
+            <Button asChild size="sm" className="rounded-full bg-royal text-onink hover:bg-royal/90 font-semibold">
+              <Link
+                to="/itineraries/$slug"
+                params={{ slug: itinerary.slug }}
+                hash="buy"
+              >
+                Buy
+              </Link>
+            </Button>
+          </div>
         </div>
       </div>
     </article>

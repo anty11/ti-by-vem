@@ -78,8 +78,39 @@ function ItineraryDetail() {
         </p>
       </div>
 
+      <div id="buy" className="mt-14 scroll-mt-28">
+        <div className="glass rounded-3xl p-8 lg:p-10 text-center">
+          <span className="text-xs font-semibold uppercase tracking-[0.25em] text-terracotta">
+            Buy this route
+          </span>
+          <h2 className="mt-2 font-display text-3xl text-ink">Take {itinerary.title} with you</h2>
+          <p className="mx-auto mt-3 max-w-md text-sm text-soft leading-relaxed">
+            Every package includes the full day-by-day guide, the budget broken down line by line
+            and all travel details — delivered straight to your inbox.
+          </p>
+          <div className="mt-7 flex flex-col sm:flex-row items-center justify-center gap-3">
+            <a
+              href={`mailto:hello@vagrantandveela.com?subject=${encodeURIComponent(`Buy Guide + Chat — ${itinerary.title}, ${itinerary.country}`)}`}
+              className="inline-flex items-center justify-center rounded-full bg-royal px-7 py-3 text-sm font-semibold text-onink transition hover:bg-royal/90"
+            >
+              Buy Guide + Chat · €29
+            </a>
+            <a
+              href={`mailto:hello@vagrantandveela.com?subject=${encodeURIComponent(`Buy Guide + Us — ${itinerary.title}, ${itinerary.country}`)}`}
+              className="inline-flex items-center justify-center rounded-full border border-terracotta px-7 py-3 text-sm font-semibold text-terracotta transition hover:bg-terracotta/10"
+            >
+              Buy Guide + Us · €99
+            </a>
+          </div>
+          <p className="mt-4 text-xs text-soft">
+            Clicking a button opens a pre-filled email to us — we send the guide and your chat
+            access within 24 hours.
+          </p>
+        </div>
+      </div>
+
       <div className="mt-14">
-        <h2 className="font-display text-3xl text-ink text-center mb-8">Get this route</h2>
+        <h2 className="font-display text-3xl text-ink text-center mb-8">Compare the packages</h2>
         <TierCards />
       </div>
     </main>

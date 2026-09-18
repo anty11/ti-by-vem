@@ -22,7 +22,7 @@ function AboutPage() {
         <article><img src={founderOne} alt="Veronika, V of travel intelligence by VeM" width={816} height={816} className="aspect-[4/3] w-full rounded-xl object-cover" /><p className="mt-5 text-xs font-semibold uppercase tracking-[0.2em] text-royal">V</p><h2 className="mt-1 font-display text-3xl text-ink">Veronika</h2><p className="mt-3 max-w-md text-sm leading-relaxed text-soft">Routes, timing and the practical details that keep an ambitious trip moving.</p></article>
         <article><img src={founderTwo} alt="Monika, eM of travel intelligence by VeM" width={816} height={816} className="aspect-[4/3] w-full rounded-xl object-cover" /><p className="mt-5 text-xs font-semibold uppercase tracking-[0.2em] text-terracotta">eM</p><h2 className="mt-1 font-display text-3xl text-ink">Monika</h2><p className="mt-3 max-w-md text-sm leading-relaxed text-soft">Stories, perspective and the small observations that make a place stay with you.</p></article>
       </div>
-      <div className="mt-14 border-t border-border pt-8"><h2 className="font-display text-2xl text-ink">Talk to us</h2><p className="mt-2 text-soft">Questions about a route, a package or the postcard? Write to <a href="mailto:hello@vagrantandveela.com" className="font-semibold text-royal">hello@vagrantandveela.com</a>.</p></div>
+      <div className="mt-14 border-t border-border pt-8"><h2 className="font-display text-2xl text-ink">Talk to us</h2><p className="mt-2 text-soft">Questions about a route, a package or the postcard? Write to <a href="mailto:hello@travelintelligence.com" className="font-semibold text-royal">hello@travelintelligence.com</a>.</p></div>
     </main>
   );
 }

@@ -90,13 +90,13 @@ function ItineraryDetail() {
           </p>
           <div className="mt-7 flex flex-col sm:flex-row items-center justify-center gap-3">
             <a
-              href={`mailto:hello@vagrantandveela.com?subject=${encodeURIComponent(`Buy Guide + Chat — ${itinerary.title}, ${itinerary.country}`)}`}
+              href={`mailto:hello@travelintelligence.com?subject=${encodeURIComponent(`Buy Guide + Chat — ${itinerary.title}, ${itinerary.country}`)}`}
               className="inline-flex items-center justify-center rounded-full bg-royal px-7 py-3 text-sm font-semibold text-onink transition hover:bg-royal/90"
             >
               Buy Guide + Chat · €29
             </a>
             <a
-              href={`mailto:hello@vagrantandveela.com?subject=${encodeURIComponent(`Buy Guide + Us — ${itinerary.title}, ${itinerary.country}`)}`}
+              href={`mailto:hello@travelintelligence.com?subject=${encodeURIComponent(`Buy Guide + Us — ${itinerary.title}, ${itinerary.country}`)}`}
               className="inline-flex items-center justify-center rounded-full border border-terracotta px-7 py-3 text-sm font-semibold text-terracotta transition hover:bg-terracotta/10"
             >
               Buy Guide + Us · €99

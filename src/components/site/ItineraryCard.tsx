@@ -1,18 +1,10 @@
 import { Link } from "@tanstack/react-router";
 import type { Itinerary } from "@/lib/content";
 import { accentHex } from "@/lib/content";
-import switzerland from "@/assets/switzerland.jpg";
-import riviera from "@/assets/riviera.jpg";
-import portugal from "@/assets/portugal.jpg";
 import italy from "@/assets/italy.jpg";
-import sweden from "@/assets/sweden.jpg";
 
 const images: Record<string, string> = {
-  switzerland,
-  riviera,
-  portugal,
   italy,
-  sweden,
 };
 
 export function ItineraryCard({ itinerary }: { itinerary: Itinerary }) {

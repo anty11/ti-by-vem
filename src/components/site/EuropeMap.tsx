@@ -19,7 +19,7 @@ export function EuropeMap() {
           <p className="text-xs font-semibold uppercase tracking-[0.2em] text-royal">Europe, tested by us</p>
           <p className="mt-1 text-sm text-soft">Choose a country to open its travel intelligence.</p>
         </div>
-        <span className="hidden text-xs font-medium text-soft sm:block">{itineraries.length} guides</span>
+        <span className="hidden text-xs font-medium text-soft sm:block">{itineraries.length} {itineraries.length === 1 ? "guide" : "guides"}</span>
       </div>
       <div className="relative aspect-[7/5] bg-paper">
         <svg viewBox="0 0 700 500" className="h-full w-full" aria-label="Interactive map of Europe">

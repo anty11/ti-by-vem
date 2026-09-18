@@ -1,10 +1,10 @@
 import { createFileRoute } from "@tanstack/react-router";
-import { ItinerariesPage } from "@/components/pages/ItinerariesPage";
+import { PricingPage } from "@/components/pages/PricingPage";
 import { copy } from "@/lib/copy";
 
-const t = copy.en.itineraries;
+const t = copy.sk.pricing;
 
-export const Route = createFileRoute("/itineraries/")({
+export const Route = createFileRoute("/sk/pricing")({
   head: () => ({
     meta: [
       { title: t.title },
@@ -13,13 +13,12 @@ export const Route = createFileRoute("/itineraries/")({
       { property: "og:description", content: t.ogDescription },
       { property: "og:type", content: "website" },
       { name: "twitter:card", content: "summary_large_image" },
-      { property: "og:url", content: "/itineraries" },
     ],
     links: [
-      { rel: "canonical", href: "/itineraries" },
-      { rel: "alternate", hrefLang: "sk", href: "/sk/itineraries" },
-      { rel: "alternate", hrefLang: "en", href: "/itineraries" },
+      { rel: "canonical", href: "/sk/pricing" },
+      { rel: "alternate", hrefLang: "en", href: "/pricing" },
+      { rel: "alternate", hrefLang: "sk", href: "/sk/pricing" },
     ],
   }),
-  component: () => <ItinerariesPage lang="en" />,
+  component: () => <PricingPage lang="sk" />,
 });

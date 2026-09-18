@@ -15,6 +15,40 @@ export type Itinerary = {
 
 export const itineraries: Itinerary[] = [
   {
+    slug: "switzerland",
+    country: "Switzerland",
+    title: "Winter wonderland",
+    days: 8,
+    stops: "3 valleys",
+    budget: "~€1,480",
+    blurb: "Snow trains instead of rental cars, car-free villages, sledding after lunch and one fondue night you'll still talk about in summer.",
+    accent: "royal",
+    x: 350,
+    y: 322,
+    highlights: [
+      "Swiss rail passes over rental cars — snowy windows the whole way",
+      "Cable car at sunrise, long sledding runs, free village saunas",
+      "One splurge: a mountain-hut fondue dinner after dark",
+    ],
+  },
+  {
+    slug: "riviera",
+    country: "France",
+    title: "French Riviera by car",
+    days: 9,
+    stops: "5 towns",
+    budget: "~€1,350",
+    blurb: "Your own wheels down the coast — hilltop villages between the famous names, beach mornings, and one long seafront dinner.",
+    accent: "terracotta",
+    x: 302,
+    y: 342,
+    highlights: [
+      "Rental car with the fuel maths already done",
+      "Markets, beach coves and hilltop villages between the famous stops",
+      "One splurge: a seafront dinner you book a month ahead",
+    ],
+  },
+  {
     slug: "portugal",
     country: "Portugal",
     title: "Lisbon to the coast",

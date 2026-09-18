@@ -2,9 +2,13 @@ import { Link } from "@tanstack/react-router";
 import type { Itinerary } from "@/lib/content";
 import { accentHex } from "@/lib/content";
 import italy from "@/assets/italy.jpg";
+import switzerland from "@/assets/switzerland.jpg";
+import riviera from "@/assets/riviera.jpg";
 
 const images: Record<string, string> = {
   italy,
+  switzerland,
+  riviera,
 };
 
 export function ItineraryCard({ itinerary }: { itinerary: Itinerary }) {

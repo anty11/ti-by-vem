@@ -4,6 +4,8 @@ import { itineraryText, itineraryWhen } from "@/lib/content";
 import { TierCards } from "@/components/site/TierCards";
 import { Countdown } from "@/components/site/Countdown";
 import { copy } from "@/lib/copy";
+import { RouteMap } from "@/components/site/RouteMap";
+import { routeMaps } from "@/lib/route-maps";
 import { contactEmail, path, type Lang } from "@/lib/i18n";
 
 export function ItineraryDetailPage({ itinerary, lang }: { itinerary: Itinerary; lang: Lang }) {

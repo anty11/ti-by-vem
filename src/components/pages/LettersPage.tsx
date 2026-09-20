@@ -1,5 +1,34 @@
-import { copy } from "@/lib/copy";
+import { copy, type LeadSegment } from "@/lib/copy";
 import { contactEmail, type Lang } from "@/lib/i18n";
+
+const accentClass: Record<NonNullable<LeadSegment["c"]>, string> = {
+  terracotta: "text-terracotta",
+  royal: "text-royal",
+};
+
+function Lead({ segments }: { segments: LeadSegment[] }) {
+  return (
+    <>
+      {segments.map((s, idx) => {
+        if (s.c) {
+          return (
+            <span key={idx} className={`font-semibold ${s.i ? "italic " : ""}${accentClass[s.c]}`}>
+              {s.text}
+            </span>
+          );
+        }
+        if (s.i) {
+          return (
+            <em key={idx} className="text-ink">
+              {s.text}
+            </em>
+          );
+        }
+        return <span key={idx}>{s.text}</span>;
+      })}
+    </>
+  );
+}
 
 export function LettersPage({ lang }: { lang: Lang }) {
   const t = copy[lang].letters;

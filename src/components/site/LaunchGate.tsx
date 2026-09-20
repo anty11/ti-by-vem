@@ -46,11 +46,10 @@ export function LaunchGate({ children }: { children: ReactNode }) {
         <span className="text-xs font-semibold uppercase tracking-[0.25em] text-royal">
           travel intelligence by VeM
         </span>
-        <h1 className="mt-4 font-display text-5xl sm:text-6xl leading-[1.05] text-ink">
-          <span className="text-soft line-through decoration-terracotta decoration-2">{t.coming}</span>{" "}
-          <span className="block sm:inline">{t.travel}</span>
+        <h1 className="mt-4 font-display text-5xl sm:text-6xl leading-[1.1] text-ink">
+          <span className="block text-soft line-through decoration-terracotta decoration-2">{t.coming}</span>
+          <span className="block italic">{t.travel}</span>
         </h1>
-        <p className="mx-auto mt-5 max-w-sm text-soft leading-relaxed">{t.lead}</p>
         <div className="mt-8">
           <Countdown target={launchDate} lang={lang} size="lg" />
         </div>

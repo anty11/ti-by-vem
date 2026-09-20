@@ -183,7 +183,7 @@ const en = {
       "For €12 a month, receive a physical personal greeting from a place Veronika and Monika have visited.",
     ogTitle: "Monthly travel postcard · €12",
     ogDescription: "A small personal hello from somewhere Veronika and Monika have been.",
-    eyebrow: "Monthly postcard · €12/month",
+    eyebrow: "Postcard club · €12/month",
     h1: "Every month, one country. One letter, and a little surprise.",
     lead: [
       { text: "Once a month we sit down and write to you about a single country we have travelled, " },
@@ -205,7 +205,7 @@ const en = {
       { text: ". It is our way of taking you along with us, slowly, one country and one envelope at a time." },
     ],
     cta: "Subscribe · €12/month",
-    subject: "Postcard membership",
+    subject: "Postcard club",
     stampEyebrow: "Postmarked somewhere",
     stampTitle: "Hello from Portugal",
     stampText: "Wish you were here.",
@@ -317,7 +317,7 @@ const en = {
           p: "Instructions for chatbot access or communication with Veronika and Monika are sent with the relevant package.",
         },
         {
-          h: "Monthly postcard",
+          h: "Postcard club",
           p: "The €12 membership includes one physical postcard with a personal greeting, posted each month to the delivery address supplied by you. It is separate from our guides and contains no itinerary or travel advice. Arrival times depend on the destination and postal service.",
         },
         {
@@ -403,7 +403,7 @@ const sk: Copy = {
     packagesText:
       "Dve jasné možnosti na jednom mieste. WhatsApp skupina VeM sa otvára s balíkom Guide + Us.",
     packagesNoteA: "Chcete len pozdrav do schránky? ",
-    packagesNoteLink: "Členstvo v klube pohľadníc",
+    packagesNoteLink: "Postcard club",
     packagesNoteB: " funguje samostatne za 12 € mesačne.",
     packagesCta: "Otvoriť balíky →",
     postcardEyebrow: "Pohľadnica, nie sprievodca · 12 €/mesiac",
@@ -518,7 +518,7 @@ const sk: Copy = {
       "Za 12 € mesačne dostanete skutočnú pohľadnicu s osobným pozdravom z miesta, kde Veronika a Monika boli.",
     ogTitle: "Mesačná cestovná pohľadnica · 12 €",
     ogDescription: "Malý osobný pozdrav z miesta, kde Veronika a Monika boli.",
-    eyebrow: "Mesačná pohľadnica · 12 €/mesiac",
+    eyebrow: "Postcard club · 12 €/mesiac",
     h1: "Každý mesiac jedna krajina. Jeden list a malé prekvapenie.",
     lead: [
       { text: "Raz za mesiac si sadneme a napíšeme vám o jednej krajine, ktorú sme precestovali, " },
@@ -540,7 +540,7 @@ const sk: Copy = {
       { text: ". Je to náš spôsob, ako vás vezmeme so sebou, pomaly, krajinu po krajine a obálku po obálke." },
     ],
     cta: "Objednať · 12 €/mesiac",
-    subject: "Členstvo v klube pohľadníc",
+    subject: "Postcard club",
     stampEyebrow: "Opečiatkované niekde",
     stampTitle: "Pozdrav z Portugalska",
     stampText: "Škoda, že tu nie ste.",
@@ -651,7 +651,7 @@ const sk: Copy = {
           p: "Pokyny na prístup k chatbotu alebo na komunikáciu s Veronikou a Monikou posielame spolu s príslušným balíkom.",
         },
         {
-          h: "Mesačná pohľadnica",
+          h: "Postcard club",
           p: "Členstvo za 12 € zahŕňa jednu fyzickú pohľadnicu s osobným pozdravom, ktorú každý mesiac posielame na vami uvedenú adresu. Je oddelená od našich sprievodcov a neobsahuje itinerár ani cestovné rady. Čas doručenia závisí od destinácie a pošty.",
         },
         {

@@ -38,10 +38,21 @@ export function LettersPage({ lang }: { lang: Lang }) {
       <section className="mx-auto grid max-w-7xl gap-10 px-6 py-14 lg:grid-cols-[1fr_0.8fr] lg:items-center">
         <div>
           <p className="text-xs font-semibold uppercase tracking-[0.22em] text-lilac">{t.eyebrow}</p>
-          <h1 className="mt-3 max-w-2xl font-display text-5xl leading-[1.04] text-ink">{t.h1}</h1>
-          <p className="mt-5 max-w-2xl text-lg leading-relaxed text-soft">
-            <Lead segments={t.lead} />
-          </p>
+          <h1 className="mt-3 max-w-2xl font-display text-5xl leading-[1.04] text-ink">
+            {t.h1.map((line, i) => (
+              <span key={i}>
+                {line}
+                {i < t.h1.length - 1 ? <br /> : null}
+              </span>
+            ))}
+          </h1>
+          <div className="mt-5 max-w-2xl space-y-4 text-lg leading-relaxed text-soft [hyphens:auto] text-justify">
+            {t.lead.map((paragraph, i) => (
+              <p key={i}>
+                <Lead segments={paragraph} />
+              </p>
+            ))}
+          </div>
           <a href={`mailto:${contactEmail}?subject=${encodeURIComponent(t.subject)}`} className="mt-8 inline-block rounded-lg bg-ink px-6 py-3 font-semibold text-onink transition hover:bg-lilac">{t.cta}</a>
         </div>
         <div className="relative mx-auto h-80 w-full max-w-md">

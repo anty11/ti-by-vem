@@ -56,7 +56,7 @@ const en = {
       "Always-moving European routes we have travelled ourselves. Real budgets, exact connections and the choices that actually matter.",
     ctaMap: "Explore the map",
     ctaPackages: "See the packages",
-    ctaPostcard: "Postcard club · €12/mo",
+    ctaPostcard: "Postcard club",
     benefit1: "Budget included",
     benefit2: "Exact travel details",
     benefit3: "Travelled by us",

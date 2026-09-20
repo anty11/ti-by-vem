@@ -1,6 +1,6 @@
 import { Link } from "@tanstack/react-router";
 import type { Itinerary } from "@/lib/content";
-import { itineraryText } from "@/lib/content";
+import { itineraryText, itineraryWhen } from "@/lib/content";
 import { TierCards } from "@/components/site/TierCards";
 import { copy } from "@/lib/copy";
 import { contactEmail, path, type Lang } from "@/lib/i18n";
@@ -8,6 +8,9 @@ import { contactEmail, path, type Lang } from "@/lib/i18n";
 export function ItineraryDetailPage({ itinerary, lang }: { itinerary: Itinerary; lang: Lang }) {
   const t = copy[lang].detail;
   const text = itineraryText(itinerary, lang);
+  const soon = itinerary.status === "soon";
+  const when = itineraryWhen(itinerary, lang);
+  const card = copy[lang].card;
 
   const mailto = (subject: string) =>
     `mailto:${contactEmail}?subject=${encodeURIComponent(`${subject} — ${text.title}, ${text.country}`)}`;
@@ -18,7 +21,12 @@ export function ItineraryDetailPage({ itinerary, lang }: { itinerary: Itinerary;
         {t.back}
       </Link>
       <div className="glass rounded-3xl p-8 lg:p-12 mt-5">
-        <span className="text-xs font-semibold uppercase tracking-[0.25em] text-royal">{text.country}</span>
+        <div className="flex flex-wrap items-center gap-3">
+          <span className="text-xs font-semibold uppercase tracking-[0.25em] text-royal">{text.country}</span>
+          <span className={`rounded-full px-3 py-1 text-[11px] font-semibold ${soon ? "bg-gold text-ink" : "bg-sage text-ink"}`}>
+            {soon ? `${card.soon}${when ? ` · ${when}` : ""}` : card.live}
+          </span>
+        </div>
         <h1 className="mt-2 font-display text-5xl leading-[1.05] text-ink">{text.title}</h1>
         <p className="mt-4 max-w-xl text-soft text-lg leading-relaxed">{text.blurb}</p>
 
@@ -49,6 +57,23 @@ export function ItineraryDetailPage({ itinerary, lang }: { itinerary: Itinerary;
         <p className="mt-6 text-sm text-soft italic">{t.note}</p>
       </div>
 
+{soon ? (
+      <div id="buy" className="mt-14 scroll-mt-28">
+        <div className="glass rounded-3xl p-8 lg:p-10 text-center">
+          <span className="text-xs font-semibold uppercase tracking-[0.25em] text-terracotta">{t.soonEyebrow}</span>
+          <h2 className="mt-2 font-display text-3xl text-ink">
+            {t.soonTitle}{when ? ` · ${when}` : ""}
+          </h2>
+          <p className="mx-auto mt-3 max-w-md text-sm text-soft leading-relaxed">{t.soonText}</p>
+          <a
+            href={mailto(t.soonSubject)}
+            className="mt-7 inline-flex items-center justify-center rounded-full bg-terracotta px-7 py-3 text-sm font-semibold text-onink transition hover:bg-ink"
+          >
+            {t.soonCta}
+          </a>
+        </div>
+      </div>
+      ) : (
       <div id="buy" className="mt-14 scroll-mt-28">
         <div className="glass rounded-3xl p-8 lg:p-10 text-center">
           <span className="text-xs font-semibold uppercase tracking-[0.25em] text-terracotta">{t.buyEyebrow}</span>
@@ -74,6 +99,7 @@ export function ItineraryDetailPage({ itinerary, lang }: { itinerary: Itinerary;
           </Link>
         </div>
       </div>
+      )}
 
       <div className="mt-14">
         <h2 className="font-display text-3xl text-ink text-center mb-8">{t.compare}</h2>

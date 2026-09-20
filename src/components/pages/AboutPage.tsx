@@ -11,7 +11,7 @@ export function AboutPage({ lang }: { lang: Lang }) {
     <main className="mx-auto max-w-5xl px-6 py-14">
       <div className="max-w-3xl">
         <p className="text-xs font-semibold uppercase tracking-[0.22em] text-sage">{t.eyebrow}</p>
-        <h1 className="mt-3 font-display text-5xl leading-[1.04] text-ink">{t.h1}</h1>
+        <h1 className="mt-3 font-display text-5xl italic leading-[1.04] text-ink">{t.h1}</h1>
         <p className="mt-6 text-lg leading-relaxed text-soft">{t.p1}</p>
         <p className="mt-4 text-lg leading-relaxed text-soft">{t.p2}</p>
         {t.p3 && <p className="mt-4 text-lg leading-relaxed text-soft">{t.p3}</p>}

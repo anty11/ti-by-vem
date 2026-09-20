@@ -51,7 +51,7 @@ const en = {
     h1em2: "download",
     h1c: ".",
     lead:
-      "Always-moving European routes we have travelled ourselves — with the real budget, exact connections and choices that make every euro count.",
+      "Always-moving European routes we have travelled ourselves. Real budgets, exact connections and the choices that actually matter.",
     ctaMap: "Explore the map",
     ctaPackages: "See the packages",
     ctaPostcard: "Postcard club · €12/mo",
@@ -218,9 +218,14 @@ const en = {
     eyebrow: "The people behind VeM",
     h1: "Veronika “V” & Monika “eM”.",
     p1:
-      "We are two friends who travel by moving: another train, another town, another route that reveals more than a checklist ever could. We learned where a lower price changes nothing and where one thoughtful splurge changes the whole journey.",
+      "On the first of December 2016 we boarded a plane together for the very first time and flew off to Rome for a single weekend. In just forty eight hours we managed to live through an almost unbelievable amount, wandering from one corner of the city to another, following our feet and our curiosity, tasting, walking and seeing far more than two days should ever be able to hold. Back then we had no idea that this one short flight would not just be the beginning of a single journey, but the beginning of an entire way of living and seeing the world.",
     p2:
-      "People kept asking for our plans, budgets and connections. So we began turning our experience into something useful: travel intelligence built from routes we have actually lived.",
+      "Since that first Roman weekend we have travelled half the world side by side. We gathered roads and wrong turns, quiet mornings in unfamiliar towns and little places you will never find in an ordinary guidebook, and slowly a way of travelling of our own took shape, the very same one we discovered in those first forty eight hours, where we are always on the move and always trying to see as much as a single day can hold. Somewhere along the way we realised that all these moments, all we had felt and learned, were far too beautiful to keep to ourselves, and that we wanted to share them with you and with the whole world.",
+    p3:
+      "So exactly on the tenth anniversary of our very first journey together, we decided to take the next step and founded Travel intelligence by VeM. Not as a company that sells ready made plans, but as a place into which we pour everything the road has taught us, so that you too can explore fully and in your very own way. Because in the end we are simply two best friends bound together by a love of travelling, and everything you find here was born on real journeys, never behind a desk.",
+    p4:
+      "And can you guess where our next trip will take us? Back to Rome, in 2026, almost exactly ten years later, returning to the very city where it all began and closing the circle right where it started.",
+    signoff: "With love, V & eM.",
     vText: "Routes, timing and the practical details that keep an ambitious trip moving.",
     mText: "Stories, perspective and the small observations that make a place stay with you.",
     contactTitle: "Talk to us",

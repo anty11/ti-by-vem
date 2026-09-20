@@ -53,14 +53,11 @@ export const itineraries: Itinerary[] = [
       country: "Švajčiarsko a Francúzsko",
       title: "Zimná rozprávka",
       stops: "Zürich → Ženeva, 5 miest",
-      blurb:
-        "Desať zimných dní vlakom, open jaw: prílet do Zürichu, odlet zo Ženevy. THE ICE na zamrznutom jazere v St. Moritzi, Glacier Express v triede Excellence, lyžovačka pod Matterhornom a Mont Blanc z Aiguille du Midi.",
+      blurb: "Desať zimných dní vlakom, zo Zürichu do Ženevy. Dve horské krajiny, jedno zamrznuté jazero a chvíle, pre ktoré by sme sa vrátili.",
       highlights: [
-        "Dva vrcholy cesty: THE ICE v St. Moritzi (28. – 30. 1.) a Glacier Express v triede Excellence",
-        "Zermatt bez áut, Gornergrat za východu slnka a tri dni lyžovania pod Matterhornom",
-        "Prechod do Francúzska: Chamonix, lanovka na Aiguille du Midi a dva pokojné dni v Ženeve",
-        "Celá cesta vlakom, bez požičaného auta — prílet Zürich, odlet Ženeva",
-        "Rozpočet ~3 800 – 4 600 € na osobu v dvojlôžkovej izbe, všetko vrátane a všetky sumy orientačné",
+        "Dva vrcholy, okolo ktorých staviame celú trasu — spoznáte ich hneď, ako ich uvidíte",
+        "Celá cesta vlakom, bez požičaného auta: prílet do Zürichu, odlet zo Ženevy",
+        "Tri dni lyžovania v dedine bez áut a potom prechod do Francúzska",
       ],
     },
   },

@@ -15,6 +15,7 @@ import { reportLovableError } from "../lib/lovable-error-reporting";
 import { Header } from "../components/site/Header";
 import { Footer } from "../components/site/Footer";
 import { langFromPathname } from "../lib/i18n";
+import { LaunchGate } from "../components/site/LaunchGate";
 
 
 function NotFoundComponent() {

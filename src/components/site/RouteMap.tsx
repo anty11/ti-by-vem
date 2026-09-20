@@ -103,6 +103,10 @@ export function RouteMap({ data, lang }: { data: RouteMapData; lang: Lang }) {
             {/* stops */}
             {nodes.map((n, i) => {
               const on = i === activeNodeIndex;
+              const above = n.y > 430 && n.x < 500; // keep Zermatt / Chamonix labels apart
+              const anchor = n.x > 500 ? "end" : "start";
+              const lx = n.x + (n.x > 500 ? -16 : 16);
+              const ly = above ? n.y - 30 : n.y + 5;
               return (
                 <g key={n.place + i} className="cursor-pointer" onClick={() => setActive(n.days[0]!)}>
                   {on && <circle cx={n.x} cy={n.y} r="20" fill="var(--royal)" opacity="0.2" />}
@@ -115,9 +119,9 @@ export function RouteMap({ data, lang }: { data: RouteMapData; lang: Lang }) {
                     strokeWidth={on ? 3 : 2}
                   />
                   <text
-                    x={n.x + (n.x > 500 ? -16 : 16)}
-                    y={n.y + 5}
-                    textAnchor={n.x > 500 ? "end" : "start"}
+                    x={lx}
+                    y={ly}
+                    textAnchor={anchor}
                     className="font-semibold"
                     fontSize="15"
                     fill="var(--ink)"
@@ -125,14 +129,7 @@ export function RouteMap({ data, lang }: { data: RouteMapData; lang: Lang }) {
                   >
                     {n.place}
                   </text>
-                  <text
-                    x={n.x + (n.x > 500 ? -16 : 16)}
-                    y={n.y + 22}
-                    textAnchor={n.x > 500 ? "end" : "start"}
-                    fontSize="11"
-                    fill="var(--ink)"
-                    opacity="0.45"
-                  >
+                  <text x={lx} y={ly + 17} textAnchor={anchor} fontSize="11" fill="var(--ink)" opacity="0.45">
                     {lang === "sk" ? `${n.days.join(", ")}. deň` : `Day ${n.days.join(", ")}`}
                   </text>
                 </g>

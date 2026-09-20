@@ -2,6 +2,7 @@ import { Link } from "@tanstack/react-router";
 import type { Itinerary } from "@/lib/content";
 import { itineraryText, itineraryWhen } from "@/lib/content";
 import { TierCards } from "@/components/site/TierCards";
+import { Countdown } from "@/components/site/Countdown";
 import { copy } from "@/lib/copy";
 import { contactEmail, path, type Lang } from "@/lib/i18n";
 
@@ -65,6 +66,11 @@ export function ItineraryDetailPage({ itinerary, lang }: { itinerary: Itinerary;
             {t.soonTitle}{when ? ` · ${when}` : ""}
           </h2>
           <p className="mx-auto mt-3 max-w-md text-sm text-soft leading-relaxed">{t.soonText}</p>
+          {itinerary.launchDate && (
+            <div className="mx-auto mt-7 max-w-md">
+              <Countdown target={itinerary.launchDate} lang={lang} size="lg" />
+            </div>
+          )}
           <a
             href={mailto(t.soonSubject)}
             className="mt-7 inline-flex items-center justify-center rounded-full bg-terracotta px-7 py-3 text-sm font-semibold text-onink transition hover:bg-ink"

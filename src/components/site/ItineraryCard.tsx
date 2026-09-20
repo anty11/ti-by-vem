@@ -3,6 +3,7 @@ import type { Itinerary } from "@/lib/content";
 import { accentHex, itineraryText, itineraryWhen } from "@/lib/content";
 import { Button } from "@/components/ui/button";
 import { copy } from "@/lib/copy";
+import { Countdown } from "@/components/site/Countdown";
 import { contactEmail, detailPath, type Lang } from "@/lib/i18n";
 import italy from "@/assets/italy.jpg";
 import switzerland from "@/assets/switzerland.jpg";
@@ -60,7 +61,11 @@ export function ItineraryCard({ itinerary, lang = "en" }: { itinerary: Itinerary
           </span>
         </div>
         <h3 className="mt-2 font-display text-2xl text-ink">{text.title}</h3>
-        <p className="mt-2 text-sm text-soft leading-relaxed">{text.blurb}</p>
+        {soon && itinerary.launchDate ? (
+          <Countdown target={itinerary.launchDate} lang={lang} className="mt-3" />
+        ) : (
+          <p className="mt-2 text-sm text-soft leading-relaxed">{text.blurb}</p>
+        )}
         <div className="mt-4 flex items-center justify-between gap-3">
           <span className="text-sm font-semibold text-ink">
             {itinerary.budget} <span className="text-soft font-normal text-xs">{t.perPerson}</span>

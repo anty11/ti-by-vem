@@ -17,6 +17,8 @@ export type Itinerary = ItineraryText & {
   /** When a "soon" trip goes live, e.g. "January 2027" */
   when?: string;
   whenSk?: string;
+  /** ISO date the "soon" trip goes live — powers the countdown */
+  launchDate?: string;
   days: number;
   budget: string;
   accent: "terracotta" | "royal" | "sage" | "gold" | "lilac";
@@ -32,6 +34,7 @@ export const itineraries: Itinerary[] = [
     status: "soon",
     when: "January 2027",
     whenSk: "január 2027",
+    launchDate: "2027-01-28T09:00:00+01:00",
     country: "Switzerland",
     title: "Winter wonderland",
     days: 8,

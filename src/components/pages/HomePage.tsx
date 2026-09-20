@@ -14,7 +14,7 @@ export function HomePage({ lang }: { lang: Lang }) {
     <main>
       <section className="mx-auto grid max-w-7xl items-center gap-10 px-6 pb-6 pt-10 lg:grid-cols-2">
         <div>
-          <span className="glass-soft inline-flex items-center gap-2 rounded-full px-4 py-1.5 text-xs font-semibold tracking-[0.2em] text-royal">
+          <span className="glass-soft inline-flex items-center gap-2 rounded-full px-4 py-1.5 text-xs font-semibold uppercase tracking-[0.2em] text-royal">
             <span className="size-1.5 rounded-full bg-terracotta" /> {t.badge}
           </span>
           <h1 className="mt-5 font-display text-5xl leading-[1.02] text-ink lg:text-6xl">

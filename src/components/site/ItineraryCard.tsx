@@ -18,6 +18,11 @@ export function ItineraryCard({ itinerary, lang = "en" }: { itinerary: Itinerary
   const image = images[itinerary.slug];
   const t = copy[lang].card;
   const text = itineraryText(itinerary, lang);
+  const soon = itinerary.status === "soon";
+  const when = itineraryWhen(itinerary, lang);
+  const notifyHref = `mailto:${contactEmail}?subject=${encodeURIComponent(
+    `${t.notifySubject} — ${text.title}, ${text.country}`,
+  )}`;
 
   return (
     <article className="glass rounded-3xl overflow-hidden">

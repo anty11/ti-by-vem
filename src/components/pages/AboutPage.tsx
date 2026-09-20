@@ -9,13 +9,15 @@ export function AboutPage({ lang }: { lang: Lang }) {
 
   return (
     <main className="mx-auto max-w-5xl px-6 py-14">
-      <div className="max-w-3xl">
+      <div className="max-w-4xl">
         <p className="text-xs font-semibold uppercase tracking-[0.22em] text-sage">{t.eyebrow}</p>
         <h1 className="mt-3 font-display text-5xl italic leading-[1.04] text-ink">{t.h1}</h1>
-        <p className="mt-6 text-lg leading-relaxed text-soft">{t.p1}</p>
-        <p className="mt-4 text-lg leading-relaxed text-soft">{t.p2}</p>
-        {t.p3 && <p className="mt-4 text-lg leading-relaxed text-soft">{t.p3}</p>}
-        {t.p4 && <p className="mt-4 text-lg leading-relaxed text-soft">{t.p4}</p>}
+        <div className="mt-6 text-justify text-lg leading-relaxed text-soft [hyphens:auto]">
+          <p>{t.p1}</p>
+          <p className="mt-4">{t.p2}</p>
+          {t.p3 && <p className="mt-4">{t.p3}</p>}
+          {t.p4 && <p className="mt-4">{t.p4}</p>}
+        </div>
         {t.signoff && (
           <p className="mt-6 font-display text-2xl italic text-royal">{t.signoff}</p>
         )}

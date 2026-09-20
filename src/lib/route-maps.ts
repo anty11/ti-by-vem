@@ -36,7 +36,7 @@ export const routeMaps: Record<string, RouteMap> = {
     lead:
       "Fly into Zürich, fly home from Geneva. Tap a day to see where the route takes you — the full detail, times and prices live inside the guide.",
     leadSk:
-      "Prílet do Zürichu, odlet zo Ženevy — takzvaný open jaw s dvomi vrcholmi: THE ICE na zamrznutom jazere v St. Moritz a Glacier Express v triede Excellence. Kliknite na deň a sledujte trasu.",
+      "Prílet do Zürichu, odlet zo Ženevy. Kliknite na deň a uvidíte, kam vás trasa zavedie — celý detail, časy a ceny nájdete v sprievodcovi.",
     days: [
       {
         day: 1,

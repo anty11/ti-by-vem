@@ -40,17 +40,14 @@ export const itineraries: Itinerary[] = [
     days: 10,
     stops: "Zürich → Geneva, 5 towns",
     budget: "~€3,800–4,600",
-    blurb:
-      "Ten winter days by train, open jaw: into Zürich, home from Geneva. THE ICE on the frozen lake in St. Moritz, the Glacier Express in Excellence class, skiing under the Matterhorn and Mont Blanc from the Aiguille du Midi.",
+    blurb: "Ten winter days by train, from Zürich to Geneva. Two mountain countries, one frozen lake and a few moments we would fly back for.",
     accent: "royal",
     x: 350,
     y: 322,
     highlights: [
-      "Two peaks: THE ICE in St. Moritz (28–30 Jan) and the Glacier Express in Excellence class",
-      "Zermatt car-free, Gornergrat at sunrise and three ski days under the Matterhorn",
-      "Across into France: Chamonix, the Aiguille du Midi cable car, then two slow days in Geneva",
-      "Trains all the way, no rental car — fly into Zürich, fly home from Geneva",
-      "Budget ~€3,800–4,600 per person in a twin room, everything included and all figures indicative",
+      "Two peaks we plan the whole route around — you will know them the moment you see them",
+      "Trains all the way, no rental car: fly into Zürich, fly home from Geneva",
+      "Three ski days in a car-free village, then across the border into France",
     ],
     sk: {
       country: "Švajčiarsko a Francúzsko",

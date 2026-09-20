@@ -8,17 +8,15 @@ export const launchDate = "2026-12-01T09:00:00+01:00";
 const bypassKey = "vem-preview";
 const bypassValue = "vem";
 
-const gateCopy: Record<Lang, { coming: string; travel: string; lead: string; contact: string }> = {
+const gateCopy: Record<Lang, { coming: string; travel: string; contact: string }> = {
   en: {
     coming: "coming",
     travel: "travel soon",
-    lead: "travel intelligence by VeM opens on 1 December 2026. Routes, budgets and the trip chat go live together.",
     contact: "Write to us",
   },
   sk: {
     coming: "coming",
     travel: "travel soon",
-    lead: "travel intelligence by VeM sa otvára 1. decembra 2026. Trasy, rozpočty aj chat k ceste spustíme naraz.",
     contact: "Napíšte nám",
   },
 };

@@ -1,9 +1,9 @@
 import { Link } from "@tanstack/react-router";
 import type { Itinerary } from "@/lib/content";
-import { accentHex, itineraryText } from "@/lib/content";
+import { accentHex, itineraryText, itineraryWhen } from "@/lib/content";
 import { Button } from "@/components/ui/button";
 import { copy } from "@/lib/copy";
-import { detailPath, type Lang } from "@/lib/i18n";
+import { contactEmail, detailPath, type Lang } from "@/lib/i18n";
 import italy from "@/assets/italy.jpg";
 import switzerland from "@/assets/switzerland.jpg";
 import riviera from "@/assets/riviera.jpg";
@@ -18,9 +18,21 @@ export function ItineraryCard({ itinerary, lang = "en" }: { itinerary: Itinerary
   const image = images[itinerary.slug];
   const t = copy[lang].card;
   const text = itineraryText(itinerary, lang);
+  const soon = itinerary.status === "soon";
+  const when = itineraryWhen(itinerary, lang);
+  const notifyHref = `mailto:${contactEmail}?subject=${encodeURIComponent(
+    `${t.notifySubject} — ${text.title}, ${text.country}`,
+  )}`;
 
   return (
-    <article className="glass rounded-3xl overflow-hidden">
+    <article className="glass rounded-3xl overflow-hidden relative">
+      <span
+        className={`absolute left-4 top-4 z-10 rounded-full px-3 py-1 text-[11px] font-semibold shadow-sm ${
+          soon ? "bg-gold text-ink" : "bg-sage text-ink"
+        }`}
+      >
+        {soon ? `${t.soon}${when ? ` · ${when}` : ""}` : t.live}
+      </span>
       {image ? (
         <img
           src={image}
@@ -61,15 +73,17 @@ export function ItineraryCard({ itinerary, lang = "en" }: { itinerary: Itinerary
             >
               {t.open}
             </Link>
-            <Button asChild size="sm" className="rounded-full bg-royal text-onink hover:bg-royal/90 font-semibold">
-              <Link
-                to={detailPath(lang)}
-                params={{ slug: itinerary.slug }}
-                hash="buy"
-              >
-                {t.buy}
-              </Link>
-            </Button>
+            {soon ? (
+              <Button asChild size="sm" variant="outline" className="rounded-full border-terracotta text-terracotta font-semibold hover:bg-terracotta/10">
+                <a href={notifyHref}>{t.notify}</a>
+              </Button>
+            ) : (
+              <Button asChild size="sm" className="rounded-full bg-royal text-onink hover:bg-royal/90 font-semibold">
+                <Link to={detailPath(lang)} params={{ slug: itinerary.slug }} hash="buy">
+                  {t.buy}
+                </Link>
+              </Button>
+            )}
           </div>
         </div>
       </div>

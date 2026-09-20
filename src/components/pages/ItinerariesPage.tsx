@@ -18,11 +18,24 @@ export function ItinerariesPage({ lang }: { lang: Lang }) {
         <EuropeMap lang={lang} />
       </div>
 
-      <div className="grid md:grid-cols-3 gap-6 mt-14">
-        {itineraries.map((it) => (
-          <ItineraryCard key={it.slug} itinerary={it} lang={lang} />
-        ))}
-      </div>
+      {([
+        { key: "live", title: t.liveTitle, lead: t.liveLead },
+        { key: "soon", title: t.soonTitle, lead: t.soonLead },
+      ] as const).map((section) => {
+        const list = itineraries.filter((it) => it.status === section.key);
+        if (list.length === 0) return null;
+        return (
+          <section key={section.key} className="mt-14">
+            <h2 className="font-display text-3xl text-ink">{section.title}</h2>
+            <p className="mt-2 max-w-xl text-soft">{section.lead}</p>
+            <div className="grid md:grid-cols-3 gap-6 mt-7">
+              {list.map((it) => (
+                <ItineraryCard key={it.slug} itinerary={it} lang={lang} />
+              ))}
+            </div>
+          </section>
+        );
+      })}
     </main>
   );
 }

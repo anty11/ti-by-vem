@@ -8,8 +8,15 @@ export type ItineraryText = {
   highlights: string[];
 };
 
+export type ItineraryStatus = "live" | "soon";
+
 export type Itinerary = ItineraryText & {
   slug: string;
+  /** "live" = ready to download, "soon" = we travel it next, together */
+  status: ItineraryStatus;
+  /** When a "soon" trip goes live, e.g. "January 2027" */
+  when?: string;
+  whenSk?: string;
   days: number;
   budget: string;
   accent: "terracotta" | "royal" | "sage" | "gold" | "lilac";
@@ -22,6 +29,9 @@ export type Itinerary = ItineraryText & {
 export const itineraries: Itinerary[] = [
   {
     slug: "switzerland",
+    status: "soon",
+    when: "January 2027",
+    whenSk: "január 2027",
     country: "Switzerland",
     title: "Winter wonderland",
     days: 8,
@@ -50,6 +60,7 @@ export const itineraries: Itinerary[] = [
   },
   {
     slug: "riviera",
+    status: "live",
     country: "France",
     title: "French Riviera by car",
     days: 9,
@@ -78,6 +89,7 @@ export const itineraries: Itinerary[] = [
   },
   {
     slug: "italy",
+    status: "live",
     country: "Italy",
     title: "The Dolomites loop",
     days: 12,
@@ -105,6 +117,10 @@ export const itineraries: Itinerary[] = [
     },
   },
 ];
+
+export function itineraryWhen(item: Itinerary, lang: Lang): string | undefined {
+  return lang === "sk" ? item.whenSk ?? item.when : item.when;
+}
 
 export function itineraryText(item: Itinerary, lang: Lang): ItineraryText {
   if (lang === "sk") return item.sk;

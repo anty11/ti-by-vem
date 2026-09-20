@@ -216,7 +216,7 @@ const en = {
     ogDescription:
       "Real journeys, honest decisions and the details we learned by travelling them ourselves.",
     eyebrow: "The people behind VeM",
-    h1: "Veronika “V” & Monika “eM”.",
+    h1: "Veronika “V” & Monika “eM”",
     p1:
       "On the first of December 2016 we boarded a plane together for the very first time and flew off to Rome for a single weekend. In just forty eight hours we managed to live through an almost unbelievable amount, wandering from one corner of the city to another, following our feet and our curiosity, tasting, walking and seeing far more than two days should ever be able to hold. Back then we had no idea that this one short flight would not just be the beginning of a single journey, but the beginning of an entire way of living and seeing the world.",
     p2:
@@ -225,7 +225,7 @@ const en = {
       "So exactly on the tenth anniversary of our very first journey together, we decided to take the next step and founded Travel intelligence by VeM. Not as a company that sells ready made plans, but as a place into which we pour everything the road has taught us, so that you too can explore fully and in your very own way. Because in the end we are simply two best friends bound together by a love of travelling, and everything you find here was born on real journeys, never behind a desk.",
     p4:
       "And can you guess where our next trip will take us? Back to Rome, in 2026, almost exactly ten years later, returning to the very city where it all began and closing the circle right where it started.",
-    signoff: "With love, V & eM.",
+    signoff: "With love, V & eM",
     vText: "Routes, timing and the practical details that keep an ambitious trip moving.",
     mText: "Stories, perspective and the small observations that make a place stay with you.",
     contactTitle: "Talk to us",

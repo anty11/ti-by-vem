@@ -32,6 +32,9 @@ export function ItineraryDetailPage({ itinerary, lang }: { itinerary: Itinerary;
           </span>
         </div>
         <h1 className="mt-2 font-display text-5xl leading-[1.05] text-ink">{text.title}</h1>
+        {itinerary.personalNote && (
+          <p className="mt-2 font-display text-lg italic text-terracotta">{itinerary.personalNote}</p>
+        )}
         <p className="mt-4 max-w-xl text-soft text-lg leading-relaxed">{text.blurb}</p>
 
         <div className="mt-8 grid sm:grid-cols-3 gap-4">

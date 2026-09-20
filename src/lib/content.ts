@@ -38,8 +38,8 @@ export const itineraries: Itinerary[] = [
     country: "Switzerland & France",
     title: "Winter wonderland",
     days: 10,
-    stops: "Zürich → Geneva, 5 towns",
-    budget: "~€3,800–4,600",
+    stops: "Zürich → Geneva",
+    budget: "~€4,200",
     blurb: "Ten winter days by train, from Zürich to Geneva. Two mountain countries, one frozen lake and a few moments we would fly back for.",
     accent: "royal",
     x: 350,
@@ -52,7 +52,7 @@ export const itineraries: Itinerary[] = [
     sk: {
       country: "Švajčiarsko a Francúzsko",
       title: "Zimná rozprávka",
-      stops: "Zürich → Ženeva, 5 miest",
+      stops: "Zürich → Ženeva",
       blurb: "Desať zimných dní vlakom, zo Zürichu do Ženevy. Dve horské krajiny, jedno zamrznuté jazero a chvíle, pre ktoré by sme sa vrátili.",
       highlights: [
         "Dva vrcholy, okolo ktorých staviame celú trasu — spoznáte ich hneď, ako ich uvidíte",

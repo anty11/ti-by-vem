@@ -8,3 +8,5 @@
 - [x] Rebuild the packages page with a more vivid editorial direction
 - [x] Keep WhatsApp access only in Guide + Chat and Guide + Us
 - [x] Verify the refreshed packages page on desktop and mobile
+- [ ] Add Scotland as a live, ready-to-download trip (card, detail page, map pin)
+- [ ] Verify "travel intelligence by VeM" always uses lowercase e (site-wide)

@@ -119,6 +119,35 @@ export const itineraries: Itinerary[] = [
       ],
     },
   },
+  {
+    slug: "scotland",
+    status: "live",
+    country: "Scotland",
+    title: "The Highlands loop",
+    days: 10,
+    stops: "5 glens",
+    budget: "~€1,520",
+    blurb: "Single-track roads, wild lochs and castle ruins you have mostly to yourselves. Ferries budgeted in, midges planned around.",
+    accent: "lilac",
+    x: 228,
+    y: 170,
+    highlights: [
+      "North Coast 500 highlights without the tour-bus stops",
+      "Isle of Skye ferry and a bothy-style picnic budget",
+      "One splurge: a whisky distillery tasting with a local guide",
+    ],
+    sk: {
+      country: "Škótsko",
+      title: "Okruh Highlands",
+      stops: "5 údolí",
+      blurb: "Úzke cesty s jedným pruhom, divoké jazerá a zrúcaniny hradov, ktoré máte prevažne sami. Trajekty v rozpočte, komáre v pláne.",
+      highlights: [
+        "Pýcha North Coast 500 bez zastávok pre zájazdové autobusy",
+        "Trajekt na ostrov Skye a rozpočet na piknik v bothy štýle",
+        "Jedno priplatenie: degustácia v whisky palírni s lokálnym sprievodcom",
+      ],
+    },
+  },
 ];
 
 export function itineraryWhen(item: Itinerary, lang: Lang): string | undefined {

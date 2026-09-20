@@ -2,6 +2,7 @@ import { Link } from "@tanstack/react-router";
 import type { Itinerary } from "@/lib/content";
 import { itineraryText, itineraryWhen } from "@/lib/content";
 import { TierCards } from "@/components/site/TierCards";
+import { Countdown } from "@/components/site/Countdown";
 import { copy } from "@/lib/copy";
 import { contactEmail, path, type Lang } from "@/lib/i18n";
 

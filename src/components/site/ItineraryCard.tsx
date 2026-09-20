@@ -3,6 +3,7 @@ import type { Itinerary } from "@/lib/content";
 import { accentHex, itineraryText, itineraryWhen } from "@/lib/content";
 import { Button } from "@/components/ui/button";
 import { copy } from "@/lib/copy";
+import { Countdown } from "@/components/site/Countdown";
 import { contactEmail, detailPath, type Lang } from "@/lib/i18n";
 import italy from "@/assets/italy.jpg";
 import switzerland from "@/assets/switzerland.jpg";

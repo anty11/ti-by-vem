@@ -14,6 +14,11 @@ function curve(a: Node, b: Node) {
   return `M ${a.x} ${a.y} Q ${mx - dy * k} ${my + dx * k} ${b.x} ${b.y}`;
 }
 
+function teaser(text: string) {
+  const first = text.split(/(?<=[.!?])\s/)[0] ?? text;
+  return first.length > 160 ? first.slice(0, 157).trimEnd() + "…" : first;
+}
+
 export function RouteMap({ data, lang }: { data: RouteMapData; lang: Lang }) {
   const [active, setActive] = useState(data.days[0]?.day ?? 1);
   const current = data.days.find((d) => d.day === active) ?? data.days[0];

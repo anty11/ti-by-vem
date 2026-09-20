@@ -14,6 +14,16 @@ function curve(a: Node, b: Node) {
   return `M ${a.x} ${a.y} Q ${mx - dy * k} ${my + dx * k} ${b.x} ${b.y}`;
 }
 
+function teaser(text: string) {
+  const sentences = text.split(/(?<=[.!?])\s/);
+  let out = "";
+  for (const s of sentences) {
+    if (out && out.length >= 120) break;
+    out = out ? `${out} ${s}` : s;
+  }
+  return out.length > 220 ? out.slice(0, 217).trimEnd() + "…" : out;
+}
+
 export function RouteMap({ data, lang }: { data: RouteMapData; lang: Lang }) {
   const [active, setActive] = useState(data.days[0]?.day ?? 1);
   const current = data.days.find((d) => d.day === active) ?? data.days[0];
@@ -153,15 +163,12 @@ export function RouteMap({ data, lang }: { data: RouteMapData; lang: Lang }) {
             </div>
             <h3 className="mt-2 font-display text-3xl text-ink">{t.title}</h3>
             <p className="mt-1 text-sm font-semibold text-terracotta">{t.place}</p>
-            <p className="mt-4 text-soft leading-relaxed">{t.text}</p>
-            <ul className="mt-5 space-y-2">
-              {t.notes.map((n) => (
-                <li key={n} className="flex gap-3 text-sm text-soft">
-                  <span className="mt-2 size-1.5 shrink-0 rounded-full bg-royal" />
-                  {n}
-                </li>
-              ))}
-            </ul>
+            <p className="mt-4 text-soft leading-relaxed">{teaser(t.text)}</p>
+            <p className="mt-5 text-sm italic text-soft">
+              {lang === "sk"
+                ? "Presné časy, spoje, ceny a naše tipy na tento deň nájdete v sprievodcovi."
+                : "Exact times, connections, prices and our own tips for this day are inside the guide."}
+            </p>
           </div>
         )}
       </div>

@@ -29,6 +29,10 @@ const en = {
     perPerson: "/ person",
     open: "Open",
     buy: "Buy",
+    live: "Ready to download",
+    soon: "Coming soon",
+    notify: "Notify me",
+    notifySubject: "Waiting list",
   },
   tiers: {
     featured: "Most alive",
@@ -90,6 +94,10 @@ const en = {
     ogDescription:
       "European routes travelled by Veronika and Monika, with honest budgets and exact details.",
     eyebrow: "The map",
+    liveTitle: "Ready to download",
+    liveLead: "Finished routes. Full guide, budget and travel details in your inbox today.",
+    soonTitle: "Coming next — travel it with us",
+    soonLead: "Routes we are planning right now. Join the list and you can live them together with us.",
     h1: "Start with a country.",
     lead:
       "Every pin is a route we've run ourselves. Click one to see the shape of the trip, what it costs, and where we'd spend the extra.",
@@ -115,6 +123,11 @@ const en = {
     buySubjectUs: "Buy Guide + Us",
     buyNote:
       "Clicking a button opens a pre-filled email to us — we send the guide and your chat access within 24 hours.",
+    soonEyebrow: "Coming soon",
+    soonTitle: "This route is still being travelled",
+    soonText: "We are planning this trip right now. Leave us a note and you will be first to get the guide — or come along and live it with us.",
+    soonCta: "Put me on the list",
+    soonSubject: "Waiting list",
     compare: "Compare the packages",
     unavailable: "Unavailable",
   },
@@ -324,6 +337,10 @@ const sk: Copy = {
     perPerson: "/ osoba",
     open: "Otvoriť",
     buy: "Kúpiť",
+    live: "Pripravené na stiahnutie",
+    soon: "Už čoskoro",
+    notify: "Dajte mi vedieť",
+    notifySubject: "Čakacia listina",
   },
   tiers: {
     featured: "Najživšie",
@@ -385,6 +402,10 @@ const sk: Copy = {
     ogDescription:
       "Európske trasy, ktoré prešli Veronika a Monika, s úprimnými rozpočtami a presnými detailmi.",
     eyebrow: "Mapa",
+    liveTitle: "Pripravené na stiahnutie",
+    liveLead: "Hotové trasy. Kompletný sprievodca, rozpočet a cestovné detaily hneď dnes.",
+    soonTitle: "Chystáme — a pocestujete s nami",
+    soonLead: "Trasy, ktoré práve plánujeme. Napíšte sa na zoznam a zažijete ich spolu s nami.",
     h1: "Začnite krajinou.",
     lead:
       "Každý bod je trasa, ktorú sme prešli samy. Kliknite a uvidíte tvar cesty, koľko stojí a kde by sme si priplatili.",
@@ -410,6 +431,11 @@ const sk: Copy = {
     buySubjectUs: "Objednávka Guide + Us",
     buyNote:
       "Kliknutie otvorí predvyplnený e-mail pre nás — sprievodcu a prístup do chatu posielame do 24 hodín.",
+    soonEyebrow: "Už čoskoro",
+    soonTitle: "Túto trasu ešte len cestujeme",
+    soonText: "Práve ju plánujeme. Napíšte nám a sprievodcu dostanete medzi prvými — alebo ju zažijete priamo s nami.",
+    soonCta: "Zapíšte ma na zoznam",
+    soonSubject: "Čakacia listina",
     compare: "Porovnajte balíky",
     unavailable: "Nedostupné",
   },

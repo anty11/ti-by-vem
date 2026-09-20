@@ -17,6 +17,8 @@ export type Itinerary = ItineraryText & {
   /** When a "soon" trip goes live, e.g. "January 2027" */
   when?: string;
   whenSk?: string;
+  /** ISO date the "soon" trip goes live — powers the countdown */
+  launchDate?: string;
   days: number;
   budget: string;
   accent: "terracotta" | "royal" | "sage" | "gold" | "lilac";

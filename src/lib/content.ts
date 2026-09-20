@@ -25,6 +25,8 @@ export type Itinerary = ItineraryText & {
   /** Map position in the 700x500 SVG viewBox */
   x: number;
   y: number;
+  /** Personal italic note shown on the trip page, e.g. "eM's bucket list trip" */
+  personalNote?: string;
   sk: ItineraryText;
 };
 
@@ -44,6 +46,7 @@ export const itineraries: Itinerary[] = [
     accent: "royal",
     x: 350,
     y: 322,
+    personalNote: "eM's bucket list trip",
     highlights: [
       "Two peaks we plan the whole route around — you will know them the moment you see them",
       "Trains all the way, no rental car: fly into Zürich, fly home from Geneva",

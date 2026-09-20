@@ -107,6 +107,46 @@
   }
 }
 
+@keyframes route-map-dash {
+  to {
+    stroke-dashoffset: -36;
+  }
+}
+
+@keyframes route-map-pulse {
+  0%, 100% {
+    opacity: 0.55;
+    transform: scale(0.75);
+  }
+  50% {
+    opacity: 0;
+    transform: scale(1.35);
+  }
+}
+
+.route-map-active-segment {
+  stroke-dasharray: 8 7;
+  animation: route-map-dash 1.2s linear infinite;
+}
+
+.route-map-pulse {
+  transform-box: fill-box;
+  transform-origin: center;
+  animation: route-map-pulse 1.8s ease-out infinite;
+}
+
+.route-map-stop:focus-visible circle:last-of-type {
+  stroke: var(--gold);
+  stroke-width: 5;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .route-map-active-segment,
+  .route-map-pulse {
+    animation: none;
+  }
+}
+
 @layer base {
   * {
     border-color: var(--color-border);

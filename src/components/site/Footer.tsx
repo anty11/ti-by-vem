@@ -24,7 +24,6 @@ export function Footer() {
         <SocialLinks itemClassName="size-9 [&_svg]:size-4" />
       </div>
       <p className="mt-6 text-xs text-soft">© 2026 travel intelligence by VeM</p>
-      </div>
     </footer>
   );
 }

@@ -15,6 +15,7 @@ import { reportLovableError } from "../lib/lovable-error-reporting";
 import { Header } from "../components/site/Header";
 import { Footer } from "../components/site/Footer";
 import { langFromPathname } from "../lib/i18n";
+import { LaunchGate } from "../components/site/LaunchGate";
 
 
 function NotFoundComponent() {
@@ -134,10 +135,12 @@ function RootComponent() {
   return (
     <QueryClientProvider client={queryClient}>
       <div className="fixed inset-0 -z-10 bg-paper" />
-      <Header />
-      {/* Required: nested routes render here. Removing <Outlet /> breaks all child routes. */}
-      <Outlet />
-      <Footer />
+      <LaunchGate>
+        <Header />
+        {/* Required: nested routes render here. Removing <Outlet /> breaks all child routes. */}
+        <Outlet />
+        <Footer />
+      </LaunchGate>
     </QueryClientProvider>
   );
 }

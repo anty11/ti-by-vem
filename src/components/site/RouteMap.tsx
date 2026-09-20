@@ -1,4 +1,6 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
+import { ChevronLeft, ChevronRight, Pause, Play } from "lucide-react";
+import { Button } from "@/components/ui/button";
 import type { Lang } from "@/lib/i18n";
 import { dayStopDate, dayStopText, type RouteMap as RouteMapData } from "@/lib/route-maps";
 
@@ -26,7 +28,27 @@ function teaser(text: string) {
 
 export function RouteMap({ data, lang }: { data: RouteMapData; lang: Lang }) {
   const [active, setActive] = useState(data.days[0]?.day ?? 1);
+  const [hoveredNode, setHoveredNode] = useState<number | null>(null);
+  const [isPlaying, setIsPlaying] = useState(false);
   const current = data.days.find((d) => d.day === active) ?? data.days[0];
+
+  useEffect(() => {
+    if (!isPlaying || data.days.length < 2) return;
+
+    const timer = window.setInterval(() => {
+      setActive((day) => {
+        const index = data.days.findIndex((item) => item.day === day);
+        const next = data.days[index + 1];
+        if (!next) {
+          setIsPlaying(false);
+          return day;
+        }
+        return next.day;
+      });
+    }, 2200);
+
+    return () => window.clearInterval(timer);
+  }, [data.days, isPlaying]);
 
   // collapse consecutive days that share a place into one map node
   const nodes: Node[] = [];
@@ -44,22 +66,42 @@ export function RouteMap({ data, lang }: { data: RouteMapData; lang: Lang }) {
 
   const activeNodeIndex = nodes.findIndex((n) => n.days.includes(active));
   const t = current ? dayStopText(current, lang) : null;
+  const activeDayIndex = data.days.findIndex((d) => d.day === active);
+  const previous = activeDayIndex > 0 ? data.days[activeDayIndex - 1] : undefined;
+  const next = activeDayIndex >= 0 ? data.days[activeDayIndex + 1] : undefined;
+
+  function chooseDay(day: number) {
+    setActive(day);
+    setIsPlaying(false);
+  }
+
+  function toggleJourney() {
+    if (isPlaying) {
+      setIsPlaying(false);
+      return;
+    }
+    if (!next) setActive(data.days[0]?.day ?? 1);
+    setIsPlaying(true);
+  }
 
   return (
     <section className="mt-14">
       <h2 className="font-display text-3xl text-ink">{lang === "sk" ? data.titleSk : data.title}</h2>
       <p className="mt-3 max-w-2xl text-soft leading-relaxed">{lang === "sk" ? data.leadSk : data.lead}</p>
 
-      <div className="mt-6 flex flex-wrap gap-2">
+      <div className="mt-6 grid grid-cols-[minmax(0,1fr)_auto] items-start gap-3">
+        <div className="flex min-w-0 gap-2 overflow-x-auto pb-2 [scrollbar-width:none] [&::-webkit-scrollbar]:hidden">
         {data.days.map((d) => {
           const on = d.day === active;
           return (
-            <button
+            <Button
               key={d.day}
               type="button"
-              onClick={() => setActive(d.day)}
+              variant="ghost"
+              size="sm"
+              onClick={() => chooseDay(d.day)}
               aria-pressed={on}
-              className={`rounded-full px-4 py-2 text-xs font-semibold transition ${
+              className={`shrink-0 rounded-full px-4 transition ${
                 on
                   ? "bg-ink text-onink"
                   : d.peak
@@ -68,9 +110,21 @@ export function RouteMap({ data, lang }: { data: RouteMapData; lang: Lang }) {
               }`}
             >
               {lang === "sk" ? `${d.day}. deň` : `Day ${d.day}`} · {dayStopDate(d, lang)}
-            </button>
+            </Button>
           );
         })}
+        </div>
+        <Button
+          type="button"
+          variant={isPlaying ? "outline" : "default"}
+          size="sm"
+          onClick={toggleJourney}
+          className="shrink-0"
+          aria-label={lang === "sk" ? (isPlaying ? "Zastaviť cestu" : "Prehrať cestu") : isPlaying ? "Pause the journey" : "Play the journey"}
+        >
+          {isPlaying ? <Pause /> : <Play />}
+          <span className="hidden sm:inline">{lang === "sk" ? (isPlaying ? "Zastaviť" : "Prehrať cestu") : isPlaying ? "Pause" : "Play the journey"}</span>
+        </Button>
       </div>
 
       <div className="mt-6 grid gap-6 lg:grid-cols-[1.15fr_1fr]">
@@ -94,19 +148,22 @@ export function RouteMap({ data, lang }: { data: RouteMapData; lang: Lang }) {
 
             {/* route */}
             {nodes.slice(0, -1).map((n, i) => {
-              const next = nodes[i + 1]!;
+              const nextNode = nodes[i + 1];
+              if (!nextNode) return null;
               const done = i < activeNodeIndex;
               const isNow = i === activeNodeIndex - 1;
+              const isHovered = hoveredNode === i || hoveredNode === i + 1;
               return (
                 <path
                   key={`seg-${i}`}
-                  d={curve(n, next)}
+                  d={curve(n, nextNode)}
                   fill="none"
-                  stroke={done || isNow ? "var(--royal)" : "var(--ink)"}
-                  strokeOpacity={done || isNow ? 0.85 : 0.18}
-                  strokeWidth={isNow ? 5 : 3}
+                  stroke={done || isNow || isHovered ? "var(--royal)" : "var(--ink)"}
+                  strokeOpacity={done || isNow ? 0.85 : isHovered ? 0.55 : 0.18}
+                  strokeWidth={isNow ? 5 : isHovered ? 4 : 3}
                   strokeLinecap="round"
                   strokeDasharray={done || isNow ? undefined : "8 10"}
+                  className={isNow ? "route-map-active-segment" : "transition-all duration-300"}
                 />
               );
             })}
@@ -118,16 +175,38 @@ export function RouteMap({ data, lang }: { data: RouteMapData; lang: Lang }) {
               const anchor = n.x > 500 ? "end" : "start";
               const lx = n.x + (n.x > 500 ? -16 : 16);
               const ly = above ? n.y - 30 : n.y + 5;
+              const highlighted = on || hoveredNode === i;
+              const firstDay = n.days[0];
+              if (firstDay === undefined) return null;
               return (
-                <g key={n.place + i} className="cursor-pointer" onClick={() => setActive(n.days[0]!)}>
+                <g
+                  key={n.place + i}
+                  className="route-map-stop cursor-pointer outline-none"
+                  role="button"
+                  tabIndex={0}
+                  aria-label={`${n.place}, ${lang === "sk" ? "deň" : "day"} ${n.days.join(", ")}`}
+                  onClick={() => chooseDay(firstDay)}
+                  onMouseEnter={() => setHoveredNode(i)}
+                  onMouseLeave={() => setHoveredNode(null)}
+                  onFocus={() => setHoveredNode(i)}
+                  onBlur={() => setHoveredNode(null)}
+                  onKeyDown={(event) => {
+                    if (event.key === "Enter" || event.key === " ") {
+                      event.preventDefault();
+                      chooseDay(firstDay);
+                    }
+                  }}
+                >
                   {on && <circle cx={n.x} cy={n.y} r="20" fill="var(--royal)" opacity="0.2" />}
+                  {on && <circle cx={n.x} cy={n.y} r="17" fill="none" stroke="var(--royal)" strokeOpacity="0.5" strokeWidth="2" className="route-map-pulse" />}
                   <circle
                     cx={n.x}
                     cy={n.y}
-                    r={on ? 11 : 7}
+                    r={highlighted ? 11 : 7}
                     fill={n.peak ? "var(--gold)" : on ? "var(--royal)" : "var(--surface, white)"}
                     stroke={on ? "var(--ink)" : "var(--royal)"}
                     strokeWidth={on ? 3 : 2}
+                    className="transition-all duration-300"
                   />
                   <text
                     x={lx}
@@ -136,7 +215,7 @@ export function RouteMap({ data, lang }: { data: RouteMapData; lang: Lang }) {
                     className="font-semibold"
                     fontSize="15"
                     fill="var(--ink)"
-                    opacity={on ? 1 : 0.65}
+                    opacity={highlighted ? 1 : 0.65}
                   >
                     {n.place}
                   </text>
@@ -150,8 +229,9 @@ export function RouteMap({ data, lang }: { data: RouteMapData; lang: Lang }) {
         </div>
 
         {current && t && (
-          <div className="glass rounded-3xl p-7">
-            <div className="flex flex-wrap items-center gap-3">
+          <div key={current.day} className="glass animate-fade-in rounded-3xl p-7">
+            <div className="grid grid-cols-[minmax(0,1fr)_auto] items-center gap-3">
+              <div className="flex min-w-0 flex-wrap items-center gap-3">
               <span className="text-xs font-semibold uppercase tracking-[0.25em] text-royal">
                 {lang === "sk" ? `${current.day}. deň` : `Day ${current.day}`} · {dayStopDate(current, lang)}
               </span>
@@ -160,6 +240,10 @@ export function RouteMap({ data, lang }: { data: RouteMapData; lang: Lang }) {
                   {lang === "sk" ? "Vrchol cesty" : "Peak of the trip"}
                 </span>
               )}
+              </div>
+              <span className="shrink-0 text-xs font-semibold text-soft" aria-live="polite">
+                {activeDayIndex + 1}/{data.days.length}
+              </span>
             </div>
             <h3 className="mt-2 font-display text-3xl text-ink">{t.title}</h3>
             <p className="mt-1 text-sm font-semibold text-terracotta">{t.place}</p>
@@ -169,6 +253,35 @@ export function RouteMap({ data, lang }: { data: RouteMapData; lang: Lang }) {
                 ? "Presné časy, spoje, ceny a naše tipy na tento deň nájdete v sprievodcovi."
                 : "Exact times, connections, prices and our own tips for this day are inside the guide."}
             </p>
+            <div className="mt-6 flex items-center justify-between border-t border-border pt-5">
+              <Button
+                type="button"
+                variant="ghost"
+                size="sm"
+                disabled={!previous}
+                onClick={() => previous && chooseDay(previous.day)}
+                aria-label={lang === "sk" ? "Predchádzajúci deň" : "Previous day"}
+              >
+                <ChevronLeft />
+                {lang === "sk" ? "Späť" : "Previous"}
+              </Button>
+              <div className="flex gap-1" aria-hidden="true">
+                {data.days.map((d) => (
+                  <span key={d.day} className={`h-1.5 rounded-full transition-all duration-300 ${d.day === active ? "w-5 bg-royal" : "w-1.5 bg-soft/25"}`} />
+                ))}
+              </div>
+              <Button
+                type="button"
+                variant="ghost"
+                size="sm"
+                disabled={!next}
+                onClick={() => next && chooseDay(next.day)}
+                aria-label={lang === "sk" ? "Nasledujúci deň" : "Next day"}
+              >
+                {lang === "sk" ? "Ďalej" : "Next"}
+                <ChevronRight />
+              </Button>
+            </div>
           </div>
         )}
       </div>

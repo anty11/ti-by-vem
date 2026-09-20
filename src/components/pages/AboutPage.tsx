@@ -14,6 +14,11 @@ export function AboutPage({ lang }: { lang: Lang }) {
         <h1 className="mt-3 font-display text-5xl leading-[1.04] text-ink">{t.h1}</h1>
         <p className="mt-6 text-lg leading-relaxed text-soft">{t.p1}</p>
         <p className="mt-4 text-lg leading-relaxed text-soft">{t.p2}</p>
+        {t.p3 && <p className="mt-4 text-lg leading-relaxed text-soft">{t.p3}</p>}
+        {t.p4 && <p className="mt-4 text-lg leading-relaxed text-soft">{t.p4}</p>}
+        {t.signoff && (
+          <p className="mt-6 font-display text-2xl italic text-royal">{t.signoff}</p>
+        )}
       </div>
       <div className="mt-14 grid gap-8 sm:grid-cols-2">
         <article><img src={founderOne} alt="Veronika, V of travel intelligence by VeM" width={816} height={816} className="aspect-[4/3] w-full rounded-xl object-cover" /><p className="mt-5 text-xs font-semibold uppercase tracking-[0.2em] text-royal">V</p><h2 className="mt-1 font-display text-3xl text-ink">Veronika</h2><p className="mt-3 max-w-md text-sm leading-relaxed text-soft">{t.vText}</p></article>

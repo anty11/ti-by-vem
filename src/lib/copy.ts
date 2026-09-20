@@ -311,7 +311,13 @@ const en = {
   },
 };
 
-export type Copy = typeof en;
+export type Copy = Omit<typeof en, "about"> & {
+  about: Omit<typeof en.about, "p3" | "p4" | "signoff"> & {
+    p3?: string;
+    p4?: string;
+    signoff?: string;
+  };
+};
 
 const sk: Copy = {
   nav: {

@@ -14,6 +14,7 @@ export function ItineraryDetailPage({ itinerary, lang }: { itinerary: Itinerary;
   const soon = itinerary.status === "soon";
   const when = itineraryWhen(itinerary, lang);
   const card = copy[lang].card;
+  const routeMap = routeMaps[itinerary.slug];
 
   const mailto = (subject: string) =>
     `mailto:${contactEmail}?subject=${encodeURIComponent(`${subject} — ${text.title}, ${text.country}`)}`;

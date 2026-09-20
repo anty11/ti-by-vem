@@ -15,7 +15,9 @@ export function HomePage({ lang }: { lang: Lang }) {
       <section className="mx-auto grid max-w-7xl items-center gap-10 px-6 pb-6 pt-10 lg:grid-cols-2">
         <div>
           <span className="glass-soft inline-flex items-center gap-2 rounded-full px-4 py-1.5 text-xs font-semibold uppercase tracking-[0.2em] text-royal">
-            <span className="size-1.5 rounded-full bg-terracotta" /> {t.badge}
+            <span className="size-1.5 rounded-full bg-terracotta" /> {(t.badge.split("VeM")[0] ?? t.badge).trim()}
+            {" "}
+            <span className="normal-case">VeM</span>
           </span>
           <h1 className="mt-5 font-display text-5xl leading-[1.02] text-ink lg:text-6xl">
             {t.h1a}<span className="italic text-royal">{t.h1em1}</span>{t.h1b}<span className="italic text-terracotta">{t.h1em2}</span>{t.h1c}

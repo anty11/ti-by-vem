@@ -57,7 +57,7 @@ export function LaunchGate({ children }: { children: ReactNode }) {
       </button>
       <div className="glass w-full max-w-xl rounded-3xl p-8 sm:p-12 text-center">
         <span className="text-xs font-semibold uppercase tracking-[0.25em] text-royal">
-          travel intelligence by VeM
+          travel intelligence by <span className="normal-case">VeM</span>
         </span>
         <h1 className="mt-4 font-display text-5xl sm:text-6xl leading-[1.1] text-ink">
           <span className="block text-soft line-through decoration-terracotta decoration-2">{t.coming}</span>

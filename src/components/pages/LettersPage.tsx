@@ -39,8 +39,9 @@ export function LettersPage({ lang }: { lang: Lang }) {
         <div>
           <p className="text-xs font-semibold uppercase tracking-[0.22em] text-lilac">{t.eyebrow}</p>
           <h1 className="mt-3 max-w-2xl font-display text-5xl leading-[1.04] text-ink">{t.h1}</h1>
-          <p className="mt-5 max-w-xl text-lg leading-relaxed text-soft">{t.lead}</p>
-          <p className="mt-4 font-semibold text-terracotta">{t.strong}</p>
+          <p className="mt-5 max-w-2xl text-lg leading-relaxed text-soft">
+            <Lead segments={t.lead} />
+          </p>
           <a href={`mailto:${contactEmail}?subject=${encodeURIComponent(t.subject)}`} className="mt-8 inline-block rounded-lg bg-ink px-6 py-3 font-semibold text-onink transition hover:bg-lilac">{t.cta}</a>
         </div>
         <div className="relative mx-auto h-80 w-full max-w-md">

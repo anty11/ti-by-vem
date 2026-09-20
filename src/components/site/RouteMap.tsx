@@ -15,8 +15,13 @@ function curve(a: Node, b: Node) {
 }
 
 function teaser(text: string) {
-  const first = text.split(/(?<=[.!?])\s/)[0] ?? text;
-  return first.length > 160 ? first.slice(0, 157).trimEnd() + "…" : first;
+  const sentences = text.split(/(?<=[.!?])\s/);
+  let out = "";
+  for (const s of sentences) {
+    if (out && out.length >= 120) break;
+    out = out ? `${out} ${s}` : s;
+  }
+  return out.length > 220 ? out.slice(0, 217).trimEnd() + "…" : out;
 }
 
 export function RouteMap({ data, lang }: { data: RouteMapData; lang: Lang }) {

@@ -12,6 +12,7 @@ import { Route as rootRouteImport } from './routes/__root'
 import { Route as IndexRouteImport } from './routes/index'
 import { Route as AboutRouteImport } from './routes/about'
 import { Route as AccessRouteImport } from './routes/access'
+import { Route as AdminRouteImport } from './routes/admin'
 import { Route as DeliveryRouteImport } from './routes/delivery'
 import { Route as LettersRouteImport } from './routes/letters'
 import { Route as PricingRouteImport } from './routes/pricing'
@@ -46,6 +47,11 @@ const AboutRoute = AboutRouteImport.update({
 const AccessRoute = AccessRouteImport.update({
   id: '/access',
   path: '/access',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const AdminRoute = AdminRouteImport.update({
+  id: '/admin',
+  path: '/admin',
   getParentRoute: () => rootRouteImport,
 } as any)
 const DeliveryRoute = DeliveryRouteImport.update({
@@ -153,6 +159,7 @@ export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
   '/about': typeof AboutRoute
   '/access': typeof AccessRoute
+  '/admin': typeof AdminRoute
   '/delivery': typeof DeliveryRoute
   '/letters': typeof LettersRoute
   '/pricing': typeof PricingRoute
@@ -178,6 +185,7 @@ export interface FileRoutesByTo {
   '/': typeof IndexRoute
   '/about': typeof AboutRoute
   '/access': typeof AccessRoute
+  '/admin': typeof AdminRoute
   '/delivery': typeof DeliveryRoute
   '/letters': typeof LettersRoute
   '/pricing': typeof PricingRoute
@@ -204,6 +212,7 @@ export interface FileRoutesById {
   '/': typeof IndexRoute
   '/about': typeof AboutRoute
   '/access': typeof AccessRoute
+  '/admin': typeof AdminRoute
   '/delivery': typeof DeliveryRoute
   '/letters': typeof LettersRoute
   '/pricing': typeof PricingRoute
@@ -231,6 +240,7 @@ export interface FileRouteTypes {
     | '/'
     | '/about'
     | '/access'
+    | '/admin'
     | '/delivery'
     | '/letters'
     | '/pricing'
@@ -256,6 +266,7 @@ export interface FileRouteTypes {
     | '/'
     | '/about'
     | '/access'
+    | '/admin'
     | '/delivery'
     | '/letters'
     | '/pricing'
@@ -281,6 +292,7 @@ export interface FileRouteTypes {
     | '/'
     | '/about'
     | '/access'
+    | '/admin'
     | '/delivery'
     | '/letters'
     | '/pricing'
@@ -307,6 +319,7 @@ export interface RootRouteChildren {
   IndexRoute: typeof IndexRoute
   AboutRoute: typeof AboutRoute
   AccessRoute: typeof AccessRoute
+  AdminRoute: typeof AdminRoute
   DeliveryRoute: typeof DeliveryRoute
   LettersRoute: typeof LettersRoute
   PricingRoute: typeof PricingRoute
@@ -350,6 +363,13 @@ declare module '@tanstack/react-router' {
       path: '/access'
       fullPath: '/access'
       preLoaderRoute: typeof AccessRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/admin': {
+      id: '/admin'
+      path: '/admin'
+      fullPath: '/admin'
+      preLoaderRoute: typeof AdminRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/delivery': {
@@ -499,6 +519,7 @@ const rootRouteChildren: RootRouteChildren = {
   IndexRoute: IndexRoute,
   AboutRoute: AboutRoute,
   AccessRoute: AccessRoute,
+  AdminRoute: AdminRoute,
   DeliveryRoute: DeliveryRoute,
   LettersRoute: LettersRoute,
   PricingRoute: PricingRoute,

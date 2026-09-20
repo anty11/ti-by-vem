@@ -105,7 +105,7 @@ export function RouteMap({ data, lang }: { data: RouteMapData; lang: Lang }) {
               const on = i === activeNodeIndex;
               return (
                 <g key={n.place + i} className="cursor-pointer" onClick={() => setActive(n.days[0]!)}>
-                  {on && <circle cx={n.x} cy={n.y} r="010" fill="var(--royal)" opacity="0.2" />}
+                  {on && <circle cx={n.x} cy={n.y} r="20" fill="var(--royal)" opacity="0.2" />}
                   <circle
                     cx={n.x}
                     cy={n.y}

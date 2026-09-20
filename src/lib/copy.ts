@@ -534,11 +534,16 @@ const sk: Copy = {
     ogDescription:
       "Skutočné cesty, úprimné rozhodnutia a detaily, ktoré sme sa naučili tým, že sme ich prešli.",
     eyebrow: "Ľudia za VeM",
-    h1: "Veronika „V“ a Monika „eM“.",
+    h1: "Veronika „V“ a Monika „eM“",
     p1:
-      "Sme dve kamarátky, ktoré cestujú pohybom: ďalší vlak, ďalšie mesto, ďalšia trasa, ktorá ukáže viac než akýkoľvek zoznam. Naučili sme sa, kde nižšia cena nič nezmení a kde jedno premyslené priplatenie zmení celú cestu.",
+      "Prvého decembra 2016 sme spolu prvýkrát nasadli do lietadla a odleteli na jediný víkend do Ríma. Za pouhých štyridsaťosem hodín sme toho stihli prežiť neuveriteľne veľa, blúdili sme z jedného konca mesta na druhý, šli za vlastnými nohami aj zvedavosťou, ochutnávali, kráčali a videli oveľa viac, než by sa do dvoch dní vôbec malo zmestiť. Vtedy sme ešte netušili, že ten jeden krátky let nebude len začiatkom jednej cesty, ale začiatkom celého spôsobu, akým odvtedy žijeme a objavujeme svet.",
     p2:
-      "Ľudia si od nás stále pýtali plány, rozpočty a spoje. Tak sme začali meniť svoju skúsenosť na niečo užitočné: travel intelligence postavenú na trasách, ktoré sme naozaj prežili.",
+      "Od toho prvého rímskeho víkendu sme spolu precestovali pol sveta. Zbierali sme cesty a odbočky, tiché rána v neznámych mestách aj miesta, ktoré nikde v bežnom sprievodcovi nenájdete, a postupne sa zrodil náš vlastný spôsob cestovania, presne ten istý, ktorý sme objavili už počas tých prvých štyridsiatich ôsmich hodín, keď sme stále v pohybe a snažíme sa vidieť čo najviac, koľko len jeden deň unesie. V istom bode sme si povedali, že všetky tieto chvíle, všetko, čo sme precítili a naučili sa, sú príliš krásne na to, aby sme si ich nechali len pre seba, a že sa o ne chceme podeliť s vami a s celým svetom.",
+    p3:
+      "Presne pri desiatom výročí našej prvej spoločnej cesty sme sa preto rozhodli spraviť ďalší krok a založili sme Travel intelligence by VeM. Nie ako firmu, ktorá predáva hotové plány, ale ako miesto, do ktorého vkladáme všetko, čo nás cesty naučili, aby ste aj vy mohli objavovať naplno a po svojom. Sme totiž jednoducho dve najlepšie kamarátky, ktoré spája láska k cestám, a všetko, čo tu nájdete, vzniklo z reálnych ciest, nie od stola.",
+    p4:
+      "A hádajte, kam nás zavedie naša ďalšia cesta? Späť do Ríma, v roku 2026, takmer presne o desať rokov neskôr, do mesta, kde sa to celé začalo, aby sme kruh uzavreli presne tam, kde vznikol.",
+    signoff: "S láskou, V & eM",
     vText: "Trasy, načasovanie a praktické detaily, vďaka ktorým sa náročná cesta stále hýbe.",
     mText: "Príbehy, pohľad a malé postrehy, vďaka ktorým vám miesto ostane v pamäti.",
     contactTitle: "Napíšte nám",

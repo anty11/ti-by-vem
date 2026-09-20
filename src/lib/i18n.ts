@@ -9,6 +9,7 @@ export const routePaths = {
   terms: { en: "/terms", sk: "/sk/terms" },
   privacy: { en: "/privacy", sk: "/sk/privacy" },
   delivery: { en: "/delivery", sk: "/sk/delivery" },
+  access: { en: "/access", sk: "/sk/access" },
 } as const;
 
 export type RouteKey = keyof typeof routePaths;
@@ -19,6 +20,10 @@ export function path(lang: Lang, key: RouteKey) {
 
 export function detailPath(lang: Lang) {
   return lang === "sk" ? "/sk/itineraries/$slug" : "/itineraries/$slug";
+}
+
+export function tripPath(lang: Lang) {
+  return lang === "sk" ? "/sk/trip/$slug" : "/trip/$slug";
 }
 
 export function langFromPathname(pathname: string): Lang {

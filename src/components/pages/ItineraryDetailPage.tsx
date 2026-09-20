@@ -69,6 +69,9 @@ export function ItineraryDetailPage({ itinerary, lang }: { itinerary: Itinerary;
             </a>
           </div>
           <p className="mt-4 text-xs text-soft">{t.buyNote}</p>
+          <Link to={path(lang, "access")} className="mt-3 inline-block text-xs font-semibold text-royal underline-offset-4 hover:underline">
+            {lang === "sk" ? "Už máte kód? Odomknite si cestu" : "Already have a code? Unlock your trip"}
+          </Link>
         </div>
       </div>
 

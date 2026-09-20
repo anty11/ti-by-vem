@@ -4,6 +4,8 @@ import { itineraryText, itineraryWhen } from "@/lib/content";
 import { TierCards } from "@/components/site/TierCards";
 import { Countdown } from "@/components/site/Countdown";
 import { copy } from "@/lib/copy";
+import { RouteMap } from "@/components/site/RouteMap";
+import { routeMaps } from "@/lib/route-maps";
 import { contactEmail, path, type Lang } from "@/lib/i18n";
 
 export function ItineraryDetailPage({ itinerary, lang }: { itinerary: Itinerary; lang: Lang }) {
@@ -12,6 +14,7 @@ export function ItineraryDetailPage({ itinerary, lang }: { itinerary: Itinerary;
   const soon = itinerary.status === "soon";
   const when = itineraryWhen(itinerary, lang);
   const card = copy[lang].card;
+  const routeMap = routeMaps[itinerary.slug];
 
   const mailto = (subject: string) =>
     `mailto:${contactEmail}?subject=${encodeURIComponent(`${subject} — ${text.title}, ${text.country}`)}`;
@@ -57,6 +60,8 @@ export function ItineraryDetailPage({ itinerary, lang }: { itinerary: Itinerary;
         </ul>
         <p className="mt-6 text-sm text-soft italic">{t.note}</p>
       </div>
+
+      {routeMap && <RouteMap data={routeMap} lang={lang} />}
 
 {soon ? (
       <div id="buy" className="mt-14 scroll-mt-28">

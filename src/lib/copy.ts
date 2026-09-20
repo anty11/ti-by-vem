@@ -1,5 +1,7 @@
 import type { Lang } from "./i18n";
 
+export type LeadSegment = { text: string; i?: boolean; c?: "terracotta" | "royal" };
+
 const en = {
   nav: {
     itineraries: "Itineraries",

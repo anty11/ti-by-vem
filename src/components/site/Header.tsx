@@ -1,6 +1,7 @@
 import { Link, useRouterState } from "@tanstack/react-router";
 import { copy } from "@/lib/copy";
 import { langFromPathname, path, switchPath } from "@/lib/i18n";
+import { SocialLinks } from "@/components/site/SocialLinks";
 
 export function Header() {
   const pathname = useRouterState({ select: (s) => s.location.pathname });
@@ -25,6 +26,7 @@ export function Header() {
           <Link to={path(lang, "about")} className="transition hover:text-ink">{t.about}</Link>
         </div>
         <div className="flex items-center gap-3">
+          <SocialLinks className="hidden sm:flex" itemClassName="size-9 [&_svg]:size-4" />
           <a
             href={other}
             className="rounded-lg border border-border px-3 py-2 text-xs font-semibold uppercase tracking-[0.12em] text-soft transition hover:text-ink"

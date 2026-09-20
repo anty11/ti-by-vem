@@ -1,6 +1,7 @@
 import { Link, useRouterState } from "@tanstack/react-router";
 import { copy } from "@/lib/copy";
 import { langFromPathname, path } from "@/lib/i18n";
+import { SocialLinks } from "@/components/site/SocialLinks";
 
 export function Footer() {
   const pathname = useRouterState({ select: (s) => s.location.pathname });
@@ -20,7 +21,9 @@ export function Footer() {
           <Link to={path(lang, "delivery")} className="transition hover:text-ink">{t.delivery}</Link>
           <Link to={path(lang, "about")} className="transition hover:text-ink">{t.contact}</Link>
         </div>
-        <p className="text-xs text-soft">© 2026 travel intelligence by VeM</p>
+        <SocialLinks itemClassName="size-9 [&_svg]:size-4" />
+      </div>
+      <p className="mt-6 text-xs text-soft">© 2026 travel intelligence by VeM</p>
       </div>
     </footer>
   );

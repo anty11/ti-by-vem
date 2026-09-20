@@ -34,6 +34,7 @@ export const itineraries: Itinerary[] = [
     status: "soon",
     when: "January 2027",
     whenSk: "január 2027",
+    launchDate: "2027-01-28T09:00:00+01:00",
     country: "Switzerland",
     title: "Winter wonderland",
     days: 8,

@@ -8,17 +8,15 @@ export const launchDate = "2026-12-01T09:00:00+01:00";
 const bypassKey = "vem-preview";
 const bypassValue = "vem";
 
-const gateCopy: Record<Lang, { coming: string; travel: string; lead: string; contact: string }> = {
+const gateCopy: Record<Lang, { coming: string; travel: string; contact: string }> = {
   en: {
     coming: "coming",
     travel: "travel soon",
-    lead: "travel intelligence by VeM opens on 1 December 2026. Routes, budgets and the trip chat go live together.",
     contact: "Write to us",
   },
   sk: {
     coming: "coming",
     travel: "travel soon",
-    lead: "travel intelligence by VeM sa otvára 1. decembra 2026. Trasy, rozpočty aj chat k ceste spustíme naraz.",
     contact: "Napíšte nám",
   },
 };
@@ -46,11 +44,10 @@ export function LaunchGate({ children }: { children: ReactNode }) {
         <span className="text-xs font-semibold uppercase tracking-[0.25em] text-royal">
           travel intelligence by VeM
         </span>
-        <h1 className="mt-4 font-display text-5xl sm:text-6xl leading-[1.05] text-ink">
-          <span className="text-soft line-through decoration-terracotta decoration-2">{t.coming}</span>{" "}
-          <span className="block sm:inline">{t.travel}</span>
+        <h1 className="mt-4 font-display text-5xl sm:text-6xl leading-[1.1] text-ink">
+          <span className="block text-soft line-through decoration-terracotta decoration-2">{t.coming}</span>
+          <span className="block italic">{t.travel}</span>
         </h1>
-        <p className="mx-auto mt-5 max-w-sm text-soft leading-relaxed">{t.lead}</p>
         <div className="mt-8">
           <Countdown target={launchDate} lang={lang} size="lg" />
         </div>

@@ -1,5 +1,6 @@
 import { copy } from "@/lib/copy";
 import { contactEmail, type Lang } from "@/lib/i18n";
+import { SocialLinks } from "@/components/site/SocialLinks";
 import founderOne from "@/assets/founder-one.jpg";
 import founderTwo from "@/assets/founder-two.jpg";
 
@@ -21,6 +22,7 @@ export function AboutPage({ lang }: { lang: Lang }) {
       <div className="mt-14 border-t border-border pt-8">
         <h2 className="font-display text-2xl text-ink">{t.contactTitle}</h2>
         <p className="mt-2 text-soft">{t.contactA}<a href={`mailto:${contactEmail}`} className="font-semibold text-royal">{contactEmail}</a>{t.contactB}</p>
+        <SocialLinks className="mt-4" itemClassName="size-10 [&_svg]:size-[18px]" />
       </div>
     </main>
   );

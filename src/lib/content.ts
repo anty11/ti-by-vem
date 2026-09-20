@@ -118,6 +118,10 @@ export const itineraries: Itinerary[] = [
   },
 ];
 
+export function itineraryWhen(item: Itinerary, lang: Lang): string | undefined {
+  return lang === "sk" ? item.whenSk ?? item.when : item.when;
+}
+
 export function itineraryText(item: Itinerary, lang: Lang): ItineraryText {
   if (lang === "sk") return item.sk;
   return {

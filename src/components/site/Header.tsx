@@ -24,6 +24,9 @@ export function Header() {
           <Link to={path(lang, "pricing")} className="transition hover:text-ink">{t.packages}</Link>
           <Link to={path(lang, "letters")} className="transition hover:text-ink">{t.postcard}</Link>
           <Link to={path(lang, "about")} className="transition hover:text-ink">{t.about}</Link>
+          <Link to={path(lang, "access")} className="transition hover:text-ink">
+            {lang === "sk" ? "Moje cesty" : "My trips"}
+          </Link>
         </div>
         <div className="flex items-center gap-3">
           <SocialLinks className="hidden sm:flex" itemClassName="size-9 [&_svg]:size-4" />

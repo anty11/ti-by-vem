@@ -11,22 +11,28 @@
 import { Route as rootRouteImport } from './routes/__root'
 import { Route as IndexRouteImport } from './routes/index'
 import { Route as AboutRouteImport } from './routes/about'
+import { Route as AccessRouteImport } from './routes/access'
+import { Route as AdminRouteImport } from './routes/admin'
 import { Route as DeliveryRouteImport } from './routes/delivery'
 import { Route as LettersRouteImport } from './routes/letters'
 import { Route as PricingRouteImport } from './routes/pricing'
 import { Route as PrivacyRouteImport } from './routes/privacy'
 import { Route as TermsRouteImport } from './routes/terms'
+import { Route as ApiChatRouteImport } from './routes/api/chat'
 import { Route as ItinerariesIndexRouteImport } from './routes/itineraries.index'
 import { Route as ItinerariesSlugRouteImport } from './routes/itineraries.$slug'
 import { Route as SkIndexRouteImport } from './routes/sk.index'
 import { Route as SkAboutRouteImport } from './routes/sk.about'
+import { Route as SkAccessRouteImport } from './routes/sk.access'
 import { Route as SkDeliveryRouteImport } from './routes/sk.delivery'
 import { Route as SkLettersRouteImport } from './routes/sk.letters'
 import { Route as SkPricingRouteImport } from './routes/sk.pricing'
 import { Route as SkPrivacyRouteImport } from './routes/sk.privacy'
 import { Route as SkTermsRouteImport } from './routes/sk.terms'
+import { Route as TripSlugRouteImport } from './routes/trip.$slug'
 import { Route as SkItinerariesIndexRouteImport } from './routes/sk.itineraries.index'
 import { Route as SkItinerariesSlugRouteImport } from './routes/sk.itineraries.$slug'
+import { Route as SkTripSlugRouteImport } from './routes/sk.trip.$slug'
 
 const IndexRoute = IndexRouteImport.update({
   id: '/',
@@ -36,6 +42,16 @@ const IndexRoute = IndexRouteImport.update({
 const AboutRoute = AboutRouteImport.update({
   id: '/about',
   path: '/about',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const AccessRoute = AccessRouteImport.update({
+  id: '/access',
+  path: '/access',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const AdminRoute = AdminRouteImport.update({
+  id: '/admin',
+  path: '/admin',
   getParentRoute: () => rootRouteImport,
 } as any)
 const DeliveryRoute = DeliveryRouteImport.update({
@@ -63,6 +79,11 @@ const TermsRoute = TermsRouteImport.update({
   path: '/terms',
   getParentRoute: () => rootRouteImport,
 } as any)
+const ApiChatRoute = ApiChatRouteImport.update({
+  id: '/api/chat',
+  path: '/api/chat',
+  getParentRoute: () => rootRouteImport,
+} as any)
 const ItinerariesIndexRoute = ItinerariesIndexRouteImport.update({
   id: '/itineraries/',
   path: '/itineraries/',
@@ -81,6 +102,11 @@ const SkIndexRoute = SkIndexRouteImport.update({
 const SkAboutRoute = SkAboutRouteImport.update({
   id: '/sk/about',
   path: '/sk/about',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const SkAccessRoute = SkAccessRouteImport.update({
+  id: '/sk/access',
+  path: '/sk/access',
   getParentRoute: () => rootRouteImport,
 } as any)
 const SkDeliveryRoute = SkDeliveryRouteImport.update({
@@ -108,6 +134,11 @@ const SkTermsRoute = SkTermsRouteImport.update({
   path: '/sk/terms',
   getParentRoute: () => rootRouteImport,
 } as any)
+const TripSlugRoute = TripSlugRouteImport.update({
+  id: '/trip/$slug',
+  path: '/trip/$slug',
+  getParentRoute: () => rootRouteImport,
+} as any)
 const SkItinerariesIndexRoute = SkItinerariesIndexRouteImport.update({
   id: '/sk/itineraries/',
   path: '/sk/itineraries/',
@@ -118,66 +149,89 @@ const SkItinerariesSlugRoute = SkItinerariesSlugRouteImport.update({
   path: '/sk/itineraries/$slug',
   getParentRoute: () => rootRouteImport,
 } as any)
+const SkTripSlugRoute = SkTripSlugRouteImport.update({
+  id: '/sk/trip/$slug',
+  path: '/sk/trip/$slug',
+  getParentRoute: () => rootRouteImport,
+} as any)
 
 export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
   '/about': typeof AboutRoute
+  '/access': typeof AccessRoute
+  '/admin': typeof AdminRoute
   '/delivery': typeof DeliveryRoute
   '/letters': typeof LettersRoute
   '/pricing': typeof PricingRoute
   '/privacy': typeof PrivacyRoute
   '/terms': typeof TermsRoute
+  '/api/chat': typeof ApiChatRoute
   '/itineraries/$slug': typeof ItinerariesSlugRoute
   '/sk/about': typeof SkAboutRoute
+  '/sk/access': typeof SkAccessRoute
   '/sk/delivery': typeof SkDeliveryRoute
   '/sk/letters': typeof SkLettersRoute
   '/sk/pricing': typeof SkPricingRoute
   '/sk/privacy': typeof SkPrivacyRoute
   '/sk/terms': typeof SkTermsRoute
+  '/trip/$slug': typeof TripSlugRoute
   '/itineraries/': typeof ItinerariesIndexRoute
   '/sk/': typeof SkIndexRoute
   '/sk/itineraries/$slug': typeof SkItinerariesSlugRoute
+  '/sk/trip/$slug': typeof SkTripSlugRoute
   '/sk/itineraries/': typeof SkItinerariesIndexRoute
 }
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
   '/about': typeof AboutRoute
+  '/access': typeof AccessRoute
+  '/admin': typeof AdminRoute
   '/delivery': typeof DeliveryRoute
   '/letters': typeof LettersRoute
   '/pricing': typeof PricingRoute
   '/privacy': typeof PrivacyRoute
   '/terms': typeof TermsRoute
+  '/api/chat': typeof ApiChatRoute
   '/itineraries/$slug': typeof ItinerariesSlugRoute
   '/sk/about': typeof SkAboutRoute
+  '/sk/access': typeof SkAccessRoute
   '/sk/delivery': typeof SkDeliveryRoute
   '/sk/letters': typeof SkLettersRoute
   '/sk/pricing': typeof SkPricingRoute
   '/sk/privacy': typeof SkPrivacyRoute
   '/sk/terms': typeof SkTermsRoute
+  '/trip/$slug': typeof TripSlugRoute
   '/itineraries': typeof ItinerariesIndexRoute
   '/sk': typeof SkIndexRoute
   '/sk/itineraries/$slug': typeof SkItinerariesSlugRoute
+  '/sk/trip/$slug': typeof SkTripSlugRoute
   '/sk/itineraries': typeof SkItinerariesIndexRoute
 }
 export interface FileRoutesById {
   __root__: typeof rootRouteImport
   '/': typeof IndexRoute
   '/about': typeof AboutRoute
+  '/access': typeof AccessRoute
+  '/admin': typeof AdminRoute
   '/delivery': typeof DeliveryRoute
   '/letters': typeof LettersRoute
   '/pricing': typeof PricingRoute
   '/privacy': typeof PrivacyRoute
   '/terms': typeof TermsRoute
+  '/api/chat': typeof ApiChatRoute
   '/itineraries/$slug': typeof ItinerariesSlugRoute
   '/sk/about': typeof SkAboutRoute
+  '/sk/access': typeof SkAccessRoute
   '/sk/delivery': typeof SkDeliveryRoute
   '/sk/letters': typeof SkLettersRoute
   '/sk/pricing': typeof SkPricingRoute
   '/sk/privacy': typeof SkPrivacyRoute
   '/sk/terms': typeof SkTermsRoute
+  '/trip/$slug': typeof TripSlugRoute
   '/itineraries/': typeof ItinerariesIndexRoute
   '/sk/': typeof SkIndexRoute
   '/sk/itineraries/$slug': typeof SkItinerariesSlugRoute
+  '/sk/trip/$slug': typeof SkTripSlugRoute
   '/sk/itineraries/': typeof SkItinerariesIndexRoute
 }
 export interface FileRouteTypes {
@@ -185,82 +239,106 @@ export interface FileRouteTypes {
   fullPaths:
     | '/'
     | '/about'
+    | '/access'
+    | '/admin'
     | '/delivery'
     | '/letters'
     | '/pricing'
     | '/privacy'
     | '/terms'
+    | '/api/chat'
     | '/itineraries/$slug'
     | '/sk/about'
+    | '/sk/access'
     | '/sk/delivery'
     | '/sk/letters'
     | '/sk/pricing'
     | '/sk/privacy'
     | '/sk/terms'
+    | '/trip/$slug'
     | '/itineraries/'
     | '/sk/'
     | '/sk/itineraries/$slug'
+    | '/sk/trip/$slug'
     | '/sk/itineraries/'
   fileRoutesByTo: FileRoutesByTo
   to:
     | '/'
     | '/about'
+    | '/access'
+    | '/admin'
     | '/delivery'
     | '/letters'
     | '/pricing'
     | '/privacy'
     | '/terms'
+    | '/api/chat'
     | '/itineraries/$slug'
     | '/sk/about'
+    | '/sk/access'
     | '/sk/delivery'
     | '/sk/letters'
     | '/sk/pricing'
     | '/sk/privacy'
     | '/sk/terms'
+    | '/trip/$slug'
     | '/itineraries'
     | '/sk'
     | '/sk/itineraries/$slug'
+    | '/sk/trip/$slug'
     | '/sk/itineraries'
   id:
     | '__root__'
     | '/'
     | '/about'
+    | '/access'
+    | '/admin'
     | '/delivery'
     | '/letters'
     | '/pricing'
     | '/privacy'
     | '/terms'
+    | '/api/chat'
     | '/itineraries/$slug'
     | '/sk/about'
+    | '/sk/access'
     | '/sk/delivery'
     | '/sk/letters'
     | '/sk/pricing'
     | '/sk/privacy'
     | '/sk/terms'
+    | '/trip/$slug'
     | '/itineraries/'
     | '/sk/'
     | '/sk/itineraries/$slug'
+    | '/sk/trip/$slug'
     | '/sk/itineraries/'
   fileRoutesById: FileRoutesById
 }
 export interface RootRouteChildren {
   IndexRoute: typeof IndexRoute
   AboutRoute: typeof AboutRoute
+  AccessRoute: typeof AccessRoute
+  AdminRoute: typeof AdminRoute
   DeliveryRoute: typeof DeliveryRoute
   LettersRoute: typeof LettersRoute
   PricingRoute: typeof PricingRoute
   PrivacyRoute: typeof PrivacyRoute
   TermsRoute: typeof TermsRoute
+  ApiChatRoute: typeof ApiChatRoute
   ItinerariesSlugRoute: typeof ItinerariesSlugRoute
   SkAboutRoute: typeof SkAboutRoute
+  SkAccessRoute: typeof SkAccessRoute
   SkDeliveryRoute: typeof SkDeliveryRoute
   SkLettersRoute: typeof SkLettersRoute
   SkPricingRoute: typeof SkPricingRoute
   SkPrivacyRoute: typeof SkPrivacyRoute
   SkTermsRoute: typeof SkTermsRoute
+  TripSlugRoute: typeof TripSlugRoute
   ItinerariesIndexRoute: typeof ItinerariesIndexRoute
   SkIndexRoute: typeof SkIndexRoute
   SkItinerariesSlugRoute: typeof SkItinerariesSlugRoute
+  SkTripSlugRoute: typeof SkTripSlugRoute
   SkItinerariesIndexRoute: typeof SkItinerariesIndexRoute
 }
 
@@ -278,6 +356,20 @@ declare module '@tanstack/react-router' {
       path: '/about'
       fullPath: '/about'
       preLoaderRoute: typeof AboutRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/access': {
+      id: '/access'
+      path: '/access'
+      fullPath: '/access'
+      preLoaderRoute: typeof AccessRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/admin': {
+      id: '/admin'
+      path: '/admin'
+      fullPath: '/admin'
+      preLoaderRoute: typeof AdminRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/delivery': {
@@ -315,6 +407,13 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof TermsRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/api/chat': {
+      id: '/api/chat'
+      path: '/api/chat'
+      fullPath: '/api/chat'
+      preLoaderRoute: typeof ApiChatRouteImport
+      parentRoute: typeof rootRouteImport
+    }
     '/itineraries/': {
       id: '/itineraries/'
       path: '/itineraries'
@@ -341,6 +440,13 @@ declare module '@tanstack/react-router' {
       path: '/sk/about'
       fullPath: '/sk/about'
       preLoaderRoute: typeof SkAboutRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/sk/access': {
+      id: '/sk/access'
+      path: '/sk/access'
+      fullPath: '/sk/access'
+      preLoaderRoute: typeof SkAccessRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/sk/delivery': {
@@ -378,6 +484,13 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof SkTermsRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/trip/$slug': {
+      id: '/trip/$slug'
+      path: '/trip/$slug'
+      fullPath: '/trip/$slug'
+      preLoaderRoute: typeof TripSlugRouteImport
+      parentRoute: typeof rootRouteImport
+    }
     '/sk/itineraries/': {
       id: '/sk/itineraries/'
       path: '/sk/itineraries'
@@ -392,27 +505,40 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof SkItinerariesSlugRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/sk/trip/$slug': {
+      id: '/sk/trip/$slug'
+      path: '/sk/trip/$slug'
+      fullPath: '/sk/trip/$slug'
+      preLoaderRoute: typeof SkTripSlugRouteImport
+      parentRoute: typeof rootRouteImport
+    }
   }
 }
 
 const rootRouteChildren: RootRouteChildren = {
   IndexRoute: IndexRoute,
   AboutRoute: AboutRoute,
+  AccessRoute: AccessRoute,
+  AdminRoute: AdminRoute,
   DeliveryRoute: DeliveryRoute,
   LettersRoute: LettersRoute,
   PricingRoute: PricingRoute,
   PrivacyRoute: PrivacyRoute,
   TermsRoute: TermsRoute,
+  ApiChatRoute: ApiChatRoute,
   ItinerariesSlugRoute: ItinerariesSlugRoute,
   SkAboutRoute: SkAboutRoute,
+  SkAccessRoute: SkAccessRoute,
   SkDeliveryRoute: SkDeliveryRoute,
   SkLettersRoute: SkLettersRoute,
   SkPricingRoute: SkPricingRoute,
   SkPrivacyRoute: SkPrivacyRoute,
   SkTermsRoute: SkTermsRoute,
+  TripSlugRoute: TripSlugRoute,
   ItinerariesIndexRoute: ItinerariesIndexRoute,
   SkIndexRoute: SkIndexRoute,
   SkItinerariesSlugRoute: SkItinerariesSlugRoute,
+  SkTripSlugRoute: SkTripSlugRoute,
   SkItinerariesIndexRoute: SkItinerariesIndexRoute,
 }
 export const routeTree = rootRouteImport

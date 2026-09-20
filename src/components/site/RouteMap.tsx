@@ -27,7 +27,8 @@ export function RouteMap({ data, lang }: { data: RouteMapData; lang: Lang }) {
       last.days.push(d.day);
       last.peak = last.peak || Boolean(d.peak);
     } else {
-      nodes.push({ x: d.x, y: d.y, place: text.place, days: [d.day], peak: Boolean(d.peak) });
+      const label = (text.place.split("→").pop() ?? text.place).trim();
+      nodes.push({ x: d.x, y: d.y, place: label, days: [d.day], peak: Boolean(d.peak) });
     }
   }
 

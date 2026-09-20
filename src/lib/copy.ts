@@ -68,7 +68,7 @@ const en = {
     packagesText:
       "Two clear options, one place to compare them. The VeM WhatsApp group opens with Guide + Us.",
     packagesNoteA: "Rather just a hello in your letterbox? The ",
-    packagesNoteLink: "postcard membership",
+    packagesNoteLink: "Postcard club",
     packagesNoteB: " runs separately at €12/month.",
     packagesCta: "Open packages →",
     postcardEyebrow: "A postcard, not a guide · €12/month",

@@ -16,6 +16,7 @@ import { Route as LettersRouteImport } from './routes/letters'
 import { Route as PricingRouteImport } from './routes/pricing'
 import { Route as PrivacyRouteImport } from './routes/privacy'
 import { Route as TermsRouteImport } from './routes/terms'
+import { Route as ApiChatRouteImport } from './routes/api/chat'
 import { Route as ItinerariesIndexRouteImport } from './routes/itineraries.index'
 import { Route as ItinerariesSlugRouteImport } from './routes/itineraries.$slug'
 import { Route as SkIndexRouteImport } from './routes/sk.index'
@@ -61,6 +62,11 @@ const PrivacyRoute = PrivacyRouteImport.update({
 const TermsRoute = TermsRouteImport.update({
   id: '/terms',
   path: '/terms',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const ApiChatRoute = ApiChatRouteImport.update({
+  id: '/api/chat',
+  path: '/api/chat',
   getParentRoute: () => rootRouteImport,
 } as any)
 const ItinerariesIndexRoute = ItinerariesIndexRouteImport.update({
@@ -127,6 +133,7 @@ export interface FileRoutesByFullPath {
   '/pricing': typeof PricingRoute
   '/privacy': typeof PrivacyRoute
   '/terms': typeof TermsRoute
+  '/api/chat': typeof ApiChatRoute
   '/itineraries/$slug': typeof ItinerariesSlugRoute
   '/sk/about': typeof SkAboutRoute
   '/sk/delivery': typeof SkDeliveryRoute
@@ -147,6 +154,7 @@ export interface FileRoutesByTo {
   '/pricing': typeof PricingRoute
   '/privacy': typeof PrivacyRoute
   '/terms': typeof TermsRoute
+  '/api/chat': typeof ApiChatRoute
   '/itineraries/$slug': typeof ItinerariesSlugRoute
   '/sk/about': typeof SkAboutRoute
   '/sk/delivery': typeof SkDeliveryRoute
@@ -168,6 +176,7 @@ export interface FileRoutesById {
   '/pricing': typeof PricingRoute
   '/privacy': typeof PrivacyRoute
   '/terms': typeof TermsRoute
+  '/api/chat': typeof ApiChatRoute
   '/itineraries/$slug': typeof ItinerariesSlugRoute
   '/sk/about': typeof SkAboutRoute
   '/sk/delivery': typeof SkDeliveryRoute
@@ -190,6 +199,7 @@ export interface FileRouteTypes {
     | '/pricing'
     | '/privacy'
     | '/terms'
+    | '/api/chat'
     | '/itineraries/$slug'
     | '/sk/about'
     | '/sk/delivery'
@@ -210,6 +220,7 @@ export interface FileRouteTypes {
     | '/pricing'
     | '/privacy'
     | '/terms'
+    | '/api/chat'
     | '/itineraries/$slug'
     | '/sk/about'
     | '/sk/delivery'
@@ -230,6 +241,7 @@ export interface FileRouteTypes {
     | '/pricing'
     | '/privacy'
     | '/terms'
+    | '/api/chat'
     | '/itineraries/$slug'
     | '/sk/about'
     | '/sk/delivery'
@@ -251,6 +263,7 @@ export interface RootRouteChildren {
   PricingRoute: typeof PricingRoute
   PrivacyRoute: typeof PrivacyRoute
   TermsRoute: typeof TermsRoute
+  ApiChatRoute: typeof ApiChatRoute
   ItinerariesSlugRoute: typeof ItinerariesSlugRoute
   SkAboutRoute: typeof SkAboutRoute
   SkDeliveryRoute: typeof SkDeliveryRoute
@@ -313,6 +326,13 @@ declare module '@tanstack/react-router' {
       path: '/terms'
       fullPath: '/terms'
       preLoaderRoute: typeof TermsRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/api/chat': {
+      id: '/api/chat'
+      path: '/api/chat'
+      fullPath: '/api/chat'
+      preLoaderRoute: typeof ApiChatRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/itineraries/': {
@@ -403,6 +423,7 @@ const rootRouteChildren: RootRouteChildren = {
   PricingRoute: PricingRoute,
   PrivacyRoute: PrivacyRoute,
   TermsRoute: TermsRoute,
+  ApiChatRoute: ApiChatRoute,
   ItinerariesSlugRoute: ItinerariesSlugRoute,
   SkAboutRoute: SkAboutRoute,
   SkDeliveryRoute: SkDeliveryRoute,

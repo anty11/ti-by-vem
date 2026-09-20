@@ -60,6 +60,8 @@ export function ItineraryDetailPage({ itinerary, lang }: { itinerary: Itinerary;
         <p className="mt-6 text-sm text-soft italic">{t.note}</p>
       </div>
 
+      {routeMap && <RouteMap data={routeMap} lang={lang} />}
+
 {soon ? (
       <div id="buy" className="mt-14 scroll-mt-28">
         <div className="glass rounded-3xl p-8 lg:p-10 text-center">

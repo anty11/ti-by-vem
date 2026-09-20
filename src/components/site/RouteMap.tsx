@@ -153,15 +153,12 @@ export function RouteMap({ data, lang }: { data: RouteMapData; lang: Lang }) {
             </div>
             <h3 className="mt-2 font-display text-3xl text-ink">{t.title}</h3>
             <p className="mt-1 text-sm font-semibold text-terracotta">{t.place}</p>
-            <p className="mt-4 text-soft leading-relaxed">{t.text}</p>
-            <ul className="mt-5 space-y-2">
-              {t.notes.map((n) => (
-                <li key={n} className="flex gap-3 text-sm text-soft">
-                  <span className="mt-2 size-1.5 shrink-0 rounded-full bg-royal" />
-                  {n}
-                </li>
-              ))}
-            </ul>
+            <p className="mt-4 text-soft leading-relaxed">{teaser(t.text)}</p>
+            <p className="mt-5 text-sm italic text-soft">
+              {lang === "sk"
+                ? "Presné časy, spoje, ceny a naše tipy na tento deň nájdete v sprievodcovi."
+                : "Exact times, connections, prices and our own tips for this day are inside the guide."}
+            </p>
           </div>
         )}
       </div>

@@ -36,10 +36,25 @@ export function LaunchGate({ children }: { children: ReactNode }) {
     if (bypass || Date.now() >= new Date(launchDate).getTime()) setOpen(true);
   }, []);
 
+  const bypass = () => {
+    localStorage.setItem(bypassKey, bypassValue);
+    setOpen(true);
+  };
+
   if (open) return <>{children}</>;
 
   return (
-    <main className="min-h-screen grid place-items-center px-6 py-16">
+    <main className="relative min-h-screen grid place-items-center px-6 py-16">
+      <button
+        type="button"
+        onClick={bypass}
+        aria-label="Skip the countdown"
+        className="absolute right-5 top-5 grid size-10 place-items-center rounded-full text-soft transition hover:bg-ink/5 hover:text-ink"
+      >
+        <svg viewBox="0 0 24 24" className="size-5" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round">
+          <path d="M6 6l12 12M18 6L6 18" />
+        </svg>
+      </button>
       <div className="glass w-full max-w-xl rounded-3xl p-8 sm:p-12 text-center">
         <span className="text-xs font-semibold uppercase tracking-[0.25em] text-royal">
           travel intelligence by VeM

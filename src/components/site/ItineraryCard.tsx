@@ -9,12 +9,14 @@ import italy from "@/assets/italy.jpg";
 import switzerland from "@/assets/switzerland.jpg";
 import riviera from "@/assets/riviera.jpg";
 import scotland from "@/assets/scotland.jpg";
+import dolomitesWinter from "@/assets/dolomites-winter.jpg";
 
 const images: Record<string, string> = {
   italy,
   switzerland,
   riviera,
   scotland,
+  "dolomites-winter": dolomitesWinter,
 };
 
 export function ItineraryCard({ itinerary, lang = "en" }: { itinerary: Itinerary; lang?: Lang }) {

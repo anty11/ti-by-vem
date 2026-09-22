@@ -21,6 +21,9 @@ export type Itinerary = ItineraryText & {
   launchDate?: string;
   days: number;
   budget: string;
+  /** Overrides the default Guide + Chat price for this trip, e.g. "€9" */
+  chatPrice?: string;
+  chatPriceSk?: string;
   accent: "terracotta" | "royal" | "sage" | "gold" | "lilac";
   /** Map position in the 700x500 SVG viewBox */
   x: number;
@@ -31,6 +34,39 @@ export type Itinerary = ItineraryText & {
 };
 
 export const itineraries: Itinerary[] = [
+  {
+    slug: "dolomites-winter",
+    status: "live",
+    country: "Italy & Austria",
+    title: "Dolomites in winter",
+    days: 8,
+    stops: "Cortina → Merano",
+    budget: "~€1,250",
+    chatPrice: "€9",
+    chatPriceSk: "9 €",
+    blurb:
+      "Eight winter days by car, from Cortina d'Ampezzo across to Merano. Ski days, a frozen lake, a long toboggan run and evenings in warm mountain hotels.",
+    accent: "gold",
+    x: 372,
+    y: 348,
+    highlights: [
+      "Three ski days on very different mountains, including one famous Olympic run",
+      "A frozen lake to skate on and one of the longest toboggan rides in the Alps",
+      "Two hotel bases, a wellness night near the end and the passes we drive for the light",
+    ],
+    sk: {
+      country: "Taliansko a Rakúsko",
+      title: "Dolomity v zime",
+      stops: "Cortina → Merano",
+      blurb:
+        "Osem zimných dní autom, z Cortiny d'Ampezzo až do Merana. Lyžovačka, zamrznuté jazero, dlhá sánkarská dráha a večery v teplých horských hoteloch.",
+      highlights: [
+        "Tri dni lyžovania na úplne odlišných horách vrátane jednej slávnej olympijskej zjazdovky",
+        "Zamrznuté jazero na korčuľovanie a jedna z najdlhších sánkarských dráh v Alpách",
+        "Dve hotelové základne, wellness večer v závere a priesmyky, na ktoré jazdíme kvôli svetlu",
+      ],
+    },
+  },
   {
     slug: "switzerland",
     status: "soon",

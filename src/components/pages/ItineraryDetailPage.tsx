@@ -68,7 +68,7 @@ export function ItineraryDetailPage({ itinerary, lang }: { itinerary: Itinerary;
             </li>
           ))}
         </ul>
-        <p className="mt-6 text-sm text-soft italic">{t.note}</p>
+        <p className="mt-6 text-sm text-soft italic">{selfServe ? t.selfServeNote : t.note}</p>
       </div>
 
       {routeMap && <RouteMap data={routeMap} lang={lang} />}
@@ -107,14 +107,16 @@ export function ItineraryDetailPage({ itinerary, lang }: { itinerary: Itinerary;
             >
               {chatLabel}
             </a>
-            <a
-              href={mailto(t.buySubjectUs)}
-              className="inline-flex items-center justify-center rounded-full border border-terracotta px-7 py-3 text-sm font-semibold text-terracotta transition hover:bg-terracotta/10"
-            >
-              {t.buyUs}
-            </a>
+            {!selfServe && (
+              <a
+                href={mailto(t.buySubjectUs)}
+                className="inline-flex items-center justify-center rounded-full border border-terracotta px-7 py-3 text-sm font-semibold text-terracotta transition hover:bg-terracotta/10"
+              >
+                {t.buyUs}
+              </a>
+            )}
           </div>
-          <p className="mt-4 text-xs text-soft">{t.buyNote}</p>
+          <p className="mt-4 text-xs text-soft">{selfServe ? t.selfServeBuyNote : t.buyNote}</p>
           <Link to={path(lang, "access")} className="mt-3 inline-block text-xs font-semibold text-royal underline-offset-4 hover:underline">
             {lang === "sk" ? "Už máte kód? Odomknite si cestu" : "Already have a code? Unlock your trip"}
           </Link>

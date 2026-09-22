@@ -33,7 +33,7 @@ export function RouteMap({ data, lang }: { data: RouteMapData; lang: Lang }) {
   const current = data.days.find((d) => d.day === active) ?? data.days[0];
   const activeMapArea = current?.mapArea;
   const visibleDays = activeMapArea ? data.days.filter((day) => day.mapArea === activeMapArea) : data.days;
-  const viewBox = activeMapArea === "new-york" ? "450 275 210 235" : "0 0 700 540";
+  const viewBox = activeMapArea === "new-york" ? "430 250 270 280" : "0 0 700 540";
 
   useEffect(() => {
     if (!isPlaying || data.days.length < 2) return;
@@ -228,20 +228,24 @@ export function RouteMap({ data, lang }: { data: RouteMapData; lang: Lang }) {
                     strokeWidth={on ? 3 : 2}
                     className="transition-all duration-300"
                   />
-                  <text
-                    x={lx}
-                    y={ly}
-                    textAnchor={anchor}
-                    className="font-semibold"
-                    fontSize="15"
-                    fill="var(--ink)"
-                    opacity={highlighted ? 1 : 0.65}
-                  >
-                    {n.place}
-                  </text>
-                  <text x={lx} y={ly + 17} textAnchor={anchor} fontSize="11" fill="var(--ink)" opacity="0.45">
-                    {lang === "sk" ? `${n.days.join(", ")}. deň` : `Day ${n.days.join(", ")}`}
-                  </text>
+                  {(!activeMapArea || highlighted) && (
+                    <>
+                      <text
+                        x={lx}
+                        y={ly}
+                        textAnchor={anchor}
+                        className="font-semibold"
+                        fontSize="15"
+                        fill="var(--ink)"
+                        opacity={highlighted ? 1 : 0.65}
+                      >
+                        {n.place}
+                      </text>
+                      <text x={lx} y={ly + 17} textAnchor={anchor} fontSize="11" fill="var(--ink)" opacity="0.45">
+                        {lang === "sk" ? `${n.days.join(", ")}. deň` : `Day ${n.days.join(", ")}`}
+                      </text>
+                    </>
+                  )}
                 </g>
               );
             })}

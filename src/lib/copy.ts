@@ -129,6 +129,10 @@ const en = {
     buySubjectUs: "Buy Guide + Us",
     buyNote:
       "Clicking a button opens a pre-filled email to us — we send the guide and your chat access within 24 hours.",
+    selfServeNote:
+      "The full guide adds the day-by-day plan, every connection, booking detail and the budget broken down line by line — with the trip chatbot included.",
+    selfServeBuyNote:
+      "This is one of our €9 self-serve guides — personal chat with us is not part of this route.",
     soonEyebrow: "Coming soon",
     soonTitle: "This route is still being travelled",
     soonText: "We are planning this trip right now. Leave us a note and you will be first to get the guide — or come along and live it with us.",
@@ -472,6 +476,10 @@ const sk: Copy = {
     buySubjectUs: "Objednávka Guide + Us",
     buyNote:
       "Kliknutie otvorí predvyplnený e-mail pre nás — sprievodcu a prístup do chatu posielame do 24 hodín.",
+    selfServeNote:
+      "Celý sprievodca pridáva plán deň po dni, každý spoj, detaily rezervácií a rozpočet rozpísaný po položkách — s chatbotom k ceste.",
+    selfServeBuyNote:
+      "Toto je jeden z našich sprievodcov za 9 € — osobný chat s nami nie je súčasťou tejto trasy.",
     soonEyebrow: "Už čoskoro",
     soonTitle: "Túto trasu ešte len cestujeme",
     soonText: "Práve ju plánujeme. Napíšte nám a sprievodcu dostanete medzi prvými — alebo ju zažijete priamo s nami.",

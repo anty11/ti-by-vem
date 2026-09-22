@@ -17,6 +17,7 @@ export function ItineraryDetailPage({ itinerary, lang }: { itinerary: Itinerary;
   const routeMap = routeMaps[itinerary.slug];
   const chatPrice = lang === "sk" ? itinerary.chatPriceSk ?? itinerary.chatPrice : itinerary.chatPrice;
   const chatLabel = chatPrice ? `${t.buyChatPrefix}${chatPrice}` : t.buyChat;
+  const selfServe = chatPrice === "€9" || chatPrice === "9 €";
 
   const mailto = (subject: string) =>
     `mailto:${contactEmail}?subject=${encodeURIComponent(`${subject} — ${text.title}, ${text.country}`)}`;

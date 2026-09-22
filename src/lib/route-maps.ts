@@ -18,6 +18,8 @@ export type DayStop = DayStopText & {
   y: number;
   /** Highlight this stop as a peak moment of the trip */
   peak?: boolean;
+  /** Optional local map area used to zoom into a city for consecutive days */
+  mapArea?: "new-york";
   sk: DayStopText;
 };
 
@@ -528,7 +530,8 @@ export const routeMaps: Record<string, RouteMap> = {
         date: "New York",
         dateSk: "New York",
         x: 540,
-        y: 388,
+        y: 360,
+        mapArea: "new-york",
         place: "New York",
         title: "Midtown, all of it at once",
         text:
@@ -546,8 +549,9 @@ export const routeMaps: Record<string, RouteMap> = {
         day: 7,
         date: "Central Park",
         dateSk: "Central Park",
-        x: 540,
-        y: 388,
+        x: 520,
+        y: 312,
+        mapArea: "new-york",
         place: "Central Park",
         title: "Half a day in the park, half a night on Broadway",
         text:
@@ -565,8 +569,9 @@ export const routeMaps: Record<string, RouteMap> = {
         day: 8,
         date: "Downtown",
         dateSk: "Downtown",
-        x: 540,
-        y: 388,
+        x: 520,
+        y: 430,
+        mapArea: "new-york",
         place: "Downtown",
         title: "The free ferry, the statue and downtown",
         text:
@@ -584,8 +589,9 @@ export const routeMaps: Record<string, RouteMap> = {
         day: 9,
         date: "West Village",
         dateSk: "West Village",
-        x: 540,
-        y: 388,
+        x: 495,
+        y: 392,
+        mapArea: "new-york",
         place: "West Village",
         title: "The city of your favourite series",
         text:
@@ -605,6 +611,7 @@ export const routeMaps: Record<string, RouteMap> = {
         dateSk: "Brooklyn",
         x: 586,
         y: 414,
+        mapArea: "new-york",
         place: "Brooklyn",
         peak: true,
         title: "Sunrise on the bridge",
@@ -623,8 +630,9 @@ export const routeMaps: Record<string, RouteMap> = {
         day: 11,
         date: "New York",
         dateSk: "New York",
-        x: 508,
-        y: 360,
+        x: 558,
+        y: 342,
+        mapArea: "new-york",
         place: "New York",
         title: "Back to the places you already miss",
         text:
@@ -643,7 +651,8 @@ export const routeMaps: Record<string, RouteMap> = {
         date: "Coney Island",
         dateSk: "Coney Island",
         x: 566,
-        y: 452,
+        y: 478,
+        mapArea: "new-york",
         place: "Coney Island",
         title: "Beach, funfair and a stadium",
         text:
@@ -661,8 +670,9 @@ export const routeMaps: Record<string, RouteMap> = {
         day: 13,
         date: "New York",
         dateSk: "New York",
-        x: 540,
-        y: 388,
+        x: 548,
+        y: 372,
+        mapArea: "new-york",
         place: "New York",
         peak: true,
         title: "The city from a helicopter, at night",
@@ -681,8 +691,9 @@ export const routeMaps: Record<string, RouteMap> = {
         day: 14,
         date: "Fly home",
         dateSk: "Let domov",
-        x: 540,
-        y: 388,
+        x: 620,
+        y: 408,
+        mapArea: "new-york",
         place: "New York",
         title: "Home",
         text: "A last morning in the city and then the flight home, with a camera roll that will take weeks to go through.",

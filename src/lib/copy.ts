@@ -119,6 +119,7 @@ const en = {
     buyTitleSuffix: "with you",
     buyText:
       "Every package includes the full day-by-day guide, the budget broken down line by line and all travel details — delivered straight to your inbox.",
+    buyChatPrefix: "Buy Guide + Chat · ",
     buyChat: "Buy Guide + Chat · €29",
     buyUs: "Buy Guide + Us · €99",
     buySubjectChat: "Buy Guide + Chat",
@@ -458,6 +459,7 @@ const sk: Copy = {
     buyTitleSuffix: "so sebou",
     buyText:
       "Každý balík obsahuje kompletného sprievodcu deň po dni, rozpočet rozpísaný po položkách a všetky cestovné detaily — pošleme vám ich priamo e-mailom.",
+    buyChatPrefix: "Kúpiť Guide + Chat · ",
     buyChat: "Kúpiť Guide + Chat · 29 €",
     buyUs: "Kúpiť Guide + Us · 99 €",
     buySubjectChat: "Objednávka Guide + Chat",

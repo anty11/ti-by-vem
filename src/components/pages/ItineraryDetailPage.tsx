@@ -15,6 +15,8 @@ export function ItineraryDetailPage({ itinerary, lang }: { itinerary: Itinerary;
   const when = itineraryWhen(itinerary, lang);
   const card = copy[lang].card;
   const routeMap = routeMaps[itinerary.slug];
+  const chatPrice = lang === "sk" ? itinerary.chatPriceSk ?? itinerary.chatPrice : itinerary.chatPrice;
+  const chatLabel = chatPrice ? `${t.buyChatPrefix}${chatPrice}` : t.buyChat;
 
   const mailto = (subject: string) =>
     `mailto:${contactEmail}?subject=${encodeURIComponent(`${subject} — ${text.title}, ${text.country}`)}`;
@@ -98,7 +100,7 @@ export function ItineraryDetailPage({ itinerary, lang }: { itinerary: Itinerary;
               href={mailto(t.buySubjectChat)}
               className="inline-flex items-center justify-center rounded-full bg-royal px-7 py-3 text-sm font-semibold text-onink transition hover:bg-royal/90"
             >
-              {t.buyChat}
+              {chatLabel}
             </a>
             <a
               href={mailto(t.buySubjectUs)}

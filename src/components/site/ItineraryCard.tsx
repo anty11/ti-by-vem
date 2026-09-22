@@ -9,12 +9,16 @@ import italy from "@/assets/italy.jpg";
 import switzerland from "@/assets/switzerland.jpg";
 import riviera from "@/assets/riviera.jpg";
 import scotland from "@/assets/scotland.jpg";
+import torontoNewYork from "@/assets/toronto-new-york.jpg";
+import dolomitesWinter from "@/assets/dolomites-winter.jpg";
 
 const images: Record<string, string> = {
   italy,
   switzerland,
   riviera,
   scotland,
+  "dolomites-winter": dolomitesWinter,
+  "toronto-new-york": torontoNewYork,
 };
 
 export function ItineraryCard({ itinerary, lang = "en" }: { itinerary: Itinerary; lang?: Lang }) {
@@ -22,6 +26,7 @@ export function ItineraryCard({ itinerary, lang = "en" }: { itinerary: Itinerary
   const t = copy[lang].card;
   const text = itineraryText(itinerary, lang);
   const soon = itinerary.status === "soon";
+  const beyond = itinerary.status === "beyond";
   const when = itineraryWhen(itinerary, lang);
   const notifyHref = `mailto:${contactEmail}?subject=${encodeURIComponent(
     `${t.notifySubject} — ${text.title}, ${text.country}`,
@@ -31,10 +36,10 @@ export function ItineraryCard({ itinerary, lang = "en" }: { itinerary: Itinerary
     <article className="glass rounded-3xl overflow-hidden relative">
       <span
         className={`absolute left-4 top-4 z-10 rounded-full px-3 py-1 text-[11px] font-semibold shadow-sm ${
-          soon ? "bg-gold text-ink" : "bg-sage text-ink"
+          soon ? "bg-gold text-ink" : beyond ? "bg-lilac text-ink" : "bg-sage text-ink"
         }`}
       >
-        {soon ? `${t.soon}${when ? ` · ${when}` : ""}` : t.live}
+        {soon ? `${t.soon}${when ? ` · ${when}` : ""}` : beyond ? t.beyond : t.live}
       </span>
       {image ? (
         <img

@@ -21,6 +21,7 @@ export function ItinerariesPage({ lang }: { lang: Lang }) {
       {([
         { key: "live", title: t.liveTitle, lead: t.liveLead },
         { key: "soon", title: t.soonTitle, lead: t.soonLead },
+        { key: "beyond", title: t.beyondTitle, lead: t.beyondLead },
       ] as const).map((section) => {
         const list = itineraries.filter((it) => it.status === section.key);
         if (list.length === 0) return null;

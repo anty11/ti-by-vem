@@ -30,6 +30,171 @@ export type RouteMap = {
 };
 
 export const routeMaps: Record<string, RouteMap> = {
+  "dolomites-winter": {
+    title: "Eight days, day by day",
+    titleSk: "Osem dní, deň po dni",
+    lead:
+      "One car, two hotel bases, from Cortina d'Ampezzo across South Tyrol to Merano. Tap a day to see where the route takes you — the full detail, times and prices live inside the guide.",
+    leadSk:
+      "Jedno auto, dve hotelové základne, z Cortiny d'Ampezzo cez Južné Tirolsko do Merana. Kliknite na deň a uvidíte, kam vás trasa zavedie — celý detail, časy a ceny nájdete v sprievodcovi.",
+    days: [
+      {
+        day: 1,
+        date: "Day 1",
+        dateSk: "1. deň",
+        x: 301,
+        y: 290,
+        place: "Cortina d'Ampezzo",
+        title: "Early start, long drive, first night in the mountains",
+        text:
+          "We leave before sunrise and break the drive in Austria: breakfast in town and a short walk by a lake before the border. By the afternoon the peaks are already around you and Cortina is waiting.",
+        notes: ["Car day — start very early", "One breakfast stop and one lakeside walk", "First night in Cortina, dinner in town"],
+        sk: {
+          place: "Cortina d'Ampezzo",
+          title: "Skorý štart, dlhá cesta, prvá noc v horách",
+          text:
+            "Vyrážame pred svitaním a cestu si rozdelíme v Rakúsku: raňajky v meste a krátka prechádzka pri jazere ešte pred hranicou. Poobede máte štíty už okolo seba a Cortina čaká.",
+          notes: ["Deň v aute — štart veľmi skoro", "Jedna zastávka na raňajky a prechádzka pri jazere", "Prvá noc v Cortine, večera v meste"],
+        },
+      },
+      {
+        day: 2,
+        date: "Day 2",
+        dateSk: "2. deň",
+        x: 284,
+        y: 320,
+        peak: true,
+        place: "Cinque Torri & Passo Giau",
+        title: "Five towers, then sunset on the pass",
+        text:
+          "A cable car lifts you to one of the most photographed rock groups in the Dolomites for an easy winter hike. The day ends on a high mountain pass, timed for the moment the walls turn pink.",
+        notes: ["Snowshoes may be needed after heavy snow", "Sunset on the pass — dress far warmer than you think", "Dinner back in Cortina"],
+        sk: {
+          place: "Cinque Torri a Passo Giau",
+          title: "Päť veží a potom západ slnka na priesmyku",
+          text:
+            "Lanovka vás vynesie k jednej z najfotenejších skalných skupín v Dolomitoch na ľahkú zimnú prechádzku. Deň končí na vysokom priesmyku, načasovaný na chvíľu, keď steny zružovejú.",
+          notes: ["Po veľkom snežení sa hodia snežnice", "Západ slnka na priesmyku — oblečte sa oveľa teplejšie", "Večera späť v Cortine"],
+        },
+      },
+      {
+        day: 3,
+        date: "Day 3",
+        dateSk: "3. deň",
+        x: 184,
+        y: 325,
+        peak: true,
+        place: "Cortina → Tires",
+        title: "Ski the Olympic mountain, then move west",
+        text:
+          "A full day on Cortina's slopes, including the steep run the Olympics are raced on. In the late afternoon we pack the car and move to our second base, a half-board hotel in a quiet valley.",
+        notes: ["Ski pass for the Cortina area", "Hardest run of the trip — take it after lunch", "Second hotel, half board"],
+        sk: {
+          place: "Cortina → Tires",
+          title: "Lyžovačka na olympijskej hore a presun na západ",
+          text:
+            "Celý deň na svahoch Cortiny vrátane strmej trate, na ktorej sa jazdí olympiáda. Neskoro poobede zbalíme auto a presunieme sa na druhú základňu — hotel s polpenziou v tichom údolí.",
+          notes: ["Skipas pre oblasť Cortina", "Najťažšia trať cesty — nechajte si ju po obede", "Druhý hotel, polpenzia"],
+        },
+      },
+      {
+        day: 4,
+        date: "Day 4",
+        dateSk: "4. deň",
+        x: 167,
+        y: 110,
+        place: "Lago di Fiè & Vipiteno",
+        title: "Skates in the morning, sledge in the afternoon",
+        text:
+          "Morning on a frozen lake with skates on, then north for one of the longest toboggan runs around — a lift up the mountain and a very long, very fast way down.",
+        notes: ["Skates can be rented at the lake", "Toboggan run closes early — go right after lunch", "Both are weather dependent"],
+        sk: {
+          place: "Lago di Fiè a Vipiteno",
+          title: "Ráno korčule, poobede sánky",
+          text:
+            "Ráno na zamrznutom jazere s korčuľami a potom na sever za jednou z najdlhších sánkarských dráh v okolí — lanovkou hore a veľmi dlho a veľmi rýchlo dole.",
+          notes: ["Korčule sa dajú požičať pri jazere", "Sánkarská dráha zatvára skoro — choďte hneď po obede", "Oboje závisí od počasia"],
+        },
+      },
+      {
+        day: 5,
+        date: "Day 5",
+        dateSk: "5. deň",
+        x: 203,
+        y: 290,
+        place: "Alpe di Siusi",
+        title: "Skiing above the biggest alpine meadow in Europe",
+        text:
+          "A cable car straight from the valley onto a wide, sunny plateau. Gentle, endless pistes with the Dolomite walls standing behind every turn.",
+        notes: ["Take the valley cable car, not the car", "Easiest ski day — good for mixed levels", "Lunch on the plateau"],
+        sk: {
+          place: "Alpe di Siusi",
+          title: "Lyžovačka nad najväčšou alpskou lúkou Európy",
+          text:
+            "Lanovka priamo z údolia na širokú slnečnú náhornú plošinu. Mierne, nekonečné zjazdovky a dolomitské steny za každou zákrutou.",
+          notes: ["Použite lanovku z údolia, nie auto", "Najľahší lyžiarsky deň — dobrý pre zmiešané úrovne", "Obed hore na plošine"],
+        },
+      },
+      {
+        day: 6,
+        date: "Day 6",
+        dateSk: "6. deň",
+        x: 186,
+        y: 350,
+        place: "Nova Levante & Tires",
+        title: "A slower day",
+        text:
+          "One cable car for the view, a walk around the village we are staying in and a long lunch. The trip needs one day like this and this is it.",
+        notes: ["Short drive only", "Village walk and a proper long lunch", "Early night before the last ski day"],
+        sk: {
+          place: "Nova Levante a Tires",
+          title: "Pomalší deň",
+          text:
+            "Jedna lanovka pre výhľad, prechádzka dedinou, kde bývame, a dlhý obed. Každá cesta potrebuje jeden takýto deň a toto je on.",
+          notes: ["Len krátka jazda autom", "Prechádzka dedinou a poriadne dlhý obed", "Skoro spať pred posledným lyžiarskym dňom"],
+        },
+      },
+      {
+        day: 7,
+        date: "Day 7",
+        dateSk: "7. deň",
+        x: 116,
+        y: 225,
+        peak: true,
+        place: "Selva → Merano",
+        title: "Last ski day, then wellness",
+        text:
+          "Morning in Val Gardena on the best-known slopes of the region, then we drive down out of the snow to Merano and check into the hotel we keep this trip's one splurge for.",
+        notes: ["Ski until early afternoon, then drive", "Wellness hotel — book months ahead", "Warmest evening of the week"],
+        sk: {
+          place: "Selva → Merano",
+          title: "Posledný deň na lyžiach a potom wellness",
+          text:
+            "Ráno vo Val Gardene na najznámejších svahoch regiónu a potom zídeme autom zo snehu do Merana, do hotela, pre ktorý si na tejto ceste šetríme jedno priplatenie.",
+          notes: ["Lyžujte do skorého poobedia, potom presun", "Wellness hotel — rezervujte mesiace dopredu", "Najteplejší večer týždňa"],
+        },
+      },
+      {
+        day: 8,
+        date: "Day 8",
+        dateSk: "8. deň",
+        x: 152,
+        y: 310,
+        place: "Merano & Bolzano",
+        title: "Two towns, then home",
+        text:
+          "A morning in Merano, a stop in Bolzano for a walk and whatever you want to carry home, and then the long, quiet drive back.",
+        notes: ["Leave the car parked in the centre", "Shopping and lunch in Bolzano", "Drive home in the afternoon"],
+        sk: {
+          place: "Merano a Bolzano",
+          title: "Dve mestá a potom domov",
+          text:
+            "Ráno v Merane, zastávka v Bolzane na prechádzku a na to, čo si chcete odniesť domov, a potom dlhá tichá cesta späť.",
+          notes: ["Auto nechajte zaparkované v centre", "Nákupy a obed v Bolzane", "Poobede odchod domov"],
+        },
+      },
+    ],
+  },
   switzerland: {
     title: "Ten days, day by day",
     titleSk: "Desať dní, deň po dni",

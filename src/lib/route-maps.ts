@@ -623,8 +623,8 @@ export const routeMaps: Record<string, RouteMap> = {
         day: 11,
         date: "New York",
         dateSk: "New York",
-        x: 540,
-        y: 388,
+        x: 508,
+        y: 360,
         place: "New York",
         title: "Back to the places you already miss",
         text:

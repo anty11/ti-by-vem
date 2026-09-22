@@ -10,6 +10,6 @@
 - [x] Verify the refreshed packages page on desktop and mobile
 - [x] Add Scotland as a live, ready-to-download trip (card, detail page, map pin)
 - [x] Verify "travel intelligence by VeM" always uses lowercase e (site-wide)
-- [ ] Add the "International love affair" section for trips beyond Europe (Toronto / Niagara / New York, €39)
+- [x] Add the "International love affair" section for trips beyond Europe (Toronto / Niagara / New York, €39)
 - [ ] Give every package buyer access to the Discord community
-- [ ] Rename the postcard club to "Travel memory mailing club"
+- [x] Rename the postcard club to "Travel memory mailing club"

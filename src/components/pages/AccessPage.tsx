@@ -95,7 +95,17 @@ export function AccessPage({ lang }: { lang: Lang }) {
   return (
     <main className="mx-auto max-w-4xl px-6 py-14">
       <span className="text-xs font-semibold uppercase tracking-[0.25em] text-royal">{t.eyebrow}</span>
-      <h1 className="mt-2 font-display text-5xl leading-[1.05] text-ink">{t.h1}</h1>
+      <h1 className="mt-2 font-display text-5xl leading-[1.05] text-ink">
+        {lang === "sk" ? (
+          <>
+            Tu <em className="italic text-terracotta">žijú</em> vaše cesty.
+          </>
+        ) : (
+          <>
+            Your trips <em className="italic text-terracotta">live</em> here.
+          </>
+        )}
+      </h1>
       <p className="mt-4 max-w-xl text-lg leading-relaxed text-soft">{t.intro}</p>
 
       {!ready ? (

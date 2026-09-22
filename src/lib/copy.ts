@@ -101,6 +101,8 @@ const en = {
     liveLead: "Finished routes. Full guide, budget and travel details in your inbox today.",
     soonTitle: "Coming next — travel it with us",
     soonLead: "Routes we are planning right now. Join the list and you can live them together with us.",
+    beyondTitle: "International love affair",
+    beyondLead: "Every so often we go far beyond Europe. Bigger trips, longer routes and the same honest detail.",
     h1: "Start with a country.",
     lead:
       "Every pin is a route we've run ourselves. Click one to see the shape of the trip, what it costs, and where we'd spend the extra.",
@@ -374,6 +376,7 @@ const sk: Copy = {
     buy: "Kúpiť",
     live: "Pripravené na stiahnutie",
     soon: "Už čoskoro",
+    beyond: "International love affair",
     notify: "Dajte mi vedieť",
     notifySubject: "Čakacia listina",
   },
@@ -441,6 +444,8 @@ const sk: Copy = {
     liveLead: "Hotové trasy. Kompletný sprievodca, rozpočet a cestovné detaily hneď dnes.",
     soonTitle: "Chystáme — a pocestujete s nami",
     soonLead: "Trasy, ktoré práve plánujeme. Napíšte sa na zoznam a zažijete ich spolu s nami.",
+    beyondTitle: "International love affair",
+    beyondLead: "Občas ideme ďaleko za hranice Európy. Väčšie cesty, dlhšie trasy a rovnako úprimný detail.",
     h1: "Začnite krajinou.",
     lead:
       "Každý bod je trasa, ktorú sme prešli samy. Kliknite a uvidíte tvar cesty, koľko stojí a kde by sme si priplatili.",

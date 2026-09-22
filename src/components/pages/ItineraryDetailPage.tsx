@@ -29,8 +29,12 @@ export function ItineraryDetailPage({ itinerary, lang }: { itinerary: Itinerary;
       <div className="glass rounded-3xl p-8 lg:p-12 mt-5">
         <div className="flex flex-wrap items-center gap-3">
           <span className="text-xs font-semibold uppercase tracking-[0.25em] text-royal">{text.country}</span>
-          <span className={`rounded-full px-3 py-1 text-[11px] font-semibold ${soon ? "bg-gold text-ink" : "bg-sage text-ink"}`}>
-            {soon ? `${card.soon}${when ? ` · ${when}` : ""}` : card.live}
+          <span
+            className={`rounded-full px-3 py-1 text-[11px] font-semibold ${
+              soon ? "bg-gold text-ink" : itinerary.status === "beyond" ? "bg-lilac text-ink" : "bg-sage text-ink"
+            }`}
+          >
+            {soon ? `${card.soon}${when ? ` · ${when}` : ""}` : itinerary.status === "beyond" ? card.beyond : card.live}
           </span>
         </div>
         <h1 className="mt-2 font-display text-5xl leading-[1.05] text-ink">{text.title}</h1>

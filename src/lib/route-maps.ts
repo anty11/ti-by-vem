@@ -418,6 +418,284 @@ export const routeMaps: Record<string, RouteMap> = {
       },
     ],
   },
+  "toronto-new-york": {
+    title: "Fourteen days, day by day",
+    titleSk: "Štrnásť dní, deň po dni",
+    lead:
+      "Toronto, the falls and a long panoramic train down to New York. Tap a day to see where the route takes you — the full detail, times and prices live inside the guide.",
+    leadSk:
+      "Toronto, vodopády a dlhý panoramatický vlak dole do New Yorku. Kliknite na deň a uvidíte, kam vás trasa zavedie — celý detail, časy a ceny nájdete v sprievodcovi.",
+    days: [
+      {
+        day: 1,
+        date: "Toronto",
+        dateSk: "Toronto",
+        x: 150,
+        y: 150,
+        place: "Toronto",
+        title: "Landing, the skyline and a ball game",
+        text:
+          "We land around midday, drop the bags downtown and walk the city in a loop from the tower to the waterfront. The evening belongs to a baseball night and then Toronto after dark.",
+        notes: ["Downtown base for three nights", "Long first walk, no rush", "Evening: ball game, then night walk"],
+        sk: {
+          place: "Toronto",
+          title: "Prílet, panoráma a zápas",
+          text:
+            "Pristávame okolo obeda, batožinu necháme v centre a mesto si prejdeme v okruhu od veže k nábrežiu. Večer patrí baseballu a potom nočnému Torontu.",
+          notes: ["Základňa v centre na tri noci", "Dlhá prvá prechádzka, bez zhonu", "Večer: zápas a nočná prechádzka"],
+        },
+      },
+      {
+        day: 2,
+        date: "Toronto",
+        dateSk: "Toronto",
+        x: 150,
+        y: 150,
+        place: "Toronto",
+        title: "Brunch, old brick and the city underneath",
+        text:
+          "A slow brunch first, then the historic districts, the big squares and a street of murals. Later we disappear into the underground walkway system and come up in the markets.",
+        notes: ["Brunch, then the historic quarter", "Squares, murals, old city hall", "Underground walkways and market halls"],
+        sk: {
+          place: "Toronto",
+          title: "Brunch, stará tehla a mesto pod mestom",
+          text:
+            "Najprv pomalý brunch, potom historické štvrte, veľké námestia a ulica plná murálov. Neskôr zmizneme do podzemného systému chodieb a vynoríme sa v trhoviskách.",
+          notes: ["Brunch a historická štvrť", "Námestia, murály, stará radnica", "Podzemné chodby a tržnice"],
+        },
+      },
+      {
+        day: 3,
+        date: "Islands",
+        dateSk: "Ostrovy",
+        x: 150,
+        y: 150,
+        place: "Toronto Islands",
+        title: "A ferry, an island and the best view back",
+        text:
+          "A short ferry takes us over to the islands for the postcard view of the skyline. Back on shore we wander the most colourful neighbourhoods and pick up the sweet things to carry home.",
+        notes: ["Ferry from the downtown terminal", "Islands, then the colourful quarters", "Maple everything for home"],
+        sk: {
+          place: "Torontské ostrovy",
+          title: "Trajekt, ostrov a najlepší pohľad späť",
+          text:
+            "Krátky trajekt nás prevezie na ostrovy s pohľadnicovým výhľadom na panorámu mesta. Po návrate sa túlame najfarebnejšími štvrťami a nakúpime sladkosti domov.",
+          notes: ["Trajekt z terminálu v centre", "Ostrovy a potom farebné štvrte", "Javorové dobroty domov"],
+        },
+      },
+      {
+        day: 4,
+        date: "Niagara",
+        dateSk: "Niagara",
+        x: 268,
+        y: 232,
+        place: "Niagara Falls",
+        peak: true,
+        title: "Right under the falls",
+        text:
+          "A bus ride and suddenly there is water everywhere. We go down to the boat that sails straight into the spray, stay for sunset over the falls and finish with fireworks above the water.",
+        notes: ["Room with a view is worth it", "Boat right up to the falls", "Sunset, then fireworks"],
+        sk: {
+          place: "Niagarské vodopády",
+          title: "Priamo pod vodopádmi",
+          text:
+            "Cesta autobusom a zrazu je všade naokolo voda. Ideme dole k lodi, ktorá pláva rovno do vodnej triešte, zostaneme na západ slnka nad vodopádmi a deň zakončí ohňostroj nad vodou.",
+          notes: ["Izba s výhľadom sa oplatí", "Loď priamo k vodopádom", "Západ slnka a potom ohňostroj"],
+        },
+      },
+      {
+        day: 5,
+        date: "Train south",
+        dateSk: "Vlak na juh",
+        x: 400,
+        y: 300,
+        place: "Niagara → New York",
+        peak: true,
+        title: "Sunrise over the water, then the long train",
+        text:
+          "Sunrise from the window above the falls, and then the panoramic train that takes the whole day to roll down to New York. You arrive in the evening, straight into Manhattan.",
+        notes: ["Sunrise from the room", "All-day panoramic train", "Evening arrival in Manhattan"],
+        sk: {
+          place: "Niagara → New York",
+          title: "Východ slnka nad vodou a potom dlhý vlak",
+          text:
+            "Východ slnka z okna nad vodopádmi a potom panoramatický vlak, ktorému trvá celý deň, kým sa dovezie do New Yorku. Prichádzate večer, rovno do Manhattanu.",
+          notes: ["Východ slnka z izby", "Celodenný panoramatický vlak", "Večerný príchod do Manhattanu"],
+        },
+      },
+      {
+        day: 6,
+        date: "New York",
+        dateSk: "New York",
+        x: 540,
+        y: 388,
+        place: "New York",
+        title: "Midtown, all of it at once",
+        text:
+          "The first full day is the one you have seen in every film: the big station, the library, the avenues and the bridge with the famous sunset alignment. The night ends somewhere loud and fun.",
+        notes: ["Midtown on foot", "Station, library, avenues", "A night out to remember"],
+        sk: {
+          place: "New York",
+          title: "Midtown, celý naraz",
+          text:
+            "Prvý celý deň je presne ten z filmov: veľká stanica, knižnica, avenue a most so slávnym výhľadom na zapadajúce slnko. Noc končí niekde hlučne a veselo.",
+          notes: ["Midtown pešo", "Stanica, knižnica, avenue", "Večer, na ktorý sa nezabúda"],
+        },
+      },
+      {
+        day: 7,
+        date: "Central Park",
+        dateSk: "Central Park",
+        x: 540,
+        y: 388,
+        place: "Central Park",
+        title: "Half a day in the park, half a night on Broadway",
+        text:
+          "We give the park a proper half day, then dinner and a Broadway show. Afterwards Times Square at night and a rooftop somewhere above it all.",
+        notes: ["Half a day in the park", "Dinner, then a show", "Times Square by night, rooftop after"],
+        sk: {
+          place: "Central Park",
+          title: "Pol dňa v parku, pol noci na Broadwayi",
+          text:
+            "Parku venujeme poctivé pol dňa, potom večera a broadwayské predstavenie. Po ňom nočné Times Square a strešný bar niekde nad tým všetkým.",
+          notes: ["Pol dňa v parku", "Večera a predstavenie", "Nočné Times Square a rooftop"],
+        },
+      },
+      {
+        day: 8,
+        date: "Downtown",
+        dateSk: "Downtown",
+        x: 540,
+        y: 388,
+        place: "Downtown",
+        title: "The free ferry, the statue and downtown",
+        text:
+          "The ferry that costs nothing gives you the statue and the whole skyline from the water. Then downtown on foot, the memorial, the old streets and a dinner we still talk about.",
+        notes: ["Free ferry past the statue", "Downtown on foot", "Dinner in the old streets"],
+        sk: {
+          place: "Downtown",
+          title: "Trajekt zadarmo, socha a downtown",
+          text:
+            "Trajekt, ktorý nič nestojí, vám dá sochu aj celú panorámu z vody. Potom downtown pešo, pamätník, staré ulice a večera, o ktorej sa stále rozprávame.",
+          notes: ["Trajekt zadarmo popri soche", "Downtown pešo", "Večera v starých uliciach"],
+        },
+      },
+      {
+        day: 9,
+        date: "West Village",
+        dateSk: "West Village",
+        x: 540,
+        y: 388,
+        place: "West Village",
+        title: "The city of your favourite series",
+        text:
+          "An old railway turned into a garden above the street, then the village where every second doorway is from a series you know by heart. We finish high above the city at sunset.",
+        notes: ["Elevated park, then the village", "The famous doorways", "Sunset from above"],
+        sk: {
+          place: "West Village",
+          title: "Mesto vašich obľúbených seriálov",
+          text:
+            "Stará železnica premenená na záhradu nad ulicou a potom štvrť, kde je každý druhý vchod z nejakého seriálu, ktorý poznáte naspamäť. Deň končíme vysoko nad mestom pri západe slnka.",
+          notes: ["Park nad ulicou a potom štvrť", "Slávne vchody", "Západ slnka zhora"],
+        },
+      },
+      {
+        day: 10,
+        date: "Brooklyn",
+        dateSk: "Brooklyn",
+        x: 586,
+        y: 414,
+        place: "Brooklyn",
+        peak: true,
+        title: "Sunrise on the bridge",
+        text:
+          "We get up in the dark to have the bridge almost to ourselves, then cross to the other side for the view everyone knows. The rest of the day is Brooklyn, a water taxi and the money streets.",
+        notes: ["Very early start for the bridge", "The classic view from the other side", "Water taxi back, then Wall Street"],
+        sk: {
+          place: "Brooklyn",
+          title: "Východ slnka na moste",
+          text:
+            "Vstávame za tmy, aby sme mali most skoro pre seba, a potom prejdeme na druhú stranu pre ten výhľad, ktorý pozná každý. Zvyšok dňa patrí Brooklynu, lodnému taxíku a uliciam peňazí.",
+          notes: ["Veľmi skorý štart kvôli mostu", "Klasický výhľad z druhej strany", "Lodný taxík späť a Wall Street"],
+        },
+      },
+      {
+        day: 11,
+        date: "New York",
+        dateSk: "New York",
+        x: 508,
+        y: 360,
+        place: "New York",
+        title: "Back to the places you already miss",
+        text:
+          "A free day for the corners you want to see twice, and in the afternoon the highest open deck in the city with dinner as the lights come on.",
+        notes: ["Your own favourites, second time round", "Afternoon on the high deck", "Dinner with the lights"],
+        sk: {
+          place: "New York",
+          title: "Späť na miesta, ktoré vám už chýbajú",
+          text:
+            "Voľný deň na kúty, ktoré chcete vidieť druhýkrát, a poobede najvyššia otvorená terasa v meste s večerou presne vtedy, keď sa rozsvieti.",
+          notes: ["Vaše obľúbené miesta druhýkrát", "Poobede vysoká terasa", "Večera pri rozsvietenom meste"],
+        },
+      },
+      {
+        day: 12,
+        date: "Coney Island",
+        dateSk: "Coney Island",
+        x: 566,
+        y: 452,
+        place: "Coney Island",
+        title: "Beach, funfair and a stadium",
+        text:
+          "A subway ride to the ocean, an old wooden funfair and a beach that feels nothing like Manhattan. In the evening a baseball night uptown and Times Square one more time.",
+        notes: ["Subway to the beach", "Old funfair afternoon", "Evening game, then Times Square"],
+        sk: {
+          place: "Coney Island",
+          title: "Pláž, lunapark a štadión",
+          text:
+            "Metrom k oceánu, starý drevený lunapark a pláž, ktorá vôbec nepripomína Manhattan. Večer zápas na severe mesta a ešte raz Times Square.",
+          notes: ["Metrom na pláž", "Poobede starý lunapark", "Večer zápas a Times Square"],
+        },
+      },
+      {
+        day: 13,
+        date: "New York",
+        dateSk: "New York",
+        x: 540,
+        y: 388,
+        place: "New York",
+        peak: true,
+        title: "The city from a helicopter, at night",
+        text:
+          "One last wander and then the part we would fly back for: a night helicopter ride with the doors open above the lights. A slice of pizza afterwards is exactly right.",
+        notes: ["Last wander and shopping", "Night helicopter, doors open", "Pizza and a night walk"],
+        sk: {
+          place: "New York",
+          title: "Mesto z helikoptéry, v noci",
+          text:
+            "Ešte posledné túlanie a potom to, kvôli čomu by sme sa vrátili: nočný let helikoptérou s otvorenými dverami nad svetlami. Kúsok pizze po ňom sedí presne.",
+          notes: ["Posledné túlanie a nákupy", "Nočná helikoptéra s otvorenými dverami", "Pizza a nočná prechádzka"],
+        },
+      },
+      {
+        day: 14,
+        date: "Fly home",
+        dateSk: "Let domov",
+        x: 540,
+        y: 388,
+        place: "New York",
+        title: "Home",
+        text: "A last morning in the city and then the flight home, with a camera roll that will take weeks to go through.",
+        notes: ["Morning to spare", "Flight home"],
+        sk: {
+          place: "New York",
+          title: "Domov",
+          text: "Posledné ráno v meste a potom let domov, s fotkami, ktoré budete prezerať ešte týždne.",
+          notes: ["Ráno ešte pre seba", "Let domov"],
+        },
+      },
+    ],
+  },
 };
 
 export function dayStopText(stop: DayStop, lang: Lang): DayStopText {

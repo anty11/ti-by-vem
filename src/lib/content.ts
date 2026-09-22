@@ -101,6 +101,39 @@ export const itineraries: Itinerary[] = [
     },
   },
   {
+    slug: "oslo-tromso",
+    status: "live",
+    country: "Norway",
+    title: "Oslo & Tromsø",
+    days: 6,
+    stops: "Oslo → Tromsø",
+    budget: "~€2,200",
+    chatPrice: "€9",
+    chatPriceSk: "9 €",
+    blurb:
+      "Six days, two very different Norways: Oslo by the water, a wellness day to recover, then a flight north above the Arctic Circle for the Arctic Cathedral, a cable-car view and a night spent hunting the northern lights.",
+    accent: "royal",
+    x: 378,
+    y: 131,
+    highlights: [
+      "Oslo's waterfront by night and by day, from the opera to Aker Brygge",
+      "A full wellness day at The Well before flying north",
+      "Tromsø: reindeer hot dogs, the Arctic Cathedral and a northern-lights hunt",
+    ],
+    sk: {
+      country: "Nórsko",
+      title: "Oslo a Tromsø",
+      stops: "Oslo → Tromsø",
+      blurb:
+        "Šesť dní, dve úplne odlišné Nórska: Oslo pri vode, deň wellness na oddych a potom let na sever za polárny kruh — Arktická katedrála, výhľad z lanovky a noc strávená lovom polárnej žiary.",
+      highlights: [
+        "Oslské nábrežie v noci aj za dňa, od opery po Aker Brygge",
+        "Celý deň wellness v The Well ešte pred letom na sever",
+        "Tromsø: reindeer hotdogy, Arktická katedrála a lov polárnej žiary",
+      ],
+    },
+  },
+  {
     slug: "switzerland",
     status: "soon",
     when: "January 2027",

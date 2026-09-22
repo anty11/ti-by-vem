@@ -6,7 +6,7 @@ const en = {
   nav: {
     itineraries: "Itineraries",
     packages: "Packages",
-    postcard: "Postcard",
+    postcard: "Mailing club",
     about: "V & eM",
     viewPackages: "View packages",
     homeLabel: "travel intelligence by VeM home",
@@ -33,6 +33,7 @@ const en = {
     buy: "Buy",
     live: "Ready to download",
     soon: "Coming soon",
+    beyond: "International love affair",
     notify: "Notify me",
     notifySubject: "Waiting list",
   },
@@ -56,7 +57,7 @@ const en = {
       "Always-moving European routes we have travelled ourselves. Real budgets, exact connections and the choices that actually matter.",
     ctaMap: "Explore the map",
     ctaPackages: "See the packages",
-    ctaPostcard: "Postcard club",
+    ctaPostcard: "Travel memory mailing club",
     benefit1: "Budget included",
     benefit2: "Exact travel details",
     benefit3: "Travelled by us",
@@ -68,7 +69,7 @@ const en = {
     packagesText:
       "Two clear options, one place to compare them. The VeM WhatsApp group opens with Guide + Us.",
     packagesNoteA: "Rather just a hello in your letterbox? The ",
-    packagesNoteLink: "Postcard club",
+    packagesNoteLink: "Travel memory mailing club",
     packagesNoteB: " runs separately at €12/month.",
     packagesCta: "Open packages →",
     postcardEyebrow: "A postcard, not a guide · €12/month",
@@ -184,7 +185,7 @@ const en = {
       "For €12 a month, receive a physical personal greeting from a place Veronika and Monika have visited.",
     ogTitle: "Monthly travel postcard · €12",
     ogDescription: "A small personal hello from somewhere Veronika and Monika have been.",
-    eyebrow: "Postcard club · €12/month",
+    eyebrow: "Travel memory mailing club · €12/month",
     h1: ["Every month, one country.", "One letter, and a little surprise."],
     lead: [
       [
@@ -210,7 +211,7 @@ const en = {
       ],
     ] satisfies LeadSegment[][],
     cta: "Subscribe · €12/month",
-    subject: "Postcard club",
+    subject: "Travel memory mailing club",
     stampEyebrow: "Postmarked somewhere",
     stampTitle: "Hello from Portugal",
     stampText: "Wish you were here.",
@@ -322,7 +323,7 @@ const en = {
           p: "Instructions for chatbot access or communication with Veronika and Monika are sent with the relevant package.",
         },
         {
-          h: "Postcard club",
+          h: "Travel memory mailing club",
           p: "The €12 membership includes one physical postcard with a personal greeting, posted each month to the delivery address supplied by you. It is separate from our guides and contains no itinerary or travel advice. Arrival times depend on the destination and postal service.",
         },
         {
@@ -346,7 +347,7 @@ const sk: Copy = {
   nav: {
     itineraries: "Itineráre",
     packages: "Balíky",
-    postcard: "Pohľadnica",
+    postcard: "Mailing club",
     about: "V & eM",
     viewPackages: "Pozrieť balíky",
     homeLabel: "travel intelligence by VeM — domov",
@@ -396,7 +397,7 @@ const sk: Copy = {
       "Neustále sa hýbuce európske trasy, ktoré sme prešli samy — s reálnym rozpočtom, presnými spojmi a voľbami, vďaka ktorým má každé euro zmysel.",
     ctaMap: "Preskúmať mapu",
     ctaPackages: "Pozrieť balíky",
-    ctaPostcard: "Klub pohľadníc · 12 €/mes.",
+    ctaPostcard: "Travel memory mailing club",
     benefit1: "Rozpočet v cene",
     benefit2: "Presné cestovné detaily",
     benefit3: "Prešli sme to samy",
@@ -408,7 +409,7 @@ const sk: Copy = {
     packagesText:
       "Dve jasné možnosti na jednom mieste. WhatsApp skupina VeM sa otvára s balíkom Guide + Us.",
     packagesNoteA: "Chcete len pozdrav do schránky? ",
-    packagesNoteLink: "Postcard club",
+    packagesNoteLink: "Travel memory mailing club",
     packagesNoteB: " funguje samostatne za 12 € mesačne.",
     packagesCta: "Otvoriť balíky →",
     postcardEyebrow: "Pohľadnica, nie sprievodca · 12 €/mesiac",
@@ -524,7 +525,7 @@ const sk: Copy = {
       "Za 12 € mesačne dostanete skutočnú pohľadnicu s osobným pozdravom z miesta, kde Veronika a Monika boli.",
     ogTitle: "Mesačná cestovná pohľadnica · 12 €",
     ogDescription: "Malý osobný pozdrav z miesta, kde Veronika a Monika boli.",
-    eyebrow: "Postcard club · 12 €/mesiac",
+    eyebrow: "Travel memory mailing club · 12 €/mesiac",
     h1: ["Každý mesiac jedna krajina.", "Jeden list a malé prekvapenie."],
     lead: [
       [
@@ -550,7 +551,7 @@ const sk: Copy = {
       ],
     ] satisfies LeadSegment[][],
     cta: "Objednať · 12 €/mesiac",
-    subject: "Postcard club",
+    subject: "Travel memory mailing club",
     stampEyebrow: "Opečiatkované niekde",
     stampTitle: "Pozdrav z Portugalska",
     stampText: "Škoda, že tu nie ste.",
@@ -661,7 +662,7 @@ const sk: Copy = {
           p: "Pokyny na prístup k chatbotu alebo na komunikáciu s Veronikou a Monikou posielame spolu s príslušným balíkom.",
         },
         {
-          h: "Postcard club",
+          h: "Travel memory mailing club",
           p: "Členstvo za 12 € zahŕňa jednu fyzickú pohľadnicu s osobným pozdravom, ktorú každý mesiac posielame na vami uvedenú adresu. Je oddelená od našich sprievodcov a neobsahuje itinerár ani cestovné rady. Čas doručenia závisí od destinácie a pošty.",
         },
         {

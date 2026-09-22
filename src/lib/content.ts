@@ -8,7 +8,7 @@ export type ItineraryText = {
   highlights: string[];
 };
 
-export type ItineraryStatus = "live" | "soon";
+export type ItineraryStatus = "live" | "soon" | "beyond";
 
 export type Itinerary = ItineraryText & {
   slug: string;
@@ -34,6 +34,39 @@ export type Itinerary = ItineraryText & {
 };
 
 export const itineraries: Itinerary[] = [
+  {
+    slug: "toronto-new-york",
+    status: "beyond",
+    country: "Canada & USA",
+    title: "Toronto, Niagara & New York",
+    days: 14,
+    stops: "Toronto → New York",
+    budget: "~€3,900",
+    chatPrice: "€39",
+    chatPriceSk: "39 €",
+    blurb:
+      "Fourteen days across an ocean: three days in Toronto, the falls from the water, a panoramic train south and a very long, very full week in New York.",
+    accent: "lilac",
+    x: 0,
+    y: 0,
+    highlights: [
+      "Toronto on foot, from the waterfront to the markets, with a ball game in the evening",
+      "Niagara from a boat, at sunset and again at sunrise from a room with the view",
+      "A ten-hour panoramic train down to Penn Station, then New York day by day",
+    ],
+    sk: {
+      country: "Kanada a USA",
+      title: "Toronto, Niagara a New York",
+      stops: "Toronto → New York",
+      blurb:
+        "Štrnásť dní za oceánom: tri dni v Toronte, vodopády z lode, panoramatický vlak na juh a veľmi dlhý, veľmi plný týždeň v New Yorku.",
+      highlights: [
+        "Toronto pešo, od nábrežia po trhy, a večer zápas",
+        "Niagara z lode, pri západe slnka a znova pri východe z izby s výhľadom",
+        "Desaťhodinový panoramatický vlak na Penn Station a potom New York deň po dni",
+      ],
+    },
+  },
   {
     slug: "dolomites-winter",
     status: "live",
@@ -231,6 +264,7 @@ export const tiers: Tier[] = [
       "Moving itinerary, day by day",
       "Real budget estimate and booking details",
       "Trip chatbot for questions and changes",
+      "Discord community with every VeM traveller",
       "Our tested saves and one worthwhile splurge",
     ],
     cta: "Choose Guide + Chat",
@@ -270,6 +304,7 @@ const tiersSk: Tier[] = [
       "Itinerár v pohybe, deň po dni",
       "Reálny odhad rozpočtu a detaily rezervácií",
       "Chatbot k ceste na otázky a zmeny",
+      "Discord komunita so všetkými cestovateľmi VeM",
       "Naše overené úspory a jedno priplatenie, ktoré stojí za to",
     ],
     cta: "Vybrať Guide + Chat",
@@ -320,3 +355,6 @@ export const accentHex: Record<string, string> = {
   gold: "var(--gold)",
   lilac: "var(--lilac)",
 };
+
+/** Only trips that sit on the European map */
+export const europeanItineraries = itineraries.filter((item) => item.status !== "beyond");

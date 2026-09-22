@@ -1,6 +1,6 @@
 import { useState } from "react";
 import { Link } from "@tanstack/react-router";
-import { accentHex, itineraries, itineraryText } from "@/lib/content";
+import { accentHex, europeanItineraries as itineraries, itineraryText } from "@/lib/content";
 import { europeCountries } from "@/lib/europe-map";
 import { copy } from "@/lib/copy";
 import { detailPath, type Lang } from "@/lib/i18n";

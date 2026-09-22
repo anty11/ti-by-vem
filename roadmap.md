@@ -15,3 +15,4 @@
 - [x] Add Oslo & Tromsø as a live trip with day-by-day map, guide at €9
 - [x] €9 trips offer no personal chat with us (Guide + Us hidden on those pages)
 - [x] Rename the postcard club to "Travel memory mailing club"
+- [x] Zoom the Toronto–Niagara–New York map into a city view during the New York days

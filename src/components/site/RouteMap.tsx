@@ -31,6 +31,9 @@ export function RouteMap({ data, lang }: { data: RouteMapData; lang: Lang }) {
   const [hoveredNode, setHoveredNode] = useState<number | null>(null);
   const [isPlaying, setIsPlaying] = useState(false);
   const current = data.days.find((d) => d.day === active) ?? data.days[0];
+  const activeMapArea = current?.mapArea;
+  const visibleDays = activeMapArea ? data.days.filter((day) => day.mapArea === activeMapArea) : data.days;
+  const viewBox = activeMapArea === "new-york" ? "450 275 210 235" : "0 0 700 540";
 
   useEffect(() => {
     if (!isPlaying || data.days.length < 2) return;
@@ -52,7 +55,7 @@ export function RouteMap({ data, lang }: { data: RouteMapData; lang: Lang }) {
 
   // collapse consecutive days that share a place into one map node
   const nodes: Node[] = [];
-  for (const d of data.days) {
+  for (const d of visibleDays) {
     const text = dayStopText(d, lang);
     const last = nodes[nodes.length - 1];
     if (last && last.x === d.x && last.y === d.y) {
@@ -129,7 +132,7 @@ export function RouteMap({ data, lang }: { data: RouteMapData; lang: Lang }) {
 
       <div className="mt-6 grid gap-6 lg:grid-cols-[1.15fr_1fr]">
         <div className="glass rounded-3xl p-4 sm:p-6">
-          <svg viewBox="0 0 700 540" className="w-full h-auto" role="img" aria-label={lang === "sk" ? "Mapa trasy" : "Route map"}>
+          <svg viewBox={viewBox} className="w-full h-auto" role="img" aria-label={lang === "sk" ? "Mapa trasy" : "Route map"}>
             <defs>
               <radialGradient id="rm-glow" cx="50%" cy="50%" r="50%">
                 <stop offset="0%" stopColor="var(--royal)" stopOpacity="0.18" />
@@ -137,14 +140,31 @@ export function RouteMap({ data, lang }: { data: RouteMapData; lang: Lang }) {
               </radialGradient>
             </defs>
 
-            {/* soft alpine backdrop */}
-            <ellipse cx="420" cy="320" rx="300" ry="210" fill="url(#rm-glow)" />
-            <path
-              d="M40 470 L150 330 L215 415 L300 275 L400 400 L470 320 L560 430 L660 350 L680 500 L40 500 Z"
-              fill="var(--sage)"
-              opacity="0.13"
-            />
-            <path d="M60 210 L170 270 L240 235 L330 300 L430 250 L540 300 L660 240" fill="none" stroke="var(--lilac)" strokeOpacity="0.3" strokeWidth="2" strokeDasharray="6 8" />
+            {activeMapArea === "new-york" ? (
+              <g aria-hidden="true">
+                <rect x="450" y="275" width="210" height="235" fill="var(--royal)" opacity="0.035" />
+                {[474, 498, 522, 546, 570, 594, 618, 642].map((x) => (
+                  <path key={`avenue-${x}`} d={`M ${x} 286 L ${x - 10} 462`} stroke="var(--ink)" strokeOpacity="0.09" strokeWidth="1" />
+                ))}
+                {[306, 330, 354, 378, 402, 426, 450].map((y) => (
+                  <path key={`street-${y}`} d={`M 466 ${y} L 630 ${y + 6}`} stroke="var(--ink)" strokeOpacity="0.09" strokeWidth="1" />
+                ))}
+                <path d="M605 300 C630 350 616 405 650 452" fill="none" stroke="var(--royal)" strokeOpacity="0.14" strokeWidth="9" />
+                <text x="466" y="298" fontSize="9" fontWeight="600" fill="var(--royal)" letterSpacing="0">
+                  {lang === "sk" ? "NEW YORK · MAPA MESTA" : "NEW YORK · CITY MAP"}
+                </text>
+              </g>
+            ) : (
+              <>
+                <ellipse cx="420" cy="320" rx="300" ry="210" fill="url(#rm-glow)" />
+                <path
+                  d="M40 470 L150 330 L215 415 L300 275 L400 400 L470 320 L560 430 L660 350 L680 500 L40 500 Z"
+                  fill="var(--sage)"
+                  opacity="0.13"
+                />
+                <path d="M60 210 L170 270 L240 235 L330 300 L430 250 L540 300 L660 240" fill="none" stroke="var(--lilac)" strokeOpacity="0.3" strokeWidth="2" strokeDasharray="6 8" />
+              </>
+            )}
 
             {/* route */}
             {nodes.slice(0, -1).map((n, i) => {

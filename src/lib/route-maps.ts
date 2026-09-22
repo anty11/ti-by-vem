@@ -706,8 +706,8 @@ export const routeMaps: Record<string, RouteMap> = {
     days: [
       {
         day: 1,
-        date: "Day 1",
-        dateSk: "1. deň",
+        date: "Oslo",
+        dateSk: "Oslo",
         x: 250,
         y: 220,
         place: "Oslo",
@@ -725,8 +725,8 @@ export const routeMaps: Record<string, RouteMap> = {
       },
       {
         day: 2,
-        date: "Day 2",
-        dateSk: "2. deň",
+        date: "Oslo",
+        dateSk: "Oslo",
         x: 250,
         y: 220,
         place: "Oslo",
@@ -744,8 +744,8 @@ export const routeMaps: Record<string, RouteMap> = {
       },
       {
         day: 3,
-        date: "Day 3",
-        dateSk: "3. deň",
+        date: "Oslo",
+        dateSk: "Oslo",
         x: 250,
         y: 220,
         place: "Oslo",
@@ -763,8 +763,8 @@ export const routeMaps: Record<string, RouteMap> = {
       },
       {
         day: 4,
-        date: "Day 4",
-        dateSk: "4. deň",
+        date: "Tromsø",
+        dateSk: "Tromsø",
         x: 450,
         y: 110,
         peak: true,
@@ -783,8 +783,8 @@ export const routeMaps: Record<string, RouteMap> = {
       },
       {
         day: 5,
-        date: "Day 5",
-        dateSk: "5. deň",
+        date: "Tromsø",
+        dateSk: "Tromsø",
         x: 450,
         y: 110,
         peak: true,
@@ -803,8 +803,8 @@ export const routeMaps: Record<string, RouteMap> = {
       },
       {
         day: 6,
-        date: "Day 6",
-        dateSk: "6. deň",
+        date: "Tromsø",
+        dateSk: "Tromsø",
         x: 450,
         y: 110,
         place: "Tromsø",

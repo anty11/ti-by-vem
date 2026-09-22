@@ -11,5 +11,7 @@
 - [x] Add Scotland as a live, ready-to-download trip (card, detail page, map pin)
 - [x] Verify "travel intelligence by VeM" always uses lowercase e (site-wide)
 - [x] Add the "International love affair" section for trips beyond Europe (Toronto / Niagara / New York, €39)
-- [ ] Give every package buyer access to the Discord community
+- [x] Give every package buyer access to the Discord community
+- [x] Add Oslo & Tromsø as a live trip with day-by-day map, guide at €9
+- [x] €9 trips offer no personal chat with us (Guide + Us hidden on those pages)
 - [x] Rename the postcard club to "Travel memory mailing club"

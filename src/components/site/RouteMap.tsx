@@ -192,9 +192,9 @@ export function RouteMap({ data, lang }: { data: RouteMapData; lang: Lang }) {
             {nodes.map((n, i) => {
               const on = i === activeNodeIndex;
               const above = n.y > 430 && n.x < 500; // keep Zermatt / Chamonix labels apart
-              const anchor = n.x > 500 ? "end" : "start";
-              const lx = n.x + (n.x > 500 ? -16 : 16);
-              const ly = above ? n.y - 30 : n.y + 5;
+              const anchor = activeMapArea ? "middle" : n.x > 500 ? "end" : "start";
+              const lx = activeMapArea ? n.x : n.x + (n.x > 500 ? -16 : 16);
+              const ly = activeMapArea ? n.y - 22 : above ? n.y - 30 : n.y + 5;
               const highlighted = on || hoveredNode === i;
               const firstDay = n.days[0];
               if (firstDay === undefined) return null;

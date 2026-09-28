@@ -12,7 +12,7 @@ const en = {
     homeLabel: "travel intelligence by VeM home",
   },
   footer: {
-    tagline: "Routes lived by Veronika & Monika.",
+    tagline: "Routes lived by V & eM.",
     terms: "Terms",
     privacy: "Privacy",
     delivery: "Delivery",
@@ -43,7 +43,7 @@ const en = {
   home: {
     title: "travel intelligence by VeM — Europe, already figured out",
     description:
-      "European routes personally travelled by Veronika and Monika, with realistic budgets, exact connections and decisions that make every euro count.",
+      "European routes personally travelled by V and eM, with realistic budgets, exact connections and decisions that make every euro count.",
     ogTitle: "travel intelligence by VeM",
     ogDescription:
       "Not another list of sights. Travel intelligence from European routes we have lived ourselves.",
@@ -95,7 +95,7 @@ const en = {
     description:
       "Every route we've walked, with days, budget estimates and travel details. Pick a country on the map or browse the full list.",
     ogDescription:
-      "European routes travelled by Veronika and Monika, with honest budgets and exact details.",
+      "European routes travelled by V and eM, with honest budgets and exact details.",
     eyebrow: "The map",
     liveTitle: "Ready to download",
     liveLead: "Finished routes. Full guide, budget and travel details in your inbox today.",
@@ -144,7 +144,7 @@ const en = {
   pricing: {
     title: "Travel guide packages — travel intelligence by VeM",
     description:
-      "Compare two travel guide packages: guide with trip chatbot, or direct communication with Veronika and Monika.",
+      "Compare two travel guide packages: guide with trip chatbot, or direct communication with V and eM.",
     ogDescription: "Choose how much support you want around your European route.",
     eyebrow: "Choose your way in",
     h1a: "The route is ready. ",
@@ -153,7 +153,7 @@ const en = {
     lead:
       "No generic PDF and no endless planning spiral. Begin with a journey we have actually lived, then choose how much freedom and human help you want around it.",
     cta: "Find my package",
-    notesAria: "Notes from Veronika and Monika",
+    notesAria: "Notes from V and eM",
     note1a: "Save on the train.",
     note1b: "Splurge on the view.",
     note1c: "— one of our favourite rules",
@@ -175,7 +175,7 @@ const en = {
       "A trip chatbot that answers questions and reshapes the route around your dates and rhythm.",
     diff3Title: "The two of us",
     diff3Text:
-      "Direct communication with Veronika and Monika, plus the travel intelligence by VeM WhatsApp group.",
+      "Direct communication with V and eM, plus the travel intelligence by VeM WhatsApp group.",
     ctaEyebrow: "Not ready to choose?",
     ctaTitle: "Start with a place that pulls you in.",
     ctaText:
@@ -188,9 +188,9 @@ const en = {
   letters: {
     title: "Monthly travel postcard — travel intelligence by VeM",
     description:
-      "For €12 a month, receive a physical personal greeting from a place Veronika and Monika have visited.",
+      "For €12 a month, receive a physical personal greeting from a place V and eM have visited.",
     ogTitle: "Monthly travel postcard · €12",
-    ogDescription: "A small personal hello from somewhere Veronika and Monika have been.",
+    ogDescription: "A small personal hello from somewhere V and eM have been.",
     eyebrow: "Travel memory mailing club · €12/month",
     h1: ["Every month, one country.", "One letter, and a little surprise."],
     lead: [
@@ -239,14 +239,14 @@ const en = {
     ],
   },
   about: {
-    title: "Veronika & Monika — travel intelligence by VeM",
+    title: "V & eM — travel intelligence by VeM",
     description:
-      "Meet Veronika ‘V’ and Monika ‘eM’, two friends turning their lived European journeys into practical travel intelligence.",
+      "Meet V and eM, two friends turning their lived European journeys into practical travel intelligence.",
     ogTitle: "The two behind travel intelligence by VeM",
     ogDescription:
       "Real journeys, honest decisions and the details we learned by travelling them ourselves.",
     eyebrow: "The people behind VeM",
-    h1: "Veronika “V” & Monika “eM”",
+    h1: "V & eM",
     p1:
       "On the first of December 2016 we boarded a plane together for the very first time and flew off to Rome for a single weekend. In just forty eight hours we managed to live through an almost unbelievable amount, wandering from one corner of the city to another, following our feet and our curiosity, tasting, walking and seeing far more than two days should ever be able to hold. Back then we had no idea that this one short flight would not just be the beginning of a single journey, but the beginning of an entire way of living and seeing the world.",
     p2:
@@ -326,7 +326,7 @@ const en = {
         },
         {
           h: "Chat and direct communication",
-          p: "Instructions for chatbot access or communication with Veronika and Monika are sent with the relevant package.",
+          p: "Instructions for chatbot access or communication with V and eM are sent with the relevant package.",
         },
         {
           h: "Travel memory mailing club",
@@ -359,7 +359,7 @@ const sk: Copy = {
     homeLabel: "travel intelligence by VeM — domov",
   },
   footer: {
-    tagline: "Trasy, ktoré prešli Veronika a Monika.",
+    tagline: "Trasy, ktoré prešli V a eM.",
     terms: "Podmienky",
     privacy: "Súkromie",
     delivery: "Doručenie",
@@ -390,7 +390,7 @@ const sk: Copy = {
   home: {
     title: "travel intelligence by VeM — Európa, už premyslená",
     description:
-      "Európske trasy, ktoré Veronika a Monika prešli osobne — s reálnym rozpočtom, presnými spojmi a rozhodnutiami, vďaka ktorým má každé euro zmysel.",
+      "Európske trasy, ktoré V a eM prešli osobne — s reálnym rozpočtom, presnými spojmi a rozhodnutiami, vďaka ktorým má každé euro zmysel.",
     ogTitle: "travel intelligence by VeM",
     ogDescription:
       "Nie ďalší zoznam pamiatok. Travel intelligence z európskych trás, ktoré sme si prežili.",
@@ -442,7 +442,7 @@ const sk: Copy = {
     description:
       "Každá trasa, ktorú sme prešli — s počtom dní, odhadom rozpočtu a cestovnými detailmi. Vyberte krajinu na mape alebo si prezrite celý zoznam.",
     ogDescription:
-      "Európske trasy, ktoré prešli Veronika a Monika, s úprimnými rozpočtami a presnými detailmi.",
+      "Európske trasy, ktoré prešli V a eM, s úprimnými rozpočtami a presnými detailmi.",
     eyebrow: "Mapa",
     liveTitle: "Pripravené na stiahnutie",
     liveLead: "Hotové trasy. Kompletný sprievodca, rozpočet a cestovné detaily hneď dnes.",
@@ -535,9 +535,9 @@ const sk: Copy = {
   letters: {
     title: "Mesačná cestovná pohľadnica — travel intelligence by VeM",
     description:
-      "Za 12 € mesačne dostanete skutočnú pohľadnicu s osobným pozdravom z miesta, kde Veronika a Monika boli.",
+      "Za 12 € mesačne dostanete skutočnú pohľadnicu s osobným pozdravom z miesta, kde V a eM boli.",
     ogTitle: "Mesačná cestovná pohľadnica · 12 €",
-    ogDescription: "Malý osobný pozdrav z miesta, kde Veronika a Monika boli.",
+    ogDescription: "Malý osobný pozdrav z miesta, kde V a eM boli.",
     eyebrow: "Travel memory mailing club · 12 €/mesiac",
     h1: ["Každý mesiac jedna krajina.", "Jeden list a malé prekvapenie."],
     lead: [
@@ -585,14 +585,14 @@ const sk: Copy = {
     ],
   },
   about: {
-    title: "Veronika a Monika — travel intelligence by VeM",
+    title: "V a eM — travel intelligence by VeM",
     description:
-      "Spoznajte Veroniku „V“ a Moniku „eM“ — dve kamarátky, ktoré menia prežité európske cesty na praktickú travel intelligence.",
+      "Spoznajte V a eM — dve kamarátky, ktoré menia prežité európske cesty na praktickú travel intelligence.",
     ogTitle: "Dve, čo stoja za travel intelligence by VeM",
     ogDescription:
       "Skutočné cesty, úprimné rozhodnutia a detaily, ktoré sme sa naučili tým, že sme ich prešli.",
     eyebrow: "Ľudia za VeM",
-    h1: "Veronika „V“ a Monika „eM“",
+    h1: "V a eM",
     p1:
       "Prvého decembra 2016 sme spolu prvýkrát nasadli do lietadla a odleteli na jediný víkend do Ríma. Za pouhých štyridsaťosem hodín sme toho stihli prežiť neuveriteľne veľa, blúdili sme z jedného konca mesta na druhý, šli za vlastnými nohami aj zvedavosťou, ochutnávali, kráčali a videli oveľa viac, než by sa do dvoch dní vôbec malo zmestiť. Vtedy sme ešte netušili, že ten jeden krátky let nebude len začiatkom jednej cesty, ale začiatkom celého spôsobu, akým odvtedy žijeme a objavujeme svet.",
     p2:

@@ -30,8 +30,8 @@ export function PricingPage({ lang }: { lang: Lang }) {
             <p className="mt-10 font-display text-3xl leading-tight">{t.note2}</p>
           </div>
           <div className="absolute right-2 top-1 flex -space-x-3">
-            <img src={founderOne} alt="Veronika" className="size-14 rounded-full border-4 border-paper object-cover" />
-            <img src={founderTwo} alt="Monika" className="size-14 rounded-full border-4 border-paper object-cover" />
+            <img src={founderOne} alt="V" className="size-14 rounded-full border-4 border-paper object-cover" />
+            <img src={founderTwo} alt="eM" className="size-14 rounded-full border-4 border-paper object-cover" />
           </div>
         </div>
       </section>

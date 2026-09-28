@@ -75,8 +75,8 @@ export function HomePage({ lang }: { lang: Lang }) {
       <section className="mx-auto max-w-7xl px-6 py-14">
         <div className="mx-auto mb-10 max-w-xl text-center"><p className="text-xs font-semibold uppercase tracking-[0.25em] text-sage">{t.foundersEyebrow}</p><h2 className="mt-2 font-display text-4xl text-ink">{t.foundersTitle}</h2></div>
         <div className="mx-auto grid max-w-3xl gap-6 sm:grid-cols-2">
-          <article className="glass flex items-center gap-5 rounded-3xl p-6"><img src={founderOne} alt="Veronika, travel intelligence by VeM" className="size-24 shrink-0 rounded-2xl object-cover" /><div><h3 className="font-display text-xl text-ink">Veronika “V”</h3><p className="mt-1 text-xs uppercase tracking-[0.2em] text-soft">{t.vRole}</p><p className="mt-2 text-sm leading-relaxed text-soft">{t.vText}</p></div></article>
-          <article className="glass flex items-center gap-5 rounded-3xl p-6"><img src={founderTwo} alt="Monika, travel intelligence by VeM" className="size-24 shrink-0 rounded-2xl object-cover" /><div><h3 className="font-display text-xl text-ink">Monika “eM”</h3><p className="mt-1 text-xs uppercase tracking-[0.2em] text-soft">{t.mRole}</p><p className="mt-2 text-sm leading-relaxed text-soft">{t.mText}</p></div></article>
+          <article className="glass flex items-center gap-5 rounded-3xl p-6"><img src={founderOne} alt="V, travel intelligence by VeM" className="size-24 shrink-0 rounded-2xl object-cover" /><div><h3 className="font-display text-xl text-ink"><V></h3><p className="mt-1 text-xs uppercase tracking-[0.2em] text-soft">{t.vRole}</p><p className="mt-2 text-sm leading-relaxed text-soft">{t.vText}</p></div></article>
+          <article className="glass flex items-center gap-5 rounded-3xl p-6"><img src={founderTwo} alt="eM, travel intelligence by VeM" className="size-24 shrink-0 rounded-2xl object-cover" /><div><h3 className="font-display text-xl text-ink">eM</h3><p className="mt-1 text-xs uppercase tracking-[0.2em] text-soft">{t.mRole}</p><p className="mt-2 text-sm leading-relaxed text-soft">{t.mText}</p></div></article>
         </div>
       </section>
     </main>

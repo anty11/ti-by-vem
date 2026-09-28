@@ -315,7 +315,7 @@ export const tiers: Tier[] = [
     features: [
       "Everything in Guide + Chat",
       "Access to the travel intelligence by VeM WhatsApp group",
-      "Direct contact with Veronika and Monika",
+      "Direct contact with V and eM",
       "Personal decisions checked with us",
     ],
     cta: "Talk to us",

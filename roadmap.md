@@ -18,4 +18,5 @@
 - [x] Zoom the Toronto–Niagara–New York map into a city view during the New York days
 - [x] Connect the custom domain travelintelligencebyvem.com (DNS verified, apex primary, www redirects)
 - [ ] Publish the project so travelintelligencebyvem.com serves the site
+- [x] Link the real social profiles (Instagram, Threads, TikTok @travelintelligencebyvem)
 - [x] Try a more colourful version of the main Europe map (country tints, flat background)

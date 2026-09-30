@@ -17,3 +17,4 @@
 - [x] Rename the postcard club to "Travel memory mailing club"
 - [x] Zoom the Toronto–Niagara–New York map into a city view during the New York days
 - [ ] Connect the custom domain travelintelligencebyvem.com (DNS records at its provider, then set as primary)
+- [x] Try a more colourful version of the main Europe map (country tints, flat background)

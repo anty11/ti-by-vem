@@ -39,4 +39,4 @@ export function switchPath(lang: Lang, pathname: string) {
   return pathname === "/" ? "/sk" : `/sk${pathname}`;
 }
 
-export const contactEmail = "hello@travelintelligence.com";
+export const contactEmail = "hello@travelintelligencebyvem.com";

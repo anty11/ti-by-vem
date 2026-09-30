@@ -18,6 +18,7 @@ export function AdminPage() {
   const [count, setCount] = useState(1);
   const [note, setNote] = useState("");
   const [fresh, setFresh] = useState<string[]>([]);
+  const [sendTo, setSendTo] = useState("");
   const [busy, setBusy] = useState(false);
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
@@ -57,7 +58,9 @@ export function AdminPage() {
     event.preventDefault();
     setBusy(true);
     try {
-      const codes = await create({ data: { slug, tier, count, note: note || undefined } });
+      const codes = await create({
+        data: { slug, tier, count, note: note || undefined, sendTo: sendTo.trim() || undefined },
+      });
       setFresh(codes);
       setRows(await load());
     } finally {
@@ -141,6 +144,15 @@ export function AdminPage() {
               <input
                 value={note}
                 onChange={(event) => setNote(event.target.value)}
+                className="mt-1 w-full rounded-xl border border-border bg-transparent px-4 py-3 text-ink"
+              />
+            </label>
+            <label className="text-sm text-soft sm:col-span-2">
+              Send codes to customer email (optional)
+              <input
+                type="email"
+                value={sendTo}
+                onChange={(event) => setSendTo(event.target.value)}
                 className="mt-1 w-full rounded-xl border border-border bg-transparent px-4 py-3 text-ink"
               />
             </label>

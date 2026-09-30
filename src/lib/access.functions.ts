@@ -108,6 +108,7 @@ export const createCodes = createServerFn({ method: "POST" })
         tier: z.enum(["chat", "us"]),
         count: z.number().int().min(1).max(20),
         note: z.string().max(120).optional(),
+        sendTo: z.string().email().max(255).optional(),
       })
       .parse(input),
   )
@@ -124,5 +125,17 @@ export const createCodes = createServerFn({ method: "POST" })
       .insert(rows)
       .select("code");
     if (error) throw new Error(error.message);
-    return (inserted ?? []).map((row) => row.code);
+    const codes = (inserted ?? []).map((row) => row.code);
+
+    if (data.sendTo && codes.length > 0) {
+      const { itineraries } = await import("@/lib/content");
+      const { sendTemplateEmail } = await import("@/lib/email-templates/send-email");
+      const itinerary = itineraries.find((item) => item.slug === data.slug)?.title ?? data.slug;
+      await sendTemplateEmail("access-codes", data.sendTo, {
+        templateData: { itinerary, codes },
+        idempotencyKey: `access-codes-${codes[0]}`,
+        replyTo: "hello@travelintelligencebyvem.com",
+      });
+    }
+    return codes;
   });

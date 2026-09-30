@@ -36,7 +36,7 @@ function AccessCodesEmail({ itinerary = "your itinerary", codes = ["VEM-XXXX-XXX
 
 export const template = {
   component: AccessCodesEmail,
-  subject: (data) => `Your access code — ${data.itinerary ?? "travel intelligence by VeM"}`,
+  subject: (data) => `Your access code — ${data["itinerary"] ?? "travel intelligence by VeM"}`,
   displayName: "Itinerary access code",
   previewData: { itinerary: "Switzerland in winter", codes: ["VEM-AB12-CD34"] },
 } satisfies TemplateEntry;

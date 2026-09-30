@@ -1,8 +1,7 @@
-// Placeholder profile URLs — swap for the real VeM accounts when they exist.
 export const socialLinks = {
-  tiktok: "https://www.tiktok.com/@travelintelligence",
-  instagram: "https://www.instagram.com/travelintelligence",
-  facebook: "https://www.facebook.com/travelintelligence",
+  instagram: "https://www.instagram.com/travelintelligencebyvem",
+  threads: "https://www.threads.net/@travelintelligencebyvem",
+  tiktok: "https://www.tiktok.com/@travelintelligencebyvem",
 } as const;
 
 const icons = {
@@ -18,9 +17,10 @@ const icons = {
       <circle cx="17.2" cy="6.8" r="1.1" fill="currentColor" stroke="none" />
     </svg>
   ),
-  facebook: (
-    <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
-      <path d="M13.5 21v-7h2.4l.4-2.9h-2.8V9.2c0-.8.2-1.4 1.4-1.4h1.5V5.2c-.3 0-1.2-.1-2.2-.1-2.2 0-3.7 1.3-3.7 3.8v2.2H8.1V14h2.4v7h3Z" />
+  threads: (
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" aria-hidden="true">
+      <path d="M16.4 8.7C15.5 6.9 13.8 5.9 11.8 5.9 8.7 5.9 6.4 8.1 6.4 11.3s2.3 5.4 5.4 5.4c2.5 0 4.3-1.2 5.1-2.9" />
+      <path d="M14.3 13.3c-.6 1-1.6 1.5-2.8 1.3-1.4-.2-2.3-1.3-2.1-2.6.2-1.3 1.4-2.1 2.8-1.9 1 .2 1.8.7 2.1 1.6.4 1.3-.2 2.7-1.4 3.4" />
     </svg>
   ),
 } as const;

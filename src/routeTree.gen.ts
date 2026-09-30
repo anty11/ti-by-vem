@@ -33,6 +33,7 @@ import { Route as TripSlugRouteImport } from './routes/trip.$slug'
 import { Route as SkItinerariesIndexRouteImport } from './routes/sk.itineraries.index'
 import { Route as SkItinerariesSlugRouteImport } from './routes/sk.itineraries.$slug'
 import { Route as SkTripSlugRouteImport } from './routes/sk.trip.$slug'
+import { Route as LovableEmailTransactionalPreviewRouteImport } from './routes/lovable/email/transactional/preview'
 
 const IndexRoute = IndexRouteImport.update({
   id: '/',
@@ -154,6 +155,12 @@ const SkTripSlugRoute = SkTripSlugRouteImport.update({
   path: '/sk/trip/$slug',
   getParentRoute: () => rootRouteImport,
 } as any)
+const LovableEmailTransactionalPreviewRoute =
+  LovableEmailTransactionalPreviewRouteImport.update({
+    id: '/lovable/email/transactional/preview',
+    path: '/lovable/email/transactional/preview',
+    getParentRoute: () => rootRouteImport,
+  } as any)
 
 export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
@@ -180,6 +187,7 @@ export interface FileRoutesByFullPath {
   '/sk/itineraries/$slug': typeof SkItinerariesSlugRoute
   '/sk/trip/$slug': typeof SkTripSlugRoute
   '/sk/itineraries/': typeof SkItinerariesIndexRoute
+  '/lovable/email/transactional/preview': typeof LovableEmailTransactionalPreviewRoute
 }
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
@@ -206,6 +214,7 @@ export interface FileRoutesByTo {
   '/sk/itineraries/$slug': typeof SkItinerariesSlugRoute
   '/sk/trip/$slug': typeof SkTripSlugRoute
   '/sk/itineraries': typeof SkItinerariesIndexRoute
+  '/lovable/email/transactional/preview': typeof LovableEmailTransactionalPreviewRoute
 }
 export interface FileRoutesById {
   __root__: typeof rootRouteImport
@@ -233,6 +242,7 @@ export interface FileRoutesById {
   '/sk/itineraries/$slug': typeof SkItinerariesSlugRoute
   '/sk/trip/$slug': typeof SkTripSlugRoute
   '/sk/itineraries/': typeof SkItinerariesIndexRoute
+  '/lovable/email/transactional/preview': typeof LovableEmailTransactionalPreviewRoute
 }
 export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
@@ -261,6 +271,7 @@ export interface FileRouteTypes {
     | '/sk/itineraries/$slug'
     | '/sk/trip/$slug'
     | '/sk/itineraries/'
+    | '/lovable/email/transactional/preview'
   fileRoutesByTo: FileRoutesByTo
   to:
     | '/'
@@ -287,6 +298,7 @@ export interface FileRouteTypes {
     | '/sk/itineraries/$slug'
     | '/sk/trip/$slug'
     | '/sk/itineraries'
+    | '/lovable/email/transactional/preview'
   id:
     | '__root__'
     | '/'
@@ -313,6 +325,7 @@ export interface FileRouteTypes {
     | '/sk/itineraries/$slug'
     | '/sk/trip/$slug'
     | '/sk/itineraries/'
+    | '/lovable/email/transactional/preview'
   fileRoutesById: FileRoutesById
 }
 export interface RootRouteChildren {
@@ -340,6 +353,7 @@ export interface RootRouteChildren {
   SkItinerariesSlugRoute: typeof SkItinerariesSlugRoute
   SkTripSlugRoute: typeof SkTripSlugRoute
   SkItinerariesIndexRoute: typeof SkItinerariesIndexRoute
+  LovableEmailTransactionalPreviewRoute: typeof LovableEmailTransactionalPreviewRoute
 }
 
 declare module '@tanstack/react-router' {
@@ -512,6 +526,13 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof SkTripSlugRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/lovable/email/transactional/preview': {
+      id: '/lovable/email/transactional/preview'
+      path: '/lovable/email/transactional/preview'
+      fullPath: '/lovable/email/transactional/preview'
+      preLoaderRoute: typeof LovableEmailTransactionalPreviewRouteImport
+      parentRoute: typeof rootRouteImport
+    }
   }
 }
 
@@ -540,6 +561,7 @@ const rootRouteChildren: RootRouteChildren = {
   SkItinerariesSlugRoute: SkItinerariesSlugRoute,
   SkTripSlugRoute: SkTripSlugRoute,
   SkItinerariesIndexRoute: SkItinerariesIndexRoute,
+  LovableEmailTransactionalPreviewRoute: LovableEmailTransactionalPreviewRoute,
 }
 export const routeTree = rootRouteImport
   ._addFileChildren(rootRouteChildren)

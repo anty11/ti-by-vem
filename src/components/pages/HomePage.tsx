@@ -28,7 +28,6 @@ export function HomePage({ lang }: { lang: Lang }) {
             <Link to={path(lang, "pricing")} className="glass-soft rounded-xl px-6 py-3 font-semibold text-ink transition hover:bg-card">{t.ctaPackages}</Link>
             <Link to={path(lang, "letters")} className="rounded-xl border border-gold/60 bg-gold/20 px-6 py-3 font-semibold text-ink transition hover:bg-gold/40">{t.ctaPostcard}</Link>
           </div>
-          </div>
         </div>
         <EuropeMap lang={lang} />
       </section>

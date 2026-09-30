@@ -52,20 +52,6 @@ export function HomePage({ lang }: { lang: Lang }) {
         </div>
       </section>
 
-      <section className="mx-auto max-w-7xl px-6 py-14">
-        <div className="glass grid items-center gap-10 rounded-3xl p-8 lg:grid-cols-2 lg:p-12">
-          <div>
-            <p className="text-xs font-semibold uppercase tracking-[0.25em] text-lilac">{t.postcardEyebrow}</p>
-            <h2 className="mt-2 font-display text-4xl leading-tight text-ink">{t.postcardTitle}</h2>
-            <p className="mt-4 leading-relaxed text-soft">{t.postcardText}</p>
-            <Link to={path(lang, "letters")} className="mt-7 inline-block rounded-xl bg-ink px-6 py-3 font-semibold text-onink transition hover:bg-lilac">{t.postcardCta}</Link>
-          </div>
-          <div className="grid grid-cols-2 gap-4">
-            <div className="glass-soft rotate-[-2deg] rounded-2xl p-5"><p className="text-[10px] uppercase tracking-[0.2em] text-soft">{t.pc1From}</p><p className="mt-2 font-display text-xl text-ink">{t.pc1Title}</p><p className="mt-3 text-xs leading-relaxed text-soft">{t.pc1Text}</p></div>
-            <div className="glass-soft rotate-[2deg] rounded-2xl p-5"><p className="text-[10px] uppercase tracking-[0.2em] text-soft">{t.pc2From}</p><p className="mt-2 font-display text-xl text-ink">{t.pc2Title}</p><p className="mt-3 text-xs leading-relaxed text-soft">{t.pc2Text}</p></div>
-          </div>
-        </div>
-      </section>
 
       <section className="mx-auto max-w-7xl px-6 py-14">
         <div className="mx-auto mb-10 max-w-xl text-center"><p className="text-xs font-semibold uppercase tracking-[0.25em] text-sage">{t.foundersEyebrow}</p><h2 className="mt-2 font-display text-4xl text-ink">{t.foundersTitle}</h2></div>

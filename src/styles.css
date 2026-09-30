@@ -161,8 +161,8 @@
 }
 
 @utility map-country {
-  fill: color-mix(in oklab, var(--royal) 6%, var(--card));
-  stroke: color-mix(in oklab, var(--soft) 28%, transparent);
+  fill: color-mix(in oklab, var(--royal) 8%, var(--card));
+  stroke: color-mix(in oklab, var(--soft) 34%, transparent);
   stroke-width: 0.7;
   vector-effect: non-scaling-stroke;
   transition:
@@ -171,7 +171,7 @@
 }
 
 @utility map-country-available {
-  stroke-width: 1;
+  stroke-width: 1.2;
 }
 
 .legal-copy h2 {

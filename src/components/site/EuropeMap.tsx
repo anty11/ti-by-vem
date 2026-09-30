@@ -44,12 +44,12 @@ export function EuropeMap({ lang = "en" }: { lang?: Lang }) {
         <svg viewBox="0 0 700 500" className="h-full w-full" aria-label={t.ariaMap}>
           <defs>
             <linearGradient id="map-sea" x1="0" y1="0" x2="1" y2="1">
-              <stop offset="0%" stopColor="var(--royal)" stopOpacity="0.16" />
-              <stop offset="48%" stopColor="var(--sage)" stopOpacity="0.13" />
-              <stop offset="100%" stopColor="var(--terracotta)" stopOpacity="0.14" />
+              <stop offset="0%" stopColor="var(--royal)" stopOpacity="0.24" />
+              <stop offset="48%" stopColor="var(--sage)" stopOpacity="0.2" />
+              <stop offset="100%" stopColor="var(--terracotta)" stopOpacity="0.22" />
             </linearGradient>
             <radialGradient id="map-sun" cx="0.82" cy="0.12" r="0.55">
-              <stop offset="0%" stopColor="var(--gold)" stopOpacity="0.3" />
+              <stop offset="0%" stopColor="var(--gold)" stopOpacity="0.38" />
               <stop offset="100%" stopColor="var(--gold)" stopOpacity="0" />
             </radialGradient>
           </defs>
@@ -67,8 +67,8 @@ export function EuropeMap({ lang = "en" }: { lang?: Lang }) {
                   style={
                     accent
                       ? {
-                          fill: `color-mix(in oklab, var(--${accent}) 26%, var(--card))`,
-                          stroke: `color-mix(in oklab, var(--${accent}) 65%, transparent)`,
+                          fill: `color-mix(in oklab, var(--${accent}) 38%, var(--card))`,
+                          stroke: `color-mix(in oklab, var(--${accent}) 75%, transparent)`,
                         }
                       : undefined
                   }

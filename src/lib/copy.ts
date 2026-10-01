@@ -73,8 +73,8 @@ const en = {
     foundersTitle: "Real people, real miles",
     vRole: "Routes & details",
     vText: "The connections and practical choices that keep a trip moving.",
-    mRole: "Stories & perspective",
-    mText: "Collector of memories. The one who connects the invisible dots on the map — always in a great outfit.",
+    mRole: "Collector of memories",
+    mText: "The one who connects the invisible dots on the map — always in a great outfit.",
   },
   itineraries: {
     title: "European itineraries — travel intelligence by VeM",
@@ -407,8 +407,8 @@ const sk: Copy = {
     foundersTitle: "Skutočné ľudia, skutočné kilometre",
     vRole: "Trasy a detaily",
     vText: "Spoje a praktické rozhodnutia, vďaka ktorým sa cesta stále hýbe.",
-    mRole: "Príbehy a pohľad",
-    mText: "Zberačka spomienok. Ta, čo spája neviditeľné body na mape — vždy v perfektnom outfite.",
+    mRole: "Zberačka spomienok",
+    mText: "Ta, čo spája neviditeľné body na mape — vždy v perfektnom outfite.",
   },
   itineraries: {
     title: "Európske itineráre — travel intelligence by VeM",

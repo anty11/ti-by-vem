@@ -74,7 +74,7 @@ const en = {
     vRole: "Routes & details",
     vText: "The connections and practical choices that keep a trip moving.",
     mRole: "Stories & perspective",
-    mText: "The moments and observations that make a place stay with you.",
+    mText: "The one who collects memories and connects the invisible dots on the map — always in a great outfit.",
   },
   itineraries: {
     title: "European itineraries — travel intelligence by VeM",
@@ -243,7 +243,8 @@ const en = {
       "And can you guess where our next trip will take us? Back to Rome, in 2026, almost exactly ten years later, returning to the very city where it all began and closing the circle right where it started.",
     signoff: "With love, V & eM",
     vText: "Routes, timing and the practical details that keep an ambitious trip moving.",
-    mText: "Stories, perspective and the small observations that make a place stay with you.",
+    mText:
+      "Collecting memories, connecting the invisible dots on the map — the dots that only become a route once someone sees the line between them. Always with a story, and always in the right outfit.",
     contactTitle: "Talk to us",
     contactA: "Questions about a route, a package or the postcard? Write to ",
     contactB: ".",
@@ -407,7 +408,7 @@ const sk: Copy = {
     vRole: "Trasy a detaily",
     vText: "Spoje a praktické rozhodnutia, vďaka ktorým sa cesta stále hýbe.",
     mRole: "Príbehy a pohľad",
-    mText: "Momenty a postrehy, vďaka ktorým vám miesto ostane v hlave.",
+    mText: "Ta, čo zbiera spomienky a spája neviditeľné body na mape — vždy v perfektnom outfite.",
   },
   itineraries: {
     title: "Európske itineráre — travel intelligence by VeM",
@@ -575,7 +576,8 @@ const sk: Copy = {
       "A hádajte, kam nás zavedie naša ďalšia cesta? Späť do Ríma, v roku 2026, takmer presne o desať rokov neskôr, do mesta, kde sa to celé začalo, aby sme kruh uzavreli presne tam, kde vznikol.",
     signoff: "S láskou, V & eM",
     vText: "Trasy, načasovanie a praktické detaily, vďaka ktorým sa náročná cesta stále hýbe.",
-    mText: "Príbehy, pohľad a malé postrehy, vďaka ktorým vám miesto ostane v pamäti.",
+    mText:
+      "Zbiera spomienky a spája neviditeľné body na mape — body, ktoré sa trasou stanú až vtedy, keď niekto uvidí čiaru medzi nimi. Vždy s príbehom, a vždy v tom pravom outfite.",
     contactTitle: "Napíšte nám",
     contactA: "Otázky k trase, balíku alebo pohľadnici? Napíšte na ",
     contactB: ".",

@@ -74,7 +74,7 @@ const en = {
     vRole: "Routes & details",
     vText: "The connections and practical choices that keep a trip moving.",
     mRole: "Collector of memories",
-    mText: "The one who connects the invisible dots on the map — always in a great outfit.",
+    mText: "The one who connects the invisible dots on the map in a stylish outfit.",
   },
   itineraries: {
     title: "European itineraries — travel intelligence by VeM",
@@ -408,7 +408,7 @@ const sk: Copy = {
     vRole: "Trasy a detaily",
     vText: "Spoje a praktické rozhodnutia, vďaka ktorým sa cesta stále hýbe.",
     mRole: "Zberačka spomienok",
-    mText: "Ta, čo spája neviditeľné body na mape — vždy v perfektnom outfite.",
+    mText: "Ta, čo spája neviditeľné body na mape v štýlovom outfite.",
   },
   itineraries: {
     title: "Európske itineráre — travel intelligence by VeM",

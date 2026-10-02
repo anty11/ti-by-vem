@@ -106,7 +106,7 @@ export function OnTripMode({ slug, data, lang }: { slug: string; data: RouteMap;
           <button
             type="button"
             disabled={index === 0}
-            onClick={() => setActive(data.days[index - 1].day)}
+            onClick={() => setActive(data.days[index - 1]!.day)}
             aria-label={sk ? "Predchádzajúci deň" : "Previous day"}
             className="grid size-10 place-items-center rounded-full border border-border text-ink disabled:opacity-30"
           >
@@ -115,7 +115,7 @@ export function OnTripMode({ slug, data, lang }: { slug: string; data: RouteMap;
           <button
             type="button"
             disabled={index === data.days.length - 1}
-            onClick={() => setActive(data.days[index + 1].day)}
+            onClick={() => setActive(data.days[index + 1]!.day)}
             aria-label={sk ? "Ďalší deň" : "Next day"}
             className="grid size-10 place-items-center rounded-full border border-border text-ink disabled:opacity-30"
           >

@@ -7,6 +7,8 @@ import { tripCopy } from "@/lib/access-copy";
 import { itineraryText, type Itinerary } from "@/lib/content";
 import { path, type Lang } from "@/lib/i18n";
 import { listMyAccess } from "@/lib/access.functions";
+import { routeMaps } from "@/lib/route-maps";
+import { OnTripMode } from "@/components/site/OnTripMode";
 
 export function TripRoomPage({ itinerary, lang }: { itinerary: Itinerary; lang: Lang }) {
   const t = tripCopy[lang];
@@ -14,6 +16,8 @@ export function TripRoomPage({ itinerary, lang }: { itinerary: Itinerary; lang: 
   const load = useServerFn(listMyAccess);
   const [state, setState] = useState<"loading" | "locked" | "open">("loading");
   const [tier, setTier] = useState<string>("chat");
+  const routeMap = routeMaps[itinerary.slug];
+  const [view, setView] = useState<"read" | "trip">("read");
 
   useEffect(() => {
     let active = true;
@@ -58,6 +62,25 @@ export function TripRoomPage({ itinerary, lang }: { itinerary: Itinerary; lang: 
         </div>
       ) : (
         <>
+          {routeMap ? (
+            <div className="mt-6 inline-flex rounded-full border border-border p-1 text-sm font-semibold">
+              {(["read", "trip"] as const).map((m) => (
+                <button
+                  key={m}
+                  type="button"
+                  onClick={() => setView(m)}
+                  className={`rounded-full px-5 py-2 transition ${view === m ? "bg-ink text-onink" : "text-soft hover:text-ink"}`}
+                >
+                  {m === "read" ? (lang === "sk" ? "Itinerár" : "Itinerary") : lang === "sk" ? "Na ceste" : "On-trip mode"}
+                </button>
+              ))}
+            </div>
+          ) : null}
+          {view === "trip" && routeMap ? (
+            <div className="mt-6">
+              <OnTripMode slug={itinerary.slug} data={routeMap} lang={lang} />
+            </div>
+          ) : (
           <div className="glass mt-6 rounded-3xl p-8 lg:p-12">
             <span className="text-xs font-semibold uppercase tracking-[0.25em] text-royal">{text.country}</span>
             <h1 className="mt-2 font-display text-5xl leading-[1.05] text-ink">{text.title}</h1>
@@ -88,6 +111,7 @@ export function TripRoomPage({ itinerary, lang }: { itinerary: Itinerary; lang: 
               ))}
             </ul>
           </div>
+          )}
 
           <div className="mt-8">
             <TripChat slug={itinerary.slug} lang={lang} />

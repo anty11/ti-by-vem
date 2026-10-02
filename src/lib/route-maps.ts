@@ -977,6 +977,361 @@ export const routeMaps: Record<string, RouteMap> = {
       },
     ],
   },
+  japan: {
+    title: "Eighteen days, day by day",
+    titleSk: "Osemnásť dní, deň po dni",
+    lead:
+      "From Osaka's neon to Kyoto's temples, a night under Mt. Fuji and a long week in Tokyo. Tap a day to see where the route takes you — the full detail, times and prices live inside the guide.",
+    leadSk:
+      "Od neónov Osaky cez kjotské chrámy, noc pod horou Fudži a dlhý týždeň v Tokiu. Kliknite na deň a uvidíte, kam vás trasa zavedie — celý detail, časy a ceny nájdete v sprievodcovi.",
+    days: [
+      {
+        day: 1,
+        date: "Day 1",
+        dateSk: "1. deň",
+        x: 120,
+        y: 360,
+        place: "Osaka",
+        title: "Landing in the kitchen of Japan",
+        text:
+          "An early arrival in Osaka and straight into the rhythm: an evening walk through Kitahama, Shinsaibashi and the neon of Dotonbori, ending with dinner in the backstreets.",
+        notes: ["Hotel The Royal Park Canvas, Osaka Kitahama", "Dinner at Mihoro Kawaramachi"],
+        sk: {
+          place: "Osaka",
+          title: "Prílet do kuchyne Japonska",
+          text:
+            "Skorý prílet do Osaky a rovno do rytmu mesta: podvečerná prechádzka cez Kitahamu, Šinsaibaši a neóny Dotonbori, na záver večera v bočných uličkách.",
+          notes: ["Hotel The Royal Park Canvas, Osaka Kitahama", "Večera v Mihoro Kawaramachi"],
+        },
+      },
+      {
+        day: 2,
+        date: "Day 2",
+        dateSk: "2. deň",
+        x: 120,
+        y: 360,
+        place: "Osaka",
+        title: "The castle, the old quarter and a glowing garden",
+        text:
+          "Osaka Castle and its gardens in the morning, then the retro streets of Shinsekai and Tsutenkaku. The evening belongs to Nagai Park and the teamLab botanical garden after dark.",
+        notes: ["teamLab Botanical Garden — book ahead", "Skip the backstreets of Sanno at night"],
+        sk: {
+          place: "Osaka",
+          title: "Hrad, stará štvrť a žiariaca záhrada",
+          text:
+            "Ráno hrad Osaka a jeho záhrady, potom retro ulice Šinsekai a Cútenkaku. Večer patrí parku Nagai a botanickej záhrade teamLab po zotmení.",
+          notes: ["teamLab Botanical Garden — rezervujte dopredu", "Štvrti Sanno sa v noci radšej vyhnite"],
+        },
+      },
+      {
+        day: 3,
+        date: "Day 3",
+        dateSk: "3. deň",
+        x: 60,
+        y: 380,
+        peak: true,
+        place: "Hiroshima → Kobe",
+        title: "A morning that matters, then the Venice of Japan",
+        text:
+          "A day trip to Hiroshima: the Peace Memorial Park, the museum and the Atomic Bomb Dome. On the way back, a walk and a canal boat in Kurashiki's old Bikan quarter — Japan's denim town — and the night ends in Kobe over a proper steak.",
+        notes: ["Hiroshima Peace Memorial Museum — go early", "Coffee and cake at Miyake Shoten, Kurashiki", "Kobe beef steak for dinner"],
+        sk: {
+          place: "Hirošima → Kobe",
+          title: "Ráno, na ktoré sa nezabúda, a potom Benátky Japonska",
+          text:
+            "Jednodňový výlet do Hirošimy: Mierový memoriálový park, múzeum a Kupola atómovej bomby. Cestou späť prechádzka a plavba kanálom v historickej štvrti Bikan v Kurašiki — meste japonského denimu — a noc končí v Kobe pri poriadnom steaku.",
+          notes: ["Múzeum mieru v Hirošime — choďte skoro", "Káva a koláčik v Miyake Shoten, Kurašiki", "Na večeru kóbe steak"],
+        },
+      },
+      {
+        day: 4,
+        date: "Day 4",
+        dateSk: "4. deň",
+        x: 120,
+        y: 360,
+        place: "Osaka",
+        title: "Viral cheesecake and bookshop hunting",
+        text:
+          "A slower Osaka day around Namba: the famous wobbly Rikuro's cheesecake, a crawl through the city's Book Off second-hand stores and an evening of yakiniku.",
+        notes: ["Rikuro's cheesecake — expect a line", "Dinner at Yakiniku Gori-chan", "Shisha at Octave"],
+        sk: {
+          place: "Osaka",
+          title: "Virálny cheesecake a lov po knižných bazároch",
+          text:
+            "Pokojnejší deň v Osake okolo Namby: slávny jemný Rikuro's cheesecake, obchádzka bazárov Book Off a večer jakiniku.",
+          notes: ["Rikuro's cheesecake — čakajte radu", "Večera v Yakiniku Gori-chan", "Shisha v Octave"],
+        },
+      },
+      {
+        day: 5,
+        date: "Day 5",
+        dateSk: "5. deň",
+        x: 170,
+        y: 340,
+        place: "Kyoto",
+        title: "Pancakes, shrines and an onsen evening",
+        text:
+          "A short move to Kyoto, starting with the viral pancakes at Panel. The afternoon is a long walk from Yasaka Shrine through the eastern lanes, and the day ends in the hotel onsen.",
+        notes: ["Hotel Sequence Kyoto Gojo", "Panel pancakes — viral, go early", "Onsen in the hotel"],
+        sk: {
+          place: "Kjoto",
+          title: "Pancakes, svätyne a večer v onsene",
+          text:
+            "Krátky presun do Kjota, ktorý začína virálnymi pancakes v Panel. Popoludnie patrí dlhej prechádzke od svätyne Jasaka cez východné uličky a deň končí v hotelovom onsene.",
+          notes: ["Hotel Sequence Kyoto Gojo", "Pancakes v Panel — virálne, príďte skoro", "Onsen v hoteli"],
+        },
+      },
+      {
+        day: 6,
+        date: "Day 6",
+        dateSk: "6. deň",
+        x: 160,
+        y: 330,
+        place: "Kyoto",
+        title: "Bamboo forest and a ring you make yourself",
+        text:
+          "Morning in the Arashiyama bamboo grove and Tenryu-ji temple, then back in town for two very Japanese souvenirs: a handmade ring at Glanta and your own scent at My Only Fragrance.",
+        notes: ["Bamboo forest — go before the crowds", "Ring making at Glanta", "Perfume making at My Only Fragrance"],
+        sk: {
+          place: "Kjoto",
+          title: "Bambusový les a prsteň, ktorý si vyrobíte sami",
+          text:
+            "Ráno v bambusovom lese Arašijama a v chráme Tenryu-dži, potom späť v meste dve veľmi japonské suveníry: ručne robený prsteň v Glanta a vlastná vôňa v My Only Fragrance.",
+          notes: ["Bambusový les — choďte pred davmi", "Výroba prsteňov v Glanta", "Výroba parfumu v My Only Fragrance"],
+        },
+      },
+      {
+        day: 7,
+        date: "Day 7",
+        dateSk: "7. deň",
+        x: 185,
+        y: 355,
+        place: "Nara → Kyoto",
+        title: "Deer, a giant Buddha and tea to take home",
+        text:
+          "A day in Nara: the park deer, the great Buddha of Todai-ji and the lanterns of Kasuga Taisha. Back in Kyoto, stop at Le Labo and stock up on tea at Lupicia.",
+        notes: ["Nara deer bow for crackers", "Le Labo and Lupicia tea in Kyoto", "Dinner at India Koisus"],
+        sk: {
+          place: "Nara → Kjoto",
+          title: "Jelene, obrovský Budha a čaj na cestu domov",
+          text:
+            "Deň v Nare: jelene v parku, veľký Budha v Tódai-dži a lampióny Kasuga Taiša. Späť v Kjote zastávka v Le Labo a zásoby čaju z Lupicia.",
+          notes: ["Jelene v Nare sa klaňajú za sušienky", "Le Labo a čaje Lupicia v Kjote", "Večera v India Koisus"],
+        },
+      },
+      {
+        day: 8,
+        date: "Day 8",
+        dateSk: "8. deň",
+        x: 170,
+        y: 340,
+        peak: true,
+        place: "Kyoto",
+        title: "A tea ceremony in kimono",
+        text:
+          "The most Kyoto day of all: a matcha ceremony dressed in kimono at Maikoya, then a walk in full dress up to Kiyomizu-dera. Jelly flowers at Rokujuan, sunset drinks at rooftop bar K36 and dinner at Matt Restaurant 2.0.",
+        notes: ["Kimono tea ceremony at Maikoya — book ahead", "Rooftop bar K36 at sunset", "Dinner at Matt Restaurant 2.0"],
+        sk: {
+          place: "Kjoto",
+          title: "Čajový obrad v kimone",
+          text:
+            "Najkjotskejší deň zo všetkých: obrad mačy v kimone v Maikoya a potom prechádzka v plnom rúchu hore ku Kijomizu-dera. Želé kvietky v Rokujuan, drink pri západe slnka na rooftop bare K36 a večera v Matt Restaurant 2.0.",
+          notes: ["Čajový obrad v kimone v Maikoya — rezervujte dopredu", "Rooftop bar K36 pri západe slnka", "Večera v Matt Restaurant 2.0"],
+        },
+      },
+      {
+        day: 9,
+        date: "Day 9",
+        dateSk: "9. deň",
+        x: 330,
+        y: 300,
+        peak: true,
+        place: "Fushimi Inari → Kawaguchiko",
+        title: "Ten thousand gates, then the mountain",
+        text:
+          "Morning under the vermilion gates of Fushimi Inari, then the long ride east with a stop in Mishima. The reward: a night at Hotel Ubuya, an onsen with Mt. Fuji filling the window.",
+        notes: ["Fushimi Inari — go early morning", "Hotel Ubuya, Kawaguchiko", "Onsen with a Fuji view", "Dinner at the hotel"],
+        sk: {
+          place: "Fušimi Inari → Kawagučiko",
+          title: "Desaťtisíc brán a potom hora",
+          text:
+            "Ráno pod červenými bránami Fušimi Inari, potom dlhá cesta na východ so zastávkou v Mišime. Odmena: noc v Hotel Ubuya, onsen s Fudži priamo v okne.",
+          notes: ["Fušimi Inari — choďte skoro ráno", "Hotel Ubuya, Kawagučiko", "Onsen s výhľadom na Fudži", "Večera v hoteli"],
+        },
+      },
+      {
+        day: 10,
+        date: "Day 10",
+        dateSk: "10. deň",
+        x: 420,
+        y: 280,
+        place: "Kawaguchiko → Tokyo",
+        title: "The postcard view, then the capital",
+        text:
+          "One last look at Fuji from Arakurayama Sengen Park — the pagoda and the mountain in one frame — then the move to Tokyo.",
+        notes: ["Arakurayama Sengen Park early for the view", "Check in to the Tokyo hotel"],
+        sk: {
+          place: "Kawagučiko → Tokio",
+          title: "Pohľad ako z pohľadnice a potom hlavné mesto",
+          text:
+            "Posledný pohľad na Fudži z parku Arakurayama Sengen — pagoda a hora v jednom zábere — a potom presun do Tokia.",
+          notes: ["Arakurayama Sengen skoro ráno kvôli výhľadu", "Ubytovanie v tokijskom hoteli"],
+        },
+      },
+      {
+        day: 11,
+        date: "Day 11",
+        dateSk: "11. deň",
+        x: 470,
+        y: 270,
+        place: "Tokyo",
+        title: "Shibuya, donuts and the sky at sunset",
+        text:
+          "Breakfast at Honolulu Coffee, then a full Shibuya day: the crossing, the shops, an I am donut? stop and the chaos of Takeshita Street. The day ends above it all at Shibuya Sky, timed for sunset.",
+        notes: ["Shibuya Sky — book the sunset slot ahead", "I am donut? — worth the queue"],
+        sk: {
+          place: "Tokio",
+          title: "Šibuja, donuty a obloha pri západe slnka",
+          text:
+            "Raňajky v Honolulu Coffee a potom celý deň v Šibuji: križovatka, obchody, zastávka v I am donut? a chaos Takeshita Street. Deň končí nad všetkým na Shibuya Sky, načasovaný na západ slnka.",
+          notes: ["Shibuya Sky — slot na západ slnka rezervujte dopredu", "I am donut? — rada stojí za to"],
+        },
+      },
+      {
+        day: 12,
+        date: "Day 12",
+        dateSk: "12. deň",
+        x: 450,
+        y: 310,
+        place: "Kamakura & Yokohama",
+        title: "Big Buddha, a beach and the best pizza",
+        text:
+          "A day out of the city: Kamakura's temples and beach, lunch at Mahalo Enoshima, then Yokohama's giant Chinatown and Yamashita Park. Dinner is Savoy — arguably the best pizza in the world.",
+        notes: ["Lunch at Mahalo Enoshima", "Yokohama Chinatown — the biggest in Japan", "Dinner at Savoy"],
+        sk: {
+          place: "Kamakura a Jokohama",
+          title: "Veľký Budha, pláž a najlepšia pizza",
+          text:
+            "Deň mimo mesta: chrámy a pláž Kamakury, obed v Mahalo Enoshima, potom obrovská čínska štvrť v Jokohame a park Jamašita. Na večeru Savoy — vraj najlepšia pizza na svete.",
+          notes: ["Obed v Mahalo Enoshima", "Čínska štvrť v Jokohame — najväčšia v Japonsku", "Večera v Savoy"],
+        },
+      },
+      {
+        day: 13,
+        date: "Day 13",
+        dateSk: "13. deň",
+        x: 470,
+        y: 270,
+        place: "Tokyo",
+        title: "Digital art and otter coffee",
+        text:
+          "Barefoot through the water rooms of teamLab Planets, then otters at Harry Harajuku Terrace and coffee at Ralph's. The evening is for shopping and a bowl of ramen.",
+        notes: ["teamLab Planets — book ahead", "Otter café at Harry Harajuku Terrace", "Ramen for dinner"],
+        sk: {
+          place: "Tokio",
+          title: "Digitálne umenie a káva s vydrami",
+          text:
+            "Naboso cez vodné miestnosti teamLab Planets, potom vydry v Harry Harajuku Terrace a káva v Ralph's. Večer patrí nákupom a miske ramenu.",
+          notes: ["teamLab Planets — rezervujte dopredu", "Kaviareň s vydrami Harry Harajuku Terrace", "Na večeru ramen"],
+        },
+      },
+      {
+        day: 14,
+        date: "Day 14",
+        dateSk: "14. deň",
+        x: 470,
+        y: 270,
+        place: "Tokyo",
+        title: "A slow park day",
+        text:
+          "A breather: a long walk through the parks around Shiba and along the Meguro River, with unhurried shopping in between.",
+        notes: ["Shiba Park and the Meguro River walk", "Keep this one slow — Disneyland is next"],
+        sk: {
+          place: "Tokio",
+          title: "Pokojný deň v parkoch",
+          text:
+            "Deň na vydýchnutie: dlhá prechádzka parkmi okolo Šiby a popri rieke Meguro, medzitým pokojné nákupy.",
+          notes: ["Park Šiba a prechádzka popri Meguro", "Nechajte tento deň pomalý — nasleduje Disneyland"],
+        },
+      },
+      {
+        day: 15,
+        date: "Day 15",
+        dateSk: "15. deň",
+        x: 500,
+        y: 265,
+        place: "Tokyo Disneyland",
+        title: "A full day in the Magic Kingdom",
+        text:
+          "Rope drop to fireworks: a whole day at Tokyo Disneyland. Use the app for priority passes and eat the snacks only this park does.",
+        notes: ["Arrive before opening", "Priority passes in the app", "Stay for the evening parade"],
+        sk: {
+          place: "Tokyo Disneyland",
+          title: "Celý deň v krajine kúziel",
+          text:
+            "Od otvorenia po ohňostroj: celý deň v Tokyo Disneylande. Použite aplikáciu na priority passy a ochutnajte maškrty, ktoré robí len tento park.",
+          notes: ["Príďte pred otvorením", "Priority passy v aplikácii", "Zostaňte na večernú parádu"],
+        },
+      },
+      {
+        day: 16,
+        date: "Day 16",
+        dateSk: "16. deň",
+        x: 400,
+        y: 300,
+        place: "Hakone",
+        title: "Black eggs and the floating torii",
+        text:
+          "A day in Hakone: the ropeway over a steaming volcanic valley, the famous black eggs, and the Torii of Peace on the lake — yes, the photo queue really is that long.",
+        notes: ["Hakone ropeway and the black eggs", "Torii of Peace — the longest photo queue of your life"],
+        sk: {
+          place: "Hakone",
+          title: "Čierne vajcia a plávajúca brána tórii",
+          text:
+            "Deň v Hakone: lanovka nad dymiacim vulkanickým údolím, slávne čierne vajcia a Brána mieru na jazere — áno, rada na fotku je naozaj taká dlhá.",
+          notes: ["Lanovka v Hakone a čierne vajcia", "Brána mieru — najdlhšie čakanie na fotku v živote"],
+        },
+      },
+      {
+        day: 17,
+        date: "Day 17",
+        dateSk: "17. deň",
+        x: 470,
+        y: 270,
+        place: "Tokyo",
+        title: "Borderless art and running sushi",
+        text:
+          "The last full day: teamLab Borderless in the morning, brunch with a view at the top of the mall, final shopping and a running-sushi dinner to say goodbye.",
+        notes: ["teamLab Borderless — book ahead", "Running sushi for the farewell dinner"],
+        sk: {
+          place: "Tokio",
+          title: "Umenie bez hraníc a bežiace suši",
+          text:
+            "Posledný plný deň: ráno teamLab Borderless, brunch s výhľadom hore v obchodnom centre, posledné nákupy a rozlúčková večera v running sushi.",
+          notes: ["teamLab Borderless — rezervujte dopredu", "Rozlúčková večera v running sushi"],
+        },
+      },
+      {
+        day: 18,
+        date: "Day 18",
+        dateSk: "18. deň",
+        x: 470,
+        y: 270,
+        place: "Tokyo",
+        title: "One last coffee, then home",
+        text:
+          "A slow final morning, one last walk through the neighbourhood and the flight home — with a camera roll full of Japan.",
+        notes: ["Flight home", "Leave for the airport with time to spare"],
+        sk: {
+          place: "Tokio",
+          title: "Posledná káva a domov",
+          text:
+            "Pomalé posledné ráno, ešte jedna prechádzka po štvrti a let domov — s galériou plnou Japonska.",
+          notes: ["Let domov", "Na letisko vyrazte s rezervou"],
+        },
+      },
+    ],
+  },
 };
 
 export function dayStopText(stop: DayStop, lang: Lang): DayStopText {

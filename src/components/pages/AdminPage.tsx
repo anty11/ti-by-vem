@@ -52,7 +52,7 @@ export function AdminPage() {
           .catch((err) => setInboxError(err instanceof Error ? err.message : "Could not load inbox"));
       })
       .catch(() => setState("denied"));
-  }, [session, checkAdmin, load]);
+  }, [session, checkAdmin, load, loadInbox]);
 
   async function signIn(event: React.FormEvent) {
     event.preventDefault();
@@ -182,6 +182,30 @@ export function AdminPage() {
               </ul>
             </div>
           ) : null}
+
+          <h2 className="mt-12 font-display text-2xl text-ink">Inbox — hello@travelintelligencebyvem.com</h2>
+          <p className="mt-1 text-sm text-soft">Latest messages in your mailbox. Replies to customer codes land here too.</p>
+          {inboxError ? (
+            <p className="mt-4 text-sm text-terracotta">{inboxError}</p>
+          ) : inbox.length === 0 ? (
+            <p className="mt-4 text-sm text-soft">No messages yet.</p>
+          ) : (
+            <ul className="mt-4 space-y-3">
+              {inbox.map((message) => (
+                <li key={message.id} className="glass-soft rounded-2xl p-5">
+                  <div className="flex flex-wrap items-baseline justify-between gap-2">
+                    <p className="text-sm font-semibold text-ink">
+                      {message.unread ? <span className="mr-2 inline-block h-2 w-2 rounded-full bg-royal" /> : null}
+                      {message.from}
+                    </p>
+                    <p className="text-xs text-soft">{message.date}</p>
+                  </div>
+                  <p className="mt-1 text-sm font-medium text-ink">{message.subject}</p>
+                  <p className="mt-1 text-sm text-soft">{message.snippet}</p>
+                </li>
+              ))}
+            </ul>
+          )}
 
           <h2 className="mt-12 font-display text-2xl text-ink">All codes</h2>
           <div className="mt-4 overflow-x-auto">

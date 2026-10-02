@@ -4,11 +4,13 @@ import type { Session } from "@supabase/supabase-js";
 import { supabase } from "@/integrations/supabase/client";
 import { itineraries } from "@/lib/content";
 import { amIAdmin, createCodes, listAllCodes, type CodeRow } from "@/lib/access.functions";
+import { listInboxMessages, type InboxMessage } from "@/lib/inbox.functions";
 
 export function AdminPage() {
   const checkAdmin = useServerFn(amIAdmin);
   const load = useServerFn(listAllCodes);
   const create = useServerFn(createCodes);
+  const loadInbox = useServerFn(listInboxMessages);
 
   const [session, setSession] = useState<Session | null>(null);
   const [state, setState] = useState<"loading" | "denied" | "ok">("loading");

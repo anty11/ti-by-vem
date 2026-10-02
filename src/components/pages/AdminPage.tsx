@@ -15,6 +15,8 @@ export function AdminPage() {
   const [session, setSession] = useState<Session | null>(null);
   const [state, setState] = useState<"loading" | "denied" | "ok">("loading");
   const [rows, setRows] = useState<CodeRow[]>([]);
+  const [inbox, setInbox] = useState<InboxMessage[]>([]);
+  const [inboxError, setInboxError] = useState<string | null>(null);
   const [slug, setSlug] = useState(itineraries[0]?.slug ?? "");
   const [tier, setTier] = useState<"chat" | "us">("chat");
   const [count, setCount] = useState(1);
@@ -45,6 +47,9 @@ export function AdminPage() {
         }
         setState("ok");
         setRows(await load());
+        loadInbox()
+          .then(setInbox)
+          .catch((err) => setInboxError(err instanceof Error ? err.message : "Could not load inbox"));
       })
       .catch(() => setState("denied"));
   }, [session, checkAdmin, load]);

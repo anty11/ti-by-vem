@@ -68,6 +68,39 @@ export const itineraries: Itinerary[] = [
     },
   },
   {
+    slug: "japan",
+    status: "beyond",
+    country: "Japan",
+    title: "Japan, from Osaka to Tokyo",
+    days: 18,
+    stops: "Osaka → Tokyo",
+    budget: "~€4,800",
+    chatPrice: "€39",
+    chatPriceSk: "39 €",
+    blurb:
+      "Eighteen days across Japan: Osaka's neon and street food, a day in Hiroshima, Kyoto in a kimono, a night under Mt. Fuji and a long, full week in Tokyo.",
+    accent: "terracotta",
+    x: 0,
+    y: 0,
+    highlights: [
+      "Osaka by night, from Dotonbori to a day trip to Hiroshima and the canals of Kurashiki",
+      "Kyoto slowly: bamboo forest, a tea ceremony in kimono and a ring you make yourself",
+      "A night in an onsen hotel facing Mt. Fuji, then Tokyo — Shibuya Sky, teamLab and Disneyland",
+    ],
+    sk: {
+      country: "Japonsko",
+      title: "Japonsko, z Osaky do Tokia",
+      stops: "Osaka → Tokio",
+      blurb:
+        "Osemnásť dní naprieč Japonskom: neóny a street food Osaky, deň v Hirošime, Kjoto v kimone, noc pod horou Fudži a dlhý, plný týždeň v Tokiu.",
+      highlights: [
+        "Osaka v noci, od Dotonbori po jednodňový výlet do Hirošimy a kanály Kurašiki",
+        "Kjoto pomaly: bambusový les, čajový obrad v kimone a prsteň, ktorý si vyrobíte sami",
+        "Noc v onsen hoteli s výhľadom na Fudži a potom Tokio — Shibuya Sky, teamLab a Disneyland",
+      ],
+    },
+  },
+  {
     slug: "dolomites-winter",
     status: "live",
     country: "Italy & Austria",

@@ -832,6 +832,151 @@ export const routeMaps: Record<string, RouteMap> = {
       },
     ],
   },
+  riviera: {
+    title: "Seven days, day by day",
+    titleSk: "Sedem dní, deň po dni",
+    lead:
+      "One rental car from Marseille to Nice, through Provence and along the coast to Menton. Tap a day to see where the road takes you — the full detail, times and prices live inside the guide.",
+    leadSk:
+      "Jedno požičané auto z Marseille do Nice, cez Provensálsko a popri pobreží do Mentonu. Kliknite na deň a uvidíte, kam vás cesta zavedie — celý detail, časy a ceny nájdete v sprievodcovi.",
+    days: [
+      {
+        day: 1,
+        date: "Day 1",
+        dateSk: "1. deň",
+        x: 180,
+        y: 400,
+        place: "Marseille → Roussillon",
+        title: "Old ports, hilltop villages and an ochre sunset",
+        text:
+          "An early landing in Marseille, pick up the car and walk the old town and the Vieux-Port. Then north to Avignon and the island-town of L'Isle-sur-la-Sorgue, a look at Gordes from afar, and the day ends in Roussillon, glowing red at sunset.",
+        notes: ["Pick up the rental car at the airport", "Dinner at Table des Orcres in Roussillon", "Night at Hotel Omma, Roussillon"],
+        sk: {
+          place: "Marseille → Roussillon",
+          title: "Staré prístavy, dedinky na kopcoch a okrový západ slnka",
+          text:
+            "Skorý prílet do Marseille, vyzdvihnutie auta a prechádzka starým mestom a Vieux-Port. Potom na sever do Avignonu a ostrovného mestečka L'Isle-sur-la-Sorgue, pohľad na Gordes z diaľky a deň končí v Roussillone, ktorý pri západe slnka žiari načerveno.",
+          notes: ["Auto si vyzdvihnite na letisku", "Večera v Table des Orcres v Roussillone", "Noc v Hotel Omma, Roussillon"],
+        },
+      },
+      {
+        day: 2,
+        date: "Day 2",
+        dateSk: "2. deň",
+        x: 285,
+        y: 350,
+        peak: true,
+        place: "Verdon Gorge → Cannes",
+        title: "Lavender roads and a turquoise canyon",
+        text:
+          "Morning views from the cliffs of Roussillon, then a drive past the lavender fields of Valensole to the Verdon Gorge — a pedal boat and a swim inside the canyon. A stroll through Moustiers-Sainte-Marie, and by evening you are on the Croisette in Cannes.",
+        notes: ["Rent a pedal boat at Plage du Galetas", "Lunch at Les Tables du Cloître, Moustiers", "Night at Hotel Verlaine, Cannes", "Fireworks dinner at Miramar Plage"],
+        sk: {
+          place: "Verdonská tiesňava → Cannes",
+          title: "Levanduľové cesty a tyrkysový kaňon",
+          text:
+            "Ranné výhľady z brál Roussillonu, potom cesta popri levanduľových poliach Valensole ku kaňonu Verdon — šlapadlo a kúpanie priamo v kaňone. Prechádzka Moustiers-Sainte-Marie a večer ste už na Croisette v Cannes.",
+          notes: ["Šlapadlo si požičajte na Plage du Galetas", "Obed v Les Tables du Cloître, Moustiers", "Noc v Hotel Verlaine, Cannes", "Večera s ohňostrojom v Miramar Plage"],
+        },
+      },
+      {
+        day: 3,
+        date: "Day 3",
+        dateSk: "3. deň",
+        x: 295,
+        y: 415,
+        place: "Saint-Tropez",
+        title: "Beach club day and a harbour sunset",
+        text:
+          "A slow move to Saint-Tropez and straight to the sand: the day belongs to Beach Club Verde. As the light softens, walk the old town, share a tarte tropézienne and sit by the water in the Port de Saint-Tropez.",
+        notes: ["Beach Club Verde — book a lounger ahead", "Tarte tropézienne from the original bakery", "Night at Hotel Playa, Saint-Tropez"],
+        sk: {
+          place: "Saint-Tropez",
+          title: "Deň v beach clube a západ slnka v prístave",
+          text:
+            "Pokojný presun do Saint-Tropez a rovno na piesok: deň patrí Beach Clubu Verde. Keď svetlo zmäkne, prejdite staré mesto, rozdelte sa o tarte tropézienne a posaďte sa pri vode v Port de Saint-Tropez.",
+          notes: ["Beach Club Verde — lehátko rezervujte dopredu", "Tarte tropézienne z pôvodnej cukrárne", "Noc v Hotel Playa, Saint-Tropez"],
+        },
+      },
+      {
+        day: 4,
+        date: "Day 4",
+        dateSk: "4. deň",
+        x: 295,
+        y: 415,
+        place: "Saint-Tropez",
+        title: "Pastry at opening time, party lunch, custom sandals",
+        text:
+          "Breakfast from Cédric Grolet — arrive at opening, the queue builds fast — eaten sitting by the port. Lunch at Bagatelle is a reservation-only affair that turns into a party. The afternoon is for La Ponche, Place des Lices and made-to-measure sandals at Rondini.",
+        notes: ["Cédric Grolet — come at opening time", "Bagatelle lunch — book well ahead", "Custom sandals at Rondini", "Dinner at Gigi — reservation needed"],
+        sk: {
+          place: "Saint-Tropez",
+          title: "Koláčiky na otváračku, party obed a sandále na mieru",
+          text:
+            "Raňajky od Cédrica Groleta — príďte na otváračku, rady rastú rýchlo — zjedené pri prístave. Obed v Bagatelle je len na rezerváciu a končí sa party. Popoludnie patrí La Ponche, Place des Lices a sandálom na mieru od Rondini.",
+          notes: ["Cédric Grolet — príďte na otváračku", "Obed v Bagatelle — rezervujte poriadne dopredu", "Sandále na mieru u Rondini", "Večera v Gigi — treba rezerváciu"],
+        },
+      },
+      {
+        day: 5,
+        date: "Day 5",
+        dateSk: "5. deň",
+        x: 370,
+        y: 390,
+        place: "Port Grimaud → Nice",
+        title: "Little Venice, perfume making and the Baie des Anges",
+        text:
+          "Breakfast at Senequier, then the canals of Port Grimaud and a seaside stroll in Sainte-Maxime. In Grasse you blend your own perfume at Galimard, and by afternoon you are swimming off the pebbles of Nice.",
+        notes: ["Galimard perfume workshop — book ahead", "Night at Hotel Albert 1er, Nice", "Dinner at La Villa d'Este, Nice"],
+        sk: {
+          place: "Port Grimaud → Nice",
+          title: "Malé Benátky, výroba parfumu a Záliv anjelov",
+          text:
+            "Raňajky v Senequier, potom kanály Port Grimaud a prechádzka pri mori v Sainte-Maxime. V Grasse si v Galimarde namiešate vlastný parfum a poobede sa kúpete na kamienkovej pláži v Nice.",
+          notes: ["Parfumový workshop Galimard — objednajte dopredu", "Noc v Hotel Albert 1er, Nice", "Večera v La Villa d'Este, Nice"],
+        },
+      },
+      {
+        day: 6,
+        date: "Day 6",
+        dateSk: "6. deň",
+        x: 430,
+        y: 385,
+        peak: true,
+        place: "Èze → Monaco",
+        title: "A medieval eagle's nest and a night in Monte Carlo",
+        text:
+          "A coastal drive with photo stops through Villefranche-sur-Mer and Saint-Jean-Cap-Ferrat, then up to the medieval lanes of Èze and coffee at Château Eza. Sleep in Menton, then a taxi over the border for an evening in Monaco — casino, harbour and fireworks.",
+        notes: ["Lunch at Riviera Restaurant, Roquebrune-Cap-Martin", "Night at Hotel Vendôme, Menton", "Bring your passport for the casino", "Taxi back — make sure it crosses to the French side"],
+        sk: {
+          place: "Èze → Monaco",
+          title: "Stredoveké orlie hniezdo a noc v Monte Carle",
+          text:
+            "Jazda po pobreží so zastávkami na fotky cez Villefranche-sur-Mer a Saint-Jean-Cap-Ferrat, potom hore do stredovekých uličiek Èze a káva v Château Eza. Spíte v Mentone a večer taxíkom cez hranicu do Monaka — kasíno, prístav a ohňostroj.",
+          notes: ["Obed v Riviera Restaurant, Roquebrune-Cap-Martin", "Noc v Hotel Vendôme, Menton", "Do kasína nezabudnite pasy", "Taxík späť — musí prejsť do francúzskej časti"],
+        },
+      },
+      {
+        day: 7,
+        date: "Day 7",
+        dateSk: "7. deň",
+        x: 445,
+        y: 380,
+        place: "Menton → Nice",
+        title: "Lemons, one last swim and the flight home",
+        text:
+          "A slow morning in Menton: the old town, the basilica and the Promenade du Soleil. A few hours at La Cabane Plage, then drop the car and fly home from Nice with salt still on your skin.",
+        notes: ["Beach club La Cabane Plage, Menton", "Return the car before the flight", "Fly home from Nice"],
+        sk: {
+          place: "Menton → Nice",
+          title: "Citróny, posledné kúpanie a let domov",
+          text:
+            "Pokojné ráno v Mentone: staré mesto, bazilika a Promenade du Soleil. Pár hodín v La Cabane Plage, potom odovzdajte auto a odlet z Nice — so soľou ešte stále na pokožke.",
+          notes: ["Beach club La Cabane Plage, Menton", "Auto odovzdajte pred letom", "Odlet z Nice"],
+        },
+      },
+    ],
+  },
 };
 
 export function dayStopText(stop: DayStop, lang: Lang): DayStopText {

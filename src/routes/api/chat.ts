@@ -1,23 +1,10 @@
 import { createFileRoute } from "@tanstack/react-router";
 import { createClient } from "@supabase/supabase-js";
-import { itineraries, itineraryText } from "@/lib/content";
+import { buildPackageContext, findItinerary } from "@/lib/agent/context";
+import { buildSystemPrompt } from "@/lib/agent/prompt";
 import type { Lang } from "@/lib/i18n";
 
 type ChatMessage = { role: "user" | "assistant"; content: string };
-
-function tripBrief(slug: string, lang: Lang) {
-  const item = itineraries.find((i) => i.slug === slug);
-  if (!item) return null;
-  const text = itineraryText(item, lang);
-  return [
-    `Trip: ${text.title} (${text.country})`,
-    `Length: ${item.days} days`,
-    `Ground covered: ${text.stops}`,
-    `Budget estimate: ${item.budget}`,
-    `Summary: ${text.blurb}`,
-    `Key moves:\n- ${text.highlights.join("\n- ")}`,
-  ].join("\n");
-}
 
 export const Route = createFileRoute("/api/chat")({
   server: {
@@ -49,29 +36,22 @@ export const Route = createFileRoute("/api/chat")({
         const slug = body.slug ?? "";
         const lang: Lang = body.lang === "sk" ? "sk" : "en";
         const messages = Array.isArray(body.messages) ? body.messages.slice(-20) : [];
-        const brief = tripBrief(slug, lang);
-        if (!brief || messages.length === 0) return new Response("Bad request", { status: 400 });
+        const itinerary = findItinerary(slug);
+        if (!itinerary || messages.length === 0)
+          return new Response("Bad request", { status: 400 });
 
         const { supabaseAdmin } = await import("@/integrations/supabase/client.server");
         const { data: access } = await supabaseAdmin
           .from("access_codes")
-          .select("id")
+          .select("id, tier")
           .eq("redeemed_by", userId)
           .eq("itinerary_slug", slug)
           .limit(1)
           .maybeSingle();
         if (!access) return new Response("Forbidden", { status: 403 });
 
-        const system = [
-          "You are the trip chatbot of 'travel intelligence by VeM', a small European travel studio run by two friends, V and eM.",
-          "Voice: warm, personal, practical, never generic. Short paragraphs. Concrete numbers where you can.",
-          "You know the customer's purchased itinerary below. Help them reshape it (shorter, longer, different season, different budget), and also answer broader travel questions about the destination: weather, packing, food, transport, safety, local habits.",
-          "Say clearly when something is your estimate rather than a checked detail, and suggest writing to V & eM for personal decisions.",
-          lang === "sk" ? "Answer in Slovak." : "Answer in English.",
-          "",
-          "THE PURCHASED ITINERARY:",
-          brief,
-        ].join("\n");
+        const pkg = buildPackageContext(itinerary, lang, access.tier);
+        const system = buildSystemPrompt({ lang, pkg });
 
         const upstream = await fetch("https://ai.gateway.lovable.dev/v1/responses", {
           method: "POST",

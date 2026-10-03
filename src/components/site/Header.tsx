@@ -2,6 +2,7 @@ import { Link, useRouterState } from "@tanstack/react-router";
 import { copy } from "@/lib/copy";
 import { langFromPathname, path, switchPath } from "@/lib/i18n";
 import { SocialLinks } from "@/components/site/SocialLinks";
+import { UserBadge } from "@/components/site/UserBadge";
 
 export function Header() {
   const pathname = useRouterState({ select: (s) => s.location.pathname });
@@ -40,6 +41,7 @@ export function Header() {
           <Link to={path(lang, "pricing")} className="rounded-lg bg-ink px-4 py-2.5 text-sm font-semibold text-onink transition hover:bg-royal">
             {t.viewPackages}
           </Link>
+          <UserBadge lang={lang} />
         </div>
       </nav>
     </header>

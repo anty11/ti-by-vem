@@ -5,7 +5,7 @@ export const CHAT_LIMITS = {
   /** Customer messages per rolling 24 hours, across all their trips. Abuse protection. */
   perDay: 40,
   /** Messages (both roles) loaded as conversation context for the model. */
-  historyForModel: 20,
+  historyForModel: 10,
   /** Messages shown in the trip room on open. */
   historyShown: 200,
   /** Characters per customer message. */

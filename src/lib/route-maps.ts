@@ -28,6 +28,8 @@ export type RouteMap = {
   titleSk: string;
   lead: string;
   leadSk: string;
+  /** Background scenery drawn behind the route; "coast" = seaside, default mountains */
+  scenery?: "coast";
   days: DayStop[];
 };
 
@@ -839,6 +841,7 @@ export const routeMaps: Record<string, RouteMap> = {
       "One rental car from Marseille to Nice, through Provence and along the coast to Menton. Tap a day to see where the road takes you — the full detail, times and prices live inside the guide.",
     leadSk:
       "Jedno požičané auto z Marseille do Nice, cez Provensálsko a popri pobreží do Mentonu. Kliknite na deň a uvidíte, kam vás cesta zavedie — celý detail, časy a ceny nájdete v sprievodcovi.",
+    scenery: "coast",
     days: [
       {
         day: 1,

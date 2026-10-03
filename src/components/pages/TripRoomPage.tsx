@@ -3,7 +3,11 @@ import { Link } from "@tanstack/react-router";
 import { useServerFn } from "@tanstack/react-start";
 import { supabase } from "@/integrations/supabase/client";
 import { TripChat } from "@/components/site/TripChat";
+import { TripProfileForm } from "@/components/site/TripProfileForm";
 import { tripCopy } from "@/lib/access-copy";
+import { getTripRoom, type TripRoomState } from "@/lib/chat.functions";
+import { emptyProfile } from "@/lib/agent/profile";
+import { CHAT_LIMITS } from "@/lib/agent/limits";
 import { itineraryText, type Itinerary } from "@/lib/content";
 import { path, type Lang } from "@/lib/i18n";
 import { listMyAccess } from "@/lib/access.functions";
@@ -18,6 +22,13 @@ export function TripRoomPage({ itinerary, lang }: { itinerary: Itinerary; lang: 
   const [tier, setTier] = useState<string>("chat");
   const routeMap = routeMaps[itinerary.slug];
   const [view, setView] = useState<"read" | "trip">("read");
+  const loadRoom = useServerFn(getTripRoom);
+  const [room, setRoom] = useState<TripRoomState>({
+    profile: emptyProfile,
+    hasProfile: false,
+    messages: [],
+    usage: { used: 0, limit: CHAT_LIMITS.perTrip },
+  });
 
   useEffect(() => {
     let active = true;
@@ -32,6 +43,10 @@ export function TripRoomPage({ itinerary, lang }: { itinerary: Itinerary; lang: 
         if (!active) return;
         setTier(row?.tier ?? "chat");
         setState(row ? "open" : "locked");
+        if (row) {
+          const loaded = await loadRoom({ data: { slug: itinerary.slug } });
+          if (active) setRoom(loaded);
+        }
       } catch {
         if (active) setState("locked");
       }
@@ -39,11 +54,14 @@ export function TripRoomPage({ itinerary, lang }: { itinerary: Itinerary; lang: 
     return () => {
       active = false;
     };
-  }, [itinerary.slug, load]);
+  }, [itinerary.slug, load, loadRoom]);
 
   return (
     <main className="mx-auto max-w-5xl px-6 py-12">
-      <Link to={path(lang, "access")} className="text-sm font-semibold text-soft transition hover:text-ink">
+      <Link
+        to={path(lang, "access")}
+        className="text-sm font-semibold text-soft transition hover:text-ink"
+      >
         {t.back}
       </Link>
 
@@ -71,7 +89,13 @@ export function TripRoomPage({ itinerary, lang }: { itinerary: Itinerary; lang: 
                   onClick={() => setView(m)}
                   className={`rounded-full px-5 py-2 transition ${view === m ? "bg-ink text-onink" : "text-soft hover:text-ink"}`}
                 >
-                  {m === "read" ? (lang === "sk" ? "Itinerár" : "Itinerary") : lang === "sk" ? "Na ceste" : "On-trip mode"}
+                  {m === "read"
+                    ? lang === "sk"
+                      ? "Itinerár"
+                      : "Itinerary"
+                    : lang === "sk"
+                      ? "Na ceste"
+                      : "On-trip mode"}
                 </button>
               ))}
             </div>
@@ -81,40 +105,55 @@ export function TripRoomPage({ itinerary, lang }: { itinerary: Itinerary; lang: 
               <OnTripMode slug={itinerary.slug} data={routeMap} lang={lang} />
             </div>
           ) : (
-          <div className="glass mt-6 rounded-3xl p-8 lg:p-12">
-            <span className="text-xs font-semibold uppercase tracking-[0.25em] text-royal">{text.country}</span>
-            <h1 className="mt-2 font-display text-5xl leading-[1.05] text-ink">{text.title}</h1>
-            <p className="mt-4 max-w-xl text-lg leading-relaxed text-soft">{text.blurb}</p>
+            <div className="glass mt-6 rounded-3xl p-8 lg:p-12">
+              <span className="text-xs font-semibold uppercase tracking-[0.25em] text-royal">
+                {text.country}
+              </span>
+              <h1 className="mt-2 font-display text-5xl leading-[1.05] text-ink">{text.title}</h1>
+              <p className="mt-4 max-w-xl text-lg leading-relaxed text-soft">{text.blurb}</p>
 
-            <div className="mt-8 grid gap-4 sm:grid-cols-3">
-              <div className="glass-soft rounded-2xl p-5">
-                <p className="text-[10px] uppercase tracking-[0.2em] text-soft">{t.days}</p>
-                <p className="mt-1 font-display text-2xl text-ink">{itinerary.days}</p>
+              <div className="mt-8 grid gap-4 sm:grid-cols-3">
+                <div className="glass-soft rounded-2xl p-5">
+                  <p className="text-[10px] uppercase tracking-[0.2em] text-soft">{t.days}</p>
+                  <p className="mt-1 font-display text-2xl text-ink">{itinerary.days}</p>
+                </div>
+                <div className="glass-soft rounded-2xl p-5">
+                  <p className="text-[10px] uppercase tracking-[0.2em] text-soft">{t.ground}</p>
+                  <p className="mt-1 font-display text-2xl text-ink">{text.stops}</p>
+                </div>
+                <div className="glass-soft rounded-2xl p-5">
+                  <p className="text-[10px] uppercase tracking-[0.2em] text-soft">{t.budget}</p>
+                  <p className="mt-1 font-display text-2xl text-ink">{itinerary.budget}</p>
+                </div>
               </div>
-              <div className="glass-soft rounded-2xl p-5">
-                <p className="text-[10px] uppercase tracking-[0.2em] text-soft">{t.ground}</p>
-                <p className="mt-1 font-display text-2xl text-ink">{text.stops}</p>
-              </div>
-              <div className="glass-soft rounded-2xl p-5">
-                <p className="text-[10px] uppercase tracking-[0.2em] text-soft">{t.budget}</p>
-                <p className="mt-1 font-display text-2xl text-ink">{itinerary.budget}</p>
-              </div>
+
+              <h2 className="mt-10 font-display text-2xl text-ink">{t.shape}</h2>
+              <ul className="mt-4 space-y-3 text-soft">
+                {text.highlights.map((highlight) => (
+                  <li key={highlight} className="flex gap-3">
+                    <span className="mt-2 size-1.5 shrink-0 rounded-full bg-terracotta" />
+                    {highlight}
+                  </li>
+                ))}
+              </ul>
             </div>
-
-            <h2 className="mt-10 font-display text-2xl text-ink">{t.shape}</h2>
-            <ul className="mt-4 space-y-3 text-soft">
-              {text.highlights.map((highlight) => (
-                <li key={highlight} className="flex gap-3">
-                  <span className="mt-2 size-1.5 shrink-0 rounded-full bg-terracotta" />
-                  {highlight}
-                </li>
-              ))}
-            </ul>
-          </div>
           )}
 
-          <div className="mt-8">
-            <TripChat slug={itinerary.slug} lang={lang} />
+          <div className="mt-8 space-y-4">
+            <TripProfileForm
+              slug={itinerary.slug}
+              lang={lang}
+              profile={room.profile}
+              hasProfile={room.hasProfile}
+              onSaved={(profile) => setRoom((r) => ({ ...r, profile, hasProfile: true }))}
+            />
+            <TripChat
+              slug={itinerary.slug}
+              lang={lang}
+              history={room.messages}
+              usage={room.usage}
+              onUsage={(used) => setRoom((r) => ({ ...r, usage: { ...r.usage, used } }))}
+            />
           </div>
 
           {tier === "us" ? (

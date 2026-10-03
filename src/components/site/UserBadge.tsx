@@ -16,8 +16,9 @@ export function UserBadge({ lang }: { lang: Lang }) {
 
   if (!session) return null;
   const user = session.user;
-  const avatar = (user.user_metadata?.avatar_url ?? user.user_metadata?.picture) as string | undefined;
-  const name = (user.user_metadata?.full_name as string | undefined) ?? user.email ?? "";
+  const meta = user.user_metadata ?? {};
+  const avatar = (meta["avatar_url"] ?? meta["picture"]) as string | undefined;
+  const name = (meta["full_name"] as string | undefined) ?? user.email ?? "";
   const initial = name.trim().charAt(0).toUpperCase() || "•";
   const label = lang === "sk" ? `Moje cesty — ${user.email}` : `My trips — ${user.email}`;
 

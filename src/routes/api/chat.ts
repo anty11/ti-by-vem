@@ -134,7 +134,7 @@ export const Route = createFileRoute("/api/chat")({
           notes: profileRow?.notes ?? null,
         };
 
-        const pkg = buildPackageContext(itinerary, lang, access.tier);
+        const pkg = buildPackageContext(itinerary, lang, tier);
         const profileText = profileToPrompt(profile, itinerary.days);
         const system = buildSystemPrompt({
           lang,

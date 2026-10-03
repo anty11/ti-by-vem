@@ -54,14 +54,20 @@ export const Route = createFileRoute("/api/chat")({
           return new Response("Bad request", { status: 400 });
 
         const { supabaseAdmin } = await import("@/integrations/supabase/client.server");
-        const { data: access } = await supabaseAdmin
-          .from("access_codes")
-          .select("id, tier")
-          .eq("redeemed_by", userId)
-          .eq("itinerary_slug", slug)
-          .limit(1)
-          .maybeSingle();
-        if (!access) return new Response("Forbidden", { status: 403 });
+        const { data: isAdmin } = await supabaseAdmin.rpc("has_role", {
+          _user_id: userId,
+          _role: "admin",
+        });
+        if (!isAdmin) {
+          const { data: access } = await supabaseAdmin
+            .from("access_codes")
+            .select("id, tier")
+            .eq("redeemed_by", userId)
+            .eq("itinerary_slug", slug)
+            .limit(1)
+            .maybeSingle();
+          if (!access) return new Response("Forbidden", { status: 403 });
+        }
 
         // One thread per customer and trip; created on first message.
         // If the memory tables are not there yet (migration not applied), fall back to a

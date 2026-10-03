@@ -52,7 +52,7 @@ export const redeemCode = createServerFn({ method: "POST" })
 
     const { data: row, error } = await supabaseAdmin
       .from("access_codes")
-      .select("id, itinerary_slug, tier, redeemed_by")
+      .select("id, itinerary_slug, tier, redeemed_by, note")
       .eq("code", code)
       .maybeSingle();
 
@@ -65,6 +65,9 @@ export const redeemCode = createServerFn({ method: "POST" })
       _role: "admin",
     });
     if (isAdmin) return { status: "ok" as const, slug: row.itinerary_slug, tier: row.tier };
+
+    // Test/admin codes (note starting with "test") are for admins only — never for customers.
+    if (row.note?.trim().toLowerCase().startsWith("test")) return { status: "unknown" as const };
 
     if (row.redeemed_by && row.redeemed_by !== context.userId) return { status: "used" as const };
 

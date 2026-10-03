@@ -217,32 +217,78 @@ export const Route = createFileRoute("/api/chat")({
           await saveAnswer(answer);
         };
 
+        const emptyAnswer =
+          lang === "sk"
+            ? "Prepáčte, odpoveď sa nepodarilo načítať. Skúste to prosím znova."
+            : "Sorry, I couldn't get an answer just now. Please try again.";
+        const eventTypes = new Map<string, number>();
+
+        // Turns one SSE event into text for the customer. The Responses API streams
+        // response.output_text.delta; response.output_text.done / response.completed carry
+        // the full text, used only if no deltas arrived.
+        const handleEvent = (raw: string, emit: (text: string) => void) => {
+          const payload = raw
+            .split("\n")
+            .filter((l) => l.startsWith("data:"))
+            .map((l) => l.slice(5).trim())
+            .join("\n");
+          if (!payload || payload === "[DONE]") return;
+          let event: {
+            type?: string;
+            delta?: string;
+            text?: string;
+            error?: unknown;
+            response?: {
+              error?: unknown;
+              output?: { type?: string; content?: { type?: string; text?: string }[] }[];
+            };
+          };
+          try {
+            event = JSON.parse(payload);
+          } catch {
+            return; // keepalive or malformed chunk
+          }
+          const type = event.type ?? "unknown";
+          eventTypes.set(type, (eventTypes.get(type) ?? 0) + 1);
+          if (type === "response.output_text.delta" && event.delta) {
+            emit(event.delta);
+          } else if (type === "response.output_text.done" && !answer && event.text) {
+            emit(event.text);
+          } else if (type === "response.completed" && !answer) {
+            const text = (event.response?.output ?? [])
+              .flatMap((item) => item.content ?? [])
+              .filter((part) => part.type === "output_text" && part.text)
+              .map((part) => part.text)
+              .join("");
+            if (text) emit(text);
+          } else if (type === "error" || type === "response.failed") {
+            console.error("AI gateway stream error", JSON.stringify(event.error ?? event.response?.error ?? event));
+          }
+        };
+
         const stream = new ReadableStream<Uint8Array>({
           async pull(controller) {
+            const emit = (text: string) => {
+              answer += text;
+              controller.enqueue(encoder.encode(text));
+            };
             const { done, value } = await reader.read();
             if (done) {
+              buffer += decoder.decode();
+              if (buffer.trim()) handleEvent(buffer.replace(/\r\n/g, "\n"), emit);
+              if (!answer.trim()) {
+                console.error("AI gateway returned no text", Object.fromEntries(eventTypes));
+                controller.enqueue(encoder.encode(emptyAnswer));
+              }
               controller.close();
               await finish();
               return;
             }
-            buffer += decoder.decode(value, { stream: true });
+            // Normalise the whole buffer so a \r\n split across two chunks is still caught.
+            buffer = (buffer + decoder.decode(value, { stream: true })).replace(/\r\n/g, "\n");
             const chunks = buffer.split("\n\n");
             buffer = chunks.pop() ?? "";
-            for (const chunk of chunks) {
-              const line = chunk.split("\n").find((l) => l.startsWith("data:"));
-              if (!line) continue;
-              const payload = line.slice(5).trim();
-              if (!payload || payload === "[DONE]") continue;
-              try {
-                const event = JSON.parse(payload) as { type?: string; delta?: string };
-                if (event.type === "response.output_text.delta" && event.delta) {
-                  answer += event.delta;
-                  controller.enqueue(encoder.encode(event.delta));
-                }
-              } catch {
-                // ignore malformed keepalive chunks
-              }
-            }
+            for (const chunk of chunks) handleEvent(chunk, emit);
           },
           async cancel(reason) {
             // The customer navigated away: keep whatever the model had said so far.

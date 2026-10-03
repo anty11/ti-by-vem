@@ -54,13 +54,30 @@ export const Route = createFileRoute("/api/chat")({
           return new Response("Bad request", { status: 400 });
 
         const { supabaseAdmin } = await import("@/integrations/supabase/client.server");
-        const { data: access } = await supabaseAdmin
+        let { data: access } = await supabaseAdmin
           .from("access_codes")
           .select("id, tier")
           .eq("redeemed_by", userId)
           .eq("itinerary_slug", slug)
           .limit(1)
           .maybeSingle();
+        if (!access) {
+          // Admins open any trip without redeeming a code (see listMyAccess), so let them chat too.
+          const { data: isAdmin } = await supabaseAdmin.rpc("has_role", {
+            _user_id: userId,
+            _role: "admin",
+          });
+          if (isAdmin) {
+            const { data: anyCode } = await supabaseAdmin
+              .from("access_codes")
+              .select("id, tier")
+              .eq("itinerary_slug", slug)
+              .order("tier", { ascending: false })
+              .limit(1)
+              .maybeSingle();
+            access = anyCode ?? { id: "admin", tier: "us" };
+          }
+        }
         if (!access) return new Response("Forbidden", { status: 403 });
 
         // One thread per customer and trip; created on first message.

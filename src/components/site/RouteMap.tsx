@@ -33,7 +33,7 @@ export function RouteMap({ data, lang }: { data: RouteMapData; lang: Lang }) {
   const current = data.days.find((d) => d.day === active) ?? data.days[0];
   const activeMapArea = current?.mapArea;
   const visibleDays = activeMapArea ? data.days.filter((day) => day.mapArea === activeMapArea) : data.days;
-  const viewBox = activeMapArea === "new-york" ? "430 250 270 280" : "0 0 700 540";
+  const mapAreas = Array.from(new Set(data.days.flatMap((day) => (day.mapArea ? [day.mapArea] : []))));
 
   useEffect(() => {
     if (!isPlaying || data.days.length < 2) return;
@@ -87,6 +87,11 @@ export function RouteMap({ data, lang }: { data: RouteMapData; lang: Lang }) {
     setIsPlaying(true);
   }
 
+  function chooseMapArea(area: "canada-journey" | "new-york") {
+    const firstDay = data.days.find((day) => day.mapArea === area);
+    if (firstDay) chooseDay(firstDay.day);
+  }
+
   return (
     <section className="mt-14">
       <h2 className="font-display text-3xl text-ink">{lang === "sk" ? data.titleSk : data.title}</h2>
@@ -130,9 +135,33 @@ export function RouteMap({ data, lang }: { data: RouteMapData; lang: Lang }) {
         </Button>
       </div>
 
+      {mapAreas.length > 1 && (
+        <div className="mt-5 inline-flex max-w-full rounded-lg border border-border bg-surface/70 p-1" aria-label={lang === "sk" ? "Pohľad mapy" : "Map view"}>
+          {mapAreas.map((area) => {
+            const selected = area === activeMapArea;
+            const label = area === "canada-journey"
+              ? lang === "sk" ? "Kanada a presun" : "Canada & journey"
+              : lang === "sk" ? "New York · detail mesta" : "New York · city detail";
+            return (
+              <Button
+                key={area}
+                type="button"
+                variant="ghost"
+                size="sm"
+                aria-pressed={selected}
+                onClick={() => chooseMapArea(area)}
+                className={selected ? "bg-ink text-onink hover:bg-ink/90 hover:text-onink" : "text-soft hover:text-ink"}
+              >
+                {label}
+              </Button>
+            );
+          })}
+        </div>
+      )}
+
       <div className="mt-6 grid gap-6 lg:grid-cols-[1.15fr_1fr]">
         <div className="glass rounded-3xl p-4 sm:p-6">
-          <svg viewBox={viewBox} className="w-full h-auto" role="img" aria-label={lang === "sk" ? "Mapa trasy" : "Route map"}>
+          <svg viewBox="0 0 700 540" className="w-full h-auto" role="img" aria-label={lang === "sk" ? "Mapa trasy" : "Route map"}>
             <defs>
               <radialGradient id="rm-glow" cx="50%" cy="50%" r="50%">
                 <stop offset="0%" stopColor="var(--royal)" stopOpacity="0.18" />
@@ -140,19 +169,39 @@ export function RouteMap({ data, lang }: { data: RouteMapData; lang: Lang }) {
               </radialGradient>
             </defs>
 
-            {activeMapArea === "new-york" ? (
+            {data.scenery === "north-america" && activeMapArea === "new-york" ? (
               <g aria-hidden="true">
-                <rect x="450" y="275" width="210" height="235" fill="var(--royal)" opacity="0.035" />
-                {[474, 498, 522, 546, 570, 594, 618, 642].map((x) => (
-                  <path key={`avenue-${x}`} d={`M ${x} 286 L ${x - 10} 462`} stroke="var(--ink)" strokeOpacity="0.09" strokeWidth="1" />
+                <rect x="20" y="24" width="660" height="492" rx="18" fill="var(--royal)" opacity="0.05" />
+                <path d="M245 35 C290 70 304 134 318 205 C333 278 336 350 360 431 L411 421 C386 344 389 276 376 201 C363 123 342 63 302 35 Z" fill="var(--card)" opacity="0.94" />
+                <path d="M395 275 C460 269 555 286 642 335 L642 455 C565 433 484 423 404 429 C380 377 376 326 395 275 Z" fill="var(--sage)" opacity="0.18" />
+                <path d="M442 445 C491 437 551 441 607 467 L590 510 L470 510 Z" fill="var(--gold)" opacity="0.14" />
+                <path d="M220 35 C258 117 264 204 280 280 C294 346 309 407 338 458" fill="none" stroke="var(--royal)" strokeOpacity="0.25" strokeWidth="12" />
+                {[270, 286, 302, 318, 334, 350, 366].map((x) => (
+                  <path key={`avenue-${x}`} d={`M ${x} 62 L ${x + 55} 420`} stroke="var(--ink)" strokeOpacity="0.08" strokeWidth="1" />
                 ))}
-                {[306, 330, 354, 378, 402, 426, 450].map((y) => (
-                  <path key={`street-${y}`} d={`M 466 ${y} L 630 ${y + 6}`} stroke="var(--ink)" strokeOpacity="0.09" strokeWidth="1" />
+                {[120, 160, 200, 240, 280, 320, 360].map((y) => (
+                  <path key={`street-${y}`} d={`M 278 ${y} L 384 ${y - 9}`} stroke="var(--ink)" strokeOpacity="0.08" strokeWidth="1" />
                 ))}
-                <path d="M605 300 C630 350 616 405 650 452" fill="none" stroke="var(--royal)" strokeOpacity="0.14" strokeWidth="9" />
-                <text x="466" y="298" fontSize="9" fontWeight="600" fill="var(--royal)" letterSpacing="0">
-                  {lang === "sk" ? "NEW YORK · MAPA MESTA" : "NEW YORK · CITY MAP"}
-                </text>
+                <text x="38" y="53" fontSize="11" fontWeight="700" fill="var(--royal)" letterSpacing="0">NEW YORK CITY</text>
+                <text x="286" y="93" fontSize="10" fill="var(--ink)" opacity="0.42">MANHATTAN</text>
+                <text x="484" y="346" fontSize="10" fill="var(--ink)" opacity="0.42">BROOKLYN</text>
+                <text x="514" y="493" fontSize="10" fill="var(--ink)" opacity="0.42">CONEY ISLAND</text>
+                <text x="90" y="310" fontSize="10" fill="var(--royal)" opacity="0.5">HUDSON RIVER</text>
+              </g>
+            ) : data.scenery === "north-america" ? (
+              <g aria-hidden="true">
+                <rect x="20" y="24" width="660" height="492" rx="18" fill="var(--card)" opacity="0.46" />
+                <path d="M50 68 C157 45 280 61 366 100 C426 127 478 174 520 229 C425 208 353 201 280 219 C206 237 139 228 69 198 Z" fill="var(--sage)" opacity="0.17" />
+                <path d="M72 206 C144 239 212 241 280 223 C351 205 425 215 514 237 C455 264 399 298 360 344 C304 302 254 278 190 278 C137 278 93 253 72 206 Z" fill="var(--royal)" opacity="0.13" />
+                <path d="M76 214 C145 244 214 246 283 227 C351 209 427 220 510 241" fill="none" stroke="var(--royal)" strokeOpacity="0.35" strokeWidth="3" />
+                <path d="M292 242 C310 260 315 280 307 306" fill="none" stroke="var(--royal)" strokeOpacity="0.55" strokeWidth="8" strokeLinecap="round" />
+                <path d="M337 346 C398 364 458 389 548 447" fill="none" stroke="var(--ink)" strokeOpacity="0.09" strokeWidth="16" strokeLinecap="round" />
+                <path d="M337 346 C398 364 458 389 548 447" fill="none" stroke="var(--royal)" strokeOpacity="0.26" strokeWidth="2" strokeDasharray="7 9" />
+                <text x="48" y="52" fontSize="11" fontWeight="700" fill="var(--royal)" letterSpacing="0">CANADA → USA</text>
+                <text x="98" y="120" fontSize="12" fill="var(--ink)" opacity="0.38">ONTARIO</text>
+                <text x="205" y="256" fontSize="10" fill="var(--royal)" opacity="0.52">LAKE ONTARIO</text>
+                <text x="422" y="342" fontSize="11" fill="var(--ink)" opacity="0.35">NEW YORK STATE</text>
+                <text x="438" y="412" fontSize="9" fill="var(--royal)" opacity="0.6">PANORAMIC TRAIN</text>
               </g>
             ) : data.scenery === "coast" ? (
               <g aria-hidden="true">
@@ -235,7 +284,7 @@ export function RouteMap({ data, lang }: { data: RouteMapData; lang: Lang }) {
             {/* stops */}
             {nodes.map((n, i) => {
               const on = i === activeNodeIndex;
-              const above = n.y > 430 && n.x < 500; // keep Zermatt / Chamonix labels apart
+               const above = n.y > 430 && n.x < 500; // keep lower-edge labels inside the map
               const anchor = activeMapArea ? "middle" : n.x > 500 ? "end" : "start";
               const lx = activeMapArea ? n.x : n.x + (n.x > 500 ? -16 : 16);
               const ly = activeMapArea ? n.y - 22 : above ? n.y - 30 : n.y + 5;
@@ -272,7 +321,7 @@ export function RouteMap({ data, lang }: { data: RouteMapData; lang: Lang }) {
                     strokeWidth={on ? 3 : 2}
                     className="transition-all duration-300"
                   />
-                  {(!activeMapArea || highlighted) && (
+                  {(!activeMapArea || activeMapArea === "canada-journey" || highlighted) && (
                     <>
                       <text
                         x={lx}

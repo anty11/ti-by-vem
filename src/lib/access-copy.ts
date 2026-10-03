@@ -16,6 +16,9 @@ export type AccessCopy = {
   toSignIn: string;
   google: string;
   checkEmail: string;
+  alreadyRegistered: string;
+  accountCreated: string;
+  signedInGoogle: string;
   signOut: string;
   signedInAs: string;
   redeemTitle: string;
@@ -73,7 +76,12 @@ export const accessCopy: Record<Lang, AccessCopy> = {
     toSignUp: "No account yet? Create one",
     toSignIn: "Already have an account? Sign in",
     google: "Continue with Google",
-    checkEmail: "Check your inbox and confirm your email, then sign in.",
+    checkEmail:
+      "Almost there — we've sent a confirmation link to your email. Open it, then sign in here. (Check spam too.)",
+    alreadyRegistered:
+      "This email already has an account. If you created it with Google, use “Continue with Google” — otherwise switch to Sign in.",
+    accountCreated: "Your account is ready. Welcome!",
+    signedInGoogle: "You're signed in with Google. Your account is ready.",
     signOut: "Sign out",
     signedInAs: "Signed in as",
     redeemTitle: "Unlock a trip",
@@ -106,7 +114,12 @@ export const accessCopy: Record<Lang, AccessCopy> = {
     toSignUp: "Ešte nemáte konto? Vytvorte si ho",
     toSignIn: "Už máte konto? Prihláste sa",
     google: "Pokračovať cez Google",
-    checkEmail: "Pozrite si e-mail, potvrďte adresu a potom sa prihláste.",
+    checkEmail:
+      "Už len krok — poslali sme vám potvrdzovací odkaz na e-mail. Otvorte ho a potom sa tu prihláste. (Pozrite aj spam.)",
+    alreadyRegistered:
+      "Tento e-mail už má konto. Ak ste ho vytvorili cez Google, použite „Pokračovať cez Google“ — inak sa prihláste.",
+    accountCreated: "Vaše konto je pripravené. Vitajte!",
+    signedInGoogle: "Ste prihlásení cez Google. Vaše konto je pripravené.",
     signOut: "Odhlásiť sa",
     signedInAs: "Prihlásený ako",
     redeemTitle: "Odomknúť cestu",

@@ -58,6 +58,7 @@ export const Route = createFileRoute("/api/chat")({
           _user_id: userId,
           _role: "admin",
         });
+        let tier = "us";
         if (!isAdmin) {
           const { data: access } = await supabaseAdmin
             .from("access_codes")
@@ -67,6 +68,7 @@ export const Route = createFileRoute("/api/chat")({
             .limit(1)
             .maybeSingle();
           if (!access) return new Response("Forbidden", { status: 403 });
+          tier = access.tier;
         }
 
         // One thread per customer and trip; created on first message.

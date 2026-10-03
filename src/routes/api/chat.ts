@@ -64,6 +64,8 @@ export const Route = createFileRoute("/api/chat")({
         if (!access) return new Response("Forbidden", { status: 403 });
 
         // One thread per customer and trip; created on first message.
+        // If the memory tables are not there yet (migration not applied), fall back to a
+        // stateless chat: no history, no stored messages, no budget.
         const { data: thread, error: threadError } = await supabaseAdmin
           .from("chat_threads")
           .upsert(
@@ -73,31 +75,34 @@ export const Route = createFileRoute("/api/chat")({
           .select("id, user_message_count")
           .single();
         if (threadError || !thread) {
-          console.error("chat thread error", threadError);
-          return new Response("The chatbot is unavailable right now.", { status: 503 });
+          console.error("chat thread error, continuing without memory", threadError);
         }
 
-        if (thread.user_message_count >= CHAT_LIMITS.perTrip) {
-          return new Response(limitCopy[lang].trip, { status: 429 });
-        }
-        const since = new Date(Date.now() - 86_400_000).toISOString();
-        const { count: todayCount } = await supabaseAdmin
-          .from("chat_messages")
-          .select("id", { count: "exact", head: true })
-          .eq("user_id", userId)
-          .eq("role", "user")
-          .gte("created_at", since);
-        if ((todayCount ?? 0) >= CHAT_LIMITS.perDay) {
-          return new Response(limitCopy[lang].day, { status: 429 });
+        if (thread) {
+          if (thread.user_message_count >= CHAT_LIMITS.perTrip) {
+            return new Response(limitCopy[lang].trip, { status: 429 });
+          }
+          const since = new Date(Date.now() - 86_400_000).toISOString();
+          const { count: todayCount } = await supabaseAdmin
+            .from("chat_messages")
+            .select("id", { count: "exact", head: true })
+            .eq("user_id", userId)
+            .eq("role", "user")
+            .gte("created_at", since);
+          if ((todayCount ?? 0) >= CHAT_LIMITS.perDay) {
+            return new Response(limitCopy[lang].day, { status: 429 });
+          }
         }
 
         const [{ data: historyRows }, { data: profileRow }] = await Promise.all([
-          supabaseAdmin
-            .from("chat_messages")
-            .select("role, content")
-            .eq("thread_id", thread.id)
-            .order("created_at", { ascending: false })
-            .limit(CHAT_LIMITS.historyForModel),
+          thread
+            ? supabaseAdmin
+                .from("chat_messages")
+                .select("role, content")
+                .eq("thread_id", thread.id)
+                .order("created_at", { ascending: false })
+                .limit(CHAT_LIMITS.historyForModel)
+            : Promise.resolve({ data: [] as { role: string; content: string }[] }),
           supabaseAdmin
             .from("trip_profiles")
             .select("travel_start, travel_end, party, pace, budget, notes")
@@ -130,24 +135,26 @@ export const Route = createFileRoute("/api/chat")({
         });
 
         // Store the question before calling the model so the budget is charged even if the model fails mid-way.
-        const { error: insertError } = await supabaseAdmin.from("chat_messages").insert({
-          thread_id: thread.id,
-          user_id: userId,
-          role: "user",
-          content: question,
-        });
-        if (insertError) console.error("chat message insert error", insertError);
-        await supabaseAdmin
-          .from("chat_threads")
-          .update({
-            user_message_count: thread.user_message_count + 1,
-            lang,
-            updated_at: new Date().toISOString(),
-          })
-          .eq("id", thread.id);
+        if (thread) {
+          const { error: insertError } = await supabaseAdmin.from("chat_messages").insert({
+            thread_id: thread.id,
+            user_id: userId,
+            role: "user",
+            content: question,
+          });
+          if (insertError) console.error("chat message insert error", insertError);
+          await supabaseAdmin
+            .from("chat_threads")
+            .update({
+              user_message_count: thread.user_message_count + 1,
+              lang,
+              updated_at: new Date().toISOString(),
+            })
+            .eq("id", thread.id);
+        }
 
         const saveAnswer = async (answer: string) => {
-          if (!answer.trim()) return;
+          if (!thread || !answer.trim()) return;
           const { error } = await supabaseAdmin.from("chat_messages").insert({
             thread_id: thread.id,
             user_id: userId,

@@ -20,22 +20,28 @@ export function AccessPage({ lang }: { lang: Lang }) {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [authMessage, setAuthMessage] = useState<string | null>(null);
+  const [authOk, setAuthOk] = useState(false);
+  const [welcome, setWelcome] = useState<string | null>(null);
   const [rows, setRows] = useState<AccessRow[]>([]);
   const [code, setCode] = useState("");
   const [redeemMessage, setRedeemMessage] = useState<string | null>(null);
   const [busy, setBusy] = useState(false);
 
   useEffect(() => {
-    const { data } = supabase.auth.onAuthStateChange((_event, next) => {
+    const { data } = supabase.auth.onAuthStateChange((event, next) => {
       setSession(next);
       setReady(true);
+      if (event === "SIGNED_IN" && next) {
+        const provider = next.user.app_metadata?.provider;
+        setWelcome(provider === "google" ? t.signedInGoogle : t.accountCreated);
+      }
     });
     supabase.auth.getSession().then(({ data: current }) => {
       setSession(current.session);
       setReady(true);
     });
     return () => data.subscription.unsubscribe();
-  }, []);
+  }, [t]);
 
   useEffect(() => {
     if (!session) {
@@ -49,6 +55,7 @@ export function AccessPage({ lang }: { lang: Lang }) {
     event.preventDefault();
     setBusy(true);
     setAuthMessage(null);
+    setAuthOk(false);
     const result =
       mode === "in"
         ? await supabase.auth.signInWithPassword({ email, password })
@@ -62,12 +69,21 @@ export function AccessPage({ lang }: { lang: Lang }) {
       setAuthMessage(result.error.message);
       return;
     }
-    if (mode === "up" && !result.data.session) setAuthMessage(t.checkEmail);
+    if (mode === "up" && !result.data.session) {
+      // Existing account: the server returns a user with no identities and sends no email.
+      const identities = result.data.user?.identities;
+      if (identities && identities.length === 0) {
+        setAuthMessage(t.alreadyRegistered);
+        return;
+      }
+      setAuthOk(true);
+      setAuthMessage(t.checkEmail);
+    }
   }
 
   async function googleSignIn() {
     const result = await lovable.auth.signInWithOAuth("google", {
-      redirect_uri: window.location.origin,
+      redirect_uri: `${window.location.origin}${path(lang, "access")}`,
     });
     if (result.error) setAuthMessage(result.error.message);
   }
@@ -160,17 +176,29 @@ export function AccessPage({ lang }: { lang: Lang }) {
           >
             {mode === "in" ? t.toSignUp : t.toSignIn}
           </button>
-          {authMessage ? <p className="mt-4 text-sm text-terracotta">{authMessage}</p> : null}
+          {authMessage ? (
+            <p role="status" className={`mt-4 text-sm ${authOk ? "text-royal" : "text-terracotta"}`}>
+              {authMessage}
+            </p>
+          ) : null}
         </div>
       ) : (
         <>
-          <div className="mt-10 flex flex-wrap items-center justify-between gap-3 text-sm text-soft">
+          {welcome ? (
+            <p role="status" className="glass mt-10 rounded-2xl px-5 py-3 text-sm font-semibold text-royal">
+              {welcome}
+            </p>
+          ) : null}
+          <div className="mt-6 flex flex-wrap items-center justify-between gap-3 text-sm text-soft">
             <span>
               {t.signedInAs} <strong className="text-ink">{session.user.email}</strong>
             </span>
             <button
               type="button"
-              onClick={() => supabase.auth.signOut()}
+              onClick={() => {
+                setWelcome(null);
+                supabase.auth.signOut();
+              }}
               className="rounded-full border border-border px-4 py-2 text-xs font-semibold uppercase tracking-[0.12em] transition hover:text-ink"
             >
               {t.signOut}

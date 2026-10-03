@@ -25,11 +25,15 @@ function randomCode() {
 export const listMyAccess = createServerFn({ method: "GET" })
   .middleware([requireSupabaseAuth])
   .handler(async ({ context }) => {
-    const { data, error } = await context.supabase
+    const { data: isAdmin } = await context.supabase.rpc("has_role", {
+      _user_id: context.userId,
+      _role: "admin",
+    });
+    const query = context.supabase
       .from("access_codes")
       .select("itinerary_slug, tier, code, redeemed_at")
-      .eq("redeemed_by", context.userId)
       .order("redeemed_at", { ascending: false });
+    const { data, error } = isAdmin ? await query : await query.eq("redeemed_by", context.userId);
     if (error) throw new Error(error.message);
     return (data ?? []).map((row) => ({
       slug: row.itinerary_slug,
@@ -54,6 +58,14 @@ export const redeemCode = createServerFn({ method: "POST" })
 
     if (error) throw new Error(error.message);
     if (!row) return { status: "unknown" as const };
+
+    // Admin codes never expire: admins can open any trip without consuming the code.
+    const { data: isAdmin } = await context.supabase.rpc("has_role", {
+      _user_id: context.userId,
+      _role: "admin",
+    });
+    if (isAdmin) return { status: "ok" as const, slug: row.itinerary_slug, tier: row.tier };
+
     if (row.redeemed_by && row.redeemed_by !== context.userId) return { status: "used" as const };
 
     if (!row.redeemed_by) {

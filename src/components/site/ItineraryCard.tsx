@@ -12,6 +12,7 @@ import scotland from "@/assets/scotland.jpg";
 import torontoNewYork from "@/assets/toronto-new-york.jpg";
 import dolomitesWinter from "@/assets/dolomites-winter.jpg";
 import osloTromso from "@/assets/oslo-tromso.jpg";
+import japan from "@/assets/japan.jpg";
 
 const images: Record<string, string> = {
   italy,
@@ -21,6 +22,7 @@ const images: Record<string, string> = {
   "dolomites-winter": dolomitesWinter,
   "toronto-new-york": torontoNewYork,
   "oslo-tromso": osloTromso,
+  japan,
 };
 
 export function ItineraryCard({ itinerary, lang = "en" }: { itinerary: Itinerary; lang?: Lang }) {

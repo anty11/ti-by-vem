@@ -66,15 +66,17 @@ export function buildSystemPrompt(input: AgentPromptInput): string {
     );
   }
 
-  if (input.profile) {
-    sections.push(["THIS CUSTOMER'S TRIP:", input.profile].join("\n"));
-  }
-
   sections.push(["THE PURCHASED PACKAGE:", input.pkg.text].join("\n"));
 
   for (const block of input.knowledge ?? []) {
     if (!block.body.trim()) continue;
     sections.push([`${block.heading.toUpperCase()}:`, block.body].join("\n"));
+  }
+
+  // Customer-specific text goes last: everything above is identical for every customer
+  // of this trip, so the gateway can bill it as cached input.
+  if (input.profile) {
+    sections.push(["THIS CUSTOMER'S TRIP:", input.profile].join("\n"));
   }
 
   return sections.join("\n\n");

@@ -154,6 +154,50 @@ export function RouteMap({ data, lang }: { data: RouteMapData; lang: Lang }) {
                   {lang === "sk" ? "NEW YORK · MAPA MESTA" : "NEW YORK · CITY MAP"}
                 </text>
               </g>
+            ) : data.scenery === "coast" ? (
+              <g aria-hidden="true">
+                <ellipse cx="420" cy="320" rx="300" ry="210" fill="url(#rm-glow)" />
+                {/* land above the coastline */}
+                <path
+                  d="M40 442 C120 422 200 472 300 452 C400 432 480 462 560 437 C620 422 660 442 690 432 L690 30 L40 30 Z"
+                  fill="var(--sage)"
+                  opacity="0.09"
+                />
+                {/* sea */}
+                <path
+                  d="M40 442 C120 422 200 472 300 452 C400 432 480 462 560 437 C620 422 660 442 690 432 L690 540 L40 540 Z"
+                  fill="var(--royal)"
+                  opacity="0.1"
+                />
+                {/* beach strip along the coast */}
+                <path
+                  d="M40 442 C120 422 200 472 300 452 C400 432 480 462 560 437 C620 422 660 442 690 432"
+                  fill="none"
+                  stroke="var(--gold)"
+                  strokeOpacity="0.5"
+                  strokeWidth="7"
+                  strokeLinecap="round"
+                />
+                {/* dotted shoreline in the water */}
+                <path
+                  d="M40 456 C120 436 200 486 300 466 C400 446 480 476 560 451 C620 436 660 456 690 446"
+                  fill="none"
+                  stroke="var(--royal)"
+                  strokeOpacity="0.35"
+                  strokeWidth="2"
+                  strokeDasharray="2 9"
+                  strokeLinecap="round"
+                />
+                {/* gentle waves */}
+                <path d="M105 508 q14 -9 28 0 q14 9 28 0" fill="none" stroke="var(--royal)" strokeOpacity="0.3" strokeWidth="2" strokeLinecap="round" />
+                <path d="M495 512 q14 -9 28 0 q14 9 28 0" fill="none" stroke="var(--royal)" strokeOpacity="0.28" strokeWidth="2" strokeLinecap="round" />
+                <path d="M600 486 q12 -8 24 0 q12 8 24 0" fill="none" stroke="var(--royal)" strokeOpacity="0.24" strokeWidth="2" strokeLinecap="round" />
+                {/* small sailboat */}
+                <g transform="translate(255 500)" opacity="0.55">
+                  <path d="M0 -16 L11 2 L-7 2 Z" fill="var(--royal)" strokeOpacity="0.2" />
+                  <path d="M-9 5 L12 5 L7 12 L-4 12 Z" fill="var(--terracotta)" />
+                </g>
+              </g>
             ) : (
               <>
                 <ellipse cx="420" cy="320" rx="300" ry="210" fill="url(#rm-glow)" />

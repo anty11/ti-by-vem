@@ -25,11 +25,15 @@ function randomCode() {
 export const listMyAccess = createServerFn({ method: "GET" })
   .middleware([requireSupabaseAuth])
   .handler(async ({ context }) => {
-    const { data, error } = await context.supabase
+    const { data: isAdmin } = await context.supabase.rpc("has_role", {
+      _user_id: context.userId,
+      _role: "admin",
+    });
+    const query = context.supabase
       .from("access_codes")
       .select("itinerary_slug, tier, code, redeemed_at")
-      .eq("redeemed_by", context.userId)
       .order("redeemed_at", { ascending: false });
+    const { data, error } = isAdmin ? await query : await query.eq("redeemed_by", context.userId);
     if (error) throw new Error(error.message);
     return (data ?? []).map((row) => ({
       slug: row.itinerary_slug,

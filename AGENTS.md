@@ -8,3 +8,5 @@
 > Commits you push to the connected branch sync back to Lovable and show up in
 > the editor, so keep the branch in a working state.
 <!-- LOVABLE:END -->
+
+- Route maps may define named map areas for long journeys; selecting a day switches to its area so regional and city-scale stops remain readable.

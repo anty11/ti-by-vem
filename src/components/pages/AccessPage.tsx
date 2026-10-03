@@ -31,7 +31,11 @@ export function AccessPage({ lang }: { lang: Lang }) {
     const { data } = supabase.auth.onAuthStateChange((event, next) => {
       setSession(next);
       setReady(true);
-      if (event === "SIGNED_IN" && next) {
+      // Only greet right after an actual sign-in action or email confirmation, not on every page load.
+      const fresh =
+        sessionStorage.getItem("vem-auth-pending") === "1" || window.location.hash.includes("type=signup");
+      if (event === "SIGNED_IN" && next && fresh) {
+        sessionStorage.removeItem("vem-auth-pending");
         const provider = next.user.app_metadata?.provider;
         setWelcome(provider === "google" ? t.signedInGoogle : t.accountCreated);
       }
@@ -56,6 +60,7 @@ export function AccessPage({ lang }: { lang: Lang }) {
     setBusy(true);
     setAuthMessage(null);
     setAuthOk(false);
+    sessionStorage.setItem("vem-auth-pending", "1");
     const result =
       mode === "in"
         ? await supabase.auth.signInWithPassword({ email, password })
@@ -82,6 +87,7 @@ export function AccessPage({ lang }: { lang: Lang }) {
   }
 
   async function googleSignIn() {
+    sessionStorage.setItem("vem-auth-pending", "1");
     const result = await lovable.auth.signInWithOAuth("google", {
       redirect_uri: `${window.location.origin}${path(lang, "access")}`,
     });
@@ -223,7 +229,11 @@ export function AccessPage({ lang }: { lang: Lang }) {
                 {t.redeem}
               </button>
             </form>
-            {redeemMessage ? <p className="mt-4 text-sm text-terracotta">{redeemMessage}</p> : null}
+            {redeemMessage ? (
+              <p role="status" className={`mt-4 text-sm ${redeemMessage === t.redeemed ? "text-royal" : "text-terracotta"}`}>
+                {redeemMessage}
+              </p>
+            ) : null}
           </div>
 
           <h2 className="mt-12 font-display text-2xl text-ink">{t.myTrips}</h2>

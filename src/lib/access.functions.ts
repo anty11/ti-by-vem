@@ -54,6 +54,14 @@ export const redeemCode = createServerFn({ method: "POST" })
 
     if (error) throw new Error(error.message);
     if (!row) return { status: "unknown" as const };
+
+    // Admin codes never expire: admins can open any trip without consuming the code.
+    const { data: isAdmin } = await context.supabase.rpc("has_role", {
+      _user_id: context.userId,
+      _role: "admin",
+    });
+    if (isAdmin) return { status: "ok" as const, slug: row.itinerary_slug, tier: row.tier };
+
     if (row.redeemed_by && row.redeemed_by !== context.userId) return { status: "used" as const };
 
     if (!row.redeemed_by) {

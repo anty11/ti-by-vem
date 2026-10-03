@@ -47,6 +47,113 @@ export type Database = {
         }
         Relationships: []
       }
+      chat_messages: {
+        Row: {
+          content: string
+          created_at: string
+          id: string
+          role: string
+          thread_id: string
+          user_id: string
+        }
+        Insert: {
+          content: string
+          created_at?: string
+          id?: string
+          role: string
+          thread_id: string
+          user_id: string
+        }
+        Update: {
+          content?: string
+          created_at?: string
+          id?: string
+          role?: string
+          thread_id?: string
+          user_id?: string
+        }
+        Relationships: [
+          {
+            foreignKeyName: "chat_messages_thread_id_fkey"
+            columns: ["thread_id"]
+            isOneToOne: false
+            referencedRelation: "chat_threads"
+            referencedColumns: ["id"]
+          },
+        ]
+      }
+      chat_threads: {
+        Row: {
+          created_at: string
+          id: string
+          itinerary_slug: string
+          lang: string
+          updated_at: string
+          user_id: string
+          user_message_count: number
+        }
+        Insert: {
+          created_at?: string
+          id?: string
+          itinerary_slug: string
+          lang?: string
+          updated_at?: string
+          user_id: string
+          user_message_count?: number
+        }
+        Update: {
+          created_at?: string
+          id?: string
+          itinerary_slug?: string
+          lang?: string
+          updated_at?: string
+          user_id?: string
+          user_message_count?: number
+        }
+        Relationships: []
+      }
+      trip_profiles: {
+        Row: {
+          budget: string | null
+          created_at: string
+          id: string
+          itinerary_slug: string
+          notes: string | null
+          pace: string | null
+          party: string | null
+          travel_end: string | null
+          travel_start: string | null
+          updated_at: string
+          user_id: string
+        }
+        Insert: {
+          budget?: string | null
+          created_at?: string
+          id?: string
+          itinerary_slug: string
+          notes?: string | null
+          pace?: string | null
+          party?: string | null
+          travel_end?: string | null
+          travel_start?: string | null
+          updated_at?: string
+          user_id: string
+        }
+        Update: {
+          budget?: string | null
+          created_at?: string
+          id?: string
+          itinerary_slug?: string
+          notes?: string | null
+          pace?: string | null
+          party?: string | null
+          travel_end?: string | null
+          travel_start?: string | null
+          updated_at?: string
+          user_id?: string
+        }
+        Relationships: []
+      }
       user_roles: {
         Row: {
           created_at: string

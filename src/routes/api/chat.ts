@@ -1,10 +1,23 @@
 import { createFileRoute } from "@tanstack/react-router";
 import { createClient } from "@supabase/supabase-js";
 import { buildPackageContext, findItinerary } from "@/lib/agent/context";
+import { CHAT_LIMITS } from "@/lib/agent/limits";
+import { isBudget, isPace, profileToPrompt, type TripProfile } from "@/lib/agent/profile";
 import { buildSystemPrompt } from "@/lib/agent/prompt";
 import type { Lang } from "@/lib/i18n";
 
 type ChatMessage = { role: "user" | "assistant"; content: string };
+
+const limitCopy: Record<Lang, { trip: string; day: string }> = {
+  en: {
+    trip: "You have used all the agent messages included with this trip. Write to V & eM if you need more.",
+    day: "That is a lot of questions for one day — the agent is taking a break. Come back tomorrow.",
+  },
+  sk: {
+    trip: "Vyčerpali ste všetky správy agenta zahrnuté v tejto ceste. Ak potrebujete viac, napíšte V & eM.",
+    day: "To je na jeden deň veľa otázok — agent si dáva pauzu. Vráťte sa zajtra.",
+  },
+};
 
 export const Route = createFileRoute("/api/chat")({
   server: {
@@ -31,13 +44,13 @@ export const Route = createFileRoute("/api/chat")({
         const body = (await request.json()) as {
           slug?: string;
           lang?: Lang;
-          messages?: ChatMessage[];
+          message?: string;
         };
         const slug = body.slug ?? "";
         const lang: Lang = body.lang === "sk" ? "sk" : "en";
-        const messages = Array.isArray(body.messages) ? body.messages.slice(-20) : [];
+        const question = typeof body.message === "string" ? body.message.trim() : "";
         const itinerary = findItinerary(slug);
-        if (!itinerary || messages.length === 0)
+        if (!itinerary || !question || question.length > CHAT_LIMITS.messageChars)
           return new Response("Bad request", { status: 400 });
 
         const { supabaseAdmin } = await import("@/integrations/supabase/client.server");
@@ -50,8 +63,99 @@ export const Route = createFileRoute("/api/chat")({
           .maybeSingle();
         if (!access) return new Response("Forbidden", { status: 403 });
 
+        // One thread per customer and trip; created on first message.
+        const { data: thread, error: threadError } = await supabaseAdmin
+          .from("chat_threads")
+          .upsert(
+            { user_id: userId, itinerary_slug: slug, lang },
+            { onConflict: "user_id,itinerary_slug", ignoreDuplicates: false },
+          )
+          .select("id, user_message_count")
+          .single();
+        if (threadError || !thread) {
+          console.error("chat thread error", threadError);
+          return new Response("The chatbot is unavailable right now.", { status: 503 });
+        }
+
+        if (thread.user_message_count >= CHAT_LIMITS.perTrip) {
+          return new Response(limitCopy[lang].trip, { status: 429 });
+        }
+        const since = new Date(Date.now() - 86_400_000).toISOString();
+        const { count: todayCount } = await supabaseAdmin
+          .from("chat_messages")
+          .select("id", { count: "exact", head: true })
+          .eq("user_id", userId)
+          .eq("role", "user")
+          .gte("created_at", since);
+        if ((todayCount ?? 0) >= CHAT_LIMITS.perDay) {
+          return new Response(limitCopy[lang].day, { status: 429 });
+        }
+
+        const [{ data: historyRows }, { data: profileRow }] = await Promise.all([
+          supabaseAdmin
+            .from("chat_messages")
+            .select("role, content")
+            .eq("thread_id", thread.id)
+            .order("created_at", { ascending: false })
+            .limit(CHAT_LIMITS.historyForModel),
+          supabaseAdmin
+            .from("trip_profiles")
+            .select("travel_start, travel_end, party, pace, budget, notes")
+            .eq("user_id", userId)
+            .eq("itinerary_slug", slug)
+            .maybeSingle(),
+        ]);
+
+        const history: ChatMessage[] = (historyRows ?? []).reverse().map((row) => ({
+          role: row.role === "assistant" ? "assistant" : "user",
+          content: row.content,
+        }));
+        const messages: ChatMessage[] = [...history, { role: "user", content: question }];
+
+        const profile: TripProfile = {
+          travelStart: profileRow?.travel_start ?? null,
+          travelEnd: profileRow?.travel_end ?? null,
+          party: profileRow?.party ?? null,
+          pace: isPace(profileRow?.pace) ? profileRow.pace : null,
+          budget: isBudget(profileRow?.budget) ? profileRow.budget : null,
+          notes: profileRow?.notes ?? null,
+        };
+
         const pkg = buildPackageContext(itinerary, lang, access.tier);
-        const system = buildSystemPrompt({ lang, pkg });
+        const profileText = profileToPrompt(profile, itinerary.days);
+        const system = buildSystemPrompt({
+          lang,
+          pkg,
+          ...(profileText ? { profile: profileText } : {}),
+        });
+
+        // Store the question before calling the model so the budget is charged even if the model fails mid-way.
+        const { error: insertError } = await supabaseAdmin.from("chat_messages").insert({
+          thread_id: thread.id,
+          user_id: userId,
+          role: "user",
+          content: question,
+        });
+        if (insertError) console.error("chat message insert error", insertError);
+        await supabaseAdmin
+          .from("chat_threads")
+          .update({
+            user_message_count: thread.user_message_count + 1,
+            lang,
+            updated_at: new Date().toISOString(),
+          })
+          .eq("id", thread.id);
+
+        const saveAnswer = async (answer: string) => {
+          if (!answer.trim()) return;
+          const { error } = await supabaseAdmin.from("chat_messages").insert({
+            thread_id: thread.id,
+            user_id: userId,
+            role: "assistant",
+            content: answer,
+          });
+          if (error) console.error("chat answer insert error", error);
+        };
 
         const upstream = await fetch("https://ai.gateway.lovable.dev/v1/responses", {
           method: "POST",
@@ -90,12 +194,20 @@ export const Route = createFileRoute("/api/chat")({
         const encoder = new TextEncoder();
         const reader = upstream.body.getReader();
         let buffer = "";
+        let answer = "";
+        let saved = false;
+        const finish = async () => {
+          if (saved) return;
+          saved = true;
+          await saveAnswer(answer);
+        };
 
         const stream = new ReadableStream<Uint8Array>({
           async pull(controller) {
             const { done, value } = await reader.read();
             if (done) {
               controller.close();
+              await finish();
               return;
             }
             buffer += decoder.decode(value, { stream: true });
@@ -109,6 +221,7 @@ export const Route = createFileRoute("/api/chat")({
               try {
                 const event = JSON.parse(payload) as { type?: string; delta?: string };
                 if (event.type === "response.output_text.delta" && event.delta) {
+                  answer += event.delta;
                   controller.enqueue(encoder.encode(event.delta));
                 }
               } catch {
@@ -116,7 +229,9 @@ export const Route = createFileRoute("/api/chat")({
               }
             }
           },
-          cancel(reason) {
+          async cancel(reason) {
+            // The customer navigated away: keep whatever the model had said so far.
+            await finish();
             return reader.cancel(reason);
           },
         });

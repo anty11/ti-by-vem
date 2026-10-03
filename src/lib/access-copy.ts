@@ -40,6 +40,9 @@ export type TripCopy = {
   unlock: string;
   chatTitle: string;
   chatIntro: string;
+  chatEmpty: string;
+  chatExhausted: string;
+  messagesLeft: string;
   placeholder: string;
   send: string;
   thinking: string;
@@ -55,10 +58,12 @@ export type TripCopy = {
 export const accessCopy: Record<Lang, AccessCopy> = {
   en: {
     title: "Your trips — travel intelligence by VeM",
-    description: "Sign in and unlock the itinerary and trip chatbot you bought with your access code.",
+    description:
+      "Sign in and unlock the itinerary and trip chatbot you bought with your access code.",
     eyebrow: "Members",
     h1: "Your trips live here.",
-    intro: "Sign in, enter the code we sent you after your purchase, and your full itinerary plus the trip chatbot opens up.",
+    intro:
+      "Sign in, enter the code we sent you after your purchase, and your full itinerary plus the trip chatbot opens up.",
     signInTitle: "Sign in",
     signUpTitle: "Create an account",
     email: "Email",
@@ -90,7 +95,8 @@ export const accessCopy: Record<Lang, AccessCopy> = {
     description: "Prihláste sa a kódom odomknite itinerár a chatbota, ktoré ste si kúpili.",
     eyebrow: "Členská zóna",
     h1: "Tu žijú vaše cesty.",
-    intro: "Prihláste sa, zadajte kód, ktorý sme vám poslali po nákupe, a otvorí sa celý itinerár aj chatbot k ceste.",
+    intro:
+      "Prihláste sa, zadajte kód, ktorý sme vám poslali po nákupe, a otvorí sa celý itinerár aj chatbot k ceste.",
     signInTitle: "Prihlásenie",
     signUpTitle: "Vytvoriť konto",
     email: "E-mail",
@@ -123,10 +129,16 @@ export const tripCopy: Record<Lang, TripCopy> = {
   en: {
     back: "← Your trips",
     locked: "This trip is locked",
-    lockedText: "Sign in and enter your access code to open the full itinerary and the trip chatbot.",
+    lockedText:
+      "Sign in and enter your access code to open the full itinerary and the trip chatbot.",
     unlock: "Enter access code",
-    chatTitle: "Trip chatbot",
-    chatIntro: "Ask anything — reshape the days, swap a town, check the budget, or ask what to pack.",
+    chatTitle: "Your trip agent",
+    chatIntro:
+      "Ask anything — reshape the days, swap a town, check the budget, ask about the country or what to pack. It knows this route day by day.",
+    chatEmpty: "Your conversation is saved here, so you can pick it up again any time.",
+    chatExhausted:
+      "You have used all the agent messages included with this trip. Write to V & eM if you need more.",
+    messagesLeft: "messages left",
     placeholder: "Can we do this in 6 days instead?",
     send: "Ask",
     thinking: "Thinking…",
@@ -136,15 +148,21 @@ export const tripCopy: Record<Lang, TripCopy> = {
     budget: "Budget",
     shape: "The shape of it",
     whatsapp: "WhatsApp group",
-    whatsappText: "Your package includes the travel intelligence by VeM group. Write to us and we'll add you.",
+    whatsappText:
+      "Your package includes the travel intelligence by VeM group. Write to us and we'll add you.",
   },
   sk: {
     back: "← Vaše cesty",
     locked: "Táto cesta je zamknutá",
     lockedText: "Prihláste sa a zadajte prístupový kód, aby sa otvoril celý itinerár aj chatbot.",
     unlock: "Zadať kód",
-    chatTitle: "Chatbot k ceste",
-    chatIntro: "Pýtajte sa na čokoľvek — prehoďte dni, vymeňte mesto, overte rozpočet alebo sa spýtajte, čo zbaliť.",
+    chatTitle: "Váš agent k ceste",
+    chatIntro:
+      "Pýtajte sa na čokoľvek — prehoďte dni, vymeňte mesto, overte rozpočet, spýtajte sa na krajinu alebo čo zbaliť. Trasu pozná deň po dni.",
+    chatEmpty: "Rozhovor sa tu ukladá, takže sa k nemu môžete kedykoľvek vrátiť.",
+    chatExhausted:
+      "Vyčerpali ste všetky správy agenta zahrnuté v tejto ceste. Ak potrebujete viac, napíšte V & eM.",
+    messagesLeft: "správ zostáva",
     placeholder: "Dá sa to stihnúť za 6 dní?",
     send: "Opýtať sa",
     thinking: "Rozmýšľam…",

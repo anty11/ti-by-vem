@@ -172,7 +172,7 @@ export function RouteMap({ data, lang }: { data: RouteMapData; lang: Lang }) {
             {data.scenery === "north-america" && activeMapArea === "new-york" ? (
               <g aria-hidden="true">
                 <rect x="20" y="24" width="660" height="492" rx="18" fill="var(--royal)" opacity="0.05" />
-                <path d="M245 35 C290 70 304 134 318 205 C333 278 336 350 360 431 L411 421 C386 344 389 276 376 201 C363 123 342 63 302 35 Z" fill="var(--surface)" opacity="0.94" />
+                <path d="M245 35 C290 70 304 134 318 205 C333 278 336 350 360 431 L411 421 C386 344 389 276 376 201 C363 123 342 63 302 35 Z" fill="var(--card)" opacity="0.94" />
                 <path d="M395 275 C460 269 555 286 642 335 L642 455 C565 433 484 423 404 429 C380 377 376 326 395 275 Z" fill="var(--sage)" opacity="0.18" />
                 <path d="M442 445 C491 437 551 441 607 467 L590 510 L470 510 Z" fill="var(--gold)" opacity="0.14" />
                 <path d="M220 35 C258 117 264 204 280 280 C294 346 309 407 338 458" fill="none" stroke="var(--royal)" strokeOpacity="0.25" strokeWidth="12" />
@@ -190,7 +190,7 @@ export function RouteMap({ data, lang }: { data: RouteMapData; lang: Lang }) {
               </g>
             ) : data.scenery === "north-america" ? (
               <g aria-hidden="true">
-                <rect x="20" y="24" width="660" height="492" rx="18" fill="var(--surface)" opacity="0.46" />
+                <rect x="20" y="24" width="660" height="492" rx="18" fill="var(--card)" opacity="0.46" />
                 <path d="M50 68 C157 45 280 61 366 100 C426 127 478 174 520 229 C425 208 353 201 280 219 C206 237 139 228 69 198 Z" fill="var(--sage)" opacity="0.17" />
                 <path d="M72 206 C144 239 212 241 280 223 C351 205 425 215 514 237 C455 264 399 298 360 344 C304 302 254 278 190 278 C137 278 93 253 72 206 Z" fill="var(--royal)" opacity="0.13" />
                 <path d="M76 214 C145 244 214 246 283 227 C351 209 427 220 510 241" fill="none" stroke="var(--royal)" strokeOpacity="0.35" strokeWidth="3" />
@@ -321,7 +321,7 @@ export function RouteMap({ data, lang }: { data: RouteMapData; lang: Lang }) {
                     strokeWidth={on ? 3 : 2}
                     className="transition-all duration-300"
                   />
-                  {(!activeMapArea || highlighted) && (
+                  {(!activeMapArea || activeMapArea === "canada-journey" || highlighted) && (
                     <>
                       <text
                         x={lx}

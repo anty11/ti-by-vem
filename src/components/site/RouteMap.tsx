@@ -203,6 +203,93 @@ export function RouteMap({ data, lang }: { data: RouteMapData; lang: Lang }) {
                 <text x="422" y="342" fontSize="11" fill="var(--ink)" opacity="0.35">NEW YORK STATE</text>
                 <text x="438" y="412" fontSize="9" fill="var(--royal)" opacity="0.6">PANORAMIC TRAIN</text>
               </g>
+            ) : data.scenery === "japan" ? (
+              <g aria-hidden="true">
+                <rect x="20" y="24" width="660" height="492" rx="18" fill="var(--royal)" opacity="0.07" />
+                {/* rising sun */}
+                <circle cx="540" cy="110" r="46" fill="var(--terracotta)" opacity="0.22" />
+                {/* Honshu */}
+                <path d="M50 440 C120 420 180 425 220 430 C270 440 320 440 380 425 C440 412 490 440 530 455 C580 450 620 410 640 360 C656 290 650 180 636 92 L602 84 C590 140 570 190 520 230 C470 262 400 285 330 292 C260 300 200 320 140 360 C100 385 70 405 50 440 Z" fill="var(--card)" opacity="0.95" stroke="var(--ink)" strokeOpacity="0.12" />
+                {/* Shikoku & Kyushu hints */}
+                <path d="M150 462 C190 452 240 452 270 462 C255 486 200 494 160 486 Z" fill="var(--card)" opacity="0.85" stroke="var(--ink)" strokeOpacity="0.1" />
+                <path d="M30 430 C52 422 70 440 66 470 C56 500 36 500 28 480 Z" fill="var(--card)" opacity="0.8" stroke="var(--ink)" strokeOpacity="0.1" />
+                {/* Inland sea dots */}
+                <path d="M120 424 C170 414 220 418 262 426" fill="none" stroke="var(--royal)" strokeOpacity="0.3" strokeWidth="2" strokeDasharray="2 8" strokeLinecap="round" />
+                {/* Mt Fuji */}
+                <path d="M368 318 L400 280 L432 318 Z" fill="var(--sage)" opacity="0.5" />
+                <path d="M390 292 L400 280 L410 292 L404 289 L400 294 L396 289 Z" fill="var(--background)" />
+                {/* shinkansen line */}
+                <path d="M95 420 C160 400 200 395 262 335 C340 320 440 300 560 265" fill="none" stroke="var(--ink)" strokeOpacity="0.1" strokeWidth="6" strokeLinecap="round" />
+                {/* torii */}
+                <g transform="translate(205 345)" opacity="0.5" stroke="var(--terracotta)" strokeWidth="3" strokeLinecap="round">
+                  <path d="M-14 0 L14 0 M-11 6 L11 6 M-8 0 L-8 22 M8 0 L8 22" fill="none" />
+                </g>
+                {/* cherry blossoms */}
+                {([[340, 360], [470, 340], [600, 200], [180, 410]] as [number, number][]).map(([cx, cy]) => (
+                  <circle key={`sakura-${cx}`} cx={cx} cy={cy} r="5" fill="var(--terracotta)" opacity="0.25" />
+                ))}
+                <text x="40" y="52" fontSize="11" fontWeight="700" fill="var(--royal)" letterSpacing="0">JAPAN · HONSHU</text>
+                <text x="260" y="200" fontSize="10" fill="var(--royal)" opacity="0.5">SEA OF JAPAN</text>
+                <text x="420" y="480" fontSize="10" fill="var(--royal)" opacity="0.5">PACIFIC OCEAN</text>
+                <text x="374" y="274" fontSize="9" fill="var(--ink)" opacity="0.5">FUJI</text>
+                <text x="150" y="388" fontSize="9" fill="var(--ink)" opacity="0.4">SHINKANSEN</text>
+              </g>
+            ) : data.scenery === "alpine-winter" ? (
+              <g aria-hidden="true">
+                <rect x="20" y="24" width="660" height="492" rx="18" fill="var(--royal)" opacity="0.05" />
+                {/* back range */}
+                <path d="M20 250 L90 180 L140 220 L210 140 L270 200 L330 120 L400 190 L460 130 L530 200 L600 150 L680 210 L680 516 L20 516 Z" fill="var(--lilac)" opacity="0.12" />
+                {/* snow caps back */}
+                {([[210, 140], [330, 120], [460, 130], [600, 150]] as [number, number][]).map(([px, py]) => (
+                  <path key={`cap-${px}`} d={`M${px - 18} ${py + 18} L${px} ${py} L${px + 18} ${py + 18} L${px + 8} ${py + 13} L${px} ${py + 20} L${px - 8} ${py + 13} Z`} fill="var(--background)" opacity="0.9" />
+                ))}
+                {/* front range with Dolomite towers */}
+                <path d="M20 470 L100 400 L150 430 L230 340 L260 370 L300 320 L330 360 L380 300 L420 350 L470 290 L500 330 L560 280 L600 330 L680 300 L680 516 L20 516 Z" fill="var(--sage)" opacity="0.16" />
+                {/* valleys / roads */}
+                <path d="M100 230 C160 260 210 330 250 390 M240 110 C240 200 245 300 250 390 M330 290 C380 270 420 250 450 240 C500 250 550 280 590 300" fill="none" stroke="var(--royal)" strokeOpacity="0.14" strokeWidth="5" strokeLinecap="round" />
+                {/* snowflakes */}
+                {([[80, 90], [160, 300], [420, 90], [520, 250], [640, 420], [380, 460], [120, 480]] as [number, number][]).map(([sx, sy]) => (
+                  <g key={`flake-${sx}`} transform={`translate(${sx} ${sy})`} stroke="var(--royal)" strokeOpacity="0.35" strokeWidth="1.5" strokeLinecap="round">
+                    <path d="M-6 0 L6 0 M0 -6 L0 6 M-4 -4 L4 4 M-4 4 L4 -4" />
+                  </g>
+                ))}
+                <text x="40" y="52" fontSize="11" fontWeight="700" fill="var(--royal)" letterSpacing="0">DOLOMITES · WINTER</text>
+                <text x="80" y="230" fontSize="10" fill="var(--ink)" opacity="0.4">SOUTH TYROL</text>
+                <text x="540" y="470" fontSize="10" fill="var(--ink)" opacity="0.4">VENETO</text>
+                <text x="250" y="80" fontSize="9" fill="var(--ink)" opacity="0.4">BRENNER ↑ AUSTRIA</text>
+              </g>
+            ) : data.scenery === "highlands" ? (
+              <g aria-hidden="true">
+                <rect x="20" y="24" width="660" height="492" rx="18" fill="var(--royal)" opacity="0.09" />
+                {/* mainland Scotland */}
+                <path d="M300 52 C360 44 420 50 470 64 C462 110 452 150 470 180 C500 200 540 210 560 240 C520 262 470 268 440 290 C470 320 520 340 560 370 C540 420 480 470 420 516 L250 516 C270 470 280 440 300 420 C270 400 250 370 270 340 C240 320 230 290 250 260 C230 240 225 210 245 190 C260 160 270 120 290 100 C280 80 285 62 300 52 Z" fill="var(--sage)" opacity="0.2" stroke="var(--ink)" strokeOpacity="0.12" />
+                {/* Isle of Skye */}
+                <path d="M160 230 C180 210 205 215 212 240 C228 250 230 275 215 300 C200 315 180 305 182 285 C168 275 150 255 160 230 Z" fill="var(--sage)" opacity="0.24" stroke="var(--ink)" strokeOpacity="0.12" />
+                {/* Outer Hebrides hint */}
+                <path d="M80 140 C100 130 110 160 104 200 C98 240 86 280 74 290 C64 260 66 180 80 140 Z" fill="var(--sage)" opacity="0.14" />
+                {/* Great Glen / Loch Ness */}
+                <path d="M410 262 C380 290 350 330 320 380" fill="none" stroke="var(--royal)" strokeOpacity="0.45" strokeWidth="5" strokeLinecap="round" />
+                {/* small lochs */}
+                {([[300, 180], [340, 220], [280, 300], [380, 140]] as [number, number][]).map(([lx2, ly2]) => (
+                  <ellipse key={`loch-${lx2}`} cx={lx2} cy={ly2} rx="10" ry="4" fill="var(--royal)" opacity="0.3" />
+                ))}
+                {/* hills */}
+                {([[330, 250], [360, 360], [300, 120], [400, 210]] as [number, number][]).map(([hx, hy]) => (
+                  <path key={`hill-${hx}`} d={`M${hx - 16} ${hy} L${hx} ${hy - 14} L${hx + 16} ${hy}`} fill="none" stroke="var(--ink)" strokeOpacity="0.2" strokeWidth="1.5" />
+                ))}
+                {/* ferry */}
+                <path d="M282 345 C250 330 225 315 205 300" fill="none" stroke="var(--royal)" strokeOpacity="0.45" strokeWidth="2" strokeDasharray="4 6" />
+                {/* castle */}
+                <g transform="translate(372 300)" opacity="0.5" fill="var(--terracotta)">
+                  <path d="M-8 0 L-8 -10 L-5 -10 L-5 -7 L-2 -7 L-2 -10 L2 -10 L2 -7 L5 -7 L5 -10 L8 -10 L8 0 Z" />
+                </g>
+                <text x="40" y="52" fontSize="11" fontWeight="700" fill="var(--royal)" letterSpacing="0">SCOTTISH HIGHLANDS</text>
+                <text x="130" y="200" fontSize="10" fill="var(--ink)" opacity="0.45">SKYE</text>
+                <text x="350" y="300" fontSize="9" fill="var(--royal)" opacity="0.55">LOCH NESS</text>
+                <text x="560" y="120" fontSize="10" fill="var(--royal)" opacity="0.5">NORTH SEA</text>
+                <text x="60" y="400" fontSize="10" fill="var(--royal)" opacity="0.5">ATLANTIC</text>
+                <text x="210" y="335" fontSize="8" fill="var(--royal)" opacity="0.55">FERRY</text>
+              </g>
             ) : data.scenery === "coast" ? (
               <g aria-hidden="true">
                 <ellipse cx="420" cy="320" rx="300" ry="210" fill="url(#rm-glow)" />

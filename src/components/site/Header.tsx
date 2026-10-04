@@ -21,11 +21,11 @@ export function Header() {
           </span>
         </Link>
         <div className="hidden items-center gap-7 text-sm font-medium text-soft lg:flex">
-          <Link to={path(lang, "itineraries")} className="transition hover:text-ink">{t.itineraries}</Link>
-          <Link to={path(lang, "pricing")} className="transition hover:text-ink">{t.packages}</Link>
-          <Link to={path(lang, "letters")} className="transition hover:text-ink">{t.postcard}</Link>
+          <Link to={path(lang, "itineraries")} className="uppercase transition hover:text-ink">{t.itineraries}</Link>
+          <Link to={path(lang, "pricing")} className="uppercase transition hover:text-ink">{t.packages}</Link>
+          <Link to={path(lang, "letters")} className="uppercase transition hover:text-ink">{t.postcard}</Link>
           <Link to={path(lang, "about")} className="transition hover:text-ink">{t.about}</Link>
-          <Link to={path(lang, "access")} className="transition hover:text-ink">
+          <Link to={path(lang, "access")} className="uppercase transition hover:text-ink">
             {lang === "sk" ? "Moje cesty" : "My trips"}
           </Link>
         </div>

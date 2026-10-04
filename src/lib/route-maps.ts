@@ -29,12 +29,13 @@ export type RouteMap = {
   lead: string;
   leadSk: string;
   /** Background scenery drawn behind the route; default is mountains */
-  scenery?: "coast" | "north-america";
+  scenery?: "coast" | "north-america" | "japan" | "alpine-winter" | "highlands";
   days: DayStop[];
 };
 
 export const routeMaps: Record<string, RouteMap> = {
   "dolomites-winter": {
+    scenery: "alpine-winter",
     title: "Eight days, day by day",
     titleSk: "Osem dní, deň po dni",
     lead:
@@ -46,8 +47,8 @@ export const routeMaps: Record<string, RouteMap> = {
         day: 1,
         date: "Day 1",
         dateSk: "1. deň",
-        x: 301,
-        y: 290,
+        x: 569,
+        y: 363,
         place: "Cortina d'Ampezzo",
         title: "Early start, long drive, first night in the mountains",
         text:
@@ -65,8 +66,8 @@ export const routeMaps: Record<string, RouteMap> = {
         day: 2,
         date: "Day 2",
         dateSk: "2. deň",
-        x: 284,
-        y: 320,
+        x: 527,
+        y: 403,
         peak: true,
         place: "Cinque Torri & Passo Giau",
         title: "Five towers, then sunset on the pass",
@@ -85,8 +86,8 @@ export const routeMaps: Record<string, RouteMap> = {
         day: 3,
         date: "Day 3",
         dateSk: "3. deň",
-        x: 184,
-        y: 325,
+        x: 282,
+        y: 410,
         peak: true,
         place: "Cortina → Tires",
         title: "Ski the Olympic mountain, then move west",
@@ -105,8 +106,8 @@ export const routeMaps: Record<string, RouteMap> = {
         day: 4,
         date: "Day 4",
         dateSk: "4. deň",
-        x: 167,
-        y: 110,
+        x: 235,
+        y: 123,
         place: "Lago di Fiè & Vipiteno",
         title: "Skates in the morning, sledge in the afternoon",
         text:
@@ -124,8 +125,8 @@ export const routeMaps: Record<string, RouteMap> = {
         day: 5,
         date: "Day 5",
         dateSk: "5. deň",
-        x: 203,
-        y: 290,
+        x: 324,
+        y: 357,
         place: "Alpe di Siusi",
         title: "Skiing above the biggest alpine meadow in Europe",
         text:
@@ -143,8 +144,8 @@ export const routeMaps: Record<string, RouteMap> = {
         day: 6,
         date: "Day 6",
         dateSk: "6. deň",
-        x: 186,
-        y: 350,
+        x: 287,
+        y: 437,
         place: "Nova Levante & Tires",
         title: "A slower day",
         text:
@@ -162,8 +163,8 @@ export const routeMaps: Record<string, RouteMap> = {
         day: 7,
         date: "Day 7",
         dateSk: "7. deň",
-        x: 116,
-        y: 225,
+        x: 390,
+        y: 357,
         peak: true,
         place: "Selva → Merano",
         title: "Last ski day, then wellness",
@@ -182,8 +183,8 @@ export const routeMaps: Record<string, RouteMap> = {
         day: 8,
         date: "Day 8",
         dateSk: "8. deň",
-        x: 152,
-        y: 310,
+        x: 108,
+        y: 283,
         place: "Merano & Bolzano",
         title: "Two towns, then home",
         text:
@@ -715,131 +716,6 @@ export const routeMaps: Record<string, RouteMap> = {
       },
     ],
   },
-  "oslo-tromso": {
-    title: "Six days, day by day",
-    titleSk: "Šesť dní, deň po dni",
-    lead:
-      "Two cities, one flight north: Oslo on the water, then Tromsø above the Arctic Circle. Tap a day to see where the route takes you — the full detail, times and prices live inside the guide.",
-    leadSk:
-      "Dve mestá, jeden let na sever: Oslo pri vode a potom Tromsø za polárnym kruhom. Kliknite na deň a uvidíte, kam vás trasa zavedie — celý detail, časy a ceny nájdete v sprievodcovi.",
-    days: [
-      {
-        day: 1,
-        date: "Oslo",
-        dateSk: "Oslo",
-        x: 250,
-        y: 220,
-        place: "Oslo",
-        title: "Arrival, then the opera by night",
-        text:
-          "An afternoon landing, check-in and a first walk along the water. In the evening the Opera house — ideally with a performance on — and the night version of the promenade: the fortress, Aker Brygge and Tjuvholmen all lit up.",
-        notes: ["Afternoon arrival in Oslo", "Evening at the Oslo Opera", "Night walk: fortress, Aker Brygge, Tjuvholmen"],
-        sk: {
-          place: "Oslo",
-          title: "Prílet a večer pri opere",
-          text:
-            "Poobedný prílet, ubytovanie a prvá prechádzka pri vode. Večer Opera Oslo — ideálne aj s predstavením — a nočná verzia promenády: pevnosť, Aker Brygge a Tjuvholmen vo svetlách.",
-          notes: ["Poobedný prílet do Osla", "Večer v Oslskej opere", "Nočná prechádzka: pevnosť, Aker Brygge, Tjuvholmen"],
-        },
-      },
-      {
-        day: 2,
-        date: "Oslo",
-        dateSk: "Oslo",
-        x: 250,
-        y: 220,
-        place: "Oslo",
-        title: "The same streets in daylight",
-        text:
-          "The waterfront again without the lights, lunch in one of the Asian places we liked, then the classic centre on foot: Karl Johans gate, the Royal Palace, the Parliament, the cathedral and Akershus. The evening belongs to a very old Irish pub.",
-        notes: ["Lunch: our favourite Asian spot", "Centre walk, all the landmarks", "Evening in the old Irish pub"],
-        sk: {
-          place: "Oslo",
-          title: "Tie isté ulice za denného svetla",
-          text:
-            "Nábrežie znova, tentoraz bez svetiel, obed v jednej z ázijských reštaurácií, ktoré máme radi, a potom klasické centrum pešo: Karl Johans gate, Kráľovský palác, parlament, katedrála a Akershus. Večer patrí jednému staremu írskemu pubu.",
-          notes: ["Obed: obľúbená ázijská reštaurácia", "Prechádzka centrom so všetkými pamiatkami", "Večer v starom írskom pube"],
-        },
-      },
-      {
-        day: 3,
-        date: "Oslo",
-        dateSk: "Oslo",
-        x: 250,
-        y: 220,
-        place: "Oslo",
-        title: "Slow brunch, long wellness",
-        text:
-          "A late brunch at KUMI and then the whole rest of the day at The Well — one of the biggest spas in Scandinavia. No sightseeing today; this is the pause that makes the north feel earned.",
-        notes: ["Brunch at KUMI", "Full afternoon at The Well spa", "Pack for an early flight"],
-        sk: {
-          place: "Oslo",
-          title: "Pomalý brunch, dlhé wellness",
-          text:
-            "Neskoré raňajky v KUMI a potom celý zvyšok dňa v The Well — jednom z najväčších wellness v Škandinávii. Dnes žiadne pamiatky; táto pauva robí sever ešte viac zaslúženým.",
-          notes: ["Brunch v KUMI", "Celé poobedie v wellness The Well", "Balenie na skorý let"],
-        },
-      },
-      {
-        day: 4,
-        date: "Tromsø",
-        dateSk: "Tromsø",
-        x: 450,
-        y: 110,
-        peak: true,
-        place: "Tromsø",
-        title: "North above the Arctic Circle",
-        text:
-          "A morning flight north to Tromsø, the gateway to the Arctic. First walk: the promenade, the centre, the Arctic Cathedral and the library, the smallest bar in town for a reindeer hot dog and cardamom knots with coffee. Dinner is Arctic seafood, and the day ends on the Fjellheisen cable car above the city lights.",
-        notes: ["Flight Oslo → Tromsø", "Reindeer hot dog at the smallest bar", "Dinner: Arctic seafood", "Fjellheisen cable car at dusk"],
-        sk: {
-          place: "Tromsø",
-          title: "Na sever za polárny kruh",
-          text:
-            "Ranné letá na sever do Tromsø, brány do Arktídy. Prvá prechádzka: promenáda, centrum, Arktická katedrála a knižnica, najmenší bar v meste na reindeer hotdog a kardamónové uzlíky s kávou. Večera je z arktickej ryby a deň končí lanovkou Fjellheisen nad mestom.",
-          notes: ["Let Oslo → Tromsø", "Reindeer hotdog v najmenšom bare", "Večera: arktická ryba", "Lanovka Fjellheisen pri súmraku"],
-        },
-      },
-      {
-        day: 5,
-        date: "Tromsø",
-        dateSk: "Tromsø",
-        x: 450,
-        y: 110,
-        peak: true,
-        place: "Tromsø",
-        title: "The Arctic Cathedral and a night with the lights",
-        text:
-          "The Arctic Cathedral up close and a walk on the far side of Tromsdalen and back — quiet streets, big views. Then the main event: a guided northern-lights hunt with Arctic GM, chasing clear skies outside the city glow.",
-        notes: ["Arctic Cathedral and Tromsdalen walk", "Northern-lights hunt with Arctic GM", "Dress in layers — you will stand still a lot"],
-        sk: {
-          place: "Tromsø",
-          title: "Arktická katedrála a noc s polárnou žiarou",
-          text:
-            "Arktická katedrála zblízka a prechádzka po druhej strane Tromsdalenu a späť — tiché ulice, veľké výhľady. Potom hlavný program: lov polárnej žiary so sprievodcom Arctic GM, za jasnou oblohou mimo mestského svetla.",
-          notes: ["Arktická katedrála a prechádzka po Tromsdalene", "Lov polárnej žiary s Arctic GM", "Oblečte sa do vrstiev — budete dlho stáť"],
-        },
-      },
-      {
-        day: 6,
-        date: "Tromsø",
-        dateSk: "Tromsø",
-        x: 450,
-        y: 110,
-        place: "Tromsø",
-        title: "Postcards, breakfast, home",
-        text:
-          "One last breakfast, a stop to send postcards — the club will understand — and the flight home with a memory card full of the north.",
-        notes: ["Send the postcards before security", "Flight home"],
-        sk: {
-          place: "Tromsø",
-          title: "Pohľadnice, raňajky, domov",
-          text: "Posledné raňajky, zastávka na odoslanie pohľadníc — klub to pochopí — a let domov s pamäťovou kartou plnou severu.",
-          notes: ["Pohľadnice pošlite ešte pred kontrolou", "Let domov"],
-        },
-      },
-    ],
-  },
   riviera: {
     title: "Seven days, day by day",
     titleSk: "Sedem dní, deň po dni",
@@ -987,6 +863,7 @@ export const routeMaps: Record<string, RouteMap> = {
     ],
   },
   japan: {
+    scenery: "japan",
     title: "Eighteen days, day by day",
     titleSk: "Osemnásť dní, deň po dni",
     lead:
@@ -998,8 +875,8 @@ export const routeMaps: Record<string, RouteMap> = {
         day: 1,
         date: "Day 1",
         dateSk: "1. deň",
-        x: 120,
-        y: 360,
+        x: 255,
+        y: 385,
         place: "Osaka",
         title: "Landing in the kitchen of Japan",
         text:
@@ -1017,8 +894,8 @@ export const routeMaps: Record<string, RouteMap> = {
         day: 2,
         date: "Day 2",
         dateSk: "2. deň",
-        x: 120,
-        y: 360,
+        x: 255,
+        y: 385,
         place: "Osaka",
         title: "The castle, the old quarter and a glowing garden",
         text:
@@ -1036,8 +913,8 @@ export const routeMaps: Record<string, RouteMap> = {
         day: 3,
         date: "Day 3",
         dateSk: "3. deň",
-        x: 60,
-        y: 380,
+        x: 110,
+        y: 400,
         peak: true,
         place: "Hiroshima → Kobe",
         title: "A morning that matters, then the Venice of Japan",
@@ -1056,8 +933,8 @@ export const routeMaps: Record<string, RouteMap> = {
         day: 4,
         date: "Day 4",
         dateSk: "4. deň",
-        x: 120,
-        y: 360,
+        x: 255,
+        y: 385,
         place: "Osaka",
         title: "Viral cheesecake and bookshop hunting",
         text:
@@ -1075,8 +952,8 @@ export const routeMaps: Record<string, RouteMap> = {
         day: 5,
         date: "Day 5",
         dateSk: "5. deň",
-        x: 170,
-        y: 340,
+        x: 275,
+        y: 350,
         place: "Kyoto",
         title: "Pancakes, shrines and an onsen evening",
         text:
@@ -1094,8 +971,8 @@ export const routeMaps: Record<string, RouteMap> = {
         day: 6,
         date: "Day 6",
         dateSk: "6. deň",
-        x: 160,
-        y: 330,
+        x: 275,
+        y: 350,
         place: "Kyoto",
         title: "Bamboo forest and a ring you make yourself",
         text:
@@ -1113,8 +990,8 @@ export const routeMaps: Record<string, RouteMap> = {
         day: 7,
         date: "Day 7",
         dateSk: "7. deň",
-        x: 185,
-        y: 355,
+        x: 290,
+        y: 392,
         place: "Nara → Kyoto",
         title: "Deer, a giant Buddha and tea to take home",
         text:
@@ -1132,8 +1009,8 @@ export const routeMaps: Record<string, RouteMap> = {
         day: 8,
         date: "Day 8",
         dateSk: "8. deň",
-        x: 170,
-        y: 340,
+        x: 275,
+        y: 350,
         peak: true,
         place: "Kyoto",
         title: "A tea ceremony in kimono",
@@ -1152,8 +1029,8 @@ export const routeMaps: Record<string, RouteMap> = {
         day: 9,
         date: "Day 9",
         dateSk: "9. deň",
-        x: 330,
-        y: 300,
+        x: 430,
+        y: 330,
         peak: true,
         place: "Fushimi Inari → Kawaguchiko",
         title: "Ten thousand gates, then the mountain",
@@ -1172,8 +1049,8 @@ export const routeMaps: Record<string, RouteMap> = {
         day: 10,
         date: "Day 10",
         dateSk: "10. deň",
-        x: 420,
-        y: 280,
+        x: 430,
+        y: 330,
         place: "Kawaguchiko → Tokyo",
         title: "The postcard view, then the capital",
         text:
@@ -1191,8 +1068,8 @@ export const routeMaps: Record<string, RouteMap> = {
         day: 11,
         date: "Day 11",
         dateSk: "11. deň",
-        x: 470,
-        y: 270,
+        x: 505,
+        y: 315,
         place: "Tokyo",
         title: "Shibuya, donuts and the sky at sunset",
         text:
@@ -1210,8 +1087,8 @@ export const routeMaps: Record<string, RouteMap> = {
         day: 12,
         date: "Day 12",
         dateSk: "12. deň",
-        x: 450,
-        y: 310,
+        x: 488,
+        y: 365,
         place: "Kamakura & Yokohama",
         title: "Big Buddha, a beach and the best pizza",
         text:
@@ -1229,8 +1106,8 @@ export const routeMaps: Record<string, RouteMap> = {
         day: 13,
         date: "Day 13",
         dateSk: "13. deň",
-        x: 470,
-        y: 270,
+        x: 505,
+        y: 315,
         place: "Tokyo",
         title: "Digital art and otter coffee",
         text:
@@ -1248,8 +1125,8 @@ export const routeMaps: Record<string, RouteMap> = {
         day: 14,
         date: "Day 14",
         dateSk: "14. deň",
-        x: 470,
-        y: 270,
+        x: 505,
+        y: 315,
         place: "Tokyo",
         title: "A slow park day",
         text:
@@ -1267,8 +1144,8 @@ export const routeMaps: Record<string, RouteMap> = {
         day: 15,
         date: "Day 15",
         dateSk: "15. deň",
-        x: 500,
-        y: 265,
+        x: 535,
+        y: 330,
         place: "Tokyo Disneyland",
         title: "A full day in the Magic Kingdom",
         text:
@@ -1286,8 +1163,8 @@ export const routeMaps: Record<string, RouteMap> = {
         day: 16,
         date: "Day 16",
         dateSk: "16. deň",
-        x: 400,
-        y: 300,
+        x: 448,
+        y: 358,
         place: "Hakone",
         title: "Black eggs and the floating torii",
         text:
@@ -1305,8 +1182,8 @@ export const routeMaps: Record<string, RouteMap> = {
         day: 17,
         date: "Day 17",
         dateSk: "17. deň",
-        x: 470,
-        y: 270,
+        x: 505,
+        y: 315,
         place: "Tokyo",
         title: "Borderless art and running sushi",
         text:
@@ -1324,8 +1201,8 @@ export const routeMaps: Record<string, RouteMap> = {
         day: 18,
         date: "Day 18",
         dateSk: "18. deň",
-        x: 470,
-        y: 270,
+        x: 505,
+        y: 315,
         place: "Tokyo",
         title: "One last coffee, then home",
         text:

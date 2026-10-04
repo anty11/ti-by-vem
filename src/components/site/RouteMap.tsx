@@ -225,7 +225,7 @@ export function RouteMap({ data, lang }: { data: RouteMapData; lang: Lang }) {
                   <path d="M-14 0 L14 0 M-11 6 L11 6 M-8 0 L-8 22 M8 0 L8 22" fill="none" />
                 </g>
                 {/* cherry blossoms */}
-                {[[340, 360], [470, 340], [600, 200], [180, 410]].map(([cx, cy]) => (
+                {([[340, 360], [470, 340], [600, 200], [180, 410]] as [number, number][]).map(([cx, cy]) => (
                   <circle key={`sakura-${cx}`} cx={cx} cy={cy} r="5" fill="var(--terracotta)" opacity="0.25" />
                 ))}
                 <text x="40" y="52" fontSize="11" fontWeight="700" fill="var(--royal)" letterSpacing="0">JAPAN · HONSHU</text>
@@ -240,7 +240,7 @@ export function RouteMap({ data, lang }: { data: RouteMapData; lang: Lang }) {
                 {/* back range */}
                 <path d="M20 250 L90 180 L140 220 L210 140 L270 200 L330 120 L400 190 L460 130 L530 200 L600 150 L680 210 L680 516 L20 516 Z" fill="var(--lilac)" opacity="0.12" />
                 {/* snow caps back */}
-                {[[210, 140], [330, 120], [460, 130], [600, 150]].map(([px, py]) => (
+                {([[210, 140], [330, 120], [460, 130], [600, 150]] as [number, number][]).map(([px, py]) => (
                   <path key={`cap-${px}`} d={`M${px - 18} ${py + 18} L${px} ${py} L${px + 18} ${py + 18} L${px + 8} ${py + 13} L${px} ${py + 20} L${px - 8} ${py + 13} Z`} fill="var(--background)" opacity="0.9" />
                 ))}
                 {/* front range with Dolomite towers */}
@@ -248,7 +248,7 @@ export function RouteMap({ data, lang }: { data: RouteMapData; lang: Lang }) {
                 {/* valleys / roads */}
                 <path d="M100 230 C160 260 210 330 250 390 M240 110 C240 200 245 300 250 390 M330 290 C380 270 420 250 450 240 C500 250 550 280 590 300" fill="none" stroke="var(--royal)" strokeOpacity="0.14" strokeWidth="5" strokeLinecap="round" />
                 {/* snowflakes */}
-                {[[80, 90], [160, 300], [420, 90], [520, 250], [640, 420], [380, 460], [120, 480]].map(([sx, sy]) => (
+                {([[80, 90], [160, 300], [420, 90], [520, 250], [640, 420], [380, 460], [120, 480]] as [number, number][]).map(([sx, sy]) => (
                   <g key={`flake-${sx}`} transform={`translate(${sx} ${sy})`} stroke="var(--royal)" strokeOpacity="0.35" strokeWidth="1.5" strokeLinecap="round">
                     <path d="M-6 0 L6 0 M0 -6 L0 6 M-4 -4 L4 4 M-4 4 L4 -4" />
                   </g>
@@ -270,11 +270,11 @@ export function RouteMap({ data, lang }: { data: RouteMapData; lang: Lang }) {
                 {/* Great Glen / Loch Ness */}
                 <path d="M410 262 C380 290 350 330 320 380" fill="none" stroke="var(--royal)" strokeOpacity="0.45" strokeWidth="5" strokeLinecap="round" />
                 {/* small lochs */}
-                {[[300, 180], [340, 220], [280, 300], [380, 140]].map(([lx2, ly2]) => (
+                {([[300, 180], [340, 220], [280, 300], [380, 140]] as [number, number][]).map(([lx2, ly2]) => (
                   <ellipse key={`loch-${lx2}`} cx={lx2} cy={ly2} rx="10" ry="4" fill="var(--royal)" opacity="0.3" />
                 ))}
                 {/* hills */}
-                {[[330, 250], [360, 360], [300, 120], [400, 210]].map(([hx, hy]) => (
+                {([[330, 250], [360, 360], [300, 120], [400, 210]] as [number, number][]).map(([hx, hy]) => (
                   <path key={`hill-${hx}`} d={`M${hx - 16} ${hy} L${hx} ${hy - 14} L${hx + 16} ${hy}`} fill="none" stroke="var(--ink)" strokeOpacity="0.2" strokeWidth="1.5" />
                 ))}
                 {/* ferry */}

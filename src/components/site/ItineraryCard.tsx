@@ -71,7 +71,13 @@ export function ItineraryCard({ itinerary, lang = "en" }: { itinerary: Itinerary
             {itinerary.days} {t.days} · {text.stops}
           </span>
         </div>
-        <h3 className="mt-2 font-display text-2xl text-ink">{text.title}</h3>
+        <Link
+          to={detailPath(lang)}
+          params={{ slug: itinerary.slug }}
+          className="block text-left"
+        >
+          <h3 className="mt-2 font-display text-2xl text-ink transition hover:text-royal">{text.title}</h3>
+        </Link>
         {soon && itinerary.launchDate ? (
           <Countdown target={itinerary.launchDate} lang={lang} className="mt-3" />
         ) : (

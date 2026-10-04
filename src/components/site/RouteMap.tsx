@@ -207,32 +207,32 @@ export function RouteMap({ data, lang }: { data: RouteMapData; lang: Lang }) {
               <g aria-hidden="true">
                 <rect x="20" y="24" width="660" height="492" rx="18" fill="var(--royal)" opacity="0.07" />
                 {/* rising sun */}
-                <circle cx="590" cy="110" r="46" fill="var(--terracotta)" opacity="0.22" />
+                <circle cx="540" cy="110" r="46" fill="var(--terracotta)" opacity="0.22" />
                 {/* Honshu */}
-                <path d="M62 418 C110 380 170 372 220 360 C252 340 290 322 340 316 C392 306 432 296 470 280 C505 262 530 230 548 190 C566 150 584 120 616 96 L640 118 C618 150 604 190 596 232 C588 278 572 318 556 352 C536 382 512 392 482 386 C458 400 432 384 412 372 C380 372 340 384 300 410 C270 420 240 404 214 400 C170 404 120 430 72 446 Z" fill="var(--card)" opacity="0.95" stroke="var(--ink)" strokeOpacity="0.12" />
+                <path d="M50 440 C120 420 180 425 220 430 C270 440 320 440 380 425 C440 412 490 440 530 455 C580 450 620 410 640 360 C656 290 650 180 636 92 L602 84 C590 140 570 190 520 230 C470 262 400 285 330 292 C260 300 200 320 140 360 C100 385 70 405 50 440 Z" fill="var(--card)" opacity="0.95" stroke="var(--ink)" strokeOpacity="0.12" />
                 {/* Shikoku & Kyushu hints */}
-                <path d="M150 440 C190 428 240 428 270 440 C255 462 200 470 160 462 Z" fill="var(--card)" opacity="0.85" stroke="var(--ink)" strokeOpacity="0.1" />
+                <path d="M150 462 C190 452 240 452 270 462 C255 486 200 494 160 486 Z" fill="var(--card)" opacity="0.85" stroke="var(--ink)" strokeOpacity="0.1" />
                 <path d="M30 430 C52 422 70 440 66 470 C56 500 36 500 28 480 Z" fill="var(--card)" opacity="0.8" stroke="var(--ink)" strokeOpacity="0.1" />
                 {/* Inland sea dots */}
                 <path d="M120 424 C170 414 220 418 262 426" fill="none" stroke="var(--royal)" strokeOpacity="0.3" strokeWidth="2" strokeDasharray="2 8" strokeLinecap="round" />
                 {/* Mt Fuji */}
-                <path d="M398 334 L430 296 L462 334 Z" fill="var(--sage)" opacity="0.5" />
-                <path d="M420 308 L430 296 L440 308 L434 305 L430 310 L426 305 Z" fill="var(--background)" />
+                <path d="M368 318 L400 280 L432 318 Z" fill="var(--sage)" opacity="0.5" />
+                <path d="M390 292 L400 280 L410 292 L404 289 L400 294 L396 289 Z" fill="var(--background)" />
                 {/* shinkansen line */}
-                <path d="M110 400 C180 384 230 378 270 360 C340 340 420 330 505 315" fill="none" stroke="var(--ink)" strokeOpacity="0.1" strokeWidth="6" strokeLinecap="round" />
+                <path d="M95 420 C160 400 200 395 262 335 C340 320 440 300 560 265" fill="none" stroke="var(--ink)" strokeOpacity="0.1" strokeWidth="6" strokeLinecap="round" />
                 {/* torii */}
-                <g transform="translate(250 300)" opacity="0.5" stroke="var(--terracotta)" strokeWidth="3" strokeLinecap="round">
+                <g transform="translate(205 345)" opacity="0.5" stroke="var(--terracotta)" strokeWidth="3" strokeLinecap="round">
                   <path d="M-14 0 L14 0 M-11 6 L11 6 M-8 0 L-8 22 M8 0 L8 22" fill="none" />
                 </g>
                 {/* cherry blossoms */}
-                {[[320, 270], [180, 340], [560, 280], [470, 240]].map(([cx, cy]) => (
+                {[[340, 360], [470, 340], [600, 200], [180, 410]].map(([cx, cy]) => (
                   <circle key={`sakura-${cx}`} cx={cx} cy={cy} r="5" fill="var(--terracotta)" opacity="0.25" />
                 ))}
                 <text x="40" y="52" fontSize="11" fontWeight="700" fill="var(--royal)" letterSpacing="0">JAPAN · HONSHU</text>
-                <text x="210" y="220" fontSize="10" fill="var(--royal)" opacity="0.5">SEA OF JAPAN</text>
+                <text x="260" y="200" fontSize="10" fill="var(--royal)" opacity="0.5">SEA OF JAPAN</text>
                 <text x="420" y="480" fontSize="10" fill="var(--royal)" opacity="0.5">PACIFIC OCEAN</text>
-                <text x="404" y="290" fontSize="9" fill="var(--ink)" opacity="0.5">FUJI</text>
-                <text x="300" y="440" fontSize="9" fill="var(--ink)" opacity="0.4">SHINKANSEN</text>
+                <text x="374" y="274" fontSize="9" fill="var(--ink)" opacity="0.5">FUJI</text>
+                <text x="150" y="388" fontSize="9" fill="var(--ink)" opacity="0.4">SHINKANSEN</text>
               </g>
             ) : data.scenery === "alpine-winter" ? (
               <g aria-hidden="true">
@@ -246,7 +246,7 @@ export function RouteMap({ data, lang }: { data: RouteMapData; lang: Lang }) {
                 {/* front range with Dolomite towers */}
                 <path d="M20 470 L100 400 L150 430 L230 340 L260 370 L300 320 L330 360 L380 300 L420 350 L470 290 L500 330 L560 280 L600 330 L680 300 L680 516 L20 516 Z" fill="var(--sage)" opacity="0.16" />
                 {/* valleys / roads */}
-                <path d="M108 283 C170 300 220 330 282 410 M235 123 C240 200 250 260 282 410 M324 357 C350 360 370 358 390 357 C460 350 520 360 569 363" fill="none" stroke="var(--royal)" strokeOpacity="0.14" strokeWidth="5" strokeLinecap="round" />
+                <path d="M100 230 C160 260 210 330 250 390 M240 110 C240 200 245 300 250 390 M330 290 C380 270 420 250 450 240 C500 250 550 280 590 300" fill="none" stroke="var(--royal)" strokeOpacity="0.14" strokeWidth="5" strokeLinecap="round" />
                 {/* snowflakes */}
                 {[[80, 90], [160, 300], [420, 90], [520, 250], [640, 420], [380, 460], [120, 480]].map(([sx, sy]) => (
                   <g key={`flake-${sx}`} transform={`translate(${sx} ${sy})`} stroke="var(--royal)" strokeOpacity="0.35" strokeWidth="1.5" strokeLinecap="round">

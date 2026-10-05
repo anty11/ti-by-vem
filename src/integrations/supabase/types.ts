@@ -162,6 +162,7 @@ export type Database = {
           itinerary_slug: string
           notes: string | null
           pace: string | null
+          paid_by_names: string[]
           party: string | null
           travel_end: string | null
           travel_start: string | null
@@ -175,6 +176,7 @@ export type Database = {
           itinerary_slug: string
           notes?: string | null
           pace?: string | null
+          paid_by_names?: string[]
           party?: string | null
           travel_end?: string | null
           travel_start?: string | null
@@ -188,6 +190,7 @@ export type Database = {
           itinerary_slug?: string
           notes?: string | null
           pace?: string | null
+          paid_by_names?: string[]
           party?: string | null
           travel_end?: string | null
           travel_start?: string | null

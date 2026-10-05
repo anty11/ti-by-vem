@@ -112,6 +112,48 @@ export type Database = {
         }
         Relationships: []
       }
+      trip_expenses: {
+        Row: {
+          category: string
+          created_at: string
+          id: string
+          itinerary_slug: string
+          label: string
+          paid_by: string | null
+          planned: number | null
+          sort_order: number
+          spent: number | null
+          updated_at: string
+          user_id: string
+        }
+        Insert: {
+          category?: string
+          created_at?: string
+          id?: string
+          itinerary_slug: string
+          label: string
+          paid_by?: string | null
+          planned?: number | null
+          sort_order?: number
+          spent?: number | null
+          updated_at?: string
+          user_id?: string
+        }
+        Update: {
+          category?: string
+          created_at?: string
+          id?: string
+          itinerary_slug?: string
+          label?: string
+          paid_by?: string | null
+          planned?: number | null
+          sort_order?: number
+          spent?: number | null
+          updated_at?: string
+          user_id?: string
+        }
+        Relationships: []
+      }
       trip_profiles: {
         Row: {
           budget: string | null

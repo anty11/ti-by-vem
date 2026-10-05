@@ -76,12 +76,53 @@ export function BudgetCheck({ slug, budget, lang }: { slug: string; budget: stri
   const t = copy[lang];
   const [rows, setRows] = useState<Expense[]>([]);
   const [loaded, setLoaded] = useState(false);
-  const peopleKey = `vem-budget-people-${slug}`;
   const [people, setPeople] = useState("");
+  const [userId, setUserId] = useState<string | null>(null);
+  const [profileId, setProfileId] = useState<string | null>(null);
 
+  // Names are stored on the user's trip profile, so they follow the account
+  // across devices instead of living in one browser.
   useEffect(() => {
-    setPeople(localStorage.getItem(peopleKey) ?? "");
-  }, [peopleKey]);
+    let active = true;
+    (async () => {
+      const { data: auth } = await supabase.auth.getUser();
+      const uid = auth.user?.id ?? null;
+      if (!uid) return;
+      const { data } = await db
+        .from("trip_profiles")
+        .select("id,paid_by_names")
+        .eq("itinerary_slug", slug)
+        .maybeSingle();
+      if (!active) return;
+      setUserId(uid);
+      if (data) {
+        setProfileId(data.id as string);
+        const names = (data.paid_by_names as string[] | null) ?? [];
+        if (names.length) setPeople(names.join(", "));
+      }
+    })();
+    return () => {
+      active = false;
+    };
+  }, [slug]);
+
+  const savePeople = async (value: string) => {
+    if (!userId) return;
+    const arr = value
+      .split(",")
+      .map((s) => s.trim())
+      .filter(Boolean);
+    if (profileId) {
+      await db.from("trip_profiles").update({ paid_by_names: arr }).eq("id", profileId);
+    } else {
+      const { data } = await db
+        .from("trip_profiles")
+        .insert({ user_id: userId, itinerary_slug: slug, paid_by_names: arr })
+        .select("id")
+        .single();
+      if (data) setProfileId(data.id as string);
+    }
+  };
 
   useEffect(() => {
     let active = true;

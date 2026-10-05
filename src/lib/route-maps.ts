@@ -1528,6 +1528,114 @@ export const routeMaps: Record<string, RouteMap> = {
       },
     ],
   },
+  lapland: {
+    scenery: "alpine-winter",
+    title: "Five days, day by day",
+    titleSk: "Päť dní, deň po dni",
+    lead:
+      "A short winter trip above the Arctic Circle: Rovaniemi and Santa's village, snowmobiles, then a glass igloo in Pyhätunturi. Tap a day to see where the route takes you — the full detail, times and prices live inside the guide.",
+    leadSk:
+      "Krátky zimný výlet za polárnym kruhom: Rovaniemi a Santova dedina, snežné skútre a potom sklenené iglu v Pyhätunturi. Kliknite na deň a uvidíte, kam vás trasa zavedie — celý detail, časy a ceny nájdete v sprievodcovi.",
+    days: [
+      {
+        day: 1,
+        date: "Day 1",
+        dateSk: "1. deň",
+        x: 350,
+        y: 400,
+        place: "Rovaniemi",
+        title: "Arrival above the Arctic Circle",
+        text:
+          "Land in Rovaniemi and take the evening slowly: a walk through the snowy town as the lights come on, then dinner at Monterosa — order the reindeer steak, it's their specialty.",
+        notes: ["Evening walk through town", "Dinner at Monterosa — the reindeer steak", "Night at Kotimaailma Aparthotel Snowflake Suites"],
+        sk: {
+          place: "Rovaniemi",
+          title: "Prílet za polárny kruh",
+          text:
+            "Prílet do Rovaniemi a večer pomaly: prechádzka zasneženým mestom, keď sa rozsvietia svetlá, potom večera v Monterose — objednajte si sobie steak, je to ich špecialita.",
+          notes: ["Večerná prechádzka mestom", "Večera v Monterose — sobie steak", "Noc v Kotimaailma Aparthotel Snowflake Suites"],
+        },
+      },
+      {
+        day: 2,
+        date: "Day 2",
+        dateSk: "2. deň",
+        x: 300,
+        y: 280,
+        peak: true,
+        place: "Santa Claus Village",
+        title: "The Arctic Circle line and reindeer sleighs",
+        text:
+          "The full Christmas day, whatever the month: Santa's office, the Arctic Circle line, a reindeer sleigh ride and a slow walk through the village with hot chocolate. Send postcards home for next Christmas, visit the husky and animal farms, and end with the best salmon ever at Santa Salmon Place.",
+        notes: ["Postcards sent from here arrive at Christmas", "Reindeer sleigh rides run all day", "Dinner at Santa Salmon Place — the salmon is a must"],
+        sk: {
+          place: "Santa Claus Village",
+          title: "Čiara polárneho kruhu a sobie záprahy",
+          text:
+            "Celý vianočný deň, nech je akýkoľvek mesiac: Santova kancelária, čiara polárneho kruhu, jazda na sobích záprahoch a pomalá prechádzka dedinkou s horúcou čokoládou. Pošlite si pohľadnice domov na budúce Vianoce, navštívte husky a zvieracie farmy a zakončite najlepším lososom v Santa Salmon Place.",
+          notes: ["Pohľadnice odoslané odtiaľto prídu na Vianoce", "Sobie záprahy jazdia celý deň", "Večera v Santa Salmon Place — losos je povinnosť"],
+        },
+      },
+      {
+        day: 3,
+        date: "Day 3",
+        dateSk: "3. deň",
+        x: 420,
+        y: 300,
+        place: "Snowmobiles",
+        title: "A full day on snowmobiles",
+        text:
+          "The longer, the better: a whole day on snowmobiles through the frozen forests and over the fells. If the sky clears in the evening, go aurora hunting — then dinner and a walk through Rovaniemi at night.",
+        notes: ["Full-day snowmobile safari — dress in everything you have", "Aurora depends on the sky — check the forecast", "Night walk through Rovaniemi"],
+        sk: {
+          place: "Snežné skútre",
+          title: "Celý deň na snežných skútroch",
+          text:
+            "Čím dlhšie, tým lepšie: celý deň na snežných skútroch cez zamrznuté lesy a po pahorkoch. Ak sa večer vyčasí, choďte loviť auróru — potom večera a prechádzka nočným Rovaniemi.",
+          notes: ["Celodenné safari na skútroch — oblečte si všetko, čo máte", "Auróra závisí od oblohy — sledujte predpoveď", "Nočná prechádzka Rovaniemi"],
+        },
+      },
+      {
+        day: 4,
+        date: "Day 4",
+        dateSk: "4. deň",
+        x: 500,
+        y: 160,
+        peak: true,
+        place: "Pyhätunturi — the glass igloo",
+        title: "A night under the northern lights",
+        text:
+          "By bus north to Pyhätunturi and into a glass igloo at Northern Lights Village Pyhä. A slow afternoon: the wellness, a walk around the snowy surroundings, and then the whole point of the trip — watching the aurora from your bed.",
+        notes: ["Bus transfer from Rovaniemi", "Wellness and a walk around the resort", "Aurora alarm — ask reception to wake you"],
+        sk: {
+          place: "Pyhätunturi — sklenené iglu",
+          title: "Noc pod polárnou žiarou",
+          text:
+            "Autobusom na sever do Pyhätunturi a do skleneného iglu v Northern Lights Village Pyhä. Pomalé popoludnie: wellness, prechádzka zasneženým okolím a potom to hlavné — pozorovanie aurory z postele.",
+          notes: ["Presun autobusom z Rovaniemi", "Wellness a prechádzka po okolí resortu", "Auróra budíček — poproste recepciu, aby vás zobudila"],
+        },
+      },
+      {
+        day: 5,
+        date: "Day 5",
+        dateSk: "5. deň",
+        x: 430,
+        y: 240,
+        place: "Huskies at sunrise → home",
+        title: "One last ride, then the airport",
+        text:
+          "Set the alarm one last time: a husky ride at sunrise, the dogs loud and the forest silent. Then back to the hotel, the transfer to the airport and the flight home.",
+        notes: ["Husky ride at sunrise — book the earliest slot", "Hotel transfer to the airport", "Flight home"],
+        sk: {
+          place: "Husky pri východe slnka → domov",
+          title: "Posledná jazda a potom na letisko",
+          text:
+            "Naposledy nastavte budík: jazda na husky záprahu pri východe slnka, psy hlasné a les tichý. Potom späť na hotel, transfer na letisko a let domov.",
+          notes: ["Husky jazda pri východe slnka — rezervujte najskorší termín", "Transfer z hotela na letisko", "Let domov"],
+        },
+      },
+    ],
+  },
 };
 
 export function dayStopText(stop: DayStop, lang: Lang): DayStopText {

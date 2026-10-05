@@ -14,6 +14,7 @@ import dolomitesWinter from "@/assets/dolomites-winter.jpg";
 import osloTromso from "@/assets/oslo-tromso.jpg";
 import japan from "@/assets/japan.jpg";
 import oktoberfestDolomites from "@/assets/oktoberfest-dolomites.jpg";
+import lapland from "@/assets/lapland.jpg";
 
 const images: Record<string, string> = {
   italy,
@@ -25,6 +26,7 @@ const images: Record<string, string> = {
   "oslo-tromso": osloTromso,
   japan,
   "oktoberfest-dolomites": oktoberfestDolomites,
+  lapland,
 };
 
 export function ItineraryCard({ itinerary, lang = "en" }: { itinerary: Itinerary; lang?: Lang }) {

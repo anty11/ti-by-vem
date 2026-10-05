@@ -158,12 +158,12 @@ export function BudgetCheck({ slug, budget, lang }: { slug: string; budget: stri
   const paid: Record<string, number> = {};
   names.forEach((n) => (paid[n] = 0));
   rows.forEach((r) => {
-    if (r.paid_by && r.spent) paid[r.paid_by] = (paid[r.paid_by] ?? 0) + r.spent;
+    if (r.paid_by && r.spent) paid[r.paid_by] = (paid[r.paid_by] ?? 0) + (r.spent ?? 0);
   });
   const sharedSpent = Object.values(paid).reduce((a, b) => a + b, 0);
   const everyone = Object.keys(paid);
   const fair = everyone.length ? sharedSpent / everyone.length : 0;
-  const transfers = settle(everyone.map((n) => [n, paid[n] - fair]));
+  const transfers = settle(everyone.map((n) => [n, (paid[n] ?? 0) - fair] as [string, number]));
 
   const input =
     "w-full rounded-xl border border-border bg-card px-3 py-2 text-sm text-ink outline-none focus:border-royal";
@@ -286,7 +286,7 @@ export function BudgetCheck({ slug, budget, lang }: { slug: string; budget: stri
           <ul className="mt-3 space-y-1 text-sm text-soft">
             {everyone.map((n) => (
               <li key={n}>
-                <span className="font-semibold text-ink">{n}</span>: {eur(paid[n])} ({t.share}{" "}
+                <span className="font-semibold text-ink">{n}</span>: {eur(paid[n] ?? 0)} ({t.share}{" "}
                 {eur(fair)})
               </li>
             ))}
@@ -349,12 +349,14 @@ function settle(balances: [string, number][]): [string, string, number][] {
   let i = 0;
   let j = 0;
   while (i < debtors.length && j < creditors.length) {
-    const amt = Math.min(debtors[i][1], creditors[j][1]);
-    out.push([debtors[i][0], creditors[j][0], Math.round(amt * 100) / 100]);
-    debtors[i][1] -= amt;
-    creditors[j][1] -= amt;
-    if (debtors[i][1] < 0.005) i++;
-    if (creditors[j][1] < 0.005) j++;
+    const d = debtors[i]!;
+    const c = creditors[j]!;
+    const amt = Math.min(d[1], c[1]);
+    out.push([d[0], c[0], Math.round(amt * 100) / 100]);
+    d[1] -= amt;
+    c[1] -= amt;
+    if (d[1] < 0.005) i++;
+    if (c[1] < 0.005) j++;
   }
   return out;
 }

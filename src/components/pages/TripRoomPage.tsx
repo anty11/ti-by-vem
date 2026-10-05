@@ -13,6 +13,7 @@ import { path, type Lang } from "@/lib/i18n";
 import { listMyAccess } from "@/lib/access.functions";
 import { routeMaps } from "@/lib/route-maps";
 import { OnTripMode } from "@/components/site/OnTripMode";
+import { BudgetCheck } from "@/components/site/BudgetCheck";
 
 export function TripRoomPage({ itinerary, lang }: { itinerary: Itinerary; lang: Lang }) {
   const t = tripCopy[lang];
@@ -138,6 +139,10 @@ export function TripRoomPage({ itinerary, lang }: { itinerary: Itinerary; lang: 
               </ul>
             </div>
           )}
+
+          <div className="mt-8">
+            <BudgetCheck slug={itinerary.slug} budget={itinerary.budget} lang={lang} />
+          </div>
 
           <div className="mt-8 space-y-4">
             <TripProfileForm

@@ -1,0 +1,1 @@
+ALTER TABLE public.trip_profiles ADD COLUMN IF NOT EXISTS paid_by_names text[] NOT NULL DEFAULT '{}';

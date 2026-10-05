@@ -1401,6 +1401,170 @@ export const routeMaps: Record<string, RouteMap> = {
       },
     ],
   },
+  "oktoberfest-dolomites": {
+    title: "Eight days, day by day",
+    titleSk: "Osem dní, deň po dni",
+    lead:
+      "One car, four countries: from the beer tents of Munich over Liechtenstein and St. Moritz to Lake Como, and then up into the Dolomites. Tap a day to see where the route takes you — the full detail, times and prices live inside the guide.",
+    leadSk:
+      "Jedno auto, štyri krajiny: z mníchovských pivných stánkov cez Lichtenštajnsko a St. Moritz k jazeru Como a potom hore do Dolomitov. Kliknite na deň a uvidíte, kam vás trasa zavedie — celý detail, časy a ceny nájdete v sprievodcovi.",
+    days: [
+      {
+        day: 1,
+        date: "Day 1",
+        dateSk: "1. deň",
+        x: 620,
+        y: 120,
+        place: "Munich",
+        title: "Oktoberfest, the proper way",
+        text:
+          "The trip opens in Munich with a full day at Oktoberfest — the big tents, the brass bands and one very long table. Dinner in town and an early night, because tomorrow the real drive begins.",
+        notes: ["Tent reservations book out months ahead", "Cash is king in the tents", "Night in Munich"],
+        sk: {
+          place: "Mníchov",
+          title: "Oktoberfest, ako sa patrí",
+          text:
+            "Cesta sa začína v Mníchove celým dňom na Oktoberfeste — veľké stány, dychovky a jedno veľmi dlhé posedenie. Večera v meste a skoro spať, lebo zajtra začína skutočná jazda.",
+          notes: ["Rezervácie stánkov sa vypredávajú mesiace dopredu", "V stánkoch sa oplatí mať hotovosť", "Noc v Mníchove"],
+        },
+      },
+      {
+        day: 2,
+        date: "Day 2",
+        dateSk: "2. deň",
+        x: 480,
+        y: 220,
+        place: "Vaduz → St. Moritz → Bellagio",
+        title: "Three countries in one day",
+        text:
+          "A storybook day: Vaduz castle and the red house in Liechtenstein, then over to St. Moritz for the lake, the leaning tower and the views. By evening you are in Italy, on Lake Como, with pizza in Bellagio.",
+        notes: ["Long driving day — start early", "Dinner at Ristorante Forma e Gusto, Bellagio", "Night at Hotel Florence, Bellagio"],
+        sk: {
+          place: "Vaduz → St. Moritz → Bellagio",
+          title: "Tri krajiny v jednom dni",
+          text:
+            "Rozprávkový deň: hrad Vaduz a červený dom v Lichtenštajnsku, potom St. Moritz s jazerom, šikmou vežou a výhľadmi. Večer ste v Taliansku, pri jazere Como, s pizzou v Bellagiu.",
+          notes: ["Dlhý deň v aute — vyrazte skoro", "Večera v Ristorante Forma e Gusto, Bellagio", "Noc v Hotel Florence, Bellagio"],
+        },
+      },
+      {
+        day: 3,
+        date: "Day 3",
+        dateSk: "3. deň",
+        x: 430,
+        y: 330,
+        place: "Bellagio → Varenna → Vermiglio",
+        title: "Lake Como slowly, then into the mountains",
+        text:
+          "Morning in Bellagio: Punta Spartivento, the old-town steps, Basilica San Giacomo and Villa Melzi's gardens. Then across to Varenna for Villa Monastero and the lovers' promenade, before the drive up to a chalet in the Val di Sole.",
+        notes: ["Varenna's passeggiata degli innamorati is short — do it slowly", "Night at Chalet al Foss Alp Resort, Vermiglio"],
+        sk: {
+          place: "Bellagio → Varenna → Vermiglio",
+          title: "Jazero Como pomaly a potom do hôr",
+          text:
+            "Ráno v Bellagiu: Punta Spartivento, schody starého mesta, bazilika San Giacomo a záhrady Villy Melzi. Potom do Varenny na Villu Monastero a promenádu zamilovaných a nakoniec hore do chaty vo Val di Sole.",
+          notes: ["Passeggiata degli innamorati vo Varenne je krátka — užite si ju pomaly", "Noc v Chalet al Foss Alp Resort, Vermiglio"],
+        },
+      },
+      {
+        day: 4,
+        date: "Day 4",
+        dateSk: "4. deň",
+        x: 470,
+        y: 430,
+        place: "Chalet al Foss",
+        title: "A full day of doing nothing, beautifully",
+        text:
+          "No driving, no plan. A slow morning, the chalet's wellness and the mountains doing all the work. This is the day the whole trip quietly revolves around.",
+        notes: ["Book the wellness slot ahead", "Second night at Chalet al Foss"],
+        sk: {
+          place: "Chalet al Foss",
+          title: "Celý deň krásneho ničnerobenia",
+          text:
+            "Žiadne šoférovanie, žiadny plán. Pomalé ráno, wellness v chate a hory, ktoré odvšetkú všetku prácu. Toto je deň, okolo ktorého sa potichu točí celá cesta.",
+          notes: ["Wellness si rezervujte dopredu", "Druhá noc v Chalet al Foss"],
+        },
+      },
+      {
+        day: 5,
+        date: "Day 5",
+        dateSk: "5. deň",
+        x: 330,
+        y: 240,
+        peak: true,
+        place: "Ortisei → Seceda → Santa Maddalena",
+        title: "The ridge you have seen a thousand times",
+        text:
+          "Breakfast with the llamas at the chalet, then the cable car from Ortisei up to Seceda — the most photographed ridge in the Dolomites. The day ends in Val di Funes, at the little church of Santa Maddalena under the Odle peaks.",
+        notes: ["Seceda cable car from Ortisei", "Santa Maddalena viewpoint at golden hour", "Night at Fallerhof — the famous cow barn"],
+        sk: {
+          place: "Ortisei → Seceda → Santa Maddalena",
+          title: "Hrebeň, ktorý ste videli tisíckrát",
+          text:
+            "Raňajky s lamičkami v chate, potom lanovka z Ortisei na Secedu — najfotenejší hrebeň Dolomitov. Deň končí vo Val di Funes pri kostolíku Santa Maddalena pod štítmi Odle.",
+          notes: ["Lanovka na Secedu z Ortisei", "Vyhliadka Santa Maddalena v zlatej hodine", "Noc na Fallerhofe — v slávnom kravíne"],
+        },
+      },
+      {
+        day: 6,
+        date: "Day 6",
+        dateSk: "6. deň",
+        x: 250,
+        y: 180,
+        place: "Seiser Alm → Lago di Braies",
+        title: "The high meadow and the green lake",
+        text:
+          "A morning hike across Seiser Alm, the largest high alpine meadow in Europe, with lunch at a hut up top. Then east to Lago di Braies for a rowboat on that impossibly green water and a slow walk around the shore.",
+        notes: ["Check the hut's opening hours before you set off", "Rowboats at Lago di Braies go fast — go late afternoon", "Night at a hotel near the lake"],
+        sk: {
+          place: "Seiser Alm → Lago di Braies",
+          title: "Vysoká lúka a zelené jazero",
+          text:
+            "Ranná túra po Seiser Alm, najväčšej vysokej alpskej lúke Európy, s obedom na chate hore. Potom na východ k Lago di Braies — lodička na neuveriteľne zelenej vode a pomalá prechádzka okolo brehu.",
+          notes: ["Pred odchodom skontrolujte otváracie hodiny chaty", "Lodičky na Lago di Braies sa rýchlo vypredajú — choďte neskoro poobede", "Noc v hoteli pri jazere"],
+        },
+      },
+      {
+        day: 7,
+        date: "Day 7",
+        dateSk: "7. deň",
+        x: 150,
+        y: 120,
+        peak: true,
+        place: "Tre Cime di Lavaredo",
+        title: "The three peaks, first thing in the morning",
+        text:
+          "Set the alarm: the Tre Cime loop is at its best before the crowds arrive. The three towers follow you the whole way around, and by the time the car parks fill up, you are already walking back down.",
+        notes: ["Start very early — the toll road queues build fast", "Dinner at the hotel", "Night at Hotel Hohlenstein"],
+        sk: {
+          place: "Tre Cime di Lavaredo",
+          title: "Tri veže hneď skoro ráno",
+          text:
+            "Nastavte budík: okruh okolo Tre Cime je najkrajší skôr, než prídu davy. Tri veže vás sprevádzajú celou cestou a keď sa parkoviská zaplnia, vy už zostupujete späť.",
+          notes: ["Vyrazte veľmi skoro — pri mýtnej ceste sa rýchlo tvoria rady", "Večera na hoteli", "Noc v Hotel Hohlenstein"],
+        },
+      },
+      {
+        day: 8,
+        date: "Day 8",
+        dateSk: "8. deň",
+        x: 80,
+        y: 260,
+        place: "Olpererhütte",
+        title: "The suspension bridge — or straight home",
+        text:
+          "If the weather plays along, one last hike: up to the Olpererhütte and its famous suspension bridge hanging over the valley. If it doesn't, point the car home and start planning the next one.",
+        notes: ["The bridge photo spot is a short walk past the hut", "Weather decides — have a plan B", "Long drive home"],
+        sk: {
+          place: "Olpererhütte",
+          title: "Visutý most — alebo rovno domov",
+          text:
+            "Ak bude počasie, jedna posledná túra: hore k Olpererhütte a jej slávnemu visutému mostu nad údolím. Ak nie, namierite si to domov a začnete plánovať ďalšiu.",
+          notes: ["Fotomiesto pri moste je kúsok za chatou", "Rozhoduje počasie — majte plán B", "Dlhá cesta domov"],
+        },
+      },
+    ],
+  },
 };
 
 export function dayStopText(stop: DayStop, lang: Lang): DayStopText {

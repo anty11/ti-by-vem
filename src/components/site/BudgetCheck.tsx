@@ -245,10 +245,8 @@ export function BudgetCheck({ slug, budget, lang }: { slug: string; budget: stri
           className={`${input} mt-2 normal-case tracking-normal`}
           placeholder={t.whoHint}
           value={people}
-          onChange={(e) => {
-            setPeople(e.target.value);
-            localStorage.setItem(peopleKey, e.target.value);
-          }}
+          onChange={(e) => setPeople(e.target.value)}
+          onBlur={(e) => savePeople(e.target.value)}
         />
       </label>
 

@@ -286,6 +286,39 @@ export const itineraries: Itinerary[] = [
       ],
     },
   },
+  {
+    slug: "oktoberfest-dolomites",
+    status: "live",
+    country: "Germany, Liechtenstein, Switzerland & Italy",
+    title: "Oktoberfest to the Dolomites",
+    days: 8,
+    stops: "Munich → Tre Cime",
+    budget: "~€1,600",
+    chatPrice: "€9",
+    chatPriceSk: "9 €",
+    blurb:
+      "Eight autumn days by car across four countries: Oktoberfest in Munich, a castle in Liechtenstein, St. Moritz, two nights on Lake Como and then the Dolomites — Seceda, Santa Maddalena, Lago di Braies and Tre Cime.",
+    accent: "sage",
+    x: 368,
+    y: 332,
+    highlights: [
+      "Oktoberfest in Munich, then Vaduz and St. Moritz in a single day",
+      "Two nights on Lake Como — Bellagio, Varenna and the promenade of lovers",
+      "Seceda by cable car, the famous Funes cow barn and sunrise at Tre Cime",
+    ],
+    sk: {
+      country: "Nemecko, Lichtenštajnsko, Švajčiarsko a Taliansko",
+      title: "Z Oktoberfestu do Dolomitov",
+      stops: "Mníchov → Tre Cime",
+      blurb:
+        "Osem jesenných dní autom cez štyri krajiny: Oktoberfest v Mníchove, hrad v Lichtenštajnsku, St. Moritz, dve noci pri jazere Como a potom Dolomity — Seceda, Santa Maddalena, Lago di Braies a Tre Cime.",
+      highlights: [
+        "Oktoberfest v Mníchove a potom Vaduz aj St. Moritz v jedinom dni",
+        "Dve noci pri jazere Como — Bellagio, Varenna a promenáda zamilovaných",
+        "Seceda lanovkou, slávny kravín vo Funes a východ slnka pri Tre Cime",
+      ],
+    },
+  },
 ];
 
 export function itineraryWhen(item: Itinerary, lang: Lang): string | undefined {

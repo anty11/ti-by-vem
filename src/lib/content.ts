@@ -319,6 +319,39 @@ export const itineraries: Itinerary[] = [
       ],
     },
   },
+  {
+    slug: "lapland",
+    status: "live",
+    country: "Finland",
+    title: "Lapland: Rovaniemi & the igloo night",
+    days: 5,
+    stops: "Rovaniemi → Pyhätunturi",
+    budget: "~€1,400",
+    chatPrice: "€9",
+    chatPriceSk: "9 €",
+    blurb:
+      "Five winter days above the Arctic Circle: Santa's village and reindeer sleighs in Rovaniemi, a full day on snowmobiles, then a night in a glass igloo under the northern lights and huskies at sunrise.",
+    accent: "royal",
+    x: 430,
+    y: 70,
+    highlights: [
+      "Santa Claus Village: the Arctic Circle line, reindeer sleighs and postcards sent home for next Christmas",
+      "A full day on snowmobiles — the longer, the better",
+      "A night in a glass igloo at Pyhätunturi, aurora watching from bed, huskies at sunrise",
+    ],
+    sk: {
+      country: "Fínsko",
+      title: "Laponsko: Rovaniemi a noc v iglu",
+      stops: "Rovaniemi → Pyhätunturi",
+      blurb:
+        "Päť zimných dní za polárnym kruhom: Santova dedina a sobie záprahy v Rovaniemi, celý deň na snežných skútroch, potom noc v sklenenom iglu pod polárnou žiarou a husky pri východe slnka.",
+      highlights: [
+        "Santa Claus Village: čiara polárneho kruhu, sobie záprahy a pohľadnice domov na budúce Vianoce",
+        "Celý deň na snežných skútroch — čím dlhšie, tým lepšie",
+        "Noc v sklenenom iglu v Pyhätunturi, pozorovanie aurory z postele, husky pri východe slnka",
+      ],
+    },
+  },
 ];
 
 export function itineraryWhen(item: Itinerary, lang: Lang): string | undefined {

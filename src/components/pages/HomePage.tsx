@@ -1,5 +1,5 @@
 import { Link } from "@tanstack/react-router";
-import { EuropeMap } from "@/components/site/EuropeMap";
+import { Globe } from "@/components/site/Globe";
 import { ItineraryCard } from "@/components/site/ItineraryCard";
 import { itineraries } from "@/lib/content";
 import { copy } from "@/lib/copy";
@@ -29,7 +29,7 @@ export function HomePage({ lang }: { lang: Lang }) {
             <Link to={path(lang, "letters")} className="rounded-xl border border-gold/60 bg-gold/20 px-6 py-3 font-semibold text-ink transition hover:bg-gold/40">{t.ctaPostcard}</Link>
           </div>
         </div>
-        <EuropeMap lang={lang} />
+        <Globe lang={lang} />
       </section>
 
       <section className="mx-auto max-w-7xl px-6 py-14">

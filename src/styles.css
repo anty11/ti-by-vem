@@ -174,6 +174,40 @@
   stroke-width: 1.2;
 }
 
+/* Home page globe (src/components/site/Globe.tsx) */
+.globe {
+  cursor: grab;
+  touch-action: pan-y; /* horizontal swipes spin the globe, vertical ones still scroll the page */
+  user-select: none;
+  -webkit-user-select: none;
+}
+
+.globe:active {
+  cursor: grabbing;
+}
+
+.globe:focus-visible {
+  outline: 2px solid var(--royal);
+  outline-offset: -4px;
+}
+
+.globe-ocean {
+  fill: color-mix(in oklab, var(--royal) 7%, var(--paper));
+  stroke: color-mix(in oklab, var(--royal) 22%, transparent);
+  stroke-width: 1;
+}
+
+.globe-grid {
+  fill: none;
+  stroke: color-mix(in oklab, var(--royal) 13%, transparent);
+  stroke-width: 0.6;
+  vector-effect: non-scaling-stroke;
+}
+
+.globe-rim {
+  pointer-events: none;
+}
+
 .legal-copy h2 {
   font-family: var(--font-display);
   font-size: 1.35rem;

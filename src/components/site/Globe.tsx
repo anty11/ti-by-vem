@@ -2,6 +2,7 @@ import { useCallback, useEffect, useLayoutEffect, useRef, useState } from "react
 import { Link } from "@tanstack/react-router";
 import { accentHex, itineraries, itineraryText } from "@/lib/content";
 import { globeColors, globePins, tripCountries } from "@/lib/globe-pins";
+import { globeRoutes } from "@/lib/globe-routes";
 import { copy } from "@/lib/copy";
 import { detailPath, type Lang } from "@/lib/i18n";
 
@@ -21,7 +22,8 @@ const CY = 250;
 /** Globe radius at zoom 1: the whole world fits with a margin. */
 const R0 = 210;
 const K_MIN = 1;
-const K_MAX = 8;
+/** Up to street-ish level, so a short route like the Dolomites can fill the frame. */
+const K_MAX = 80;
 /** Start zoomed in on Europe, close to the old flat map: Lapland at the top, the Riviera below. */
 const HOME: View = { lon: 13, lat: 52, k: 3.4 };
 const RAD = Math.PI / 180;
@@ -172,6 +174,56 @@ const wrapLon = (d: number) => ((((d + 180) % 360) + 360) % 360) - 180;
 
 type Tween = { from: View; to: View; start: number; duration: number; dip: number };
 
+/**
+ * A trip's route ready to draw: densified so long legs follow the globe's curve, each
+ * point carrying how far along the trip it is (0–1), plus the view that fits the route.
+ */
+type RoutePt = { lat: number; lon: number; flight: boolean; stop: boolean; f: number };
+type PreparedRoute = { pts: RoutePt[]; fit: View };
+
+const preparedRoutes: Record<string, PreparedRoute> = {};
+for (const [slug, stops] of Object.entries(globeRoutes)) {
+  if (stops.length < 2) continue;
+  const pts: RoutePt[] = [];
+  let total = 0;
+  stops.forEach((stop, i) => {
+    const prev = stops[i - 1];
+    if (!prev) {
+      pts.push({ lat: stop.lat, lon: stop.lon, flight: false, stop: !stop.via, f: 0 });
+      return;
+    }
+    const dLat = stop.lat - prev.lat;
+    const dLon = stop.lon - prev.lon;
+    const len = Math.hypot(dLat, dLon * Math.cos(((stop.lat + prev.lat) / 2) * RAD));
+    const steps = Math.max(1, Math.ceil(len / 0.2));
+    for (let s = 1; s <= steps; s++) {
+      total += len / steps;
+      pts.push({
+        lat: prev.lat + (dLat * s) / steps,
+        lon: prev.lon + (dLon * s) / steps,
+        flight: Boolean(stop.flight),
+        stop: s === steps && !stop.via,
+        f: total,
+      });
+    }
+  });
+  for (const pt of pts) pt.f = total ? pt.f / total : 1;
+  const lats = stops.map((stop) => stop.lat);
+  const lons = stops.map((stop) => stop.lon);
+  const midLat = (Math.min(...lats) + Math.max(...lats)) / 2;
+  const span = Math.max(
+    Math.max(...lats) - Math.min(...lats),
+    (Math.max(...lons) - Math.min(...lons)) * Math.cos(midLat * RAD),
+    0.3,
+  );
+  // Fit the route into roughly half the frame, a little above centre (the card sits below).
+  const k = Math.max(HOME.k, Math.min(K_MAX, 250 / (span * R0 * RAD)));
+  preparedRoutes[slug] = {
+    pts,
+    fit: { lat: midLat - span * 0.12, lon: (Math.min(...lons) + Math.max(...lons)) / 2, k },
+  };
+}
+
 export function Globe({ lang = "en" }: { lang?: Lang }) {
   const t = copy[lang].globe;
   const first = itineraries.find((item) => item.status === "live") ?? itineraries[0];
@@ -183,6 +235,13 @@ export function Globe({ lang = "en" }: { lang?: Lang }) {
   const svgRef = useRef<SVGSVGElement>(null);
   const oceanRef = useRef<SVGCircleElement>(null);
   const rimRef = useRef<SVGCircleElement>(null);
+  const routeHaloRef = useRef<SVGPathElement>(null);
+  const routeLineRef = useRef<SVGPathElement>(null);
+  const routeFlightRef = useRef<SVGPathElement>(null);
+  const routeStopsRef = useRef<SVGPathElement>(null);
+  const walkerRef = useRef<SVGCircleElement>(null);
+  /** The route being shown: which trip, and when its line starts drawing. */
+  const routeAnim = useRef<{ slug: string; start: number; duration: number } | null>(null);
   const gridRef = useRef<SVGPathElement>(null);
   const landRef = useRef<SVGPathElement>(null);
   const accentRefs = useRef(new Map<string, SVGPathElement>());
@@ -212,6 +271,85 @@ export function Globe({ lang = "en" }: { lang?: Lang }) {
     },
     suppressClick: false,
   });
+
+  /** Draws the selected trip's route up to how far the "walk" has got. */
+  const drawRoute = (p: Projector) => {
+    const els = [routeHaloRef, routeLineRef, routeFlightRef, routeStopsRef].map((r) => r.current);
+    const anim = routeAnim.current;
+    const route = anim ? preparedRoutes[anim.slug] : undefined;
+    const walker = walkerRef.current;
+    if (!anim || !route) {
+      for (const el of els) el?.setAttribute("d", "");
+      walker?.setAttribute("visibility", "hidden");
+      return;
+    }
+    const now = performance.now();
+    const progress =
+      now < anim.start ? 0 : easeInOut(Math.min(1, (now - anim.start) / anim.duration));
+    let ground = "";
+    let flight = "";
+    let stops = "";
+    let prev: { x: number; y: number; flight: boolean } | null = null;
+    let head: { x: number; y: number } | null = null;
+    const r = 3.2 * pinScale.current;
+    const add = (lat: number, lon: number, isFlight: boolean) => {
+      const pt = projectPoint(lat, lon, p);
+      if (pt.facing < 0) {
+        prev = null; // behind the globe: lift the pen
+        return null;
+      }
+      const x = round(pt.x);
+      const y = round(pt.y);
+      const seg = prev ? `M${prev.x} ${prev.y}L${x} ${y}` : `M${x} ${y}`;
+      if (isFlight) flight += seg;
+      else ground += seg;
+      prev = { x, y, flight: isFlight };
+      return { x, y };
+    };
+    for (let i = 0; i < route.pts.length; i++) {
+      const pt = route.pts[i]!;
+      if (pt.f > progress) {
+        // Part-way along this leg: draw up to the walker's position.
+        const before = route.pts[i - 1];
+        if (before && progress > before.f) {
+          const t = (progress - before.f) / (pt.f - before.f);
+          head =
+            add(
+              before.lat + (pt.lat - before.lat) * t,
+              before.lon + (pt.lon - before.lon) * t,
+              pt.flight,
+            ) ?? head;
+        }
+        break;
+      }
+      const at = add(pt.lat, pt.lon, i > 0 && pt.flight);
+      if (at) {
+        head = at;
+        if (pt.stop)
+          stops += `M${at.x - r} ${at.y}a${r} ${r} 0 1 0 ${2 * r} 0a${r} ${r} 0 1 0 ${-2 * r} 0`;
+      }
+    }
+    const colour = tripColor(anim.slug);
+    const [halo, line, fly, dots] = els;
+    halo?.setAttribute("d", ground);
+    line?.setAttribute("d", ground);
+    fly?.setAttribute("d", flight);
+    dots?.setAttribute("d", stops);
+    for (const el of [line, fly]) el?.style.setProperty("stroke", colour);
+    halo?.style.setProperty("stroke", colour);
+    dots?.style.setProperty("fill", colour);
+    if (walker) {
+      if (head && progress < 1) {
+        walker.setAttribute("visibility", "visible");
+        walker.setAttribute("cx", String(head.x));
+        walker.setAttribute("cy", String(head.y));
+        walker.setAttribute("r", String(round(4.5 * pinScale.current)));
+        walker.style.setProperty("fill", colour);
+      } else {
+        walker.setAttribute("visibility", "hidden");
+      }
+    }
+  };
 
   const draw = useCallback(() => {
     const p = projector(view.current);
@@ -249,6 +387,7 @@ export function Globe({ lang = "en" }: { lang?: Lang }) {
       );
       obstacles.push({ x: pt.x, y: pt.y, hw: 9 * u, hh: 9 * u });
     }
+    drawRoute(p);
     for (const region of regions) {
       const el = regionRefs.current.get(region.key);
       if (!el) continue;
@@ -355,6 +494,8 @@ export function Globe({ lang = "en" }: { lang?: Lang }) {
         };
         busy = true;
       }
+      const anim = routeAnim.current;
+      if (anim && now < anim.start + anim.duration + 50) busy = true;
       draw();
       if (busy) m.frame = requestAnimationFrame(tick);
     },
@@ -527,16 +668,44 @@ export function Globe({ lang = "en" }: { lang?: Lang }) {
     flyTo(target, 450);
   };
 
+  /** Fly to a trip, zoom until its route fits, then draw the route like someone walking it. */
+  const showTrip = (slug: string) => {
+    setActiveSlug(slug);
+    const route = preparedRoutes[slug];
+    const pin = pins.current[slug];
+    if (!route) {
+      routeAnim.current = null;
+      if (pin) flyTo({ lat: pin[0] - 5 / view.current.k, lon: pin[1] });
+      return;
+    }
+    flyTo(route.fit);
+    const tween = motion.current.tween;
+    const landed = tween ? tween.start + tween.duration : performance.now();
+    routeAnim.current = {
+      slug,
+      start: landed - 150,
+      duration: Math.min(3600, 1600 + route.pts.length * 18),
+    };
+    animate();
+  };
+
   const selectTrip = (slug: string) => {
     if (motion.current.suppressClick) return;
-    setActiveSlug(slug);
-    const pin = pins.current[slug];
-    if (pin) flyTo({ lat: pin[0] - 5 / view.current.k, lon: pin[1] });
+    showTrip(slug);
+  };
+
+  const goHome = () => {
+    routeAnim.current = null;
+    flyTo(HOME);
   };
 
   const goToRegion = (region: Region) => {
+    const only = region.slugs.length === 1 ? region.slugs[0] : undefined;
+    if (only) return showTrip(only);
+    if (region.key === "europe") return goHome();
     const firstSlug = region.slugs[0];
     if (firstSlug) setActiveSlug(firstSlug);
+    routeAnim.current = null;
     flyTo(region.view);
   };
 
@@ -624,6 +793,11 @@ export function Globe({ lang = "en" }: { lang?: Lang }) {
                 fill="url(#globe-shade)"
                 className="globe-rim"
               />
+              <path ref={routeHaloRef} className="globe-route-halo" />
+              <path ref={routeLineRef} className="globe-route" />
+              <path ref={routeFlightRef} className="globe-route globe-route-flight" />
+              <path ref={routeStopsRef} className="globe-route-stops" />
+              <circle ref={walkerRef} visibility="hidden" className="globe-route-walker" />
             </g>
             {mounted &&
               itineraries.map((item) => {
@@ -652,7 +826,7 @@ export function Globe({ lang = "en" }: { lang?: Lang }) {
                       }
                     }}
                   >
-                    <circle r="16" fill="transparent" />
+                    <circle r="11" fill="transparent" />
                     <g className="map-pin">
                       <circle r="11" fill={tripColor(item.slug)} opacity="0.2" />
                       {isActive && (
@@ -728,7 +902,7 @@ export function Globe({ lang = "en" }: { lang?: Lang }) {
             </button>
             <button
               type="button"
-              onClick={() => flyTo(HOME)}
+              onClick={goHome}
               aria-label={t.home}
               title={t.home}
               className="grid size-9 place-items-center rounded-full border border-border bg-card/95 text-[0.65rem] font-semibold uppercase tracking-wide text-royal shadow-sm transition hover:border-royal"

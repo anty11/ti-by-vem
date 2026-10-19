@@ -1,7 +1,7 @@
 import { useCallback, useEffect, useLayoutEffect, useRef, useState } from "react";
 import { Link } from "@tanstack/react-router";
-import { accentBg, accentHex, itineraries, itineraryText } from "@/lib/content";
-import { globePins, tripCountries } from "@/lib/globe-pins";
+import { accentHex, itineraries, itineraryText } from "@/lib/content";
+import { globeColors, globePins, tripCountries } from "@/lib/globe-pins";
 import { copy } from "@/lib/copy";
 import { detailPath, type Lang } from "@/lib/i18n";
 
@@ -26,11 +26,16 @@ const K_MAX = 8;
 const HOME: View = { lon: 13, lat: 52, k: 3.4 };
 const RAD = Math.PI / 180;
 
-/** Each country the trips touch, tinted with the accent of the first trip that covers it. */
-const countryAccent: Record<string, string> = {};
+/** Each trip's own colour on the globe. */
+const tripColor = (slug: string) =>
+  globeColors[slug] ??
+  accentHex[itineraries.find((item) => item.slug === slug)?.accent ?? "royal"]!;
+
+/** Which trips cover each country. Shared countries (Italy, Switzerland…) take the colour of the selected trip. */
+const countryTrips: Record<string, string[]> = {};
 for (const item of itineraries) {
   for (const name of tripCountries(item.country)) {
-    if (!countryAccent[name]) countryAccent[name] = item.accent;
+    (countryTrips[name] ??= []).push(item.slug);
   }
 }
 
@@ -585,9 +590,17 @@ export function Globe({ lang = "en" }: { lang?: Lang }) {
               <path ref={gridRef} className="globe-grid" />
               <path ref={landRef} className="map-country" />
               {shapes
-                ?.filter((shape) => countryAccent[shape.name])
+                ?.filter((shape) => countryTrips[shape.name])
                 .map((shape) => {
-                  const accent = countryAccent[shape.name]!;
+                  const trips = countryTrips[shape.name]!;
+                  const selected = trips.includes(activeSlug);
+                  // Selected trip's countries glow in its colour; a country only one trip covers
+                  // keeps that trip's colour; shared ones stay a quiet neutral until selected.
+                  const colour = selected
+                    ? tripColor(activeSlug)
+                    : trips.length === 1
+                      ? tripColor(trips[0]!)
+                      : "var(--soft)";
                   return (
                     <path
                       key={shape.name}
@@ -597,8 +610,8 @@ export function Globe({ lang = "en" }: { lang?: Lang }) {
                       }}
                       className="map-country map-country-available"
                       style={{
-                        fill: `color-mix(in oklab, var(--${accent}) 38%, var(--card))`,
-                        stroke: `color-mix(in oklab, var(--${accent}) 75%, transparent)`,
+                        fill: `color-mix(in oklab, ${colour} ${selected ? 46 : trips.length === 1 ? 26 : 16}%, var(--card))`,
+                        stroke: `color-mix(in oklab, ${colour} ${selected ? 85 : 55}%, transparent)`,
                       }}
                     />
                   );
@@ -629,6 +642,7 @@ export function Globe({ lang = "en" }: { lang?: Lang }) {
                     aria-label={`${text.country}: ${text.title}`}
                     aria-pressed={isActive}
                     onClick={() => selectTrip(item.slug)}
+                    onMouseEnter={() => setActiveSlug(item.slug)}
                     onKeyDown={(event) => {
                       if (event.key === "Enter" || event.key === " ") {
                         event.preventDefault();
@@ -640,19 +654,19 @@ export function Globe({ lang = "en" }: { lang?: Lang }) {
                   >
                     <circle r="16" fill="transparent" />
                     <g className="map-pin">
-                      <circle r="11" fill={accentHex[item.accent]} opacity="0.18" />
+                      <circle r="11" fill={tripColor(item.slug)} opacity="0.2" />
                       {isActive && (
                         <circle
                           className="route-map-pulse"
                           r="10"
                           fill="none"
-                          stroke={accentHex[item.accent]}
+                          stroke={tripColor(item.slug)}
                           strokeWidth="2.5"
                         />
                       )}
                       <circle
                         r="5.5"
-                        fill={accentHex[item.accent]}
+                        fill={tripColor(item.slug)}
                         stroke="var(--onink)"
                         strokeWidth="2"
                       />
@@ -664,7 +678,7 @@ export function Globe({ lang = "en" }: { lang?: Lang }) {
 
           {mounted &&
             regions.map((region) => {
-              const accent = itineraries.find((item) => item.slug === region.slugs[0])?.accent;
+              const dot = region.slugs.length === 1 ? tripColor(region.slugs[0]!) : "var(--royal)";
               return (
                 <button
                   key={region.key}
@@ -679,7 +693,8 @@ export function Globe({ lang = "en" }: { lang?: Lang }) {
                   className="absolute flex -translate-x-1/2 -translate-y-1/2 items-center gap-1.5 whitespace-nowrap rounded-full border border-border bg-card/95 px-3 py-1.5 text-xs font-semibold text-ink shadow-sm transition hover:border-royal hover:text-royal"
                 >
                   <span
-                    className={`size-2 shrink-0 rounded-full ${accent ? accentBg[accent] : "bg-royal"}`}
+                    className="size-2 shrink-0 rounded-full"
+                    style={{ background: dot }}
                     aria-hidden="true"
                   />
                   {regionLabel(region)}
@@ -730,7 +745,8 @@ export function Globe({ lang = "en" }: { lang?: Lang }) {
         >
           <div className="flex items-center gap-3">
             <span
-              className={`size-3 shrink-0 rounded-full ${accentBg[active.accent]}`}
+              className="size-3 shrink-0 rounded-full"
+              style={{ background: tripColor(active.slug) }}
               aria-hidden="true"
             />
             <div className="leading-tight">

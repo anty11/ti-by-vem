@@ -21,8 +21,9 @@ const CY = 250;
 /** Globe radius at zoom 1: the whole world fits with a margin. */
 const R0 = 210;
 const K_MIN = 1;
-const K_MAX = 3.4;
-const HOME: View = { lon: 11, lat: 45, k: 1.6 };
+const K_MAX = 8;
+/** Start zoomed in on Europe, close to the old flat map: Lapland at the top, the Riviera below. */
+const HOME: View = { lon: 13, lat: 52, k: 3.4 };
 const RAD = Math.PI / 180;
 
 /** Each country the trips touch, tinted with the accent of the first trip that covers it. */
@@ -32,6 +33,27 @@ for (const item of itineraries) {
     if (!countryAccent[name]) countryAccent[name] = item.accent;
   }
 }
+
+/**
+ * Trips grouped by part of the world. When none of a region's pins is on screen, a tag
+ * at the edge points towards it, and one click flies the globe there.
+ */
+type RegionKey = "europe" | "americas" | "asia";
+type Region = { key: RegionKey; slugs: string[]; view: View };
+const regionOf = (lon: number): RegionKey =>
+  lon < -30 ? "americas" : lon > 60 ? "asia" : "europe";
+const regions: Region[] = (["europe", "americas", "asia"] as const)
+  .map((key) => {
+    const slugs = itineraries
+      .filter((item) => globePins[item.slug] && regionOf(globePins[item.slug]![1]) === key)
+      .map((item) => item.slug);
+    const points = slugs.map((slug) => globePins[slug]!);
+    const lat = points.reduce((sum, pt) => sum + pt[0], 0) / (points.length || 1);
+    const lon = points.reduce((sum, pt) => sum + pt[1], 0) / (points.length || 1);
+    const view: View = key === "europe" ? HOME : { lat: lat - 1.5, lon, k: HOME.k };
+    return { key, slugs, view };
+  })
+  .filter((region) => region.slugs.length > 0);
 
 function toRing(points: [number, number][]): Ring {
   const ring = new Float64Array(points.length * 3);
@@ -160,7 +182,10 @@ export function Globe({ lang = "en" }: { lang?: Lang }) {
   const landRef = useRef<SVGPathElement>(null);
   const accentRefs = useRef(new Map<string, SVGPathElement>());
   const pinRefs = useRef(new Map<string, SVGGElement>());
+  const regionRefs = useRef(new Map<RegionKey, HTMLButtonElement>());
   const pinScale = useRef(1);
+  /** viewBox units per CSS pixel, and whether the trip card floats over the globe (sm+). */
+  const layout = useRef({ unitsPerPx: 1, cardOverlay: true });
   const pins = useRef<Record<string, [number, number]>>({ ...globePins });
 
   // Motion state, kept outside React so dragging never re-renders the component.
@@ -198,6 +223,12 @@ export function Globe({ lang = "en" }: { lang?: Lang }) {
       }
       landRef.current?.setAttribute("d", land);
     }
+    // Visible pins and placed tags, in viewBox units, so tags can step aside.
+    const u = layout.current.unitsPerPx;
+    // The zoom buttons: a 36px column, 12px from the top-right corner, 120px tall.
+    const obstacles: { x: number; y: number; hw: number; hh: number }[] = [
+      { x: W - 30 * u, y: 72 * u, hw: 18 * u, hh: 60 * u },
+    ];
     for (const [slug, el] of pinRefs.current) {
       const pin = pins.current[slug];
       if (!pin) continue;
@@ -211,6 +242,76 @@ export function Globe({ lang = "en" }: { lang?: Lang }) {
         "transform",
         `translate(${round(pt.x)} ${round(pt.y)}) scale(${round(pinScale.current * 100) / 100})`,
       );
+      obstacles.push({ x: pt.x, y: pt.y, hw: 9 * u, hh: 9 * u });
+    }
+    for (const region of regions) {
+      const el = regionRefs.current.get(region.key);
+      if (!el) continue;
+      const inView = region.slugs.some((slug) => {
+        const pin = pins.current[slug];
+        if (!pin) return false;
+        const pt = projectPoint(pin[0], pin[1], p);
+        return pt.facing >= 0.12 && pt.x > 12 && pt.x < W - 12 && pt.y > 12 && pt.y < H - 12;
+      });
+      if (inView) {
+        el.style.display = "none";
+        continue;
+      }
+      // Direction from the centre towards the region; points behind the globe project
+      // inside the disc in the direction you would turn it, so the same maths works.
+      const target = projectPoint(region.view.lat, region.view.lon, p);
+      let dx = target.x - CX;
+      let dy = target.y - CY;
+      if (Math.hypot(dx, dy) < 1) {
+        dx = 1;
+        dy = 0;
+      }
+      // Pin the tag to the frame edge, using its real size on screen, clear of the zoom
+      // buttons (top right) and the trip card (bottom left, when it floats over the globe).
+      el.style.display = "";
+      const hw = (el.offsetWidth / 2) * u;
+      const hh = (el.offsetHeight / 2) * u;
+      const margin = 10 * u;
+      const left = margin + hw;
+      const right = W - margin - hw;
+      const top = margin + hh;
+      const bottom = H - margin - hh - (layout.current.cardOverlay ? 84 * u : 0);
+      const sx = dx > 0 ? (right - CX) / dx : dx < 0 ? (left - CX) / dx : Infinity;
+      const sy = dy > 0 ? (bottom - CY) / dy : dy < 0 ? (top - CY) / dy : Infinity;
+      const scale = Math.min(sx, sy);
+      // On the top or bottom edge a tag slides sideways to make room; on a side edge, up or down.
+      const slideX = sy <= sx;
+      let x = CX + dx * scale;
+      let y = CY + dy * scale;
+      const gap = 6 * u;
+      for (let pass = 0; pass < 5; pass++) {
+        const hit = obstacles.find(
+          (o) => Math.abs(x - o.x) < hw + o.hw + gap && Math.abs(y - o.y) < hh + o.hh + gap,
+        );
+        if (!hit) break;
+        // Step to the near side of whatever is in the way; the far side if that leaves the frame.
+        const step = (pos: number, at: number, reach: number, min: number, max: number) => {
+          const before = at - reach;
+          const after = at + reach;
+          const [near, far] = pos <= at ? [before, after] : [after, before];
+          return near >= min && near <= max ? near : Math.max(min, Math.min(max, far));
+        };
+        if (slideX) x = step(x, hit.x, hit.hw + hw + gap, left, right);
+        else y = step(y, hit.y, hit.hh + hh + gap, top, bottom);
+      }
+      // Still no room on a narrow screen: stack under (or over) whatever is in the way.
+      const stuck = obstacles.find(
+        (o) => Math.abs(x - o.x) < hw + o.hw + gap && Math.abs(y - o.y) < hh + o.hh + gap,
+      );
+      if (stuck) {
+        const below = stuck.y + stuck.hh + hh + gap;
+        y = below <= bottom ? below : stuck.y - stuck.hh - hh - gap;
+      }
+      obstacles.push({ x, y, hw, hh });
+      el.style.left = `${(x / W) * 100}%`;
+      el.style.top = `${(y / H) * 100}%`;
+      const arrow = el.querySelector<HTMLElement>("[data-arrow]");
+      if (arrow) arrow.style.transform = `rotate(${Math.atan2(dy, dx)}rad)`;
     }
   }, [shapes]);
 
@@ -243,8 +344,8 @@ export function Globe({ lang = "en" }: { lang?: Lang }) {
         if (!m.swayStart) m.swayStart = now;
         const s = (now - m.swayStart) / 1000;
         view.current = {
-          lon: HOME.lon + 11 * Math.sin((2 * Math.PI * s) / 9),
-          lat: HOME.lat + 2.5 * Math.sin((2 * Math.PI * s) / 13),
+          lon: HOME.lon + 4 * Math.sin((2 * Math.PI * s) / 9),
+          lat: HOME.lat + 1.2 * Math.sin((2 * Math.PI * s) / 13),
           k: HOME.k,
         };
         busy = true;
@@ -265,16 +366,17 @@ export function Globe({ lang = "en" }: { lang?: Lang }) {
   };
 
   const flyTo = useCallback(
-    (target: Partial<View>, duration = 900) => {
+    (target: Partial<View>, baseDuration = 900) => {
       const from = { ...view.current };
       const to: View = {
         lon: target.lon ?? from.lon,
         lat: clampLat(target.lat ?? from.lat),
         k: clampK(target.k ?? from.k),
       };
-      // Long trips zoom out a little on the way, like a plane climbing.
+      // Long trips zoom out on the way and take a little longer, like a plane climbing.
       const distance = Math.hypot(wrapLon(to.lon - from.lon), to.lat - from.lat);
-      const dip = Math.min(0.7, distance / 200) * Math.max(0, Math.min(from.k, to.k) - 1);
+      const dip = Math.min(0.75, distance / 160) * Math.max(0, Math.min(from.k, to.k) - 1);
+      const duration = Math.min(2200, baseDuration + distance * 6);
       const m = motion.current;
       m.sway = false;
       m.velocity = null;
@@ -327,6 +429,10 @@ export function Globe({ lang = "en" }: { lang?: Lang }) {
     const ro = new ResizeObserver(() => {
       const width = svg.getBoundingClientRect().width || W;
       pinScale.current = Math.min(2, Math.max(1, (W / width) * 0.75));
+      layout.current = {
+        unitsPerPx: W / width,
+        cardOverlay: window.matchMedia("(min-width: 640px)").matches,
+      };
       draw();
     });
     ro.observe(svg);
@@ -400,11 +506,12 @@ export function Globe({ lang = "en" }: { lang?: Lang }) {
   };
 
   const onKeyDown = (event: React.KeyboardEvent<SVGSVGElement>) => {
+    const deg = 40 / view.current.k;
     const step: Record<string, Partial<View>> = {
-      ArrowLeft: { lon: view.current.lon - 25 },
-      ArrowRight: { lon: view.current.lon + 25 },
-      ArrowUp: { lat: view.current.lat + 15 },
-      ArrowDown: { lat: view.current.lat - 15 },
+      ArrowLeft: { lon: view.current.lon - deg },
+      ArrowRight: { lon: view.current.lon + deg },
+      ArrowUp: { lat: view.current.lat + deg * 0.6 },
+      ArrowDown: { lat: view.current.lat - deg * 0.6 },
       "+": { k: view.current.k * 1.4 },
       "=": { k: view.current.k * 1.4 },
       "-": { k: view.current.k / 1.4 },
@@ -419,7 +526,19 @@ export function Globe({ lang = "en" }: { lang?: Lang }) {
     if (motion.current.suppressClick) return;
     setActiveSlug(slug);
     const pin = pins.current[slug];
-    if (pin) flyTo({ lat: pin[0] - 3, lon: pin[1] });
+    if (pin) flyTo({ lat: pin[0] - 5 / view.current.k, lon: pin[1] });
+  };
+
+  const goToRegion = (region: Region) => {
+    const firstSlug = region.slugs[0];
+    if (firstSlug) setActiveSlug(firstSlug);
+    flyTo(region.view);
+  };
+
+  const regionLabel = (region: Region) => {
+    const only =
+      region.slugs.length === 1 && itineraries.find((item) => item.slug === region.slugs[0]);
+    return only ? itineraryText(only, lang).country : t.regions[region.key];
   };
 
   const active = itineraries.find((item) => item.slug === activeSlug) ?? first;
@@ -437,143 +556,177 @@ export function Globe({ lang = "en" }: { lang?: Lang }) {
           {itineraries.length} {itineraries.length === 1 ? t.guide : t.guides}
         </span>
       </div>
-      <div className="relative aspect-[7/5] bg-paper">
-        <svg
-          ref={svgRef}
-          viewBox={`0 0 ${W} ${H}`}
-          className="globe h-full w-full"
-          role="application"
-          aria-label={t.ariaGlobe}
-          aria-roledescription={t.ariaRole}
-          tabIndex={0}
-          onPointerDown={onPointerDown}
-          onPointerMove={onPointerMove}
-          onPointerUp={onPointerEnd}
-          onPointerCancel={onPointerEnd}
-          onKeyDown={onKeyDown}
-          onFocus={stopSway}
-        >
-          <defs>
-            <radialGradient id="globe-shade" cx="38%" cy="32%" r="75%">
-              <stop offset="0%" stopColor="var(--card)" stopOpacity="0.55" />
-              <stop offset="70%" stopColor="var(--card)" stopOpacity="0" />
-              <stop offset="100%" stopColor="var(--ink)" stopOpacity="0.12" />
-            </radialGradient>
-          </defs>
-          <g aria-hidden="true">
-            <circle ref={oceanRef} cx={CX} cy={CY} r={R0 * HOME.k} className="globe-ocean" />
-            <path ref={gridRef} className="globe-grid" />
-            <path ref={landRef} className="map-country" />
-            {shapes
-              ?.filter((shape) => countryAccent[shape.name])
-              .map((shape) => {
-                const accent = countryAccent[shape.name]!;
+      <div className="relative">
+        <div className="relative aspect-[7/5] bg-paper">
+          <svg
+            ref={svgRef}
+            viewBox={`0 0 ${W} ${H}`}
+            className="globe h-full w-full"
+            role="application"
+            aria-label={t.ariaGlobe}
+            aria-roledescription={t.ariaRole}
+            tabIndex={0}
+            onPointerDown={onPointerDown}
+            onPointerMove={onPointerMove}
+            onPointerUp={onPointerEnd}
+            onPointerCancel={onPointerEnd}
+            onKeyDown={onKeyDown}
+            onFocus={stopSway}
+          >
+            <defs>
+              <radialGradient id="globe-shade" cx="38%" cy="32%" r="75%">
+                <stop offset="0%" stopColor="var(--card)" stopOpacity="0.55" />
+                <stop offset="70%" stopColor="var(--card)" stopOpacity="0" />
+                <stop offset="100%" stopColor="var(--ink)" stopOpacity="0.12" />
+              </radialGradient>
+            </defs>
+            <g aria-hidden="true">
+              <circle ref={oceanRef} cx={CX} cy={CY} r={R0 * HOME.k} className="globe-ocean" />
+              <path ref={gridRef} className="globe-grid" />
+              <path ref={landRef} className="map-country" />
+              {shapes
+                ?.filter((shape) => countryAccent[shape.name])
+                .map((shape) => {
+                  const accent = countryAccent[shape.name]!;
+                  return (
+                    <path
+                      key={shape.name}
+                      ref={(el) => {
+                        if (el) accentRefs.current.set(shape.name, el);
+                        else accentRefs.current.delete(shape.name);
+                      }}
+                      className="map-country map-country-available"
+                      style={{
+                        fill: `color-mix(in oklab, var(--${accent}) 38%, var(--card))`,
+                        stroke: `color-mix(in oklab, var(--${accent}) 75%, transparent)`,
+                      }}
+                    />
+                  );
+                })}
+              <circle
+                ref={rimRef}
+                cx={CX}
+                cy={CY}
+                r={R0 * HOME.k}
+                fill="url(#globe-shade)"
+                className="globe-rim"
+              />
+            </g>
+            {mounted &&
+              itineraries.map((item) => {
+                const text = itineraryText(item, lang);
+                const isActive = item.slug === activeSlug;
                 return (
-                  <path
-                    key={shape.name}
+                  <g
+                    key={item.slug}
                     ref={(el) => {
-                      if (el) accentRefs.current.set(shape.name, el);
-                      else accentRefs.current.delete(shape.name);
+                      if (el) pinRefs.current.set(item.slug, el);
+                      else pinRefs.current.delete(item.slug);
                     }}
-                    className="map-country map-country-available"
-                    style={{
-                      fill: `color-mix(in oklab, var(--${accent}) 38%, var(--card))`,
-                      stroke: `color-mix(in oklab, var(--${accent}) 75%, transparent)`,
+                    visibility="hidden"
+                    role="button"
+                    tabIndex={0}
+                    aria-label={`${text.country}: ${text.title}`}
+                    aria-pressed={isActive}
+                    onClick={() => selectTrip(item.slug)}
+                    onKeyDown={(event) => {
+                      if (event.key === "Enter" || event.key === " ") {
+                        event.preventDefault();
+                        event.stopPropagation();
+                        motion.current.suppressClick = false;
+                        selectTrip(item.slug);
+                      }
                     }}
-                  />
+                  >
+                    <circle r="16" fill="transparent" />
+                    <g className="map-pin">
+                      <circle r="11" fill={accentHex[item.accent]} opacity="0.18" />
+                      {isActive && (
+                        <circle
+                          className="route-map-pulse"
+                          r="10"
+                          fill="none"
+                          stroke={accentHex[item.accent]}
+                          strokeWidth="2.5"
+                        />
+                      )}
+                      <circle
+                        r="5.5"
+                        fill={accentHex[item.accent]}
+                        stroke="var(--onink)"
+                        strokeWidth="2"
+                      />
+                    </g>
+                  </g>
                 );
               })}
-            <circle
-              ref={rimRef}
-              cx={CX}
-              cy={CY}
-              r={R0 * HOME.k}
-              fill="url(#globe-shade)"
-              className="globe-rim"
-            />
-          </g>
+          </svg>
+
           {mounted &&
-            itineraries.map((item) => {
-              const text = itineraryText(item, lang);
-              const isActive = item.slug === activeSlug;
+            regions.map((region) => {
+              const accent = itineraries.find((item) => item.slug === region.slugs[0])?.accent;
               return (
-                <g
-                  key={item.slug}
+                <button
+                  key={region.key}
+                  type="button"
                   ref={(el) => {
-                    if (el) pinRefs.current.set(item.slug, el);
-                    else pinRefs.current.delete(item.slug);
+                    if (el) regionRefs.current.set(region.key, el);
+                    else regionRefs.current.delete(region.key);
                   }}
-                  visibility="hidden"
-                  role="button"
-                  tabIndex={0}
-                  aria-label={`${text.country}: ${text.title}`}
-                  aria-pressed={isActive}
-                  onClick={() => selectTrip(item.slug)}
-                  onKeyDown={(event) => {
-                    if (event.key === "Enter" || event.key === " ") {
-                      event.preventDefault();
-                      event.stopPropagation();
-                      motion.current.suppressClick = false;
-                      selectTrip(item.slug);
-                    }
-                  }}
+                  style={{ display: "none" }}
+                  onClick={() => goToRegion(region)}
+                  aria-label={`${t.goTo} ${regionLabel(region)}`}
+                  className="absolute flex -translate-x-1/2 -translate-y-1/2 items-center gap-1.5 whitespace-nowrap rounded-full border border-border bg-card/95 px-3 py-1.5 text-xs font-semibold text-ink shadow-sm transition hover:border-royal hover:text-royal"
                 >
-                  <circle r="16" fill="transparent" />
-                  <g className="map-pin">
-                    <circle r="11" fill={accentHex[item.accent]} opacity="0.18" />
-                    {isActive && (
-                      <circle
-                        className="route-map-pulse"
-                        r="10"
-                        fill="none"
-                        stroke={accentHex[item.accent]}
-                        strokeWidth="2.5"
-                      />
-                    )}
-                    <circle
-                      r="5.5"
-                      fill={accentHex[item.accent]}
-                      stroke="var(--onink)"
-                      strokeWidth="2"
-                    />
-                  </g>
-                </g>
+                  <span
+                    className={`size-2 shrink-0 rounded-full ${accent ? accentBg[accent] : "bg-royal"}`}
+                    aria-hidden="true"
+                  />
+                  {regionLabel(region)}
+                  <span
+                    data-arrow
+                    className="inline-block text-sm leading-none text-royal"
+                    aria-hidden="true"
+                  >
+                    →
+                  </span>
+                </button>
               );
             })}
-        </svg>
 
-        <div className="absolute right-3 top-3 flex flex-col gap-1.5">
-          <button
-            type="button"
-            onClick={() => flyTo({ k: view.current.k * 1.4 }, 450)}
-            aria-label={t.zoomIn}
-            className="grid size-9 place-items-center rounded-full border border-border bg-card/95 text-lg font-semibold text-ink shadow-sm transition hover:border-royal"
-          >
-            +
-          </button>
-          <button
-            type="button"
-            onClick={() => flyTo({ k: view.current.k / 1.4 }, 450)}
-            aria-label={t.zoomOut}
-            className="grid size-9 place-items-center rounded-full border border-border bg-card/95 text-lg font-semibold text-ink shadow-sm transition hover:border-royal"
-          >
-            −
-          </button>
-          <button
-            type="button"
-            onClick={() => flyTo(HOME)}
-            aria-label={t.home}
-            title={t.home}
-            className="grid size-9 place-items-center rounded-full border border-border bg-card/95 text-[0.65rem] font-semibold uppercase tracking-wide text-royal shadow-sm transition hover:border-royal"
-          >
-            EU
-          </button>
+          <div className="absolute right-3 top-3 flex flex-col gap-1.5">
+            <button
+              type="button"
+              onClick={() => flyTo({ k: view.current.k * 1.4 }, 450)}
+              aria-label={t.zoomIn}
+              className="grid size-9 place-items-center rounded-full border border-border bg-card/95 text-lg font-semibold text-ink shadow-sm transition hover:border-royal"
+            >
+              +
+            </button>
+            <button
+              type="button"
+              onClick={() => flyTo({ k: view.current.k / 1.4 }, 450)}
+              aria-label={t.zoomOut}
+              className="grid size-9 place-items-center rounded-full border border-border bg-card/95 text-lg font-semibold text-ink shadow-sm transition hover:border-royal"
+            >
+              −
+            </button>
+            <button
+              type="button"
+              onClick={() => flyTo(HOME)}
+              aria-label={t.home}
+              title={t.home}
+              className="grid size-9 place-items-center rounded-full border border-border bg-card/95 text-[0.65rem] font-semibold uppercase tracking-wide text-royal shadow-sm transition hover:border-royal"
+            >
+              EU
+            </button>
+          </div>
         </div>
 
         <Link
           to={detailPath(lang)}
           params={{ slug: active.slug }}
-          className="absolute bottom-3 left-3 right-3 flex items-center justify-between gap-3 rounded-lg border border-border bg-card/95 px-4 py-3 shadow-sm transition hover:border-royal sm:right-auto sm:min-w-72"
+          className="m-3 flex items-center justify-between gap-3 rounded-lg border border-border bg-card/95 px-4 py-3 shadow-sm transition hover:border-royal sm:absolute sm:bottom-3 sm:left-3 sm:m-0 sm:min-w-72"
         >
           <div className="flex items-center gap-3">
             <span

@@ -28,7 +28,7 @@ const en = {
   },
   globe: {
     eyebrow: "The world, tested by us",
-    hint: "Give the globe a spin — Japan and New York are waiting.",
+    hint: "Drag to spin, or jump to Japan and New York in one click.",
     guide: "guide",
     guides: "guides",
     days: "days",
@@ -37,6 +37,8 @@ const en = {
     zoomIn: "Zoom in",
     zoomOut: "Zoom out",
     home: "Back to Europe",
+    goTo: "Fly to",
+    regions: { europe: "Europe", americas: "North America", asia: "Asia" },
   },
   card: {
     days: "days",
@@ -374,7 +376,7 @@ const sk: Copy = {
   },
   globe: {
     eyebrow: "Svet, otestovaný nami",
-    hint: "Roztočte zemeguľu — čaká Japonsko aj New York.",
+    hint: "Ťahaním roztočte, alebo jedným klikom skočte do Japonska či New Yorku.",
     guide: "sprievodca",
     guides: "sprievodcovia",
     days: "dní",
@@ -383,6 +385,8 @@ const sk: Copy = {
     zoomIn: "Priblížiť",
     zoomOut: "Oddialiť",
     home: "Späť do Európy",
+    goTo: "Preletieť do",
+    regions: { europe: "Európa", americas: "Severná Amerika", asia: "Ázia" },
   },
   card: {
     days: "dní",

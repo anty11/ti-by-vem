@@ -7,7 +7,7 @@ export const globePins: Record<string, [number, number]> = {
   "oslo-tromso": [64.8, 13.6],
   switzerland: [46.8, 7.4],
   riviera: [43.5, 6.2],
-  italy: [43.0, 12.4],
+  italy: [45.55, 11.0], // "The Dolomites loop", starting in Verona
   scotland: [56.9, -4.8],
   "oktoberfest-dolomites": [48.1, 11.6],
   lapland: [66.9, 26.3],

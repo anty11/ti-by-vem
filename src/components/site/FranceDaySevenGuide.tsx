@@ -5,6 +5,7 @@ import rivieraImage from "@/assets/france-day7-menton.jpg";
 import { FranceDayRouteSketch } from "@/components/site/FranceDayRouteSketch";
 
 import { FranceDayVenueLinks } from "@/components/site/FranceDayVenueLinks";
+import { FranceDayNextChecklist } from "./FranceDayNextChecklist";
 
 function MapLink({ href, children }: { href: string; children: React.ReactNode }) {
   return <Button asChild variant="outline" size="sm"><a href={href} target="_blank" rel="noreferrer">{children}<ArrowUpRight /></a></Button>;
@@ -72,5 +73,15 @@ export function FranceDaySevenGuide() {
 
     <FranceDayVenueLinks day={7} />
     <div className="py-8"><h3 className="font-display text-2xl">What to put in your budget</h3><p className="mt-3 text-sm leading-relaxed text-soft">Menton parking, beach-club places and any food or drinks, fuel, A8 tolls and any rental charges required by your contract. Check the final rental statement and keep receipts. Public beach time is an alternative if you don't want a paid beach-club stop.</p></div>
-  </section>;
+  
+      <FranceDayNextChecklist
+        day={7}
+        items={[
+          "Leave enough time for the drive to Nice Airport and the car return",
+          "Fill up fuel as your rental contract requires and keep the receipt",
+          "If time and budget allow, stop at CAP3000 next to the airport for last-minute shopping",
+          "Keep boarding passes and travel documents in one easy pocket",
+        ]}
+      />
+</section>;
 }

@@ -5,6 +5,7 @@ import rivieraImage from "@/assets/france-day4-saint-tropez.jpg";
 import { FranceDayRouteSketch } from "@/components/site/FranceDayRouteSketch";
 
 import { FranceDayVenueLinks } from "@/components/site/FranceDayVenueLinks";
+import { FranceDayNextChecklist } from "./FranceDayNextChecklist";
 
 function MapLink({ href, children }: { href: string; children: React.ReactNode }) {
   return <Button asChild variant="outline" size="sm"><a href={href} target="_blank" rel="noreferrer">{children}<ArrowUpRight /></a></Button>;
@@ -75,5 +76,15 @@ export function FranceDayFourGuide() {
 
     <FranceDayVenueLinks day={4} />
     <div className="py-8"><h3 className="font-display text-2xl">What to put in your budget</h3><p className="mt-3 text-sm leading-relaxed text-soft">Breakfast pastries and coffee, Bagatelle lunch and drinks, transport or fuel, beach-venue and port parking, shopping and Rondini sandals, ice cream, Gigi dinner and the ride back. Check deposits, minimum spend and cancellation terms in each reservation. Record prepaid amounts once and deduct them from the final bill rather than counting them twice.</p></div>
-  </section>;
+  
+      <FranceDayNextChecklist
+        day={4}
+        items={[
+          "Book the Galimard perfume workshop in Grasse for tomorrow",
+          "Confirm Hotel Albert 1er in Nice and ask about parking",
+          "Pack your bags tonight, tomorrow you move east along the coast",
+          "Check out of Hotel Playa on time and allow for the stairs with luggage",
+        ]}
+      />
+</section>;
 }

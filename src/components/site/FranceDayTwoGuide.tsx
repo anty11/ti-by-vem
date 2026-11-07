@@ -6,6 +6,7 @@ import { franceDayTwoArrivalTimes as times, franceDayTwoBoatHours } from "@/lib/
 import { FranceRouteArtwork } from "@/components/site/FranceRouteArtwork";
 
 import { FranceDayVenueLinks } from "@/components/site/FranceDayVenueLinks";
+import { FranceDayNextChecklist } from "./FranceDayNextChecklist";
 
 function MapLink({ href, children }: { href: string; children: React.ReactNode }) {
   return <Button asChild variant="outline" size="sm"><a href={href} target="_blank" rel="noreferrer">{children}<ArrowUpRight /></a></Button>;
@@ -107,5 +108,16 @@ export function FranceDayTwoGuide() {
     </div>
     <FranceDayVenueLinks day={2} />
     <div className="py-8"><h3 className="font-display text-2xl">What to put in your budget</h3><p className="mt-3 text-sm leading-relaxed text-soft">Takeaway breakfast, fuel, any motorway tolls, beach and village parking, pedal-boat rental, lunch, Hotel Verlaine and parking, plus the beach dinner or fireworks menu. If dinner is prepaid, record it once in Budget check rather than adding it again after the meal.</p></div>
-  </section>;
+  
+      <FranceDayNextChecklist
+        day={2}
+        items={[
+          "Confirm your Verde Beach reservation and check what the booking includes",
+          "Pack the beach bag: swimwear, sunscreen, hats and a dry change of clothes",
+          "Book dinner at Gigi for tomorrow evening if you haven't yet",
+          "Confirm Hotel Playa in Saint-Tropez and remember there is no lift, only stairs",
+          "Plan tomorrow's ride back from dinner in advance, taxis are hard to find",
+        ]}
+      />
+</section>;
 }

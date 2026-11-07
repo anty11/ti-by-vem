@@ -2,6 +2,7 @@ import { ArrowUpRight, Car, MapPin, Plane, Waves } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { drivingMapUrl, placeMapUrl } from "@/lib/france-guide";
 import rivieraImage from "@/assets/riviera.jpg";
+import { FranceDayRouteSketch } from "@/components/site/FranceDayRouteSketch";
 
 function MapLink({ href, children }: { href: string; children: React.ReactNode }) {
   return <Button asChild variant="outline" size="sm"><a href={href} target="_blank" rel="noreferrer">{children}<ArrowUpRight /></a></Button>;
@@ -30,6 +31,7 @@ export function FranceDaySevenGuide() {
       ].map(([time, title, note]) => <li key={time} className="grid gap-1 py-3 sm:grid-cols-[11rem_1fr] sm:gap-4"><span className="text-sm font-semibold text-terracotta">{time}</span><div><p className="text-sm font-semibold">{title}</p><p className="mt-1 text-sm leading-relaxed text-soft">{note}</p></div></li>)}</ol>
     </div>
 
+    <FranceDayRouteSketch day={7} />
     <div className="border-b border-border py-8">
       <h3 className="flex items-center gap-2 font-display text-2xl"><MapPin className="size-5" />01 · Menton's yellow lanes & the sea</h3>
       <p className="mt-3 text-sm leading-relaxed text-soft">Menton surprised us with its beautiful yellow lanes. The old town was absolutely worth visiting. Italy is just nearby, and we heard plenty of people speaking Italian, which added to the feeling of being on the edge of two places at once.</p>

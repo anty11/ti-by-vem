@@ -17,6 +17,7 @@ import { OnTripMode } from "@/components/site/OnTripMode";
 import { BudgetCheck } from "@/components/site/BudgetCheck";
 import { FranceDayOneGuide } from "@/components/site/FranceDayOneGuide";
 import { FranceDayTwoGuide } from "@/components/site/FranceDayTwoGuide";
+import { FranceDayThreeGuide } from "@/components/site/FranceDayThreeGuide";
 
 export function TripRoomPage({ itinerary, lang }: { itinerary: Itinerary; lang: Lang }) {
   const t = tripCopy[lang];
@@ -108,7 +109,7 @@ export function TripRoomPage({ itinerary, lang }: { itinerary: Itinerary; lang: 
           ) : null}
           {itinerary.slug === "riviera" && view === "read" ? (
             <nav aria-label="Detailed itinerary days" className="sticky top-24 z-10 mt-4 flex flex-wrap gap-2 border-b border-border bg-background py-3">
-              {[1, 2].map((day) => (
+              {[1, 2, 3].map((day) => (
                 <Button key={day} variant={guideDay === day ? "default" : "outline"} aria-pressed={guideDay === day} onClick={() => {
                   setGuideDay(day);
                   guideStart.current?.scrollIntoView({ block: "start" });
@@ -159,7 +160,7 @@ export function TripRoomPage({ itinerary, lang }: { itinerary: Itinerary; lang: 
 
           {itinerary.slug === "riviera" && view === "read" ? (
             <div ref={guideStart} className="scroll-mt-24">
-              {guideDay === 1 ? <FranceDayOneGuide /> : <FranceDayTwoGuide />}
+              {guideDay === 1 ? <FranceDayOneGuide /> : guideDay === 2 ? <FranceDayTwoGuide /> : <FranceDayThreeGuide />}
             </div>
           ) : null}
 

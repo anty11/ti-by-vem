@@ -15,6 +15,7 @@ import { routeMaps } from "@/lib/route-maps";
 import { OnTripMode } from "@/components/site/OnTripMode";
 import { BudgetCheck } from "@/components/site/BudgetCheck";
 import { FranceDayOneGuide } from "@/components/site/FranceDayOneGuide";
+import { FranceDayTwoGuide } from "@/components/site/FranceDayTwoGuide";
 
 export function TripRoomPage({ itinerary, lang }: { itinerary: Itinerary; lang: Lang }) {
   const t = tripCopy[lang];
@@ -141,7 +142,7 @@ export function TripRoomPage({ itinerary, lang }: { itinerary: Itinerary; lang: 
             </div>
           )}
 
-          {itinerary.slug === "riviera" && view === "read" ? <FranceDayOneGuide /> : null}
+          {itinerary.slug === "riviera" && view === "read" ? <><FranceDayOneGuide /><FranceDayTwoGuide /></> : null}
 
           <div className="mt-8">
             <BudgetCheck slug={itinerary.slug} budget={itinerary.budget} lang={lang} />

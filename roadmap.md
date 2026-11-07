@@ -1,6 +1,6 @@
 # Roadmap
 
-- [ ] Replace France day map artwork with elegant minimalist generated maps (watercolor style rejected as too childish); keep schematic labels and navigation links.
+- [x] Replace France day map artwork with elegant minimalist generated maps (watercolor style rejected as too childish); keep schematic labels and navigation links.
 
 - [x] Add a paid France reservation overview after day 7 in the day switcher and verify unlocked desktop/mobile access.
 - [x] Make the Saint-Tropez hotel stairs-only warning prominent in the reservation overview.

@@ -5,6 +5,7 @@
 - [ ] Correct France budget, especially food and drinks. Deferred by Monika until she supplies amounts, do not change yet.
 - [ ] Add restaurant official links and verified Google Maps ratings, plus official and Booking hotel links across France days.
 - [ ] Replace France daily opening photos with images of the main destination for each day.
+- [ ] Provide concise overall improvement suggestions after finishing the requested changes.
 
 - [x] Add La Villa d'Este's generous-portion note to day 5.
 - [x] Identify the shopping centre beside Nice Airport and add an optional day 7 stop with parking, budget and flight-time cautions.

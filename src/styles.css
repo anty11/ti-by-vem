@@ -97,6 +97,10 @@
   paint-order: stroke;
 }
 
+.france-day-photo-shade {
+  background: linear-gradient(90deg, color-mix(in oklab, var(--ink) 85%, transparent), color-mix(in oklab, var(--ink) 15%, transparent));
+}
+
 @utility glass {
   background: color-mix(in oklab, white 55%, transparent);
   backdrop-filter: blur(16px);

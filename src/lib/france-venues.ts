@@ -33,7 +33,7 @@ export const franceVenues: Record<number, FranceVenue[]> = {
   ],
   6: [
     { name: "Riviera Restaurant", official: "https://www.maybourne.com/en/hotels/the-maybourne-riviera/restaurants-bars/riviera-restaurant", maps: google("6003851443134237824"), rating: 4.6, reviews: 238 },
-    { name: "Château Eza · coffee stop", official: "https://www.chateaueza.com/", maps: "https://www.google.com/maps/search/?api=1&query=Chateau+Eza" },
+    { name: "Château Eza · coffee stop", official: "https://www.chateaueza.com/", maps: google("13341175108855326680"), rating: 4.6, reviews: 1682, note: "Google rating is for Château Eza as a whole, not a separate café." },
     albert,
     { name: "The Maybourne Riviera", official: "https://www.maybourne.com/en/hotels/the-maybourne-riviera", booking: "https://www.booking.com/hotel/fr/the-maybourne-riviera.html", note: "Our lunch venue, not an overnight stay." },
     { name: "Hotel Vendôme · Menton", official: "https://www.hotelvendomementon.com/", booking: "https://www.booking.com/hotel/fr/belambra-resort-amp-menton-quot-le-vendome-quot.html", note: "Our stay, not a personal recommendation." },

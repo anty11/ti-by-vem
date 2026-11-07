@@ -1,5 +1,7 @@
 # Roadmap
 
+- [ ] Add paid France day 7 with Menton walk, beach experience, parking and airport return.
+- [ ] Verify day 7 switching and unlocked desktop/mobile access.
 - [x] Add paid France day 5 with confirmed timings, transfer maps, Galimard reservation and Nice evening.
 - [x] Verify day 5 switching, unlocked access and mobile layout.
 - [x] Add paid France day 4 from Monika's notes and include it in the day switcher, with takeaway breakfast at the port and the La Ponche, port, Place des Lices and church walk.

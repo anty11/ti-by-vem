@@ -14,6 +14,8 @@ const points = [
   { x: 590, y: 85, label: "Roussillon", id: "roussillon" },
 ];
 
+import { FranceDayVenueLinks } from "@/components/site/FranceDayVenueLinks";
+
 function MapLink({ href, children }: { href: string; children: React.ReactNode }) {
   return <Button asChild variant="outline" size="sm"><a href={href} target="_blank" rel="noreferrer">{children}<ArrowUpRight /></a></Button>;
 }
@@ -86,6 +88,7 @@ export function FranceDayOneGuide() {
         <div><h3 className="font-display text-2xl">What to put in your budget</h3><p className="mt-3 text-sm leading-relaxed text-soft">Car rental and the one-way fee, fuel, A7 tolls, five parking stops, lunch, coffee and chocolate, dinner and the room. The car deposit is usually a card hold, not a spent expense. Add your actual amounts in Budget check below.</p></div>
       </div>
 
+      <FranceDayVenueLinks day={1} />
       <details className="border-y border-border py-5"><summary className="cursor-pointer font-display text-2xl">Driving in France · the essentials</summary><ul className="mt-5 space-y-3 text-sm leading-relaxed text-soft">
         <li><strong className="text-ink">Speed:</strong> posted signs always win. General motorway limit 130 km/h dry, 110 in rain. Divided roads 110 dry / 100 wet. Many undivided roads 80. Towns usually 50 with many 30 zones. Visibility below 50 m: maximum 50 km/h. Some roads have signed exceptions.</li>
         <li><strong className="text-ink">Alcohol:</strong> general limit 0.5 g/L blood alcohol, 0.2 for novice drivers. Our recommendation: no alcohol for the driver, especially with this full day ahead.</li>

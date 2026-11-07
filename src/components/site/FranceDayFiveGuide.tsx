@@ -5,6 +5,8 @@ import { franceDayFiveTimes as times } from "@/lib/france-day-five-timing";
 import rivieraImage from "@/assets/france-day5-nice.jpg";
 import { FranceDayRouteSketch } from "@/components/site/FranceDayRouteSketch";
 
+import { FranceDayVenueLinks } from "@/components/site/FranceDayVenueLinks";
+
 function MapLink({ href, children }: { href: string; children: React.ReactNode }) {
   return <Button asChild variant="outline" size="sm"><a href={href} target="_blank" rel="noreferrer">{children}<ArrowUpRight /></a></Button>;
 }
@@ -91,6 +93,7 @@ export function FranceDayFiveGuide() {
       <div className="mt-4 flex flex-wrap gap-2"><MapLink href={drivingMapUrl("Hotel Albert 1er Nice", "La Villa d’Este 6 Rue Masséna Nice").replace("travelmode=driving", "travelmode=walking")}><MapPin />Walk to dinner</MapLink><MapLink href="https://www.villadeste-nice.com/faq/">Restaurant details</MapLink><MapLink href={drivingMapUrl("La Villa d’Este Nice", "Promenade des Anglais Nice").replace("travelmode=driving", "travelmode=walking")}>Evening walk towards the sea</MapLink></div>
     </div>
 
+    <FranceDayVenueLinks day={5} />
     <div className="py-8"><h3 className="font-display text-2xl">What to put in your budget</h3><p className="mt-3 text-sm leading-relaxed text-soft">Sénéquier breakfast, fuel and any A8 tolls, parking at the morning stops, lunch, the Galimard workshop and any perfume gifts, Nice parking, Hotel Albert 1er, dinner, a crêpe and evening extras. Public beach time needn't mean paying for a beach club. Record any prepaid workshop amount once rather than adding it again on arrival.</p></div>
   </section>;
 }

@@ -5,6 +5,8 @@ import rivieraImage from "@/assets/france-day2-verdon.jpg";
 import { franceDayTwoArrivalTimes as times, franceDayTwoBoatHours } from "@/lib/france-day-two-timing";
 import { FranceRouteArtwork } from "@/components/site/FranceRouteArtwork";
 
+import { FranceDayVenueLinks } from "@/components/site/FranceDayVenueLinks";
+
 function MapLink({ href, children }: { href: string; children: React.ReactNode }) {
   return <Button asChild variant="outline" size="sm"><a href={href} target="_blank" rel="noreferrer">{children}<ArrowUpRight /></a></Button>;
 }
@@ -103,6 +105,7 @@ export function FranceDayTwoGuide() {
       <p className="mt-4 text-sm leading-relaxed text-soft">After dinner, walk the seafront promenade if you still feel like a little night-time Cannes. If the fireworks have already filled the day with enough memories, go straight back to Hotel Verlaine. Tomorrow brings another move, but a much calmer day.</p>
       <div className="mt-4 flex flex-wrap gap-2"><MapLink href="https://miramarplage.fr/">Miramar · booking & contact</MapLink><MapLink href="https://www.festival-pyrotechnique-cannes.com/programme/">Official fireworks calendar</MapLink><MapLink href={placeMapUrl("Boulevard de la Croisette Cannes")}><MapPin />Night promenade</MapLink></div>
     </div>
+    <FranceDayVenueLinks day={2} />
     <div className="py-8"><h3 className="font-display text-2xl">What to put in your budget</h3><p className="mt-3 text-sm leading-relaxed text-soft">Takeaway breakfast, fuel, any motorway tolls, beach and village parking, pedal-boat rental, lunch, Hotel Verlaine and parking, plus the beach dinner or fireworks menu. If dinner is prepaid, record it once in Budget check rather than adding it again after the meal.</p></div>
   </section>;
 }

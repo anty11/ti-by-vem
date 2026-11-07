@@ -5,6 +5,8 @@ import { franceDaySixTimes as times } from "@/lib/france-day-six-timing";
 import { FranceDayRouteSketch } from "@/components/site/FranceDayRouteSketch";
 import rivieraImage from "@/assets/france-day6-eze.jpg";
 
+import { FranceDayVenueLinks } from "@/components/site/FranceDayVenueLinks";
+
 function MapLink({ href, children }: { href: string; children: React.ReactNode }) {
   return <Button asChild variant="outline" size="sm"><a href={href} target="_blank" rel="noreferrer">{children}<ArrowUpRight /></a></Button>;
 }
@@ -107,6 +109,7 @@ export function FranceDaySixGuide() {
     </div>
     <FranceDayRouteSketch day={62} />
 
+    <FranceDayVenueLinks day={6} />
     <div className="py-8"><h3 className="font-display text-2xl">What to put in your budget</h3><p className="mt-3 text-sm leading-relaxed text-soft">Coastal and Èze parking, fuel and any tolls, Jardin Exotique tickets, coffee and souvenirs, terrace lunch, Menton hotel and parking, both taxi journeys, dinner and any casino entry. Decide on a separate gaming limit before entering and never treat gambling as part of your travel budget recovery.</p></div>
   </section>;
 }

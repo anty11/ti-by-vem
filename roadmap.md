@@ -1,5 +1,6 @@
 # Roadmap
 
+- [ ] Add visible route maps to paid France days 3, 4, 5 and 7, matching the day 2 route-sketch approach.
 - [ ] Add paid France day 7 with Menton walk, beach experience, parking and airport return.
 - [ ] Verify day 7 switching and unlocked desktop/mobile access.
 - [x] Add paid France day 5 with confirmed timings, transfer maps, Galimard reservation and Nice evening.

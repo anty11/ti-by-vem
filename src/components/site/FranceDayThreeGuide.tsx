@@ -5,6 +5,7 @@ import rivieraImage from "@/assets/france-day3-pampelonne.jpg";
 import { FranceDayRouteSketch } from "@/components/site/FranceDayRouteSketch";
 
 import { FranceDayVenueLinks } from "@/components/site/FranceDayVenueLinks";
+import { FranceDayNextChecklist } from "./FranceDayNextChecklist";
 
 function MapLink({ href, children }: { href: string; children: React.ReactNode }) {
   return <Button asChild variant="outline" size="sm"><a href={href} target="_blank" rel="noreferrer">{children}<ArrowUpRight /></a></Button>;
@@ -78,5 +79,16 @@ export function FranceDayThreeGuide() {
     </div>
     <FranceDayVenueLinks day={3} />
     <div className="py-8"><h3 className="font-display text-2xl">What to put in your budget</h3><p className="mt-3 text-sm leading-relaxed text-soft">Saddle breakfast, fuel and any A8 tolls, beach-club sunbeds, lunch and extras, club parking or return taxis, port parking, Hotel Playa and cakes. Confirm what the beach booking includes. Record prepaid items once, not again when you arrive.</p></div>
-  </section>;
+  
+      <FranceDayNextChecklist
+        day={3}
+        items={[
+          "Set an early alarm for Cédric Grolet and arrive at opening time",
+          "Confirm your Bagatelle lunch reservation and any deposit or minimum spend",
+          "Reconfirm the Gigi dinner booking",
+          "Keep swimwear handy, the beach rhythm continues",
+          "Arrange the ride back from Gigi before you go",
+        ]}
+      />
+</section>;
 }

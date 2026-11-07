@@ -6,6 +6,7 @@ import { FranceDayRouteSketch } from "@/components/site/FranceDayRouteSketch";
 import rivieraImage from "@/assets/france-day6-eze.jpg";
 
 import { FranceDayVenueLinks } from "@/components/site/FranceDayVenueLinks";
+import { FranceDayNextChecklist } from "./FranceDayNextChecklist";
 
 function MapLink({ href, children }: { href: string; children: React.ReactNode }) {
   return <Button asChild variant="outline" size="sm"><a href={href} target="_blank" rel="noreferrer">{children}<ArrowUpRight /></a></Button>;
@@ -111,5 +112,15 @@ export function FranceDaySixGuide() {
 
     <FranceDayVenueLinks day={6} />
     <div className="py-8"><h3 className="font-display text-2xl">What to put in your budget</h3><p className="mt-3 text-sm leading-relaxed text-soft">Coastal and Èze parking, fuel and any tolls, Jardin Exotique tickets, coffee and souvenirs, terrace lunch, Menton hotel and parking, both taxi journeys, dinner and any casino entry. Decide on a separate gaming limit before entering and never treat gambling as part of your travel budget recovery.</p></div>
-  </section>;
+  
+      <FranceDayNextChecklist
+        day={6}
+        items={[
+          "Check in online for your flight home and save the boarding passes",
+          "Plan the car return at Nice Airport: fuel, timing and the final inspection",
+          "Pack most of your bags tonight so the last morning stays slow",
+          "Keep the rental receipts and check the final statement",
+        ]}
+      />
+</section>;
 }

@@ -15,6 +15,7 @@ const points = [
 ];
 
 import { FranceDayVenueLinks } from "@/components/site/FranceDayVenueLinks";
+import { FranceDayNextChecklist } from "./FranceDayNextChecklist";
 
 function MapLink({ href, children }: { href: string; children: React.ReactNode }) {
   return <Button asChild variant="outline" size="sm"><a href={href} target="_blank" rel="noreferrer">{children}<ArrowUpRight /></a></Button>;
@@ -97,6 +98,17 @@ export function FranceDayOneGuide() {
         <li><strong className="text-ink">Toll lanes:</strong> follow card/cash signs, not a tag-only lane unless your rental includes a working toll tag. Ask how any tag fees are billed.</li>
       </ul><div className="mt-5 flex flex-wrap gap-2"><MapLink href="https://www.service-public.gouv.fr/particuliers/vosdroits/F19460">Speed rules</MapLink><MapLink href="https://europa.eu/youreurope/citizens/travel/driving-abroad/road-rules-and-safety/france/index_en.htm">Road safety</MapLink><MapLink href="https://ampmetropole.fr/missions/environnement/qualite-de-lair/zone-a-faibles-emissions-mobilite-zfe-m/">Marseille ZFE</MapLink><MapLink href="https://www.service-public.gouv.fr/particuliers/vosdroits/F34816">Driving licence</MapLink><MapLink href="https://www.vinci-autoroutes.com/fr/">Toll operator</MapLink></div></details>
       <p className="mt-4 text-xs leading-relaxed text-soft">Recheck opening hours, access, traffic and tariffs for your dates. Parking references: <a className="underline" href="https://www.q-park.fr/fr-fr/villes/marseille/vieux-port-h%C3%B4tel-de-ville/" target="_blank" rel="noreferrer">Q-Park Marseille</a> · <a className="underline" href="https://avignon-parkings.com/parking-du-palais-des-papes/" target="_blank" rel="noreferrer">Avignon parkings</a>.</p>
-    </section>
+    
+      <FranceDayNextChecklist
+        day={1}
+        items={[
+          "Pack swimwear, a towel and water for tomorrow's paddle-boat morning on the lake",
+          "Charge your phone and camera, and download offline maps for the gorge roads",
+          "Confirm your Cannes hotel booking and check its parking arrangements",
+          "If you're matching the fireworks, book a beach dinner in Cannes and watch for the confirmation email",
+          "Get an early night, tomorrow starts with the morning market in Roussillon",
+        ]}
+      />
+</section>
   );
 }

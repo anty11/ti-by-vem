@@ -1,7 +1,7 @@
 # Roadmap
 
-- [ ] Add paid France day 2 from the supplied notes, with an early Verdon plan, lavender stops, maps, lunch and Cannes fireworks dinner guidance.
-- [ ] Verify day 2 in the unlocked trip, public access separation and mobile layout.
+- [x] Add paid France day 2 from the supplied notes, with an early Verdon plan, lavender stops, maps, lunch and Cannes fireworks dinner guidance.
+- [x] Verify day 2 in the unlocked trip, public access separation and mobile layout.
 - [x] Keep Gordes in France day 1's timeline, recommending skipping it only if tired and a stop must go.
 - [x] Unify duplicate untouched Our estimate expenses without deleting saved records or hiding edited expenses.
 - [x] Add the detailed paid France day 1 guide from the uploaded notes, with transfers, parking, maps and clearly labelled estimates; verify signed-in, signed-out and mobile views.

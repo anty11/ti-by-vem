@@ -2,7 +2,7 @@ import { useState } from "react";
 import { ArrowUpRight, Car, Clock3, MapPin, ParkingCircle, Route, Utensils, BedDouble } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { franceDayOneStops, franceDayOneTimeline, drivingMapUrl, placeMapUrl } from "@/lib/france-guide";
-import rivieraImage from "@/assets/france-day1-marseille.jpg";
+import rivieraImage from "@/assets/france-day1-avignon.jpg";
 import { FranceRouteArtwork } from "@/components/site/FranceRouteArtwork";
 
 const points = [
@@ -28,7 +28,7 @@ export function FranceDayOneGuide() {
   return (
     <section aria-label="France day 1 detailed guide" className="mt-10 border-t border-border pt-10 text-ink">
       <header className="relative isolate overflow-hidden rounded-lg bg-ink">
-        <img src={rivieraImage} alt="Marseille old port and Notre-Dame de la Garde" width={1536} height={768} loading="lazy" className="absolute inset-0 h-full w-full object-cover opacity-60" />
+        <img src={rivieraImage} alt="Palais des Papes and Place du Palais in Avignon" width={1536} height={768} loading="lazy" className="absolute inset-0 h-full w-full object-cover opacity-60" />
       <div className="france-day-photo-shade absolute inset-0" aria-hidden="true" />
         <div className="relative px-6 py-10 text-onink sm:px-10">
           <p className="text-xs font-semibold uppercase">Your guide · Day 01 · Provence</p>

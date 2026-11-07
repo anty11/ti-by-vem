@@ -23,8 +23,8 @@ export function FranceDayTwoGuide() {
       <h3 className="flex items-center gap-2 font-display text-2xl"><Clock3 className="size-5" />Your day at a glance</h3>
       <p className="mt-3 max-w-2xl text-sm leading-relaxed text-soft">An early start protects the best part of this day: getting out on the water before the rental queues build. This is a suggested summer schedule, not our exact travel diary. Confirm the boat operator's opening time and weather conditions before setting your alarm.</p>
       <ol className="mt-5 divide-y divide-border">{[
-        ["05:45", "Wake up & pack", "Have swimwear, a towel, dry clothes and cash ready before leaving."],
         ["05:30 option", "A quiet Roussillon viewpoint", "Wake a little earlier for a short village-viewpoint walk if there is enough daylight. Keep it brief and skip the paid ochre trail this morning."],
+        ["05:45", "Wake up & pack", "Have swimwear, a towel, dry clothes and cash ready before leaving."],
         ["06:00–06:15", "Breakfast to go & departure", "Take breakfast prepared the evening before. The bakery below opens later than this early departure."],
         ["09:15 target", "Plage du Galetas rental check-in", "Allow roughly 2½–3 hours driving via Valensole and Brunet, plus parking. Leave at 06:00 if adding a brief permitted photo stop."],
         ["09:30 in July–August", "First MYC Plage departure", "Published summer opening is 09:30. In May, June and September it is 10:00. Check the live calendar for your visit."],
@@ -35,6 +35,19 @@ export function FranceDayTwoGuide() {
         ["17:30–18:00 target", "Hotel Verlaine", "Check in, shower and get ready for the evening."],
         ["Evening", "Cannes, dinner & the sea", "On a confirmed fireworks night, arrange the dinner timing around the official display. Otherwise enjoy a beachside dinner and the promenade."],
       ].map(([time, title, note]) => <li key={time} className="grid gap-1 py-3 sm:grid-cols-[10rem_1fr] sm:gap-4"><span className="text-sm font-semibold text-terracotta">{time}</span><div><p className="text-sm font-semibold">{title}</p><p className="mt-1 text-sm leading-relaxed text-soft">{note}</p></div></li>)}</ol>
+    </div>
+
+    <div className="border-b border-border py-8" aria-label="Day 2 route sketch">
+      <div className="flex flex-wrap items-baseline justify-between gap-2"><h3 className="font-display text-2xl">The second day's road</h3><span className="text-xs text-soft">Route sketch · not to scale</span></div>
+      <svg viewBox="0 0 700 300" role="img" aria-label="Route from Roussillon through lavender country to Galetas, Moustiers and Cannes" className="mt-4 w-full rounded-lg border border-border bg-card">
+        <path d="M470 245 Q570 190 700 225 L700 300 L470 300Z" fill="var(--royal)" opacity="0.12" />
+        <text x="555" y="280" fill="var(--soft)" fontSize="13">Mediterranean Sea</text>
+        <path d="M65 90 L235 135 L340 95 L465 170 L460 70 L625 215" fill="none" stroke="var(--terracotta)" strokeWidth="3" strokeDasharray="7 6" />
+        {[[65,90,"Roussillon"],[235,135,"Valensole"],[340,95,"Brunet"],[465,170,"Galetas"],[460,70,"Moustiers"],[625,215,"Cannes"]].map(([x,y,label]) => <g key={label}><circle cx={Number(x)} cy={Number(y)} r="6" fill="var(--terracotta)" /><text x={Number(x)} y={Number(y)-16} textAnchor="middle" fill="var(--ink)" fontSize="13">{label}</text></g>)}
+        <circle cx="205" cy="170" r="5" fill="var(--sage)" />
+        <text x="205" y="197" textAnchor="middle" fill="var(--soft)" fontSize="12">Angelvin · seasonal stop</text>
+      </svg>
+      <p className="mt-3 text-sm leading-relaxed text-soft">Valensole and Brunet mark the lavender-country route. Angelvin is a visitor-farm option during opening hours, not a required stop before the first boat departure. Use the driving and location maps below for navigation.</p>
     </div>
 
     <div className="border-b border-border py-8">

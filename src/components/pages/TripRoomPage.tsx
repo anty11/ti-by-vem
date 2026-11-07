@@ -20,6 +20,8 @@ import { FranceDayTwoGuide } from "@/components/site/FranceDayTwoGuide";
 import { FranceDayThreeGuide } from "@/components/site/FranceDayThreeGuide";
 import { FranceDayFourGuide } from "@/components/site/FranceDayFourGuide";
 import { FranceDayFiveGuide } from "@/components/site/FranceDayFiveGuide";
+import { FranceDaySevenGuide } from "@/components/site/FranceDaySevenGuide";
+import { FranceDaySixGuide } from "@/components/site/FranceDaySixGuide";
 
 export function TripRoomPage({ itinerary, lang }: { itinerary: Itinerary; lang: Lang }) {
   const t = tripCopy[lang];
@@ -111,7 +113,7 @@ export function TripRoomPage({ itinerary, lang }: { itinerary: Itinerary; lang: 
           ) : null}
           {itinerary.slug === "riviera" && view === "read" ? (
             <nav aria-label="Detailed itinerary days" className="sticky top-24 z-10 mt-4 flex flex-wrap gap-2 border-b border-border bg-background py-3">
-              {[1, 2, 3, 4, 5].map((day) => (
+              {[1, 2, 3, 4, 5, 6, 7].map((day) => (
                 <Button key={day} variant={guideDay === day ? "default" : "outline"} aria-pressed={guideDay === day} onClick={() => {
                   setGuideDay(day);
                   guideStart.current?.scrollIntoView({ block: "start" });
@@ -162,7 +164,7 @@ export function TripRoomPage({ itinerary, lang }: { itinerary: Itinerary; lang: 
 
           {itinerary.slug === "riviera" && view === "read" ? (
             <div ref={guideStart} className="scroll-mt-44 sm:scroll-mt-24">
-              {guideDay === 1 ? <FranceDayOneGuide /> : guideDay === 2 ? <FranceDayTwoGuide /> : guideDay === 3 ? <FranceDayThreeGuide /> : guideDay === 4 ? <FranceDayFourGuide /> : <FranceDayFiveGuide />}
+              {guideDay === 1 ? <FranceDayOneGuide /> : guideDay === 2 ? <FranceDayTwoGuide /> : guideDay === 3 ? <FranceDayThreeGuide /> : guideDay === 4 ? <FranceDayFourGuide /> : guideDay === 5 ? <FranceDayFiveGuide /> : guideDay === 6 ? <FranceDaySixGuide /> : <FranceDaySevenGuide />}
             </div>
           ) : null}
 

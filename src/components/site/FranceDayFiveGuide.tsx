@@ -3,6 +3,7 @@ import { Button } from "@/components/ui/button";
 import { drivingMapUrl, placeMapUrl } from "@/lib/france-guide";
 import { franceDayFiveTimes as times } from "@/lib/france-day-five-timing";
 import rivieraImage from "@/assets/riviera.jpg";
+import { FranceDayRouteSketch } from "@/components/site/FranceDayRouteSketch";
 
 function MapLink({ href, children }: { href: string; children: React.ReactNode }) {
   return <Button asChild variant="outline" size="sm"><a href={href} target="_blank" rel="noreferrer">{children}<ArrowUpRight /></a></Button>;
@@ -33,6 +34,7 @@ export function FranceDayFiveGuide() {
       ].map(([time, title, note]) => <li key={time} className="grid gap-1 py-3 sm:grid-cols-[11rem_1fr] sm:gap-4"><span className="text-sm font-semibold text-terracotta">{time}</span><div><p className="text-sm font-semibold">{title}</p><p className="mt-1 text-sm leading-relaxed text-soft">{note}</p></div></li>)}</ol>
     </div>
 
+    <FranceDayRouteSketch day={5} />
     <div className="border-b border-border py-8">
       <h3 className="flex items-center gap-2 font-display text-2xl"><Coffee className="size-5" />01 · Sénéquier beside the yachts</h3>
       <p className="mt-3 text-sm leading-relaxed text-soft">We had breakfast at Sénéquier at {times.breakfast}, right by the yachts at Port de Saint-Tropez. A lovely way to enjoy one more morning here before moving on. Check the current breakfast service hours and menu, then collect your luggage and check out before leaving town.</p>
@@ -83,6 +85,7 @@ export function FranceDayFiveGuide() {
     <div className="border-b border-border py-8">
       <h3 className="flex items-center gap-2 font-display text-2xl"><Utensils className="size-5" />06 · Italian dinner & Nice after dark</h3>
       <p className="mt-3 text-sm leading-relaxed text-soft">Our dinner was at La Villa d'Este, an Italian restaurant at 6 rue Masséna in Nice. The restaurant currently says it doesn't take reservations, so check its latest policy and dinner hours, and allow for a queue. Leave time to shower and change after the beach. Then enjoy Nice on foot as the evening lights come on.</p>
+      <p className="mt-3 text-sm leading-relaxed text-soft"><strong className="text-ink">V & eM · come hungry</strong> The portions were absolutely enormous on our visit. Keep that in mind before ordering several courses, and ask the team about portion sizes if you're thinking of sharing.</p>
       <p className="mt-3 text-sm leading-relaxed text-soft">A walk through town and a crêpe belonged to our evening too. After dinner, we went for shisha and a relaxed sit-down to finish the day. Keep that last stop as long or short as you feel like, check prices before ordering and choose outdoor seating if you want to avoid indoor smoke.</p>
       <div className="mt-4 flex flex-wrap gap-2"><MapLink href={drivingMapUrl("Hotel Albert 1er Nice", "La Villa d’Este 6 Rue Masséna Nice").replace("travelmode=driving", "travelmode=walking")}><MapPin />Walk to dinner</MapLink><MapLink href="https://www.villadeste-nice.com/faq/">Restaurant details</MapLink><MapLink href={drivingMapUrl("La Villa d’Este Nice", "Promenade des Anglais Nice").replace("travelmode=driving", "travelmode=walking")}>Evening walk towards the sea</MapLink></div>
     </div>

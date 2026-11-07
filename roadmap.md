@@ -1,5 +1,11 @@
 # Roadmap
 
+- [x] Add La Villa d'Este's generous-portion note to day 5.
+- [x] Identify the shopping centre beside Nice Airport and add an optional day 7 stop with parking, budget and flight-time cautions.
+- [x] Add paid France day 6 from the uploaded notes, with parking, maps and day switching.
+- [x] Add visible route maps to paid France days 3, 4, 5 and 7, matching the day 2 route-sketch approach.
+- [x] Add paid France day 7 with Menton walk, beach experience, parking and airport return.
+- [x] Verify day 7 switching and unlocked desktop/mobile access.
 - [x] Add paid France day 5 with confirmed timings, transfer maps, Galimard reservation and Nice evening.
 - [x] Verify day 5 switching, unlocked access and mobile layout.
 - [x] Add paid France day 4 from Monika's notes and include it in the day switcher, with takeaway breakfast at the port and the La Ponche, port, Place des Lices and church walk.

@@ -1,6 +1,7 @@
 import { useEffect, useMemo, useState } from "react";
 import { supabase } from "@/integrations/supabase/client";
 import type { Lang } from "@/lib/i18n";
+import { unifyEstimates } from "@/lib/budget-estimates";
 
 type Expense = {
   id: string;
@@ -152,7 +153,7 @@ export function BudgetCheck({ slug, budget, lang }: { slug: string; budget: stri
         }
       }
       if (active) {
-        setRows(list.map((r) => ({ ...r, planned: num(r.planned), spent: num(r.spent) })));
+        setRows(unifyEstimates(list.map((r) => ({ ...r, planned: num(r.planned), spent: num(r.spent) }))));
         setLoaded(true);
       }
     })();

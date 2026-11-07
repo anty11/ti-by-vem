@@ -1,5 +1,7 @@
 # Roadmap
 
+- [ ] Add a paid France reservation overview after day 7 in the day switcher and verify unlocked desktop/mobile access.
+
 - [x] Polish all paid France daily map sketches and verify desktop/mobile views.
 - [x] Start France day 5 at 08:00 while preserving confirmed later appointments.
 - [ ] Correct France budget, especially food and drinks. Deferred by Monika until she supplies amounts, do not change yet.

@@ -1,5 +1,7 @@
 # Roadmap
 
+- [ ] Add paid France day 4 from Monika's notes and include it in the day switcher.
+- [ ] Verify day 4 in the unlocked trip and on mobile, keeping public previews separate.
 - [x] Add paid France day 2 from the supplied notes, with an early Verdon plan, lavender stops, maps, lunch and Cannes fireworks dinner guidance.
 - [x] Verify day 2 in the unlocked trip, public access separation and mobile layout.
 - [x] Keep Gordes in France day 1's timeline, recommending skipping it only if tired and a stop must go.

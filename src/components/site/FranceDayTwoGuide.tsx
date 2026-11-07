@@ -14,6 +14,7 @@ export function FranceDayTwoGuide() {
       <img src={rivieraImage} alt="The Mediterranean coastline" className="absolute inset-0 h-full w-full object-cover opacity-30" />
       <div className="relative px-6 py-10 text-onink sm:px-10">
         <p className="text-xs font-semibold uppercase">Your guide · Day 02 · Verdon to Cannes</p>
+        <p className="mt-3 inline-flex items-center gap-2 text-sm font-semibold text-onink"><span aria-hidden="true">♥</span>eM’s favourite</p>
         <h2 className="mt-3 max-w-xl font-display text-4xl leading-tight sm:text-5xl">Canyon mornings.<br />Riviera nights.</h2>
         <p className="mt-5 max-w-lg text-sm leading-relaxed">Roussillon → Valensole → Brunet → Plage du Galetas → Moustiers-Sainte-Marie → Cannes</p>
         <div className="mt-6 flex flex-wrap gap-x-6 gap-y-2 text-sm"><span className="flex items-center gap-2"><Waves className="size-4" />Pedal boats first</span><span className="flex items-center gap-2"><BedDouble className="size-4" />Hotel Verlaine · Cannes</span></div>

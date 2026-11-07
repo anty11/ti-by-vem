@@ -1,6 +1,7 @@
 # Roadmap
 
 - [ ] Add a paid France reservation overview after day 7 in the day switcher and verify unlocked desktop/mobile access.
+- [ ] Make the Saint-Tropez hotel stairs-only warning prominent in the reservation overview.
 
 - [x] Polish all paid France daily map sketches and verify desktop/mobile views.
 - [x] Start France day 5 at 08:00 while preserving confirmed later appointments.

@@ -1,7 +1,7 @@
 import { useState } from "react";
 import { ArrowUpRight, Car, Clock3, MapPin, ParkingCircle, Route, Utensils, BedDouble } from "lucide-react";
 import { Button } from "@/components/ui/button";
-import { franceDayOneStops, drivingMapUrl, placeMapUrl } from "@/lib/france-guide";
+import { franceDayOneStops, franceDayOneTimeline, drivingMapUrl, placeMapUrl } from "@/lib/france-guide";
 import rivieraImage from "@/assets/riviera.jpg";
 
 const points = [
@@ -36,24 +36,11 @@ export function FranceDayOneGuide() {
 
       <div className="border-b border-border py-8" aria-label="Day 1 timeline">
         <h3 className="flex items-center gap-2 font-display text-2xl"><Clock3 className="size-5" />Your day at a glance</h3>
-        <p className="mt-3 max-w-2xl text-sm leading-relaxed text-soft">We landed in Marseille at 09:00, and collecting our rental car took about 20 minutes. The timings below are a suggested plan, not our exact travel diary. They include time for airport formalities, parking and walking back to the car.</p>
+        <p className="mt-3 max-w-2xl text-sm leading-relaxed text-soft">This is how our first day unfolded: we landed at 09:00, had our rental car by 10:00 and reached our accommodation at 18:30. Use our arrival times as a rhythm for the stops below, not a deadline. Driving and parking times are estimates, and traffic or longer breaks can shift the day.</p>
         <ol className="mt-5 divide-y divide-border">
-          {[
-            ["09:00", "Land at Marseille Provence Airport", "Our arrival time."],
-            ["09:00–10:20", "Airport formalities & car pickup", "Allow time for luggage and finding the rental desk, including about 20 minutes to collect the car."],
-            ["10:20–11:15", "Drive to Marseille & park", "Get to the Vieux-Port and walk from the garage."],
-            ["11:15–12:45", "Marseille", "A short harbour and old-town walk."],
-            ["12:45–14:30", "Drive to Avignon & park", "Leave a little room for traffic and the walk into town."],
-            ["14:30–16:00", "Avignon & lunch", "The palace square, old-town lanes and a lunch break."],
-            ["16:00–17:00", "Drive to L’Isle-sur-la-Sorgue & park", "Local roads, then a short walk into the centre."],
-            ["17:00–18:00", "L’Isle-sur-la-Sorgue", "Waterwheels, chocolate and a gentle riverside pause."],
-            ["18:00–18:45", "Drive to Gordes & park", "Allow a little patience for the parking machines."],
-            ["18:45–19:30", "Gordes", "The village silhouette and a short wander."],
-            ["19:30–20:00", "Drive to Roussillon", "Arrive, park and settle in at OMMA."],
-            ["20:00 onwards", "Roussillon & dinner", "Let the evening slow down. Check dinner service hours for your date."],
-          ].map(([time, title, note]) => <li key={time} className="grid gap-1 py-3 sm:grid-cols-[9rem_1fr] sm:gap-4"><span className="text-sm font-semibold text-terracotta">{time}</span><div><p className="text-sm font-semibold">{title}</p><p className="mt-1 text-sm leading-relaxed text-soft">{note}</p></div></li>)}
+          {franceDayOneTimeline.map(({ id, time, title, note }) => <li key={id} className="grid gap-1 py-3 sm:grid-cols-[9rem_1fr] sm:gap-4"><span className="text-sm font-semibold text-terracotta">{time}</span><div><p className="text-sm font-semibold">{title}</p><p className="mt-1 text-sm leading-relaxed text-soft">{note}</p></div></li>)}
         </ol>
-        <p className="mt-4 border-l-2 border-sage pl-4 text-sm leading-relaxed text-soft"><strong className="text-ink">Feeling tired?</strong> If you need to leave out one stop, Gordes is the one we'd suggest. Continue from L’Isle-sur-la-Sorgue straight to Roussillon and check the direct driving time before leaving. This sample schedule reaches Roussillon around 20:00, which is after sunset on many dates. Check sunset for your date and bring the earlier stops forward if you want daylight there.</p>
+        <p className="mt-4 border-l-2 border-sage pl-4 text-sm leading-relaxed text-soft"><strong className="text-ink">Feeling tired?</strong> If you need to leave out one stop, Gordes is the one we'd suggest. Continue from L’Isle-sur-la-Sorgue straight to Roussillon and check the direct driving time before leaving. Otherwise, keep the full route and enjoy the scenery along the way.</p>
       </div>
 
       <div className="grid gap-6 border-b border-border py-8 sm:grid-cols-[1fr_2fr]">

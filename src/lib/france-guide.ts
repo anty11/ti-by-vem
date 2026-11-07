@@ -15,9 +15,20 @@ export type GuideStop = {
   tipLabel: string;
 };
 
+export const franceDayOneTimeline = [
+  { id: "arrival", time: "09:00", title: "Land at Marseille Provence Airport", note: "Our early arrival, with time for luggage and the rental desk." },
+  { id: "car", time: "10:00", title: "Rental car ready", note: "We had the car by 10:00. The pickup itself took about 20 minutes, then we drove into Marseille." },
+  { id: "marseille", time: "11:00", title: "Marseille", note: "A short Vieux-Port and Le Panier walk, with the waterfront stops described below. Keep this an outdoor visit, then head towards Avignon." },
+  { id: "avignon", time: "14:00", title: "Avignon & lunch", note: "A compact old-town walk around the palace square and a quick lunch. A long sit-down meal or a palace interior visit needs extra time." },
+  { id: "sorgue", time: "15:50", title: "L’Isle-sur-la-Sorgue", note: "A short riverside wander, waterwheels and chocolate at Chocolaterie de Puyricard. Keep the coffee pause brief to follow our pace." },
+  { id: "gordes", time: "17:00", title: "Gordes", note: "The village silhouette and stone lanes, allowing time for parking before continuing to Roussillon." },
+  { id: "roussillon", time: "18:30", title: "At our accommodation in Roussillon", note: "Check in at OMMA, settle in and wander the ochre-coloured village. Check sunset for your travel date." },
+  { id: "dinner", time: "19:40", title: "Dinner at La Table des Ocres", note: "The evening slows down here. Check service hours for your date." },
+];
+
 export const franceDayOneStops: GuideStop[] = [
   {
-    id: "marseille", number: "01", place: "Marseille", visit: "1½–2 hours on foot",
+    id: "marseille", number: "01", place: "Marseille", visit: "From 11:00 · about 1½ hours on foot",
     intro: "Start by the water, not with a museum marathon. The Vieux-Port is Marseille's living room: boats, morning light and the city waking up. Wander into Le Panier, its oldest neighbourhood, before returning towards the sea.",
     walk: ["Vieux-Port → Le Panier", "La Vieille Charité → Cathédrale de la Major", "Mucem waterfront → Vieux-Port"],
     parking: "Q-Park Vieux Port Hôtel de Ville, Passage Pentecontore, Marseille",
@@ -28,7 +39,7 @@ export const franceDayOneStops: GuideStop[] = [
     tip: "We recommend a short walk here. Enjoy the old town and harbour, then keep moving: Provence is still ahead. The Mucem stop is a waterfront visit, not a timed museum ticket.",
   },
   {
-    id: "avignon", number: "02", place: "Avignon", visit: "1½–2 hours including lunch",
+    id: "avignon", number: "02", place: "Avignon", visit: "From 14:00 · about 45–60 minutes for a short walk & quick lunch",
     intro: "Inside its medieval walls, Avignon feels like a different chapter: papal palaces, warm stone and narrow streets opening onto little squares. Let the Palais des Papes set the scene, then enjoy the old town rather than trying to visit every interior.",
     walk: ["Palais des Papes → Cathédrale Notre-Dame des Doms", "Rocher des Doms (if open) → view of Pont Saint-Bénézet", "Old-town lanes → Les Halles d'Avignon area"],
     parking: "Parking Palais des Papes, Avignon",
@@ -39,7 +50,7 @@ export const franceDayOneStops: GuideStop[] = [
     tip: "Centr’Halles Kitchen, 18 place Pie inside Les Halles, is a researched lunch option using market produce — not the restaurant where we ate. Check its service hours and reserve if needed. If the market is closed, look around Place de l’Horloge instead.",
   },
   {
-    id: "sorgue", number: "03", place: "L’Isle-sur-la-Sorgue", visit: "About 1 hour + a café pause",
+    id: "sorgue", number: "03", place: "L’Isle-sur-la-Sorgue", visit: "From 15:50 · about 35–45 minutes, including a brief café pause",
     intro: "Our little, utterly lovely find. The Sorgue slips between lanes, waterwheels turn beside cafés, and antique and vintage shops make a short stroll surprisingly hard to end. This is the gentle pause in a busy first day.",
     walk: ["Quai Jean Jaurès → riverside canals", "Waterwheels (roues à aubes) → Rue des Roues", "Collégiale Notre-Dame-des-Anges → antique and vintage shops"],
     parking: "Gare de L'Isle-sur-la-Sorgue - Fontaine-de-Vaucluse",
@@ -50,7 +61,7 @@ export const franceDayOneStops: GuideStop[] = [
     tip: "Chocolaterie de Puyricard was our sweet little find, with the sweetest lady and chocolate that was to die for. Make time for coffee and something sweet beside a waterwheel — just sitting and watching this little town was part of the magic.",
   },
   {
-    id: "gordes", number: "04", place: "Gordes", visit: "45–60 minutes",
+    id: "gordes", number: "04", place: "Gordes", visit: "From 17:00 · 45–60 minutes",
     intro: "A village of pale stone, stacked against the hillside. It might remind you of Matera — if you know, you know. See it from a distance first: that is where the whole silhouette makes sense. Then wander the stone lanes.",
     walk: ["Approach viewpoint on the D15 (Belvédère de Gordes)", "Village centre → château square", "Short wander through the stone lanes"],
     parking: "Belvédère de Gordes",
@@ -61,7 +72,7 @@ export const franceDayOneStops: GuideStop[] = [
     tip: "A sunset dinner here would be beautiful — but book ahead. We didn't, and couldn't find a spot worth staying for. For this version of the day, dinner is in Roussillon. A Gordes dinner is an alternative, not a second reservation.",
   },
   {
-    id: "roussillon", number: "05", place: "Roussillon", visit: "Sunset, dinner & overnight",
+    id: "roussillon", number: "05", place: "Roussillon", visit: "18:30 at OMMA · 19:40 dinner · overnight",
     intro: "Our little gem at the end of the road. Orange cliffs, ochre walls and a village that seems to glow as the light drops. The welcome felt warm and personal — the kind of place that stays with you long after the itinerary ends.",
     walk: ["Check in at OMMA → wander the ochre-coloured village", "Village viewpoints in the evening light", "Dinner at La Table des Ocres"],
     parking: "OMMA Luberon, 38 Place de la Poste, Roussillon",

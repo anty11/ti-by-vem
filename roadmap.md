@@ -1,7 +1,7 @@
 # Roadmap
 
-- [x] Add France day 1's estimated timeline from the confirmed 09:00 arrival, with Gordes optional.
-- [ ] Unify repeated expense labels in Our estimate without changing saved expenses or totals.
+- [ ] Keep Gordes in France day 1's timeline, recommending skipping it only if tired and a stop must go.
+- [ ] Unify duplicate untouched Our estimate expenses without deleting saved records or hiding edited expenses.
 - [x] Add the detailed paid France day 1 guide from the uploaded notes, with transfers, parking, maps and clearly labelled estimates; verify signed-in, signed-out and mobile views.
 - [x] Apply Monika's France day 1 corrections, including Chocolaterie de Puyricard, morning pickup, Gordes parking and the Roussillon evening.
 

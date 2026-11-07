@@ -47,13 +47,13 @@ export function FranceDayOneGuide() {
             ["14:30–16:00", "Avignon & lunch", "The palace square, old-town lanes and a lunch break."],
             ["16:00–17:00", "Drive to L’Isle-sur-la-Sorgue & park", "Local roads, then a short walk into the centre."],
             ["17:00–18:00", "L’Isle-sur-la-Sorgue", "Waterwheels, chocolate and a gentle riverside pause."],
-            ["18:00–18:45", "Drive to Gordes & park · optional", "Allow a little patience for the parking machines."],
-            ["18:45–19:30", "Gordes · optional", "The village silhouette and a short wander."],
+            ["18:00–18:45", "Drive to Gordes & park", "Allow a little patience for the parking machines."],
+            ["18:45–19:30", "Gordes", "The village silhouette and a short wander."],
             ["19:30–20:00", "Drive to Roussillon", "Arrive, park and settle in at OMMA."],
             ["20:00 onwards", "Roussillon & dinner", "Let the evening slow down. Check dinner service hours for your date."],
           ].map(([time, title, note]) => <li key={time} className="grid gap-1 py-3 sm:grid-cols-[9rem_1fr] sm:gap-4"><span className="text-sm font-semibold text-terracotta">{time}</span><div><p className="text-sm font-semibold">{title}</p><p className="mt-1 text-sm leading-relaxed text-soft">{note}</p></div></li>)}
         </ol>
-        <p className="mt-4 border-l-2 border-sage pl-4 text-sm leading-relaxed text-soft"><strong className="text-ink">Need a shorter day? Skip Gordes.</strong> Continue from L’Isle-sur-la-Sorgue straight to Roussillon and check the direct driving time before leaving. This sample schedule reaches Roussillon around 20:00, which is after sunset on many dates. If you want daylight there, skip Gordes and shorten the earlier walks as needed.</p>
+        <p className="mt-4 border-l-2 border-sage pl-4 text-sm leading-relaxed text-soft"><strong className="text-ink">Feeling tired?</strong> If you need to leave out one stop, Gordes is the one we'd suggest. Continue from L’Isle-sur-la-Sorgue straight to Roussillon and check the direct driving time before leaving. This sample schedule reaches Roussillon around 20:00, which is after sunset on many dates. Check sunset for your date and bring the earlier stops forward if you want daylight there.</p>
       </div>
 
       <div className="grid gap-6 border-b border-border py-8 sm:grid-cols-[1fr_2fr]">
@@ -61,7 +61,7 @@ export function FranceDayOneGuide() {
         <div className="space-y-3 text-sm leading-relaxed text-soft">
           <p>Choose an early arrival in Marseille. If an early landing isn't possible, spend the previous night in Marseille rather than squeezing this route into half a day.</p>
           <p>We picked up our rental car in the morning, and it took about 20 minutes. Allow roughly 4–5 hours behind the wheel, plus airport formalities, parking and walks. The day is packed, but the drive flies by with beautiful scenery all around. This is a full-day route of outdoor stops, not five museum visits. Summer traffic can change everything.</p>
-          <p>Keep sunset as your anchor: check the sunset time for your date and work backwards from Roussillon. If delayed, Gordes is the stop we'd skip. Keep the rest of the route and enjoy the scenery without rushing the driving.</p>
+          <p>Keep sunset as your anchor: check the sunset time for your date and work backwards from Roussillon. If you're tired and need to skip a stop, we'd suggest Gordes. Enjoy the scenery without rushing the driving.</p>
           <p className="font-semibold text-terracotta">Driving times, distances and the toll allowance below are planning estimates, not live quotes. Check parking charges on arrival.</p>
         </div>
       </div>

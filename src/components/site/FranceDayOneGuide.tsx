@@ -3,6 +3,7 @@ import { ArrowUpRight, Car, Clock3, MapPin, ParkingCircle, Route, Utensils, BedD
 import { Button } from "@/components/ui/button";
 import { franceDayOneStops, franceDayOneTimeline, drivingMapUrl, placeMapUrl } from "@/lib/france-guide";
 import rivieraImage from "@/assets/riviera.jpg";
+import { FranceRouteArtwork } from "@/components/site/FranceRouteArtwork";
 
 const points = [
   { x: 115, y: 310, label: "Airport", id: "marseille" },
@@ -63,18 +64,7 @@ export function FranceDayOneGuide() {
 
       <div className="py-8">
         <div className="flex flex-wrap items-baseline justify-between gap-2"><h3 className="font-display text-2xl">The first day's road</h3><span className="text-xs text-soft">Route sketch · not to scale</span></div>
-        <svg viewBox="0 0 700 440" role="img" aria-label="Day 1 route from Marseille Airport through Avignon, L’Isle-sur-la-Sorgue and Gordes to Roussillon" className="mt-4 w-full rounded-lg border border-border bg-card">
-          <path d="M0 380 Q140 390 240 425 L700 425 L700 440 L0 440Z" fill="var(--royal)" opacity="0.08" />
-          <text x="350" y="413" fill="var(--soft)" fontSize="13">Mediterranean Sea</text>
-          <path d="M165 365 Q110 260 205 90 Q260 130 350 165 L490 125 L590 85" fill="none" stroke="var(--terracotta)" strokeWidth="3" strokeDasharray="7 6" />
-          <path d="M115 310 L165 365" fill="none" stroke="var(--terracotta)" strokeWidth="3" strokeDasharray="7 6" />
-          <text x="105" y="230" fill="var(--soft)" fontSize="12">A7 · toll section</text>
-          <text x="420" y="245" fill="var(--soft)" fontSize="14">LUBERON</text>
-          {points.map((point, index) => <g key={`${point.id}-${index}`}>
-            <circle cx={point.x} cy={point.y} r={selected === point.id ? 9 : 6} fill={selected === point.id ? "var(--terracotta)" : "var(--ink)"} stroke="var(--card)" strokeWidth="3" />
-            <text x={point.x} y={point.y - 19} textAnchor="middle" fill="var(--ink)" fontSize="13">{point.label}</text>
-          </g>)}
-        </svg>
+        <FranceRouteArtwork title="Day 1 route from Marseille Airport through Avignon, L’Isle-sur-la-Sorgue and Gordes to Roussillon" stops={points} path="M115 310 L165 365 Q110 260 205 90 Q260 130 350 165 L490 125 L590 85" height={440} selected={selected} day={1} />
         <div className="mt-4 flex flex-wrap gap-2" aria-label="Route stops">{franceDayOneStops.map((stop) => <Button key={stop.id} variant={selected === stop.id ? "default" : "outline"} size="sm" onClick={() => setSelected(stop.id)} aria-pressed={selected === stop.id}>{stop.number} · {stop.place}</Button>)}</div>
         <div className="mt-4 flex flex-wrap items-center justify-between gap-3 border-l-2 border-terracotta pl-4"><div><p className="text-sm font-semibold">{active.from} → {active.place}</p><p className="mt-1 text-xs text-soft">{active.drive} · {active.road}</p></div><MapLink href={drivingMapUrl(active.from, active.parking)}><Route />Open this drive</MapLink></div>
       </div>

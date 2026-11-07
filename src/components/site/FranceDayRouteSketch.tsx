@@ -1,3 +1,5 @@
+import { FranceRouteArtwork } from "@/components/site/FranceRouteArtwork";
+
 type Stop = { x: number; y: number; label: string; detail: string };
 type DayMap = { title: string; stops: Stop[]; path: string; note: string; heading?: string };
 
@@ -93,16 +95,7 @@ export function FranceDayRouteSketch({ day }: { day: number }) {
       <h3 className="font-display text-2xl">{map.heading ?? "The day's route"}</h3>
       <span className="text-xs text-soft">Route sketch · not to scale</span>
     </div>
-    <svg viewBox="0 0 700 340" role="img" aria-label={map.title} className="mt-4 w-full rounded-lg border border-border bg-card">
-      <path d="M0 310 Q130 270 270 305 T540 295 T700 310 L700 340 L0 340Z" fill="var(--royal)" opacity="0.12" />
-      <path d={map.path} fill="none" stroke="var(--terracotta)" strokeWidth="3" strokeDasharray="7 6" />
-      {map.stops.map((stop, index) => <g key={stop.label}>
-        <circle cx={stop.x} cy={stop.y} r="12" fill="var(--terracotta)" />
-        <text x={stop.x} y={stop.y + 4} textAnchor="middle" fill="var(--onink)" fontSize="12">{index + 1}</text>
-        <text x={stop.x} y={stop.y - 23} textAnchor="middle" fill="var(--ink)" fontSize="15">{stop.label}</text>
-        <text x={stop.x} y={stop.y + 30} textAnchor="middle" fill="var(--soft)" fontSize="11">{stop.detail}</text>
-      </g>)}
-    </svg>
+    <FranceRouteArtwork title={map.title} stops={map.stops} path={map.path} day={day} />
     <ol className="mt-4 grid gap-2 text-sm text-soft sm:grid-cols-2">
       {map.stops.map((stop, index) => <li key={stop.label}><span className="font-semibold text-terracotta">{index + 1} · </span><span className="font-semibold text-ink">{stop.label}</span><span className="block pl-5">{stop.detail}</span></li>)}
     </ol>

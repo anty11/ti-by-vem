@@ -22,7 +22,7 @@ export function FranceDayFiveGuide() {
 
     <div className="border-b border-border py-8">
       <h3 className="font-display text-2xl">Our day, at a glance</h3>
-      <p className="mt-3 text-sm leading-relaxed text-soft">These are our actual timings. The perfume workshop is the fixed appointment to build your day around. Book that first, then adapt the morning stops and lunch to your chosen time. Driving and parking allowances below are estimates, not our exact departure times.</p>
+      <p className="mt-3 text-sm leading-relaxed text-soft">Start the day with breakfast at 08:00, then follow the rhythm of our later arrival times. The perfume workshop is the fixed appointment to build your day around. Book that first, then adapt the morning stops and lunch to your chosen time. Driving and parking allowances below are estimates, not our exact departure times.</p>
       <ol className="mt-5 divide-y divide-border">{[
         [times.breakfast, "Breakfast at Sénéquier", "Coffee beside the yachts. Go early, as it fills up later."],
         [times.portGrimaud, "Port Grimaud", "Our short canal stop. Honestly, eM would skip it next time."],
@@ -37,7 +37,7 @@ export function FranceDayFiveGuide() {
     <FranceDayRouteSketch day={5} />
     <div className="border-b border-border py-8">
       <h3 className="flex items-center gap-2 font-display text-2xl"><Coffee className="size-5" />01 · Sénéquier beside the yachts</h3>
-      <p className="mt-3 text-sm leading-relaxed text-soft">We had breakfast at Sénéquier at {times.breakfast}, right by the yachts at Port de Saint-Tropez. A lovely way to enjoy one more morning here before moving on. Check the current breakfast service hours and menu, then collect your luggage and check out before leaving town.</p>
+      <p className="mt-3 text-sm leading-relaxed text-soft">Plan breakfast at Sénéquier for {times.breakfast}, right by the yachts at Port de Saint-Tropez. We were there at 08:16, and an early table was a lovely way to enjoy one more morning here before moving on. Check the current breakfast service hours and menu, then collect your luggage and check out before leaving town.</p>
       <p className="mt-3 text-sm leading-relaxed text-soft">The early start matters here. Sénéquier fills up later in the morning, so a later breakfast can mean waiting for a table. Factor that into your plans, especially with a fixed perfume workshop appointment ahead. If you want a slower start, choose another breakfast spot rather than letting a queue put the rest of the day under pressure.</p>
       <aside className="mt-4 border-l-2 border-sage pl-4 text-sm leading-relaxed text-soft"><strong className="text-ink">V & eM · a very specific breakfast tip</strong> We'd skip the scrambled eggs without yolks. Some breakfast experiments don't need a repeat.</aside>
       <p className="mt-3 text-sm leading-relaxed text-soft">Find Sénéquier at 29 quai Jean Jaurès, right on the port.</p>

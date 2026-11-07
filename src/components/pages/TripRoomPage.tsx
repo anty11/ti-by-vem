@@ -107,7 +107,7 @@ export function TripRoomPage({ itinerary, lang }: { itinerary: Itinerary; lang: 
             </div>
           ) : null}
           {itinerary.slug === "riviera" && view === "read" ? (
-            <nav aria-label="Detailed itinerary days" className="mt-4 flex flex-wrap gap-2">
+            <nav aria-label="Detailed itinerary days" className="sticky top-24 z-10 mt-4 flex flex-wrap gap-2 border-b border-border bg-background py-3">
               {[1, 2].map((day) => (
                 <Button key={day} variant={guideDay === day ? "default" : "outline"} aria-pressed={guideDay === day} onClick={() => {
                   setGuideDay(day);

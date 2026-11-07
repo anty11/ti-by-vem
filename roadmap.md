@@ -1,5 +1,6 @@
 # Roadmap
 
+- [ ] Add La Villa d'Este's generous-portion note to day 5.
 - [ ] Identify the shopping centre beside Nice Airport and add an optional day 7 stop with parking, budget and flight-time cautions.
 - [ ] Add paid France day 6 from the uploaded notes, with parking, maps and day switching.
 - [ ] Add visible route maps to paid France days 3, 4, 5 and 7, matching the day 2 route-sketch approach.

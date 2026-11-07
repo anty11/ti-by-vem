@@ -3,7 +3,9 @@ import { Button } from "@/components/ui/button";
 import { drivingMapUrl, placeMapUrl } from "@/lib/france-guide";
 import { franceDaySixTimes as times } from "@/lib/france-day-six-timing";
 import { FranceDayRouteSketch } from "@/components/site/FranceDayRouteSketch";
-import rivieraImage from "@/assets/riviera.jpg";
+import rivieraImage from "@/assets/france-day6-eze.jpg";
+
+import { FranceDayVenueLinks } from "@/components/site/FranceDayVenueLinks";
 
 function MapLink({ href, children }: { href: string; children: React.ReactNode }) {
   return <Button asChild variant="outline" size="sm"><a href={href} target="_blank" rel="noreferrer">{children}<ArrowUpRight /></a></Button>;
@@ -12,7 +14,8 @@ function MapLink({ href, children }: { href: string; children: React.ReactNode }
 export function FranceDaySixGuide() {
   return <section aria-label="France day 6 detailed guide" className="mt-10 border-t border-border pt-10 text-ink">
     <header className="relative isolate overflow-hidden rounded-lg bg-ink">
-      <img src={rivieraImage} alt="The French Riviera coastline" className="absolute inset-0 h-full w-full object-cover opacity-30" />
+      <img src={rivieraImage} alt="Èze village above the Mediterranean" width={1536} height={768} loading="lazy" className="absolute inset-0 h-full w-full object-cover opacity-60" />
+      <div className="france-day-photo-shade absolute inset-0" aria-hidden="true" />
       <div className="relative px-6 py-10 text-onink sm:px-10">
         <p className="text-xs font-semibold uppercase">Your guide · Day 06 · Èze, Menton & Monaco</p>
         <h2 className="mt-3 max-w-xl font-display text-4xl leading-tight sm:text-5xl">Coastal views.<br />A terrace lunch & Monaco lights.</h2>
@@ -106,6 +109,7 @@ export function FranceDaySixGuide() {
     </div>
     <FranceDayRouteSketch day={62} />
 
+    <FranceDayVenueLinks day={6} />
     <div className="py-8"><h3 className="font-display text-2xl">What to put in your budget</h3><p className="mt-3 text-sm leading-relaxed text-soft">Coastal and Èze parking, fuel and any tolls, Jardin Exotique tickets, coffee and souvenirs, terrace lunch, Menton hotel and parking, both taxi journeys, dinner and any casino entry. Decide on a separate gaming limit before entering and never treat gambling as part of your travel budget recovery.</p></div>
   </section>;
 }

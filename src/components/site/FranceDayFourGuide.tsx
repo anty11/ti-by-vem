@@ -1,8 +1,10 @@
 import { ArrowUpRight, Car, Coffee, MapPin, ShoppingBag, Utensils } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { drivingMapUrl, placeMapUrl } from "@/lib/france-guide";
-import rivieraImage from "@/assets/riviera.jpg";
+import rivieraImage from "@/assets/france-day4-saint-tropez.jpg";
 import { FranceDayRouteSketch } from "@/components/site/FranceDayRouteSketch";
+
+import { FranceDayVenueLinks } from "@/components/site/FranceDayVenueLinks";
 
 function MapLink({ href, children }: { href: string; children: React.ReactNode }) {
   return <Button asChild variant="outline" size="sm"><a href={href} target="_blank" rel="noreferrer">{children}<ArrowUpRight /></a></Button>;
@@ -11,7 +13,8 @@ function MapLink({ href, children }: { href: string; children: React.ReactNode }
 export function FranceDayFourGuide() {
   return <section aria-label="France day 4 detailed guide" className="mt-10 border-t border-border pt-10 text-ink">
     <header className="relative isolate overflow-hidden rounded-lg bg-ink">
-      <img src={rivieraImage} alt="The French Riviera coastline" className="absolute inset-0 h-full w-full object-cover opacity-30" />
+      <img src={rivieraImage} alt="The colourful old port of Saint-Tropez" width={1536} height={768} loading="lazy" className="absolute inset-0 h-full w-full object-cover opacity-60" />
+      <div className="france-day-photo-shade absolute inset-0" aria-hidden="true" />
       <div className="relative px-6 py-10 text-onink sm:px-10">
         <p className="text-xs font-semibold uppercase">Your guide · Day 04 · Saint-Tropez</p>
         <h2 className="mt-3 max-w-xl font-display text-4xl leading-tight sm:text-5xl">Saint-Tropez.<br />Pastries, lunch & local finds.</h2>
@@ -21,13 +24,13 @@ export function FranceDayFourGuide() {
 
     <div className="border-b border-border py-8">
       <h3 className="font-display text-2xl">Your day at a glance</h3>
-      <p className="mt-3 text-sm leading-relaxed text-soft">A beautiful morning, a lunch worth planning around and time for the town in between. Let your confirmed Bagatelle seating and Gigi dinner reservation set the pace. These are the order of our stops, not exact arrival times.</p>
+      <p className="mt-3 text-sm leading-relaxed text-soft">A beautiful morning, a lunch worth planning around and time for the town in between. Let your confirmed Bagatelle seating and Gigi dinner reservation set the pace. The times below are a suggested first-seating plan, not our recorded arrival times or the venues' guaranteed service times. Check the bakery's opening time. For Bagatelle's second seating, use its confirmed time and move the town walk earlier or shorten it, keeping dinner flexible.</p>
       <ol className="mt-5 divide-y divide-border">{[
-        ["At opening", "Cédric Grolet, then the port", "Takeaway coffee and pastries, with breakfast beside the boats. Arrive for opening because queues form early."],
-        ["Your reserved lunch seating", "Bagatelle · Pampelonne", "Book well ahead. Choose second seating if the party atmosphere is what you are coming for."],
-        ["After lunch", "Back to Saint-Tropez", "La Ponche, the port, Place des Lices, the church, shopping and an ice cream."],
-        ["During your town walk", "Rondini sandals", "They measured our feet to find the right size, and we took our sandals with us straight away."],
-        ["Your reserved dinner time", "Gigi · Ramatuelle", "Arrange transport ahead and leave room for the sharing tiramisu."],
+        ["08:00–09:00 · opening-led", "Cédric Grolet, then the port", "Takeaway coffee and pastries, with breakfast beside the boats. Arrive for opening because queues form early."],
+        ["12:30–14:30 · suggested first seating", "Bagatelle · Pampelonne", "Book well ahead. Choose second seating if the party atmosphere is what you are coming for."],
+        ["15:00–17:30 · suggested", "Back to Saint-Tropez", "La Ponche, the port, Place des Lices, the church, shopping and an ice cream."],
+        ["Around 16:00 · suggested", "Rondini sandals", "They measured our feet to find the right size, and we took our sandals with us straight away."],
+        ["20:00 · suggested reservation", "Gigi · Ramatuelle", "Arrange transport ahead and leave room for the sharing tiramisu."],
       ].map(([time, title, note]) => <li key={time} className="grid gap-1 py-3 sm:grid-cols-[11rem_1fr] sm:gap-4"><span className="text-sm font-semibold text-terracotta">{time}</span><div><p className="text-sm font-semibold">{title}</p><p className="mt-1 text-sm leading-relaxed text-soft">{note}</p></div></li>)}</ol>
     </div>
 
@@ -70,6 +73,7 @@ export function FranceDayFourGuide() {
       <div className="mt-4 flex flex-wrap gap-2"><MapLink href={drivingMapUrl("Saint-Tropez", "Gigi Ramatuelle")}><Car />Drive to Gigi</MapLink><MapLink href={placeMapUrl("Gigi Ramatuelle")}><MapPin />Gigi arrival</MapLink><MapLink href="https://gigi-restaurant.com/saint-tropez/">Gigi · reservations</MapLink><MapLink href={drivingMapUrl("Gigi Ramatuelle", "Hotel Playa Saint-Tropez")}>Return to Hotel Playa</MapLink></div>
     </div>
 
+    <FranceDayVenueLinks day={4} />
     <div className="py-8"><h3 className="font-display text-2xl">What to put in your budget</h3><p className="mt-3 text-sm leading-relaxed text-soft">Breakfast pastries and coffee, Bagatelle lunch and drinks, transport or fuel, beach-venue and port parking, shopping and Rondini sandals, ice cream, Gigi dinner and the ride back. Check deposits, minimum spend and cancellation terms in each reservation. Record prepaid amounts once and deduct them from the final bill rather than counting them twice.</p></div>
   </section>;
 }

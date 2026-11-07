@@ -1,9 +1,11 @@
 import { ArrowUpRight, BedDouble, Car, Clock3, Coffee, MapPin, Route, Waves } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { drivingMapUrl, placeMapUrl } from "@/lib/france-guide";
-import rivieraImage from "@/assets/riviera.jpg";
+import rivieraImage from "@/assets/france-day2-verdon.jpg";
 import { franceDayTwoArrivalTimes as times, franceDayTwoBoatHours } from "@/lib/france-day-two-timing";
 import { FranceRouteArtwork } from "@/components/site/FranceRouteArtwork";
+
+import { FranceDayVenueLinks } from "@/components/site/FranceDayVenueLinks";
 
 function MapLink({ href, children }: { href: string; children: React.ReactNode }) {
   return <Button asChild variant="outline" size="sm"><a href={href} target="_blank" rel="noreferrer">{children}<ArrowUpRight /></a></Button>;
@@ -12,7 +14,8 @@ function MapLink({ href, children }: { href: string; children: React.ReactNode }
 export function FranceDayTwoGuide() {
   return <section aria-label="France day 2 detailed guide" className="mt-10 border-t border-border pt-10 text-ink">
     <header className="relative isolate overflow-hidden rounded-lg bg-ink">
-      <img src={rivieraImage} alt="The Mediterranean coastline" className="absolute inset-0 h-full w-full object-cover opacity-30" />
+      <img src={rivieraImage} alt="Turquoise water and pedal boats in the Verdon Gorge" width={1536} height={768} loading="lazy" className="absolute inset-0 h-full w-full object-cover opacity-60" />
+      <div className="france-day-photo-shade absolute inset-0" aria-hidden="true" />
       <div className="relative px-6 py-10 text-onink sm:px-10">
         <p className="text-xs font-semibold uppercase">Your guide · Day 02 · Verdon to Cannes</p>
         <p className="mt-3 inline-flex items-center gap-2 text-sm font-semibold text-onink"><span aria-hidden="true">♥</span>eM’s favourite</p>
@@ -102,6 +105,7 @@ export function FranceDayTwoGuide() {
       <p className="mt-4 text-sm leading-relaxed text-soft">After dinner, walk the seafront promenade if you still feel like a little night-time Cannes. If the fireworks have already filled the day with enough memories, go straight back to Hotel Verlaine. Tomorrow brings another move, but a much calmer day.</p>
       <div className="mt-4 flex flex-wrap gap-2"><MapLink href="https://miramarplage.fr/">Miramar · booking & contact</MapLink><MapLink href="https://www.festival-pyrotechnique-cannes.com/programme/">Official fireworks calendar</MapLink><MapLink href={placeMapUrl("Boulevard de la Croisette Cannes")}><MapPin />Night promenade</MapLink></div>
     </div>
+    <FranceDayVenueLinks day={2} />
     <div className="py-8"><h3 className="font-display text-2xl">What to put in your budget</h3><p className="mt-3 text-sm leading-relaxed text-soft">Takeaway breakfast, fuel, any motorway tolls, beach and village parking, pedal-boat rental, lunch, Hotel Verlaine and parking, plus the beach dinner or fireworks menu. If dinner is prepaid, record it once in Budget check rather than adding it again after the meal.</p></div>
   </section>;
 }

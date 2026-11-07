@@ -1,8 +1,10 @@
 import { ArrowUpRight, Car, Coffee, MapPin, Route, Waves } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { drivingMapUrl, placeMapUrl } from "@/lib/france-guide";
-import rivieraImage from "@/assets/riviera.jpg";
+import rivieraImage from "@/assets/france-day3-pampelonne.jpg";
 import { FranceDayRouteSketch } from "@/components/site/FranceDayRouteSketch";
+
+import { FranceDayVenueLinks } from "@/components/site/FranceDayVenueLinks";
 
 function MapLink({ href, children }: { href: string; children: React.ReactNode }) {
   return <Button asChild variant="outline" size="sm"><a href={href} target="_blank" rel="noreferrer">{children}<ArrowUpRight /></a></Button>;
@@ -11,7 +13,8 @@ function MapLink({ href, children }: { href: string; children: React.ReactNode }
 export function FranceDayThreeGuide() {
   return <section aria-label="France day 3 detailed guide" className="mt-10 border-t border-border pt-10 text-ink">
     <header className="relative isolate overflow-hidden rounded-lg bg-ink">
-      <img src={rivieraImage} alt="The French Riviera coastline" className="absolute inset-0 h-full w-full object-cover opacity-30" />
+      <img src={rivieraImage} alt="Pampelonne beach near Saint-Tropez" width={1536} height={768} loading="lazy" className="absolute inset-0 h-full w-full object-cover opacity-60" />
+      <div className="france-day-photo-shade absolute inset-0" aria-hidden="true" />
       <div className="relative px-6 py-10 text-onink sm:px-10">
         <p className="text-xs font-semibold uppercase">Your guide · Day 03 · Saint-Tropez</p>
         <h2 className="mt-3 max-w-xl font-display text-4xl leading-tight sm:text-5xl">Saint-Tropez.<br />A day to slow down.</h2>
@@ -23,12 +26,12 @@ export function FranceDayThreeGuide() {
       <h3 className="font-display text-2xl">Your day at a glance</h3>
       <p className="mt-3 text-sm leading-relaxed text-soft">One of the simpler days by our standards. Breakfast, a little Cannes moment, then a proper beach day and an unhurried evening. These are suggested timings, not our exact arrival times. Set your departure around your confirmed Verde reservation and check live traffic.</p>
       <ol className="mt-5 divide-y divide-border">{[
-        ["Morning", "Breakfast at Saddle, Cannes", "Avocado toast and coffee, then a short walk towards the Palais des Festivals."],
-        ["Before leaving Cannes", "The festival steps", "A quick tourist moment, then back to the car. Check out and take your bags with you."],
-        ["Late morning · reservation-led", "Drive to Verde Beach", "Allow around 2–3 hours as a summer planning buffer, more if traffic is heavy. Check the actual route before leaving."],
-        ["Beach day", "Verde · Pampelonne", "Your reserved sunbeds, a swim and lunch. No need to fill this part of the day with more stops."],
-        ["Late afternoon", "Hotel Playa, Saint-Tropez", "Drive back from the beach, park at the port and check in. Confirm the hotel's check-in hours."],
-        ["Sunset & evening", "Cakes, the old town & the port", "La Tarte Tropézienne, a gentle wander and a seat beside the sea."],
+        ["08:00–09:00 · suggested", "Breakfast at Saddle, Cannes", "Avocado toast and coffee, then a short walk towards the Palais des Festivals."],
+        ["09:00–09:30 · suggested", "The festival steps", "A quick tourist moment, then back to the car. Check out and take your bags with you."],
+        ["09:30–12:00 · suggested", "Drive to Verde Beach", "Allow around 2–3 hours as a summer planning buffer, more if traffic is heavy. Check the actual route before leaving."],
+        ["12:00–16:30 · booking-led", "Verde · Pampelonne", "Your reserved sunbeds, a swim and lunch. No need to fill this part of the day with more stops."],
+        ["17:00–18:00 · suggested", "Hotel Playa, Saint-Tropez", "Drive back from the beach, park at the port and check in. Confirm the hotel's check-in hours."],
+        ["18:30 onwards · sunset-led", "Cakes, the old town & the port", "La Tarte Tropézienne, a gentle wander and a seat beside the sea."],
       ].map(([time, title, note]) => <li key={time} className="grid gap-1 py-3 sm:grid-cols-[11rem_1fr] sm:gap-4"><span className="text-sm font-semibold text-terracotta">{time}</span><div><p className="text-sm font-semibold">{title}</p><p className="mt-1 text-sm leading-relaxed text-soft">{note}</p></div></li>)}</ol>
     </div>
 
@@ -73,6 +76,7 @@ export function FranceDayThreeGuide() {
       <aside className="mt-4 border-l-2 border-sage pl-4 text-sm leading-relaxed text-soft"><strong className="text-ink">V & eM · the honest version</strong> Saint-Tropez itself didn't make a huge impression on us. We enjoyed slowing down here, but without the beach-and-rest part of the trip, we wouldn't have stayed for two days. Come for the kind of day you actually want, not because the name says you should love it.</aside>
       <div className="mt-4 flex flex-wrap gap-2"><MapLink href="https://boutiques.latartetropezienne.fr/saint-tropez-place-des-lices/">La Tarte Tropézienne · Place des Lices</MapLink><MapLink href={drivingMapUrl("Hotel Playa Saint-Tropez", "Port de Saint-Tropez").replace("travelmode=driving", "travelmode=walking")}><MapPin />Walk to the port</MapLink></div>
     </div>
+    <FranceDayVenueLinks day={3} />
     <div className="py-8"><h3 className="font-display text-2xl">What to put in your budget</h3><p className="mt-3 text-sm leading-relaxed text-soft">Saddle breakfast, fuel and any A8 tolls, beach-club sunbeds, lunch and extras, club parking or return taxis, port parking, Hotel Playa and cakes. Confirm what the beach booking includes. Record prepaid items once, not again when you arrive.</p></div>
   </section>;
 }

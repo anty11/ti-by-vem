@@ -2,8 +2,10 @@ import { ArrowUpRight, Car, Coffee, MapPin, Sparkles, Utensils, Waves } from "lu
 import { Button } from "@/components/ui/button";
 import { drivingMapUrl, placeMapUrl } from "@/lib/france-guide";
 import { franceDayFiveTimes as times } from "@/lib/france-day-five-timing";
-import rivieraImage from "@/assets/riviera.jpg";
+import rivieraImage from "@/assets/france-day5-nice.jpg";
 import { FranceDayRouteSketch } from "@/components/site/FranceDayRouteSketch";
+
+import { FranceDayVenueLinks } from "@/components/site/FranceDayVenueLinks";
 
 function MapLink({ href, children }: { href: string; children: React.ReactNode }) {
   return <Button asChild variant="outline" size="sm"><a href={href} target="_blank" rel="noreferrer">{children}<ArrowUpRight /></a></Button>;
@@ -12,7 +14,8 @@ function MapLink({ href, children }: { href: string; children: React.ReactNode }
 export function FranceDayFiveGuide() {
   return <section aria-label="France day 5 detailed guide" className="mt-10 border-t border-border pt-10 text-ink">
     <header className="relative isolate overflow-hidden rounded-lg bg-ink">
-      <img src={rivieraImage} alt="The French Riviera coastline" className="absolute inset-0 h-full w-full object-cover opacity-30" />
+      <img src={rivieraImage} alt="Nice and the Promenade des Anglais" width={1536} height={768} loading="lazy" className="absolute inset-0 h-full w-full object-cover opacity-60" />
+      <div className="france-day-photo-shade absolute inset-0" aria-hidden="true" />
       <div className="relative px-6 py-10 text-onink sm:px-10">
         <p className="text-xs font-semibold uppercase">Your guide · Day 05 · From Saint-Tropez to Nice</p>
         <h2 className="mt-3 max-w-xl font-display text-4xl leading-tight sm:text-5xl">Canals, your own perfume<br />& a swim in Nice.</h2>
@@ -90,6 +93,7 @@ export function FranceDayFiveGuide() {
       <div className="mt-4 flex flex-wrap gap-2"><MapLink href={drivingMapUrl("Hotel Albert 1er Nice", "La Villa d’Este 6 Rue Masséna Nice").replace("travelmode=driving", "travelmode=walking")}><MapPin />Walk to dinner</MapLink><MapLink href="https://www.villadeste-nice.com/faq/">Restaurant details</MapLink><MapLink href={drivingMapUrl("La Villa d’Este Nice", "Promenade des Anglais Nice").replace("travelmode=driving", "travelmode=walking")}>Evening walk towards the sea</MapLink></div>
     </div>
 
+    <FranceDayVenueLinks day={5} />
     <div className="py-8"><h3 className="font-display text-2xl">What to put in your budget</h3><p className="mt-3 text-sm leading-relaxed text-soft">Sénéquier breakfast, fuel and any A8 tolls, parking at the morning stops, lunch, the Galimard workshop and any perfume gifts, Nice parking, Hotel Albert 1er, dinner, a crêpe and evening extras. Public beach time needn't mean paying for a beach club. Record any prepaid workshop amount once rather than adding it again on arrival.</p></div>
   </section>;
 }

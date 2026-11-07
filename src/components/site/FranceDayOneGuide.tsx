@@ -2,7 +2,7 @@ import { useState } from "react";
 import { ArrowUpRight, Car, Clock3, MapPin, ParkingCircle, Route, Utensils, BedDouble } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { franceDayOneStops, franceDayOneTimeline, drivingMapUrl, placeMapUrl } from "@/lib/france-guide";
-import rivieraImage from "@/assets/riviera.jpg";
+import rivieraImage from "@/assets/france-day1-marseille.jpg";
 import { FranceRouteArtwork } from "@/components/site/FranceRouteArtwork";
 
 const points = [
@@ -13,6 +13,8 @@ const points = [
   { x: 490, y: 125, label: "Gordes", id: "gordes" },
   { x: 590, y: 85, label: "Roussillon", id: "roussillon" },
 ];
+
+import { FranceDayVenueLinks } from "@/components/site/FranceDayVenueLinks";
 
 function MapLink({ href, children }: { href: string; children: React.ReactNode }) {
   return <Button asChild variant="outline" size="sm"><a href={href} target="_blank" rel="noreferrer">{children}<ArrowUpRight /></a></Button>;
@@ -26,7 +28,8 @@ export function FranceDayOneGuide() {
   return (
     <section aria-label="France day 1 detailed guide" className="mt-10 border-t border-border pt-10 text-ink">
       <header className="relative isolate overflow-hidden rounded-lg bg-ink">
-        <img src={rivieraImage} alt="The sunlit French Riviera coastline" className="absolute inset-0 h-full w-full object-cover opacity-30" />
+        <img src={rivieraImage} alt="Marseille old port and Notre-Dame de la Garde" width={1536} height={768} loading="lazy" className="absolute inset-0 h-full w-full object-cover opacity-60" />
+      <div className="france-day-photo-shade absolute inset-0" aria-hidden="true" />
         <div className="relative px-6 py-10 text-onink sm:px-10">
           <p className="text-xs font-semibold uppercase">Your guide · Day 01 · Provence</p>
           <h2 className="mt-3 max-w-xl font-display text-4xl leading-tight sm:text-5xl">From the old port<br />to the ochre sunset.</h2>
@@ -85,6 +88,7 @@ export function FranceDayOneGuide() {
         <div><h3 className="font-display text-2xl">What to put in your budget</h3><p className="mt-3 text-sm leading-relaxed text-soft">Car rental and the one-way fee, fuel, A7 tolls, five parking stops, lunch, coffee and chocolate, dinner and the room. The car deposit is usually a card hold, not a spent expense. Add your actual amounts in Budget check below.</p></div>
       </div>
 
+      <FranceDayVenueLinks day={1} />
       <details className="border-y border-border py-5"><summary className="cursor-pointer font-display text-2xl">Driving in France · the essentials</summary><ul className="mt-5 space-y-3 text-sm leading-relaxed text-soft">
         <li><strong className="text-ink">Speed:</strong> posted signs always win. General motorway limit 130 km/h dry, 110 in rain. Divided roads 110 dry / 100 wet. Many undivided roads 80. Towns usually 50 with many 30 zones. Visibility below 50 m: maximum 50 km/h. Some roads have signed exceptions.</li>
         <li><strong className="text-ink">Alcohol:</strong> general limit 0.5 g/L blood alcohol, 0.2 for novice drivers. Our recommendation: no alcohol for the driver, especially with this full day ahead.</li>

@@ -1,8 +1,10 @@
 import { ArrowUpRight, Car, MapPin, Plane, Waves } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { drivingMapUrl, placeMapUrl } from "@/lib/france-guide";
-import rivieraImage from "@/assets/riviera.jpg";
+import rivieraImage from "@/assets/france-day7-menton.jpg";
 import { FranceDayRouteSketch } from "@/components/site/FranceDayRouteSketch";
+
+import { FranceDayVenueLinks } from "@/components/site/FranceDayVenueLinks";
 
 function MapLink({ href, children }: { href: string; children: React.ReactNode }) {
   return <Button asChild variant="outline" size="sm"><a href={href} target="_blank" rel="noreferrer">{children}<ArrowUpRight /></a></Button>;
@@ -11,7 +13,8 @@ function MapLink({ href, children }: { href: string; children: React.ReactNode }
 export function FranceDaySevenGuide() {
   return <section aria-label="France day 7 detailed guide" className="mt-10 border-t border-border pt-10 text-ink">
     <header className="relative isolate overflow-hidden rounded-lg bg-ink">
-      <img src={rivieraImage} alt="The French Riviera coastline" className="absolute inset-0 h-full w-full object-cover opacity-30" />
+      <img src={rivieraImage} alt="Menton old town and Sablettes waterfront" width={1536} height={768} loading="lazy" className="absolute inset-0 h-full w-full object-cover opacity-60" />
+      <div className="france-day-photo-shade absolute inset-0" aria-hidden="true" />
       <div className="relative px-6 py-10 text-onink sm:px-10">
         <p className="text-xs font-semibold uppercase">Your guide · Day 07 · Menton & home</p>
         <h2 className="mt-3 max-w-xl font-display text-4xl leading-tight sm:text-5xl">Menton.<br />One last slow day.</h2>
@@ -21,14 +24,14 @@ export function FranceDaySevenGuide() {
 
     <div className="border-b border-border py-8">
       <h3 className="font-display text-2xl">Your last day, at a glance</h3>
-      <p className="mt-3 text-sm leading-relaxed text-soft">We wanted to do very little on our final day beyond enjoying Menton and resting by the sea. Keep the programme open, but set your airport departure time first. Your flight, car-return arrangements and live traffic decide how much beach time you have.</p>
+      <p className="mt-3 text-sm leading-relaxed text-soft">We wanted to do very little on our final day beyond enjoying Menton and resting by the sea. Keep the programme open, but set your airport departure time first. The morning times below are suggestions, not our recorded times. Your flight, car-return arrangements and live traffic decide how much beach time you have. The beach and shopping are alternatives when time is short, not stops to squeeze in before an early flight.</p>
       <ol className="mt-5 divide-y divide-border">{[
-        ["Before setting out", "Check out & pack", "Keep travel documents and valuables with you. Put luggage out of sight before parking."],
-        ["Morning, at your own pace", "Menton's old town & waterfront", "Vieille Ville, Basilique Saint-Michel and Plage des Sablettes, with more promenade time if you feel like it."],
-        ["If your flight allows", "La Cabane Plage", "Our spontaneous beach stop. Check availability and leave time to change before driving."],
-        ["If time & budget remain", "CAP3000 shopping", "An extra stop near the airport, before returning the car. Set a firm leaving time."],
-        ["Your planned departure time", "Drive to Nice Airport", "Allow for traffic, fuel, rental inspection and the journey to your terminal."],
-        ["At the airport", "Return the car & fly home", "Follow your rental company's return signs, keep the return receipt, then head to departures."],
+        ["08:00–09:00 · suggested", "Check out & pack", "Keep travel documents and valuables with you. Put luggage out of sight before parking."],
+        ["09:00–11:00 · suggested", "Menton's old town & waterfront", "Vieille Ville, Basilique Saint-Michel and Plage des Sablettes, with more promenade time if you feel like it."],
+        ["11:00–14:00 · if your flight allows", "La Cabane Plage", "Our spontaneous beach stop. Check availability and leave time to change before driving."],
+        ["60–90 minutes · only if time remains", "CAP3000 shopping", "An extra stop near the airport, before returning the car. Set a firm leaving time."],
+        ["Flight-led · allow 45–75 minutes driving", "Drive to Nice Airport", "Allow for traffic, fuel, rental inspection and the journey to your terminal."],
+        ["Airline deadline + return buffer", "Return the car & fly home", "Follow your rental company's return signs, keep the return receipt, then head to departures."],
       ].map(([time, title, note]) => <li key={time} className="grid gap-1 py-3 sm:grid-cols-[11rem_1fr] sm:gap-4"><span className="text-sm font-semibold text-terracotta">{time}</span><div><p className="text-sm font-semibold">{title}</p><p className="mt-1 text-sm leading-relaxed text-soft">{note}</p></div></li>)}</ol>
     </div>
 
@@ -67,6 +70,7 @@ export function FranceDaySevenGuide() {
       <div className="mt-4 flex flex-wrap gap-2"><MapLink href={drivingMapUrl("Parking Vieille Ville Sablettes Menton", "Nice Airport Car Rental Center")}><Car />Drive towards airport car return</MapLink><MapLink href="https://www.nice.aeroport.fr/en/services/car-rental">Airport car-return instructions</MapLink><MapLink href="https://www.nice.aeroport.fr/en/directions/t1-t2-shuttles">Terminal connections</MapLink></div>
     </div>
 
+    <FranceDayVenueLinks day={7} />
     <div className="py-8"><h3 className="font-display text-2xl">What to put in your budget</h3><p className="mt-3 text-sm leading-relaxed text-soft">Menton parking, beach-club places and any food or drinks, fuel, A8 tolls and any rental charges required by your contract. Check the final rental statement and keep receipts. Public beach time is an alternative if you don't want a paid beach-club stop.</p></div>
   </section>;
 }

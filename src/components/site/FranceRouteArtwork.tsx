@@ -40,8 +40,8 @@ export function FranceRouteArtwork({ title, stops, path, height = 340, selected,
       <path d={path} fill="none" stroke="var(--terracotta)" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round" />
       <path d={path} fill="none" stroke="var(--card)" strokeWidth="1" strokeDasharray="2 10" strokeLinecap="round" />
       {stops.map((stop, index) => <g key={`${stop.label}-${index}`}>
-        <circle cx={stop.x} cy={stop.y} r={selected === stop.id ? 20 : 17} fill="var(--atlas-pin-halo)" />
-        <circle cx={stop.x} cy={stop.y} r="11" fill={selected === stop.id ? "var(--terracotta)" : "var(--ink)"} stroke="var(--card)" strokeWidth="2.5" />
+        <circle cx={stop.x} cy={stop.y} r={selected && selected === stop.id ? 20 : 17} fill="var(--atlas-pin-halo)" />
+        <circle cx={stop.x} cy={stop.y} r="11" fill={selected && selected === stop.id ? "var(--terracotta)" : "var(--ink)"} stroke="var(--card)" strokeWidth="2.5" />
         <text x={stop.x} y={stop.y + 4} textAnchor="middle" fill="var(--onink)" fontSize="11" fontWeight="600">{index + 1}</text>
         <text className="france-atlas-label" x={stop.x} y={stop.y - 26} textAnchor="middle" fontSize="15" fontWeight="600">{stop.label}</text>
       </g>)}

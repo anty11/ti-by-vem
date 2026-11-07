@@ -1,5 +1,9 @@
 # Roadmap
 
+- [ ] Polish all paid France daily map sketches and verify desktop/mobile views.
+- [ ] Start France day 5 at 08:00 while preserving confirmed later appointments.
+- [ ] Correct France budget, especially food and drinks, once Monika supplies the intended amounts and per-person/group basis.
+
 - [x] Add La Villa d'Este's generous-portion note to day 5.
 - [x] Identify the shopping centre beside Nice Airport and add an optional day 7 stop with parking, budget and flight-time cautions.
 - [x] Add paid France day 6 from the uploaded notes, with parking, maps and day switching.

@@ -161,7 +161,7 @@ export function TripRoomPage({ itinerary, lang }: { itinerary: Itinerary; lang: 
           )}
 
           {itinerary.slug === "riviera" && view === "read" ? (
-            <div ref={guideStart} className="scroll-mt-24">
+            <div ref={guideStart} className="scroll-mt-44 sm:scroll-mt-24">
               {guideDay === 1 ? <FranceDayOneGuide /> : guideDay === 2 ? <FranceDayTwoGuide /> : guideDay === 3 ? <FranceDayThreeGuide /> : guideDay === 4 ? <FranceDayFourGuide /> : <FranceDayFiveGuide />}
             </div>
           ) : null}

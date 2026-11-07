@@ -22,6 +22,7 @@ import { FranceDayFourGuide } from "@/components/site/FranceDayFourGuide";
 import { FranceDayFiveGuide } from "@/components/site/FranceDayFiveGuide";
 import { FranceDaySevenGuide } from "@/components/site/FranceDaySevenGuide";
 import { FranceDaySixGuide } from "@/components/site/FranceDaySixGuide";
+import { FranceReservationOverview } from "@/components/site/FranceReservationOverview";
 
 export function TripRoomPage({ itinerary, lang }: { itinerary: Itinerary; lang: Lang }) {
   const t = tripCopy[lang];
@@ -121,6 +122,12 @@ export function TripRoomPage({ itinerary, lang }: { itinerary: Itinerary; lang: 
                   {lang === "sk" ? "Deň" : "Day"} {day}
                 </Button>
               ))}
+              <Button variant={guideDay === 8 ? "default" : "outline"} aria-pressed={guideDay === 8} onClick={() => {
+                setGuideDay(8);
+                guideStart.current?.scrollIntoView({ block: "start" });
+              }}>
+                {lang === "sk" ? "Rezervácie" : "Reservations"}
+              </Button>
             </nav>
           ) : null}
           {view === "trip" && routeMap ? (
@@ -164,7 +171,7 @@ export function TripRoomPage({ itinerary, lang }: { itinerary: Itinerary; lang: 
 
           {itinerary.slug === "riviera" && view === "read" ? (
             <div ref={guideStart} className="scroll-mt-44 sm:scroll-mt-24">
-              {guideDay === 1 ? <FranceDayOneGuide /> : guideDay === 2 ? <FranceDayTwoGuide /> : guideDay === 3 ? <FranceDayThreeGuide /> : guideDay === 4 ? <FranceDayFourGuide /> : guideDay === 5 ? <FranceDayFiveGuide /> : guideDay === 6 ? <FranceDaySixGuide /> : <FranceDaySevenGuide />}
+              {guideDay === 1 ? <FranceDayOneGuide /> : guideDay === 2 ? <FranceDayTwoGuide /> : guideDay === 3 ? <FranceDayThreeGuide /> : guideDay === 4 ? <FranceDayFourGuide /> : guideDay === 5 ? <FranceDayFiveGuide /> : guideDay === 6 ? <FranceDaySixGuide /> : guideDay === 7 ? <FranceDaySevenGuide /> : <FranceReservationOverview />}
             </div>
           ) : null}
 

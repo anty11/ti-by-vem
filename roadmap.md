@@ -1,8 +1,11 @@
 # Roadmap
 
+- [x] Add a paid France reservation overview after day 7 in the day switcher and verify unlocked desktop/mobile access.
+- [x] Make the Saint-Tropez hotel stairs-only warning prominent in the reservation overview.
+
 - [x] Polish all paid France daily map sketches and verify desktop/mobile views.
 - [x] Start France day 5 at 08:00 while preserving confirmed later appointments.
-- [ ] Correct France budget, especially food and drinks. Deferred by Monika until she supplies amounts, do not change yet.
+- [x] Increase the France planning budget, especially food and drinks, as newly requested by Monika. Clearly distinguish estimates from actual spending.
 - [x] Add verified Google Maps ratings and links for named dining stops, known official restaurant links, plus official and Booking hotel links across France days.
 - [x] Replace France daily opening photos with images of the main destination for each day.
 - [x] Provide concise overall improvement suggestions after finishing the requested changes.

@@ -1,4 +1,5 @@
 import type { Lang } from "./i18n";
+import { franceBudget } from "./france-budget";
 
 export type ItineraryText = {
   country: string;
@@ -206,7 +207,7 @@ export const itineraries: Itinerary[] = [
     title: "French Riviera by car",
     days: 7,
     stops: "Marseille → Menton",
-    budget: "~€1,850",
+    budget: `~€${franceBudget.total.toLocaleString("en-US")}`,
     blurb: "One rental car from Marseille to Nice. Provence hilltop villages, the Verdon Gorge, Saint-Tropez beach clubs and a night in Monaco.",
     accent: "terracotta",
     x: 302,

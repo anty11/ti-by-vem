@@ -79,6 +79,22 @@
   --border: oklch(0.9 0.01 248);
   --input: oklch(0.9 0.01 248);
   --ring: var(--royal);
+  --atlas-land: oklch(0.98 0.008 150);
+  --atlas-sea: oklch(0.88 0.065 195);
+  --atlas-shore: oklch(0.76 0.075 190);
+  --atlas-wave: oklch(0.70 0.055 195 / 0.4);
+  --atlas-sea-ink: oklch(0.43 0.055 195);
+  --atlas-grid: oklch(0.6 0.025 150 / 0.10);
+  --atlas-contour: oklch(0.65 0.06 150 / 0.17);
+  --atlas-pin-halo: oklch(0.99 0 0 / 0.8);
+}
+
+.france-atlas-label {
+  fill: var(--ink);
+  stroke: var(--atlas-land);
+  stroke-width: 5px;
+  stroke-linejoin: round;
+  paint-order: stroke;
 }
 
 @utility glass {

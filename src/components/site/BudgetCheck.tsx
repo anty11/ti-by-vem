@@ -2,6 +2,7 @@ import { useEffect, useMemo, useState } from "react";
 import { supabase } from "@/integrations/supabase/client";
 import type { Lang } from "@/lib/i18n";
 import { unifyEstimates } from "@/lib/budget-estimates";
+import { franceBudget } from "@/lib/france-budget";
 
 type Expense = {
   id: string;
@@ -138,11 +139,12 @@ export function BudgetCheck({ slug, budget, lang }: { slug: string; budget: stri
       if (list.length === 0) {
         const total = Number(budget.replace(/[^\d]/g, "")) || 0;
         if (total > 0) {
-          const seed = SPLIT.map(([cat, p], i) => ({
+          const allowances = slug === "riviera" ? franceBudget.allowances : SPLIT.map(([category, share]) => ({ category, amount: Math.round(total * share) }));
+          const seed = allowances.map(({ category: cat, amount }, i) => ({
             itinerary_slug: slug,
             label: `${t.ourEstimate} · ${catLabel[lang][cat]}`,
             category: cat,
-            planned: Math.round(total * p),
+            planned: amount,
             sort_order: i,
           }));
           const res = await db
@@ -214,6 +216,10 @@ export function BudgetCheck({ slug, budget, lang }: { slug: string; budget: stri
     <section className="glass rounded-3xl p-6 lg:p-8">
       <h2 className="font-display text-3xl text-ink">{t.title}</h2>
       <p className="mt-2 max-w-xl text-sm leading-relaxed text-soft">{t.lead}</p>
+      {slug === "riviera" && <div className="mt-4 border-l-2 border-terracotta pl-4 text-sm leading-relaxed text-soft">
+        <p><strong className="text-ink">France · planning estimate for two · ~€6,000, excluding flights.</strong> Allow €1,800 for six hotel nights, €1,000 for the rental car, fuel, tolls, parking and taxis, €2,200 for meals and drinks, €700 for beach setups, pedal boats and the perfume workshop, and €300 as a buffer. Restaurant food is counted under meals, not again under beach activities. These are planning allowances, not our actual spending or current venue quotes. Shopping and casino play are extra.</p>
+        <p className="mt-2">Your saved expenses and plans are unchanged. The revised allowances are used for new budgets. If your older plan is still low, adjust the Planned amounts below to suit your bookings.</p>
+      </div>}
 
       <div className="mt-6 grid gap-3 sm:grid-cols-3">
         {[

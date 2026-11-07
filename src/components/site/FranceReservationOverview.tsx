@@ -74,7 +74,7 @@ export function FranceReservationOverview() {
       <ul className="mt-4 divide-y divide-border">{hotelStops.map((stop) => {
         const venue = franceVenues[stop.day]?.find((item) => item.name.startsWith(stop.prefix));
         if (!venue) return null;
-        return <li key={stop.prefix} className="py-5"><p className="text-xs font-semibold text-terracotta">{stop.nights}</p><h4 className="mt-1 text-lg font-semibold">{venue.name}</h4><p className="mt-2 text-sm leading-relaxed text-soft">{stop.note}</p><VenueLinks venue={venue} /></li>;
+        return <li key={stop.prefix} className="py-5"><p className="text-xs font-semibold text-terracotta">{stop.nights}</p><h4 className="mt-1 text-lg font-semibold">{venue.name}</h4><p className="mt-2 text-sm leading-relaxed text-soft">{stop.note}</p>{stop.prefix === "Hotel Playa" && <p className="mt-3 border-l-2 border-terracotta pl-3 text-sm font-semibold text-ink">No lift · stairs only. You will need to carry your luggage up the stairs. If stairs are difficult for you, confirm room access before booking or choose another hotel.</p>}<VenueLinks venue={venue} /></li>;
       })}</ul>
     </section>
 

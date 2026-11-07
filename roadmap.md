@@ -1,5 +1,6 @@
 # Roadmap
 
+- [ ] Identify the shopping centre beside Nice Airport and add an optional day 7 stop with parking, budget and flight-time cautions.
 - [ ] Add paid France day 6 from the uploaded notes, with parking, maps and day switching.
 - [ ] Add visible route maps to paid France days 3, 4, 5 and 7, matching the day 2 route-sketch approach.
 - [ ] Add paid France day 7 with Menton walk, beach experience, parking and airport return.

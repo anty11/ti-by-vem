@@ -1,5 +1,8 @@
 # Roadmap
 
+- [x] Add the detailed paid France day 1 guide from the uploaded notes, with transfers, parking, maps and clearly labelled estimates; verify signed-in, signed-out and mobile views.
+- [ ] Confirm the unnamed chocolate shop and exact parking/toll tariffs for France day 1 (requires the shop name and travel dates).
+
 - [x] Restore the richer earlier home-page design
 - [x] Keep the realistic interactive map and current VeM identity
 - [x] Keep packages in their own page

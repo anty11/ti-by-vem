@@ -14,6 +14,7 @@ import { listMyAccess } from "@/lib/access.functions";
 import { routeMaps } from "@/lib/route-maps";
 import { OnTripMode } from "@/components/site/OnTripMode";
 import { BudgetCheck } from "@/components/site/BudgetCheck";
+import { FranceDayOneGuide } from "@/components/site/FranceDayOneGuide";
 
 export function TripRoomPage({ itinerary, lang }: { itinerary: Itinerary; lang: Lang }) {
   const t = tripCopy[lang];
@@ -139,6 +140,8 @@ export function TripRoomPage({ itinerary, lang }: { itinerary: Itinerary; lang: 
               </ul>
             </div>
           )}
+
+          {itinerary.slug === "riviera" && view === "read" ? <FranceDayOneGuide /> : null}
 
           <div className="mt-8">
             <BudgetCheck slug={itinerary.slug} budget={itinerary.budget} lang={lang} />

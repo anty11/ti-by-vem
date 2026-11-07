@@ -10,3 +10,4 @@
 <!-- LOVABLE:END -->
 
 - Route maps may define named map areas for long journeys; selecting a day switches to its area so regional and city-scale stops remain readable.
+- Detailed paid guides live separately from public route summaries and render only inside an unlocked trip room, so public itinerary cards and maps remain previews.

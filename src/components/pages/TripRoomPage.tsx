@@ -1,4 +1,5 @@
-import { useEffect, useState } from "react";
+import { useEffect, useRef, useState } from "react";
+import { Button } from "@/components/ui/button";
 import { Link } from "@tanstack/react-router";
 import { useServerFn } from "@tanstack/react-start";
 import { supabase } from "@/integrations/supabase/client";
@@ -25,6 +26,8 @@ export function TripRoomPage({ itinerary, lang }: { itinerary: Itinerary; lang: 
   const [tier, setTier] = useState<string>("chat");
   const routeMap = routeMaps[itinerary.slug];
   const [view, setView] = useState<"read" | "trip">("read");
+  const [guideDay, setGuideDay] = useState(1);
+  const guideStart = useRef<HTMLDivElement>(null);
   const loadRoom = useServerFn(getTripRoom);
   const [room, setRoom] = useState<TripRoomState>({
     profile: emptyProfile,
@@ -103,6 +106,18 @@ export function TripRoomPage({ itinerary, lang }: { itinerary: Itinerary; lang: 
               ))}
             </div>
           ) : null}
+          {itinerary.slug === "riviera" && view === "read" ? (
+            <nav aria-label="Detailed itinerary days" className="mt-4 flex flex-wrap gap-2">
+              {[1, 2].map((day) => (
+                <Button key={day} variant={guideDay === day ? "default" : "outline"} aria-pressed={guideDay === day} onClick={() => {
+                  setGuideDay(day);
+                  guideStart.current?.scrollIntoView({ block: "start" });
+                }}>
+                  {lang === "sk" ? "Deň" : "Day"} {day}
+                </Button>
+              ))}
+            </nav>
+          ) : null}
           {view === "trip" && routeMap ? (
             <div className="mt-6">
               <OnTripMode slug={itinerary.slug} data={routeMap} lang={lang} />
@@ -142,7 +157,11 @@ export function TripRoomPage({ itinerary, lang }: { itinerary: Itinerary; lang: 
             </div>
           )}
 
-          {itinerary.slug === "riviera" && view === "read" ? <><FranceDayOneGuide /><FranceDayTwoGuide /></> : null}
+          {itinerary.slug === "riviera" && view === "read" ? (
+            <div ref={guideStart} className="scroll-mt-24">
+              {guideDay === 1 ? <FranceDayOneGuide /> : <FranceDayTwoGuide />}
+            </div>
+          ) : null}
 
           <div className="mt-8">
             <BudgetCheck slug={itinerary.slug} budget={itinerary.budget} lang={lang} />

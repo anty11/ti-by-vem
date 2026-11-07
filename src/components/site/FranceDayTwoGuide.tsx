@@ -3,6 +3,7 @@ import { Button } from "@/components/ui/button";
 import { drivingMapUrl, placeMapUrl } from "@/lib/france-guide";
 import rivieraImage from "@/assets/riviera.jpg";
 import { franceDayTwoArrivalTimes as times, franceDayTwoBoatHours } from "@/lib/france-day-two-timing";
+import { FranceRouteArtwork } from "@/components/site/FranceRouteArtwork";
 
 function MapLink({ href, children }: { href: string; children: React.ReactNode }) {
   return <Button asChild variant="outline" size="sm"><a href={href} target="_blank" rel="noreferrer">{children}<ArrowUpRight /></a></Button>;
@@ -40,14 +41,7 @@ export function FranceDayTwoGuide() {
 
     <div className="border-b border-border py-8" aria-label="Day 2 route sketch">
       <div className="flex flex-wrap items-baseline justify-between gap-2"><h3 className="font-display text-2xl">The second day's road</h3><span className="text-xs text-soft">Route sketch · not to scale</span></div>
-      <svg viewBox="0 0 700 300" role="img" aria-label="Route from Roussillon through lavender country to Galetas, Moustiers and Cannes" className="mt-4 w-full rounded-lg border border-border bg-card">
-        <path d="M470 245 Q570 190 700 225 L700 300 L470 300Z" fill="var(--royal)" opacity="0.12" />
-        <text x="555" y="280" fill="var(--soft)" fontSize="13">Mediterranean Sea</text>
-        <path d="M65 90 L235 135 L340 95 L465 170 L460 70 L625 215" fill="none" stroke="var(--terracotta)" strokeWidth="3" strokeDasharray="7 6" />
-        {[[65,90,"Roussillon"],[235,135,"Valensole"],[340,95,"Brunet"],[465,170,"Galetas"],[460,70,"Moustiers"],[625,215,"Cannes"]].map(([x,y,label]) => <g key={label}><circle cx={Number(x)} cy={Number(y)} r="6" fill="var(--terracotta)" /><text x={Number(x)} y={Number(y)-16} textAnchor="middle" fill="var(--ink)" fontSize="13">{label}</text></g>)}
-        <circle cx="205" cy="170" r="5" fill="var(--sage)" />
-        <text x="205" y="197" textAnchor="middle" fill="var(--soft)" fontSize="12">Angelvin · seasonal stop</text>
-      </svg>
+      <FranceRouteArtwork title="Route from Roussillon through lavender country to Galetas, Moustiers and Cannes" day={2} path="M75 90 Q150 95 235 135 Q290 120 340 95 Q425 105 465 190 L470 65 Q560 110 610 235" stops={[{x:75,y:90,label:"Roussillon"},{x:235,y:135,label:"Valensole"},{x:340,y:95,label:"Brunet"},{x:465,y:190,label:"Galetas"},{x:470,y:65,label:"Moustiers"},{x:610,y:235,label:"Cannes"}]} />
       <p className="mt-3 text-sm leading-relaxed text-soft">Our lavender stops were Valensole at 09:06 and Brunet at 09:18. Angelvin is a separate visitor-farm suggestion, not the field we visited. Use the driving and location maps below for navigation.</p>
     </div>
 

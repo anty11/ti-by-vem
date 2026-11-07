@@ -1,7 +1,7 @@
 import { ArrowUpRight, BedDouble, Car, Clock3, Coffee, MapPin, Route, Waves } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { drivingMapUrl, placeMapUrl } from "@/lib/france-guide";
-import rivieraImage from "@/assets/riviera.jpg";
+import rivieraImage from "@/assets/france-day2-verdon.jpg";
 import { franceDayTwoArrivalTimes as times, franceDayTwoBoatHours } from "@/lib/france-day-two-timing";
 import { FranceRouteArtwork } from "@/components/site/FranceRouteArtwork";
 
@@ -12,7 +12,8 @@ function MapLink({ href, children }: { href: string; children: React.ReactNode }
 export function FranceDayTwoGuide() {
   return <section aria-label="France day 2 detailed guide" className="mt-10 border-t border-border pt-10 text-ink">
     <header className="relative isolate overflow-hidden rounded-lg bg-ink">
-      <img src={rivieraImage} alt="The Mediterranean coastline" className="absolute inset-0 h-full w-full object-cover opacity-30" />
+      <img src={rivieraImage} alt="Turquoise water and pedal boats in the Verdon Gorge" width={1536} height={768} loading="lazy" className="absolute inset-0 h-full w-full object-cover opacity-60" />
+      <div className="france-day-photo-shade absolute inset-0" aria-hidden="true" />
       <div className="relative px-6 py-10 text-onink sm:px-10">
         <p className="text-xs font-semibold uppercase">Your guide · Day 02 · Verdon to Cannes</p>
         <p className="mt-3 inline-flex items-center gap-2 text-sm font-semibold text-onink"><span aria-hidden="true">♥</span>eM’s favourite</p>

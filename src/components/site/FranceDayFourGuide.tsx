@@ -1,7 +1,7 @@
 import { ArrowUpRight, Car, Coffee, MapPin, ShoppingBag, Utensils } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { drivingMapUrl, placeMapUrl } from "@/lib/france-guide";
-import rivieraImage from "@/assets/riviera.jpg";
+import rivieraImage from "@/assets/france-day4-saint-tropez.jpg";
 import { FranceDayRouteSketch } from "@/components/site/FranceDayRouteSketch";
 
 function MapLink({ href, children }: { href: string; children: React.ReactNode }) {
@@ -11,7 +11,8 @@ function MapLink({ href, children }: { href: string; children: React.ReactNode }
 export function FranceDayFourGuide() {
   return <section aria-label="France day 4 detailed guide" className="mt-10 border-t border-border pt-10 text-ink">
     <header className="relative isolate overflow-hidden rounded-lg bg-ink">
-      <img src={rivieraImage} alt="The French Riviera coastline" className="absolute inset-0 h-full w-full object-cover opacity-30" />
+      <img src={rivieraImage} alt="The colourful old port of Saint-Tropez" width={1536} height={768} loading="lazy" className="absolute inset-0 h-full w-full object-cover opacity-60" />
+      <div className="france-day-photo-shade absolute inset-0" aria-hidden="true" />
       <div className="relative px-6 py-10 text-onink sm:px-10">
         <p className="text-xs font-semibold uppercase">Your guide · Day 04 · Saint-Tropez</p>
         <h2 className="mt-3 max-w-xl font-display text-4xl leading-tight sm:text-5xl">Saint-Tropez.<br />Pastries, lunch & local finds.</h2>

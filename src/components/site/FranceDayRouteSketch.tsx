@@ -34,14 +34,28 @@ const maps: Record<number, DayMap> = {
     path: "M95 265 L155 155 L310 215 L450 65 L605 165",
     note: "This shows our original route. You can skip Port Grimaud and Sainte-Maxime and head towards Grasse, keeping lunch and your confirmed perfume-workshop time in the plan.",
   },
+  6: {
+    title: "Nice → Èze → Menton → Monaco",
+    stops: [
+      { x: 90, y: 250, label: "Nice", detail: "Hotel breakfast" },
+      { x: 220, y: 145, label: "Coastal stops", detail: "Villefranche · Cap-Ferrat" },
+      { x: 345, y: 65, label: "Èze", detail: "Village · garden · coffee" },
+      { x: 480, y: 145, label: "Maybourne Riviera", detail: "Terrace lunch" },
+      { x: 600, y: 65, label: "Menton", detail: "Hotel · leave the car" },
+      { x: 465, y: 265, label: "Monaco", detail: "Taxi · evening walk" },
+    ],
+    path: "M90 250 L220 145 L345 65 L480 145 L600 65 L465 265",
+    note: "Choose short coastal stops to protect the terrace lunch booking. After checking in at Menton, travel back to Monaco by taxi and arrange the return in advance.",
+  },
   7: {
     title: "Menton → Nice Airport",
     stops: [
       { x: 490, y: 75, label: "Menton", detail: "Old town · basilica · gardens" },
       { x: 530, y: 225, label: "Menton waterfront", detail: "Sablettes · La Cabane Plage" },
-      { x: 150, y: 215, label: "Nice Airport", detail: "Car return · flight home" },
+      { x: 275, y: 130, label: "CAP3000", detail: "Shopping if time allows" },
+      { x: 125, y: 260, label: "Nice Airport", detail: "Car return · flight home" },
     ],
-    path: "M490 75 L530 225 Q330 125 150 215",
+    path: "M490 75 L530 225 L275 130 L125 260",
     note: "Keep the car in the shared Menton garage for the walk and beach, then drive to the airport's rental return. Your flight time sets the departure deadline.",
   },
 };

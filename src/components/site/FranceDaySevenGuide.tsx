@@ -26,6 +26,7 @@ export function FranceDaySevenGuide() {
         ["Before setting out", "Check out & pack", "Keep travel documents and valuables with you. Put luggage out of sight before parking."],
         ["Morning, at your own pace", "Menton's old town & waterfront", "Vieille Ville, Basilique Saint-Michel and Plage des Sablettes, with more promenade time if you feel like it."],
         ["If your flight allows", "La Cabane Plage", "Our spontaneous beach stop. Check availability and leave time to change before driving."],
+        ["If time & budget remain", "CAP3000 shopping", "An extra stop near the airport, before returning the car. Set a firm leaving time."],
         ["Your planned departure time", "Drive to Nice Airport", "Allow for traffic, fuel, rental inspection and the journey to your terminal."],
         ["At the airport", "Return the car & fly home", "Follow your rental company's return signs, keep the return receipt, then head to departures."],
       ].map(([time, title, note]) => <li key={time} className="grid gap-1 py-3 sm:grid-cols-[11rem_1fr] sm:gap-4"><span className="text-sm font-semibold text-terracotta">{time}</span><div><p className="text-sm font-semibold">{title}</p><p className="mt-1 text-sm leading-relaxed text-soft">{note}</p></div></li>)}</ol>
@@ -51,7 +52,14 @@ export function FranceDaySevenGuide() {
     </div>
 
     <div className="border-b border-border py-8">
-      <h3 className="flex items-center gap-2 font-display text-2xl"><Plane className="size-5" />03 · Nice Airport, car return & home</h3>
+      <h3 className="font-display text-2xl">03 · A little shopping before the airport</h3>
+      <p className="mt-3 text-sm leading-relaxed text-soft">We fitted in some shopping before our flight. If you still have time and budget, CAP3000 is a large shopping centre beside Nice Airport, on avenue Eugène Donadeï in Saint-Laurent-du-Var. There is plenty to browse. Our last shopping stop felt calm, but don't assume it will be quiet on your date.</p>
+      <p className="mt-3 text-sm leading-relaxed text-soft"><strong className="text-ink">Where to park:</strong> Use CAP3000's signed Parking Nord or Parking Sud. Check current opening hours, tariffs and height restrictions, keep luggage out of sight and take documents and valuables with you. This is shopping parking, not your rental-car return location.</p>
+      <p className="mt-3 text-sm leading-relaxed text-soft">Do this before returning the car, and set a firm leaving time that protects refuelling, the rental return and your airline's deadlines. Nearby doesn't mean instant access to the terminal. Skip shopping if traffic, time or your budget is tight, and leave room in your luggage for any purchases.</p>
+      <div className="mt-4 flex flex-wrap gap-2"><MapLink href={drivingMapUrl("Parking Vieille Ville Sablettes Menton", "CAP3000 Parking Avenue Eugène Donadeï Saint-Laurent-du-Var")}><Car />Drive to CAP3000 parking</MapLink><MapLink href="https://www.cap3000.com/informations">Shopping hours & parking</MapLink><MapLink href={drivingMapUrl("CAP3000 Saint-Laurent-du-Var", "Nice Airport Car Rental Center")}>Continue to car return</MapLink></div>
+    </div>
+    <div className="border-b border-border py-8">
+      <h3 className="flex items-center gap-2 font-display text-2xl"><Plane className="size-5" />04 · Nice Airport, car return & home</h3>
       <p className="mt-3 text-sm leading-relaxed text-soft">Allow roughly 45–75 minutes from Menton to Nice Airport as a driving estimate, with additional time for congestion. The A8 route can include tolls. Check live traffic before leaving and build your schedule backwards from your airline's check-in and bag-drop deadlines. Add a separate buffer for refuelling, car return and reaching your departure terminal.</p>
       <aside className="mt-4 border-l-2 border-sage pl-4 text-sm leading-relaxed text-soft"><strong className="text-ink">V & eM · an easy finish</strong> Returning our car at the airport was quick and trouble-free. At first it looked as though there would be quite a thorough inspection, but everything went smoothly. We simply followed the signs, handed the car back and headed for our flight home.</aside>
       <p className="mt-3 text-sm leading-relaxed text-soft">Check your rental company's return location and opening hours before setting off. Follow its car-return signs rather than general passenger parking. Return the fuel level required by your contract, take photos of the car and fuel gauge, check every compartment for belongings and keep the return confirmation. A smooth return like ours is lovely, but don't rely on it taking only a few minutes.</p>

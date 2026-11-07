@@ -80,7 +80,7 @@ export const franceDayOneStops: GuideStop[] = [
     from: "Belvédère de Gordes", drive: "20–30 minutes · about 12 km", road: "Local roads through the Luberon towards Roussillon",
     toll: "No motorway toll on this local-road leg.",
     tipLabel: "V & eM · the evening we remember",
-    tip: "At dinner, the owner offered us rums from around the world and stopped for a chat — our experience, not a promised inclusion. There weren't many tourists, and dinner didn't need booking ahead. Let the evening be slow. Breakfast at OMMA looked excellent, but we didn't have time to enjoy it because we had a train to catch. You'll see why in the day 2 plan.",
+    tip: "At dinner, the owner offered us rums from around the world and stopped for a chat — our experience, not a promised inclusion. There weren't many tourists, and dinner didn't need booking ahead. Let the evening be slow. Breakfast at OMMA looked excellent, but we took breakfast and coffee into the car instead so we could reach the Verdon pedal boats early. You'll see the plan in day 2.",
   },
 ];
 

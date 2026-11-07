@@ -1,0 +1,108 @@
+import { ArrowUpRight, BedDouble, Car, Clock3, Coffee, MapPin, Route, Waves } from "lucide-react";
+import { Button } from "@/components/ui/button";
+import { drivingMapUrl, placeMapUrl } from "@/lib/france-guide";
+import rivieraImage from "@/assets/riviera.jpg";
+
+function MapLink({ href, children }: { href: string; children: React.ReactNode }) {
+  return <Button asChild variant="outline" size="sm"><a href={href} target="_blank" rel="noreferrer">{children}<ArrowUpRight /></a></Button>;
+}
+
+export function FranceDayTwoGuide() {
+  return <section aria-label="France day 2 detailed guide" className="mt-10 border-t border-border pt-10 text-ink">
+    <header className="relative isolate overflow-hidden rounded-lg bg-ink">
+      <img src={rivieraImage} alt="The Mediterranean coastline" className="absolute inset-0 h-full w-full object-cover opacity-30" />
+      <div className="relative px-6 py-10 text-onink sm:px-10">
+        <p className="text-xs font-semibold uppercase">Your guide · Day 02 · Verdon to Cannes</p>
+        <h2 className="mt-3 max-w-xl font-display text-4xl leading-tight sm:text-5xl">Canyon mornings.<br />Riviera nights.</h2>
+        <p className="mt-5 max-w-lg text-sm leading-relaxed">Roussillon → Valensole → Brunet → Plage du Galetas → Moustiers-Sainte-Marie → Cannes</p>
+        <div className="mt-6 flex flex-wrap gap-x-6 gap-y-2 text-sm"><span className="flex items-center gap-2"><Waves className="size-4" />Pedal boats first</span><span className="flex items-center gap-2"><BedDouble className="size-4" />Hotel Verlaine · Cannes</span></div>
+      </div>
+    </header>
+
+    <div className="border-b border-border py-8">
+      <h3 className="flex items-center gap-2 font-display text-2xl"><Clock3 className="size-5" />Your day at a glance</h3>
+      <p className="mt-3 max-w-2xl text-sm leading-relaxed text-soft">An early start protects the best part of this day: getting out on the water before the rental queues build. This is a suggested summer schedule, not our exact travel diary. Confirm the boat operator's opening time and weather conditions before setting your alarm.</p>
+      <ol className="mt-5 divide-y divide-border">{[
+        ["05:30 option", "A quiet Roussillon viewpoint", "Wake a little earlier for a short village-viewpoint walk if there is enough daylight. Keep it brief and skip the paid ochre trail this morning."],
+        ["05:45", "Wake up & pack", "Have swimwear, a towel, dry clothes and cash ready before leaving."],
+        ["06:00–06:15", "Breakfast to go & departure", "Take breakfast prepared the evening before. The bakery below opens later than this early departure."],
+        ["09:15 target", "Plage du Galetas rental check-in", "Allow roughly 2½–3 hours driving via Valensole and Brunet, plus parking. Leave at 06:00 if adding a brief permitted photo stop."],
+        ["09:30 in July–August", "First MYC Plage departure", "Published summer opening is 09:30. In May, June and September it is 10:00. Check the live calendar for your visit."],
+        ["Morning", "Pedal boats & a swim", "Allow about 1½–2 hours on the water if the rental terms and conditions permit."],
+        ["12:00–12:30", "Moustiers-Sainte-Marie", "Park, wander the village and make your way to lunch."],
+        ["13:00 target", "Lunch at Les Tables du Cloître", "Confirm lunch service and book for your date. Leave room for a relaxed meal."],
+        ["14:30–15:00", "Drive to Cannes", "Allow roughly 2½–3 hours plus traffic and a short break."],
+        ["17:30–18:00 target", "Hotel Verlaine", "Check in, shower and get ready for the evening."],
+        ["Evening", "Cannes, dinner & the sea", "On a confirmed fireworks night, arrange the dinner timing around the official display. Otherwise enjoy a beachside dinner and the promenade."],
+      ].map(([time, title, note]) => <li key={time} className="grid gap-1 py-3 sm:grid-cols-[10rem_1fr] sm:gap-4"><span className="text-sm font-semibold text-terracotta">{time}</span><div><p className="text-sm font-semibold">{title}</p><p className="mt-1 text-sm leading-relaxed text-soft">{note}</p></div></li>)}</ol>
+    </div>
+
+    <div className="border-b border-border py-8" aria-label="Day 2 route sketch">
+      <div className="flex flex-wrap items-baseline justify-between gap-2"><h3 className="font-display text-2xl">The second day's road</h3><span className="text-xs text-soft">Route sketch · not to scale</span></div>
+      <svg viewBox="0 0 700 300" role="img" aria-label="Route from Roussillon through lavender country to Galetas, Moustiers and Cannes" className="mt-4 w-full rounded-lg border border-border bg-card">
+        <path d="M470 245 Q570 190 700 225 L700 300 L470 300Z" fill="var(--royal)" opacity="0.12" />
+        <text x="555" y="280" fill="var(--soft)" fontSize="13">Mediterranean Sea</text>
+        <path d="M65 90 L235 135 L340 95 L465 170 L460 70 L625 215" fill="none" stroke="var(--terracotta)" strokeWidth="3" strokeDasharray="7 6" />
+        {[[65,90,"Roussillon"],[235,135,"Valensole"],[340,95,"Brunet"],[465,170,"Galetas"],[460,70,"Moustiers"],[625,215,"Cannes"]].map(([x,y,label]) => <g key={label}><circle cx={Number(x)} cy={Number(y)} r="6" fill="var(--terracotta)" /><text x={Number(x)} y={Number(y)-16} textAnchor="middle" fill="var(--ink)" fontSize="13">{label}</text></g>)}
+        <circle cx="205" cy="170" r="5" fill="var(--sage)" />
+        <text x="205" y="197" textAnchor="middle" fill="var(--soft)" fontSize="12">Angelvin · seasonal stop</text>
+      </svg>
+      <p className="mt-3 text-sm leading-relaxed text-soft">Valensole and Brunet mark the lavender-country route. Angelvin is a visitor-farm option during opening hours, not a required stop before the first boat departure. Use the driving and location maps below for navigation.</p>
+    </div>
+
+    <div className="border-b border-border py-8">
+      <h3 className="flex items-center gap-2 font-display text-2xl"><Coffee className="size-5" />01 · Roussillon, before the village wakes</h3>
+      <p className="mt-3 text-sm leading-relaxed text-soft">Breakfast at OMMA looked excellent, but we chose coffee and breakfast to take into the car. Staying for a leisurely hotel breakfast would have meant reaching the pedal boats later, and those were our priority. Prepare your bags the evening before so the morning stays simple.</p>
+      <p className="mt-3 text-sm leading-relaxed text-soft">For the earlier walk, use the village viewpoints around the church of Saint-Michel for the ochre landscape. Stay on marked public paths and away from cliff edges. Sunrise varies by date, so this is a daylight option, not a reason to walk an unlit path.</p>
+      <p className="mt-3 text-sm leading-relaxed text-soft"><strong className="text-ink">Breakfast stop · </strong>Au Temps Passé, avenue de la Burlière in Roussillon, is a bakery and tea-room option. Its listed opening is 07:15, too late for this early departure. Buy pastries the previous afternoon and arrange coffee to go with your accommodation if available. If you choose a later boat slot, check the bakery's hours and takeaway coffee service before relying on a morning stop.</p>
+      <div className="mt-4 flex flex-wrap gap-2"><MapLink href={placeMapUrl("Église Saint-Michel Roussillon")}><MapPin />Morning viewpoint</MapLink><MapLink href={placeMapUrl("Au Temps Passé Avenue de la Burlière 84220 Roussillon")}><Coffee />Bakery location</MapLink><MapLink href="https://fr.mappy.com/poi/54f15483e4b09aa774d36297">Listed bakery hours</MapLink></div>
+    </div>
+
+    <div className="border-b border-border py-8">
+      <h3 className="font-display text-2xl">02 · Through lavender country</h3>
+      <p className="mt-3 text-sm leading-relaxed text-soft">Follow the route through Valensole and Brunet towards the lake. When the lavender is in bloom, make one short stop, not a long detour. Outside the flowering season, the plateau still gives you beautiful open views, just without the purple fields.</p>
+      <p className="mt-3 text-sm leading-relaxed text-soft">Use a visitor farm or a signed pull-in. Never stop in a traffic lane, block farm access or walk into private crops without permission. Photograph from an authorised spot and keep your water-time arrival in mind.</p>
+      <p className="mt-3 text-sm leading-relaxed text-soft"><strong className="text-ink">When to see the purple fields · </strong>Late June and early July are a good target, with harvesting generally starting in the second half of July. Flowering depends on the weather and the field. Lavandes Angelvin near Valensole has visitor parking, but its summer shop opens at 09:00. A proper farm visit means booking a later boat slot, not combining it with the first 09:30 departure. Before opening, only use an accessible signed stopping place and do not assume the farm or fields are open.</p>
+      <div className="mt-4 flex flex-wrap gap-2"><MapLink href="https://www.google.com/maps/dir/?api=1&origin=OMMA+Luberon+Roussillon&destination=Plage+du+Galetas+Aiguines&waypoints=Valensole%7CBrunet&travelmode=driving"><Route />Drive via Valensole & Brunet</MapLink><MapLink href={placeMapUrl("Valensole")}><MapPin />Valensole</MapLink><MapLink href={placeMapUrl("Brunet Alpes-de-Haute-Provence")}><MapPin />Brunet</MapLink></div>
+      <div className="mt-3 flex flex-wrap gap-2"><MapLink href={placeMapUrl("43.824546,5.938015")}><MapPin />Lavandes Angelvin · seasonal stop</MapLink><MapLink href="https://www.lavandes-angelvin.fr/fr/content/6-visite">Farm opening hours</MapLink><MapLink href="https://www.tourisme-alpes-haute-provence.com/plaisirs-gourmands/produits-du-terroir/lavande/">Lavender season</MapLink></div>
+      <p className="mt-4 text-sm text-soft"><strong className="text-ink">Roads & tolls · </strong>Choose the local-road route if avoiding tolls. If your navigation uses the A51, check the toll section and fare before leaving. All drive times here are planning allowances.</p>
+    </div>
+
+    <div className="border-b border-border py-8">
+      <h3 className="flex items-center gap-2 font-display text-2xl"><Waves className="size-5" />03 · Plage du Galetas & the Verdon canyon</h3>
+      <p className="mt-3 text-sm leading-relaxed text-soft">Head to Plage du Galetas on the Aiguines side of Lac de Sainte-Croix, close to Pont du Galetas. This is the beach base for renting a pedal boat and approaching the canyon entrance from the lake. Arrive early because the available boats can all be out quickly.</p>
+      <aside className="mt-5 border-l-2 border-terracotta pl-4 text-sm leading-relaxed text-soft"><strong className="text-ink">The priority of the day:</strong> get to the rental base for its first opening. An early arrival improves your chances, but availability is never guaranteed. Wind, water levels and safety restrictions can stop rentals or limit canyon access. Follow the operator's instructions rather than entering a closed area.</aside>
+      <p className="mt-4 text-sm leading-relaxed text-soft"><strong className="text-ink">Reserve the morning slot · </strong>MYC Plage offers online morning reservations with a deposit and the balance paid on site. Use the live calendar to book, then arrive 15 minutes before your confirmed departure. Its published July–August opening is 09:30–18:00, and May, June and September opening is 10:00–17:00. These are seasonal hours, not year-round access. Cards are accepted, but the operator warns electronic payments can fail, so cash is a useful backup. Check cancellation and weather terms before paying.</p>
+      <div className="mt-5 grid gap-6 sm:grid-cols-2"><div><h4 className="text-sm font-semibold">Parking & arrival</h4><p className="mt-2 text-sm leading-relaxed text-soft">Use the signed beach parking at Plage du Galetas on the Aiguines side. Allow 15–20 minutes to park, unload and reach the rental base. Check the parking signs and charges, and leave valuables and luggage out of sight.</p></div><div><h4 className="text-sm font-semibold">Bring into the boat</h4><p className="mt-2 text-sm leading-relaxed text-soft">Cash as a backup, swimwear, towels, dry clothes, water, sun protection and a waterproof pouch. Follow life-jacket requirements. Swim only where permitted and safe, away from boat traffic, and keep an eye on your rental return time.</p></div></div>
+      <div className="mt-4 flex flex-wrap gap-2"><MapLink href={placeMapUrl("Parking Plage du Galetas Aiguines")}><MapPin />Beach parking</MapLink><MapLink href="https://mycplage.fr/reservation-pedalo/"><Waves />Book MYC pedal boats</MapLink><MapLink href="https://mycplage.fr/faq/">Hours, payment & weather</MapLink></div>
+    </div>
+
+    <div className="border-b border-border py-8">
+      <h3 className="font-display text-2xl">04 · Moustiers-Sainte-Marie & lunch</h3>
+      <p className="mt-3 text-sm leading-relaxed text-soft">Allow roughly 20–30 minutes from the beach to the village, plus parking. Take the local road towards Moustiers-Sainte-Marie, with no motorway toll on this leg. Park in a signed visitor space rather than trying to drive through the narrow historic centre.</p>
+      <p className="mt-3 text-sm leading-relaxed text-soft"><strong className="text-ink">Arrival · </strong>Parking Maïre is below the village. Allow about 15–25 minutes for the uphill walk to the centre, following the signs for the church. Other signed visitor spaces may shorten the walk if available. Les Tables du Cloître is on Place du Presbytère, behind the parish church. Confirm lunch service for your date before setting off.</p>
+      <p className="mt-3 text-sm leading-relaxed text-soft">Start at the church of Notre-Dame-de-l’Assomption, wander Place de l’Église and the lanes by the stream, then browse the little faïence shops. The chapel of Notre-Dame de Beauvoir is a longer, steep stair climb. Save it for extra time and energy rather than squeezing it in before lunch.</p>
+      <aside className="mt-4 border-l-2 border-sage pl-4"><h4 className="text-xs font-semibold uppercase">V & eM · our lunch stop</h4><p className="mt-2 text-sm leading-relaxed text-soft">We ate at Les Tables du Cloître. Make this your lunch pause after the water and village walk, with time to sit down before the drive to Cannes.</p></aside>
+      <div className="mt-4 flex flex-wrap gap-2"><MapLink href={drivingMapUrl("Plage du Galetas Aiguines", "Parking Maïre Moustiers-Sainte-Marie")}><Route />Drive to village parking</MapLink><MapLink href="https://www.google.com/maps/dir/?api=1&origin=Parking+Maïre+Moustiers-Sainte-Marie&destination=Les+Tables+du+Cloître+Moustiers-Sainte-Marie&waypoints=Église+Notre-Dame-de-l’Assomption+Moustiers-Sainte-Marie%7CPlace+de+l’Église+Moustiers-Sainte-Marie&travelmode=walking"><MapPin />Village walk to lunch</MapLink><MapLink href={placeMapUrl("Les Tables du Cloître Moustiers-Sainte-Marie")}>Lunch location</MapLink></div>
+    </div>
+
+    <div className="border-b border-border py-8">
+      <h3 className="flex items-center gap-2 font-display text-2xl"><Car className="size-5" />05 · Cannes & Hotel Verlaine</h3>
+      <p className="mt-3 text-sm leading-relaxed text-soft">Allow roughly 2½–3 hours from Moustiers to Cannes, with more room for summer traffic. This is a longer drive, so stop safely if you need a break. A route joining the A8 can include tolls, while an all-local-road alternative is generally slower. Check your chosen route and toll allowance before departure.</p>
+      <p className="mt-3 text-sm leading-relaxed text-soft">At Hotel Verlaine, put the bags down, shower and change for the evening. Confirm parking with the hotel before arrival rather than assuming a room includes a space. Head towards Rue d’Antibes, then the Croisette and its beach restaurants. Keep the longer old-town visit for another moment if dinner is approaching.</p>
+      <p className="mt-3 text-sm leading-relaxed text-soft"><strong className="text-ink">Hotel arrival · </strong>58 boulevard d’Alsace, Cannes. The hotel lists 12 private parking spaces at €20 per night. Recheck the price and availability when booking. Report to reception first for your allocated space and the key, rather than choosing a spot yourself.</p>
+      <div className="mt-4 flex flex-wrap gap-2"><MapLink href={drivingMapUrl("Les Tables du Cloître Moustiers-Sainte-Marie", "Hotel Verlaine Cannes")}><Route />Drive to Hotel Verlaine</MapLink><MapLink href={drivingMapUrl("Hotel Verlaine Cannes", "Miramar Plage Cannes").replace("travelmode=driving", "travelmode=walking")}><MapPin />Walk to the beach</MapLink></div>
+      <div className="mt-3"><MapLink href="https://www.hotel-verlaine-cannes.com/parking/">Hotel parking details</MapLink></div>
+    </div>
+
+    <div className="border-b border-border py-8">
+      <h3 className="font-display text-2xl">06 · Dinner beneath the fireworks</h3>
+      <aside className="mt-5 border-l-4 border-terracotta pl-5"><h4 className="text-lg font-semibold">Book your fireworks-night dinner ahead</h4><p className="mt-3 text-sm leading-relaxed text-soft">We had dinner at Miramar Plage and it was perfect. On fireworks evenings, reserve well ahead and be prepared for advance payment or a special-event menu. Confirm the amount, payment deadline, cancellation terms and a table with a view directly with the restaurant.</p></aside>
+      <p className="mt-4 text-sm leading-relaxed text-soft">Fireworks are not every night. Match your stay to the official Cannes festival calendar before paying for an event dinner. If Miramar is full, there are plenty of neighbouring beach restaurants along the Croisette. Ask about their fireworks menu and view, then choose another without losing the evening.</p>
+      <p className="mt-4 border-l-2 border-gold pl-4 text-sm leading-relaxed text-soft"><strong className="text-ink">Dinner timing · </strong>For a confirmed 22:00 display, request a 19:40 dinner reservation and aim to arrive at 19:25. These are our suggested timings, not Miramar's mandatory arrival times. Ask the restaurant to confirm its event service. The published 2026 festival generally started at 22:00, but 14 July was at 23:00. Do not assume next year's dates or times are the same. On a non-fireworks night, keep the dinner and enjoy the sea.</p>
+      <p className="mt-4 text-sm leading-relaxed text-soft">After dinner, walk the seafront promenade if you still feel like a little night-time Cannes. If the fireworks have already filled the day with enough memories, go straight back to Hotel Verlaine. Tomorrow brings another move, but a much calmer day.</p>
+      <div className="mt-4 flex flex-wrap gap-2"><MapLink href="https://miramarplage.fr/">Miramar · booking & contact</MapLink><MapLink href="https://www.festival-pyrotechnique-cannes.com/programme/">Official fireworks calendar</MapLink><MapLink href={placeMapUrl("Boulevard de la Croisette Cannes")}><MapPin />Night promenade</MapLink></div>
+    </div>
+    <div className="py-8"><h3 className="font-display text-2xl">What to put in your budget</h3><p className="mt-3 text-sm leading-relaxed text-soft">Takeaway breakfast, fuel, any motorway tolls, beach and village parking, pedal-boat rental, lunch, Hotel Verlaine and parking, plus the beach dinner or fireworks menu. If dinner is prepaid, record it once in Budget check rather than adding it again after the meal.</p></div>
+  </section>;
+}

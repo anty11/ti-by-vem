@@ -132,11 +132,11 @@ export function TripRoomPage({ itinerary, lang }: { itinerary: Itinerary; lang: 
             <nav ref={guideNavigation} aria-label="Detailed itinerary days" className="sticky top-0 z-20 -mx-6 border-b border-border bg-background px-6 py-3">
               {guideDay !== 0 ? <div className="mb-3 flex flex-wrap items-baseline justify-between gap-x-4 gap-y-1">
                 <h1 className="font-display text-xl text-ink">{text.title}</h1>
-                <span className="text-xs font-semibold text-soft">{guideDay < 1 ? (guideDay === -3 ? "Budget check" : guideDay === -2 ? "Your trip" : "Trip agent") : guideDay === 8 ? (lang === "sk" ? "Rezervácie" : "Reservations") : guideDay === 9 ? (lang === "sk" ? "Posledné slová" : "Last words") : `${lang === "sk" ? "Deň" : "Day"} ${guideDay} / 7`}</span>
+                <span className="text-xs font-semibold text-soft">{guideDay < 1 ? (guideDay === -3 ? "Budget check" : "Trip agent") : guideDay === 8 ? (lang === "sk" ? "Rezervácie" : "Reservations") : guideDay === 9 ? (lang === "sk" ? "Posledné slová" : "Last words") : `${lang === "sk" ? "Deň" : "Day"} ${guideDay} / 7`}</span>
               </div> : null}
               <div className="flex gap-2 overflow-x-auto pb-1">
                 <Button className="shrink-0" data-guide-day={0} variant={guideDay === 0 ? "default" : "outline"} aria-pressed={guideDay === 0} onClick={() => selectGuideDay(0)}>{lang === "sk" ? "Úvod" : "Overview"}</Button>
-                {[{ id: -3, label: "Budget check" }, { id: -2, label: "Your trip" }, { id: -1, label: "Trip agent" }].map(({ id, label }) => (
+                {[{ id: -3, label: "Budget check" }, { id: -1, label: "Trip agent" }].map(({ id, label }) => (
                   <Button key={id} className="shrink-0" data-guide-day={id} variant={guideDay === id ? "default" : "outline"} aria-pressed={guideDay === id} onClick={() => selectGuideDay(id)}>{label}</Button>
                 ))}
                 <select aria-label={lang === "sk" ? "Vyber deň" : "Pick a day"} className={`h-10 shrink-0 rounded-md border border-input px-3 text-sm font-medium ${guideDay >= 1 && guideDay <= 7 ? "bg-primary text-primary-foreground" : "bg-background text-ink"}`} value={guideDay >= 1 && guideDay <= 7 ? String(guideDay) : ""} onChange={(e) => e.target.value && selectGuideDay(Number(e.target.value))}>
@@ -213,7 +213,7 @@ export function TripRoomPage({ itinerary, lang }: { itinerary: Itinerary; lang: 
             <BudgetCheck slug={itinerary.slug} budget={itinerary.budget} lang={lang} />
           </div>
 
-          <div className="mt-8" hidden={isFranceGuide && guideDay !== -2}>
+          <div className="mt-8" hidden={isFranceGuide && guideDay !== -1}>
             <TripProfileForm
               slug={itinerary.slug}
               lang={lang}

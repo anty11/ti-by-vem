@@ -24,7 +24,7 @@ import { FranceDaySevenGuide } from "@/components/site/FranceDaySevenGuide";
 import { FranceDaySixGuide } from "@/components/site/FranceDaySixGuide";
 import { FranceReservationOverview } from "@/components/site/FranceReservationOverview";
 import { ArrowLeft, ArrowRight } from "lucide-react";
-import { RouteMap } from "@/components/site/RouteMap";
+import { FranceRouteArtwork } from "@/components/site/FranceRouteArtwork";
 
 export function TripRoomPage({ itinerary, lang }: { itinerary: Itinerary; lang: Lang }) {
   const t = tripCopy[lang];
@@ -188,7 +188,13 @@ export function TripRoomPage({ itinerary, lang }: { itinerary: Itinerary; lang: 
             </div>
           ) : null}
 
-          {isFranceGuide && guideDay === 0 && routeMap ? <RouteMap data={routeMap} lang={lang} /> : null}
+          {isFranceGuide && guideDay === 0 ? (
+            <section aria-label="France journey overview map" className="mt-10">
+              <h2 className="font-display text-3xl text-ink">{lang === "sk" ? "Celá cesta" : "The whole journey"}</h2>
+              <FranceRouteArtwork day={0} title="Schematic overview of the seven-day route from Marseille through Provence and the French Riviera to Menton and Monaco" />
+              <p className="mt-3 text-xs text-soft">{lang === "sk" ? "Schematický prehľad trasy. Navigáciu a podrobné zastávky nájdeš pri jednotlivých dňoch." : "Schematic route overview. Find navigation links and detailed stops in each day."}</p>
+            </section>
+          ) : null}
 
           {isFranceGuide && guideDay > 0 ? (
             <div>

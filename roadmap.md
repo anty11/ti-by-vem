@@ -1,6 +1,6 @@
 # Roadmap
 
-- [ ] Restore the full France introduction on first opening, show days only after selection, and verify returning to overview.
+- [x] Restore the full France introduction on first opening, show days only after selection, and verify returning to overview.
 
 - [x] Move Budget check, Your trip and Trip agent into separate tabs before France days and verify switching.
 

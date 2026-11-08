@@ -136,13 +136,13 @@ export function TripRoomPage({ itinerary, lang }: { itinerary: Itinerary; lang: 
               </div> : null}
               <div className="flex gap-2 overflow-x-auto pb-1">
                 <Button className="shrink-0" data-guide-day={0} variant={guideDay === 0 ? "default" : "outline"} aria-pressed={guideDay === 0} onClick={() => selectGuideDay(0)}>{lang === "sk" ? "Úvod" : "Overview"}</Button>
-                {[{ id: -3, label: "Budget check" }, { id: -1, label: "Trip agent" }].map(({ id, label }) => (
-                  <Button key={id} className="shrink-0" data-guide-day={id} variant={guideDay === id ? "default" : "outline"} aria-pressed={guideDay === id} onClick={() => selectGuideDay(id)}>{label}</Button>
-                ))}
                 <select aria-label={lang === "sk" ? "Vyber deň" : "Pick a day"} className={`h-10 shrink-0 rounded-md border border-input px-3 text-sm font-medium ${guideDay >= 1 && guideDay <= 7 ? "bg-primary text-primary-foreground" : "bg-background text-ink"}`} value={guideDay >= 1 && guideDay <= 7 ? String(guideDay) : ""} onChange={(e) => e.target.value && selectGuideDay(Number(e.target.value))}>
                   <option value="" disabled>{lang === "sk" ? "Vyber deň" : "Pick a day"}</option>
                   {[1, 2, 3, 4, 5, 6, 7].map((day) => <option key={day} value={day}>{lang === "sk" ? "Deň" : "Day"} {day}</option>)}
                 </select>
+                {[{ id: -1, label: "Trip agent" }, { id: -3, label: "Budget check" }].map(({ id, label }) => (
+                  <Button key={id} className="shrink-0" data-guide-day={id} variant={guideDay === id ? "default" : "outline"} aria-pressed={guideDay === id} onClick={() => selectGuideDay(id)}>{label}</Button>
+                ))}
                 <Button className="shrink-0" data-guide-day={8} variant={guideDay === 8 ? "default" : "outline"} aria-pressed={guideDay === 8} onClick={() => selectGuideDay(8)}>
                   {lang === "sk" ? "Rezervácie" : "Reservations"}
                 </Button>

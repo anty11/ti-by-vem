@@ -24,6 +24,7 @@ import { FranceDaySevenGuide } from "@/components/site/FranceDaySevenGuide";
 import { FranceDaySixGuide } from "@/components/site/FranceDaySixGuide";
 import { FranceReservationOverview } from "@/components/site/FranceReservationOverview";
 import { ArrowLeft, ArrowRight } from "lucide-react";
+import { RouteMap } from "@/components/site/RouteMap";
 
 export function TripRoomPage({ itinerary, lang }: { itinerary: Itinerary; lang: Lang }) {
   const t = tripCopy[lang];
@@ -186,6 +187,8 @@ export function TripRoomPage({ itinerary, lang }: { itinerary: Itinerary; lang: 
               </ul>
             </div>
           ) : null}
+
+          {isFranceGuide && guideDay === 0 && routeMap ? <RouteMap data={routeMap} lang={lang} /> : null}
 
           {isFranceGuide && guideDay > 0 ? (
             <div>

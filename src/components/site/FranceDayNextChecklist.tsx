@@ -19,6 +19,9 @@ export function FranceDayNextChecklist({ day, items }: Props) {
           </li>
         ))}
       </ul>
+      <p className="mt-5 border-l-2 border-sage pl-4 text-sm leading-relaxed text-soft">
+        <strong className="text-ink">Plans changed?</strong> Ask the Trip agent in this trip room. It knows this itinerary day by day and can suggest what to swap, shorten or skip.
+      </p>
     </div>
   );
 }

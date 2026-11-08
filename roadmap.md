@@ -1,5 +1,7 @@
 # Roadmap
 
+- [ ] Simplify France day switching with pinned navigation, a compact trip heading and next-day actions, and verify unlocked desktop/mobile use.
+
 - [x] Replace France day map artwork with elegant minimalist generated maps (watercolor style rejected as too childish); keep schematic labels and navigation links.
 
 - [x] Add a paid France reservation overview after day 7 in the day switcher and verify unlocked desktop/mobile access.

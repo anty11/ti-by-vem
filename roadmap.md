@@ -1,7 +1,7 @@
 # Roadmap
  
-- [ ] Match the paid France overview map to the premium daily artwork and add subtle day-labelled transfers.
-- [ ] Recommend ten concrete customer-value improvements, distinguishing existing features from new suggestions.
+- [x] Match the paid France overview map to the premium daily artwork and add subtle day-labelled transfers, verified unlocked on desktop and mobile.
+- [x] Recommend ten concrete customer-value improvements, distinguishing existing features from new suggestions.
 
 - [x] Restore the full France introduction on first opening, show days only after selection, and verify returning to overview.
 

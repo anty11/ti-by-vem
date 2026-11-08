@@ -1,5 +1,6 @@
 # Roadmap
  
+- [ ] When payments are set up: let travellers buy extra Trip agent messages inside a trip (blocked: payments not enabled yet).
 - [x] Match the paid France overview map to the premium daily artwork and add subtle day-labelled transfers, verified unlocked on desktop and mobile.
 - [x] Recommend ten concrete customer-value improvements, distinguishing existing features from new suggestions.
 

@@ -33,7 +33,7 @@ export function TripRoomPage({ itinerary, lang }: { itinerary: Itinerary; lang: 
   const [tier, setTier] = useState<string>("chat");
   const routeMap = routeMaps[itinerary.slug];
   const [view, setView] = useState<"read" | "trip">("read");
-  const [guideDay, setGuideDay] = useState(1);
+  const [guideDay, setGuideDay] = useState(0);
   const guideNavigation = useRef<HTMLElement>(null);
   const guideAnchor = useRef<HTMLDivElement>(null);
   const isFranceGuide = itinerary.slug === "riviera" && view === "read";
@@ -128,11 +128,12 @@ export function TripRoomPage({ itinerary, lang }: { itinerary: Itinerary; lang: 
           ) : null}
           {isFranceGuide ? (
             <nav ref={guideNavigation} aria-label="Detailed itinerary days" className="sticky top-0 z-20 -mx-6 border-b border-border bg-background px-6 py-3">
-              <div className="mb-3 flex flex-wrap items-baseline justify-between gap-x-4 gap-y-1">
+              {guideDay !== 0 ? <div className="mb-3 flex flex-wrap items-baseline justify-between gap-x-4 gap-y-1">
                 <h1 className="font-display text-xl text-ink">{text.title}</h1>
                 <span className="text-xs font-semibold text-soft">{guideDay < 1 ? (guideDay === -3 ? "Budget check" : guideDay === -2 ? "Your trip" : "Trip agent") : guideDay === 8 ? (lang === "sk" ? "Rezervácie" : "Reservations") : `${lang === "sk" ? "Deň" : "Day"} ${guideDay} / 7`}</span>
-              </div>
+              </div> : null}
               <div className="flex gap-2 overflow-x-auto pb-1">
+                <Button className="shrink-0" data-guide-day={0} variant={guideDay === 0 ? "default" : "outline"} aria-pressed={guideDay === 0} onClick={() => selectGuideDay(0)}>{lang === "sk" ? "Úvod" : "Overview"}</Button>
                 {[{ id: -3, label: "Budget check" }, { id: -2, label: "Your trip" }, { id: -1, label: "Trip agent" }].map(({ id, label }) => (
                   <Button key={id} className="shrink-0" data-guide-day={id} variant={guideDay === id ? "default" : "outline"} aria-pressed={guideDay === id} onClick={() => selectGuideDay(id)}>{label}</Button>
                 ))}
@@ -151,7 +152,7 @@ export function TripRoomPage({ itinerary, lang }: { itinerary: Itinerary; lang: 
             <div className="mt-6">
               <OnTripMode slug={itinerary.slug} data={routeMap} lang={lang} />
             </div>
-          ) : !isFranceGuide ? (
+          ) : !isFranceGuide || guideDay === 0 ? (
             <div className="glass mt-6 rounded-3xl p-8 lg:p-12">
               <span className="text-xs font-semibold uppercase tracking-[0.25em] text-royal">
                 {text.country}

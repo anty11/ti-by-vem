@@ -5,10 +5,12 @@ import mapDay4 from "@/assets/france-map-day4.jpg";
 import mapDay5 from "@/assets/france-map-day5.jpg";
 import mapDay6 from "@/assets/france-map-day6.jpg";
 import mapDay7 from "@/assets/france-map-day7.jpg";
+import mapOverview from "@/assets/france-map-overview-final.jpg";
 
 type ArtworkStop = { x: number; y: number; label: string; id?: string };
 
 const dayMaps: Record<number, string> = {
+  0: mapOverview,
   1: mapDay1,
   2: mapDay2,
   3: mapDay3,
@@ -29,7 +31,7 @@ export function FranceRouteArtwork({ title, day }: {
   const src = dayMaps[day] ?? mapDay1;
   return <div className="france-atlas mt-4 overflow-hidden rounded-lg border border-border">
     <div className="flex items-center justify-between border-b border-border bg-card px-5 py-3">
-      <span className="text-xs font-semibold uppercase text-soft">France · {day > 7 ? "Walking atlas" : `Chapter ${String(day).padStart(2, "0")}`}</span>
+      <span className="text-xs font-semibold uppercase text-soft">France · {day === 0 ? "Journey overview" : day > 7 ? "Walking atlas" : `Chapter ${String(day).padStart(2, "0")}`}</span>
       <span className="font-display text-sm text-ink">Provence & Côte d’Azur</span>
     </div>
     <img src={src} alt={title} loading="lazy" width={1408} height={896} className="block w-full" />

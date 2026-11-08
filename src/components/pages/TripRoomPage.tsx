@@ -23,6 +23,7 @@ import { FranceDayFiveGuide } from "@/components/site/FranceDayFiveGuide";
 import { FranceDaySevenGuide } from "@/components/site/FranceDaySevenGuide";
 import { FranceDaySixGuide } from "@/components/site/FranceDaySixGuide";
 import { FranceReservationOverview } from "@/components/site/FranceReservationOverview";
+import { ArrowLeft, ArrowRight } from "lucide-react";
 
 export function TripRoomPage({ itinerary, lang }: { itinerary: Itinerary; lang: Lang }) {
   const t = tripCopy[lang];
@@ -33,7 +34,16 @@ export function TripRoomPage({ itinerary, lang }: { itinerary: Itinerary; lang: 
   const routeMap = routeMaps[itinerary.slug];
   const [view, setView] = useState<"read" | "trip">("read");
   const [guideDay, setGuideDay] = useState(1);
-  const guideStart = useRef<HTMLDivElement>(null);
+  const guideNavigation = useRef<HTMLElement>(null);
+  const guideAnchor = useRef<HTMLDivElement>(null);
+  const isFranceGuide = itinerary.slug === "riviera" && view === "read";
+  const selectGuideDay = (day: number) => {
+    setGuideDay(day);
+    requestAnimationFrame(() => {
+      guideAnchor.current?.scrollIntoView({ block: "start", behavior: "instant" });
+      guideNavigation.current?.querySelector(`[data-guide-day="${day}"]`)?.scrollIntoView({ block: "nearest", inline: "nearest", behavior: "instant" });
+    });
+  };
   const loadRoom = useServerFn(getTripRoom);
   const [room, setRoom] = useState<TripRoomState>({
     profile: emptyProfile,
@@ -95,7 +105,8 @@ export function TripRoomPage({ itinerary, lang }: { itinerary: Itinerary; lang: 
           {routeMap ? (
             <div className="mt-6 inline-flex rounded-full border border-border p-1 text-sm font-semibold">
               {(["read", "trip"] as const).map((m) => (
-                <button
+                <Button
+                  variant="ghost"
                   key={m}
                   type="button"
                   onClick={() => setView(m)}
@@ -108,33 +119,39 @@ export function TripRoomPage({ itinerary, lang }: { itinerary: Itinerary; lang: 
                     : lang === "sk"
                       ? "Na ceste"
                       : "On-trip mode"}
-                </button>
+                </Button>
               ))}
             </div>
           ) : null}
-          {itinerary.slug === "riviera" && view === "read" ? (
-            <nav aria-label="Detailed itinerary days" className="sticky top-24 z-10 mt-4 flex flex-wrap gap-2 border-b border-border bg-background py-3">
-              {[1, 2, 3, 4, 5, 6, 7].map((day) => (
-                <Button key={day} variant={guideDay === day ? "default" : "outline"} aria-pressed={guideDay === day} onClick={() => {
-                  setGuideDay(day);
-                  guideStart.current?.scrollIntoView({ block: "start" });
-                }}>
-                  {lang === "sk" ? "Deň" : "Day"} {day}
+          {isFranceGuide ? (
+            <div ref={guideAnchor} className="mt-4" aria-hidden="true" />
+          ) : null}
+          {isFranceGuide ? (
+            <nav ref={guideNavigation} aria-label="Detailed itinerary days" className="sticky top-0 z-20 -mx-6 border-b border-border bg-background px-6 py-3">
+              <div className="mb-3 flex flex-wrap items-baseline justify-between gap-x-4 gap-y-1">
+                <h1 className="font-display text-xl text-ink">{text.title}</h1>
+                <span className="text-xs font-semibold text-soft">{guideDay < 1 ? (guideDay === -3 ? "Budget check" : guideDay === -2 ? "Your trip" : "Trip agent") : guideDay === 8 ? (lang === "sk" ? "Rezervácie" : "Reservations") : `${lang === "sk" ? "Deň" : "Day"} ${guideDay} / 7`}</span>
+              </div>
+              <div className="flex gap-2 overflow-x-auto pb-1">
+                {[{ id: -3, label: "Budget check" }, { id: -2, label: "Your trip" }, { id: -1, label: "Trip agent" }].map(({ id, label }) => (
+                  <Button key={id} className="shrink-0" data-guide-day={id} variant={guideDay === id ? "default" : "outline"} aria-pressed={guideDay === id} onClick={() => selectGuideDay(id)}>{label}</Button>
+                ))}
+                {[1, 2, 3, 4, 5, 6, 7].map((day) => (
+                  <Button key={day} className="shrink-0" data-guide-day={day} variant={guideDay === day ? "default" : "outline"} aria-pressed={guideDay === day} onClick={() => selectGuideDay(day)}>
+                    {lang === "sk" ? "Deň" : "Day"} {day}
+                  </Button>
+                ))}
+                <Button className="shrink-0" data-guide-day={8} variant={guideDay === 8 ? "default" : "outline"} aria-pressed={guideDay === 8} onClick={() => selectGuideDay(8)}>
+                  {lang === "sk" ? "Rezervácie" : "Reservations"}
                 </Button>
-              ))}
-              <Button variant={guideDay === 8 ? "default" : "outline"} aria-pressed={guideDay === 8} onClick={() => {
-                setGuideDay(8);
-                guideStart.current?.scrollIntoView({ block: "start" });
-              }}>
-                {lang === "sk" ? "Rezervácie" : "Reservations"}
-              </Button>
+              </div>
             </nav>
           ) : null}
           {view === "trip" && routeMap ? (
             <div className="mt-6">
               <OnTripMode slug={itinerary.slug} data={routeMap} lang={lang} />
             </div>
-          ) : (
+          ) : !isFranceGuide ? (
             <div className="glass mt-6 rounded-3xl p-8 lg:p-12">
               <span className="text-xs font-semibold uppercase tracking-[0.25em] text-royal">
                 {text.country}
@@ -167,19 +184,23 @@ export function TripRoomPage({ itinerary, lang }: { itinerary: Itinerary; lang: 
                 ))}
               </ul>
             </div>
-          )}
+          ) : null}
 
-          {itinerary.slug === "riviera" && view === "read" ? (
-            <div ref={guideStart} className="scroll-mt-44 sm:scroll-mt-24">
+          {isFranceGuide && guideDay > 0 ? (
+            <div>
               {guideDay === 1 ? <FranceDayOneGuide /> : guideDay === 2 ? <FranceDayTwoGuide /> : guideDay === 3 ? <FranceDayThreeGuide /> : guideDay === 4 ? <FranceDayFourGuide /> : guideDay === 5 ? <FranceDayFiveGuide /> : guideDay === 6 ? <FranceDaySixGuide /> : guideDay === 7 ? <FranceDaySevenGuide /> : <FranceReservationOverview />}
+              <div aria-label="Continue itinerary" className="mt-8 flex items-center justify-between gap-3 border-t border-border py-6">
+                {guideDay > 1 ? <Button variant="outline" onClick={() => selectGuideDay(guideDay - 1)}><ArrowLeft />{lang === "sk" ? "Predchádzajúci deň" : "Previous day"}</Button> : <span />}
+                {guideDay < 8 ? <Button onClick={() => selectGuideDay(guideDay + 1)}>{guideDay === 7 ? (lang === "sk" ? "Rezervácie" : "Reservations") : `${lang === "sk" ? "Ďalší deň" : "Next day"} · ${guideDay + 1}`}<ArrowRight /></Button> : null}
+              </div>
             </div>
           ) : null}
 
-          <div className="mt-8">
+          <div className="mt-8" hidden={isFranceGuide && guideDay !== -3}>
             <BudgetCheck slug={itinerary.slug} budget={itinerary.budget} lang={lang} />
           </div>
 
-          <div className="mt-8 space-y-4">
+          <div className="mt-8" hidden={isFranceGuide && guideDay !== -2}>
             <TripProfileForm
               slug={itinerary.slug}
               lang={lang}
@@ -187,6 +208,8 @@ export function TripRoomPage({ itinerary, lang }: { itinerary: Itinerary; lang: 
               hasProfile={room.hasProfile}
               onSaved={(profile) => setRoom((r) => ({ ...r, profile, hasProfile: true }))}
             />
+          </div>
+          <div className="mt-8" hidden={isFranceGuide && guideDay !== -1}>
             <TripChat
               slug={itinerary.slug}
               lang={lang}

@@ -1,4 +1,6 @@
 # Roadmap
+ 
+- [ ] Match the paid France overview map to the premium daily artwork and add subtle day-labelled transfers.
 
 - [x] Restore the full France introduction on first opening, show days only after selection, and verify returning to overview.
 

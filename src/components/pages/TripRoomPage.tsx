@@ -35,11 +35,12 @@ export function TripRoomPage({ itinerary, lang }: { itinerary: Itinerary; lang: 
   const [view, setView] = useState<"read" | "trip">("read");
   const [guideDay, setGuideDay] = useState(1);
   const guideNavigation = useRef<HTMLElement>(null);
+  const guideAnchor = useRef<HTMLDivElement>(null);
   const isFranceGuide = itinerary.slug === "riviera" && view === "read";
   const selectGuideDay = (day: number) => {
     setGuideDay(day);
     requestAnimationFrame(() => {
-      guideNavigation.current?.scrollIntoView({ block: "start", behavior: "instant" });
+      guideAnchor.current?.scrollIntoView({ block: "start", behavior: "instant" });
       guideNavigation.current?.querySelector(`[data-guide-day="${day}"]`)?.scrollIntoView({ block: "nearest", inline: "nearest", behavior: "instant" });
     });
   };
@@ -123,7 +124,10 @@ export function TripRoomPage({ itinerary, lang }: { itinerary: Itinerary; lang: 
             </div>
           ) : null}
           {isFranceGuide ? (
-            <nav ref={guideNavigation} aria-label="Detailed itinerary days" className="sticky top-0 z-20 -mx-6 mt-4 border-b border-border bg-background px-6 py-3">
+            <div ref={guideAnchor} className="mt-4" aria-hidden="true" />
+          ) : null}
+          {isFranceGuide ? (
+            <nav ref={guideNavigation} aria-label="Detailed itinerary days" className="sticky top-0 z-20 -mx-6 border-b border-border bg-background px-6 py-3">
               <div className="mb-3 flex flex-wrap items-baseline justify-between gap-x-4 gap-y-1">
                 <h1 className="font-display text-xl text-ink">{text.title}</h1>
                 <span className="text-xs font-semibold text-soft">{guideDay < 1 ? (guideDay === -3 ? "Budget check" : guideDay === -2 ? "Your trip" : "Trip agent") : guideDay === 8 ? (lang === "sk" ? "Rezervácie" : "Reservations") : `${lang === "sk" ? "Deň" : "Day"} ${guideDay} / 7`}</span>

@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { useServerFn } from "@tanstack/react-start";
 import { budgetOptions, paceOptions, profileCopy, type TripProfile } from "@/lib/agent/profile";
 import { saveTripProfile } from "@/lib/chat.functions";
@@ -59,6 +59,9 @@ export function TripProfileForm({ slug, lang, profile, hasProfile, onSaved }: Pr
   const [draft, setDraft] = useState<TripProfile>(profile);
   const [busy, setBusy] = useState(false);
   const [status, setStatus] = useState<"idle" | "saved" | "error">("idle");
+  useEffect(() => {
+    if (hasProfile) setEditing(false);
+  }, [hasProfile]);
 
   async function submit(event: React.FormEvent) {
     event.preventDefault();
@@ -86,7 +89,7 @@ export function TripProfileForm({ slug, lang, profile, hasProfile, onSaved }: Pr
           <p className="mt-1 truncate text-sm text-ink">
             {parts.length ? parts.join(" · ") : t.empty}
           </p>
-          {profile.notes ? <p className="mt-1 text-xs text-soft">{profile.notes}</p> : null}
+          {profile.notes ? <p className="mt-1 line-clamp-1 text-xs text-soft">{profile.notes}</p> : null}
         </div>
         <button
           type="button"

@@ -11,7 +11,7 @@
 
 - Route maps may define named map areas for long journeys; selecting a day switches to its area so regional and city-scale stops remain readable.
 - Detailed paid guides live separately from public route summaries and render only inside an unlocked trip room, so public itinerary cards and maps remain previews.
-- Reuse FranceRouteArtwork for all detailed paid France map sketches, with explicit schematic labels and separate navigation links, to keep daily maps consistent without implying road-level accuracy.
+- Reuse FranceRouteArtwork for paid France daily and overview artwork, with explicit schematic labels and separate navigation links, to keep maps consistent without implying road-level accuracy.
 - Keep paid France venue links and dated verified rating snapshots in france-venues, rendered by FranceDayVenueLinks, to keep hotel and dining references consistent across days.
 - Keep the France reservation overview inside the unlocked day switcher after day 7 and reuse france-venues for hotel and dining references to avoid public paid content and duplicated venue data.
 - Consolidate only identical unused generated budget allowances through the shared estimate helper, preserving saved records and customer-entered expenses to avoid inflated estimates without losing spending.

@@ -5,7 +5,7 @@ import mapDay4 from "@/assets/france-map-day4.jpg";
 import mapDay5 from "@/assets/france-map-day5.jpg";
 import mapDay6 from "@/assets/france-map-day6.jpg";
 import mapDay7 from "@/assets/france-map-day7.jpg";
-import mapOverview from "@/assets/france-map-overview.jpg";
+import mapOverview from "@/assets/france-map-overview-final.jpg";
 
 type ArtworkStop = { x: number; y: number; label: string; id?: string };
 

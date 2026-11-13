@@ -1368,9 +1368,9 @@ export const routeMaps: Record<string, RouteMap> = {
     title: "Eight days, day by day",
     titleSk: "Osem dní, deň po dni",
     lead:
-      "One car, four countries: from the beer tents of Munich over Liechtenstein and St. Moritz to Lake Como, and then up into the Dolomites. Tap a day to see where the route takes you — the full detail, times and prices live inside the guide.",
+      "One car, five countries: Munich, Vaduz and St. Moritz, one night by Lake Como, then two nights at Chalet al Foss and the Dolomites before a final night in Tux, Austria. The Olpererhütte finale depends on safe weather. Full daily details live inside the guide.",
     leadSk:
-      "Jedno auto, štyri krajiny: z mníchovských pivných stánkov cez Lichtenštajnsko a St. Moritz k jazeru Como a potom hore do Dolomitov. Kliknite na deň a uvidíte, kam vás trasa zavedie — celý detail, časy a ceny nájdete v sprievodcovi.",
+      "Jedno auto, päť krajín: Mníchov, Vaduz a St. Moritz, jedna noc pri jazere Como, dve noci v Chalet al Foss a Dolomity pred poslednou nocou v rakúskom Tuxe. Záver na Olpererhütte závisí od bezpečného počasia. Podrobnosti dní nájdete v sprievodcovi.",
     days: [
       {
         day: 1,

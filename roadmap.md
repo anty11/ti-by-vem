@@ -1,5 +1,8 @@
 # Roadmap
 
+- [x] Correct Oktoberfest introduction to five countries, one Como night, two Chalet al Foss nights and Tux finale. Add Happy & Bernie and the hotel's experience selection checked 13 November 2026 to day 5. Add paid Reservations and Last words chapters using Monika's notes, with shared seasonal experience guidance. All 28 existing hiking/timing tests pass and new content renders at desktop, 782px and 390px without overflow or page errors.
+- [ ] Verify new Reservations and Last words switching through the unlocked Oktoberfest trip room (blocked: the injected user's trip is locked after dismissing the launch countdown, no access/security changes requested).
+
 - [x] Add paid Oktoberfest day 8: optional Olpererhütte bridge hike with route, duration, huts and parking, honest snow cancellation, hotel breakfast, optional Zenz'n Stub'n lunch and airport alternatives. Add route/duration/hut guidance to days 5–7, correcting Geisler Alm to Val di Funes and its Zans trailhead. Twenty-eight tests pass, days 6–8 isolated desktop/mobile rendering, images and checkboxes verified without overflow or page errors.
 - [x] Correct day 7 lunch to the personally visited Ristorante Lago Antorno beside Lago d’Antorno, not Misurina, including map and route labels.
 - [ ] Verify day 8 through the unlocked trip room (blocked: the current coming-soon screen replaces the trip room even with the injected session).

@@ -34,6 +34,8 @@ import { OktoberfestDayFiveGuide } from "@/components/site/OktoberfestDayFiveGui
 import { OktoberfestDaySixGuide } from "@/components/site/OktoberfestDaySixGuide";
 import { OktoberfestDaySevenGuide } from "@/components/site/OktoberfestDaySevenGuide";
 import { OktoberfestDayEightGuide } from "@/components/site/OktoberfestDayEightGuide";
+import { OktoberfestReservationOverview } from "@/components/site/OktoberfestReservationOverview";
+import { OktoberfestLastWords } from "@/components/site/OktoberfestLastWords";
 
 export function TripRoomPage({ itinerary, lang }: { itinerary: Itinerary; lang: Lang }) {
   const t = tripCopy[lang];
@@ -50,6 +52,8 @@ export function TripRoomPage({ itinerary, lang }: { itinerary: Itinerary; lang: 
   const isOktoberfestGuide = itinerary.slug === "oktoberfest-dolomites" && view === "read";
   const hasDetailedGuide = isFranceGuide || isOktoberfestGuide;
   const availableDays = isFranceGuide ? [1, 2, 3, 4, 5, 6, 7] : [1, 2, 3, 4, 5, 6, 7, 8];
+  const reservationChapter = isFranceGuide ? 8 : 9;
+  const lastWordsChapter = reservationChapter + 1;
   const selectGuideDay = (day: number) => {
     setGuideDay(day);
     requestAnimationFrame(() => {
@@ -143,7 +147,7 @@ export function TripRoomPage({ itinerary, lang }: { itinerary: Itinerary; lang: 
             <nav ref={guideNavigation} aria-label="Detailed itinerary days" className="sticky top-0 z-20 -mx-6 border-b border-border bg-background px-6 py-3">
               {guideDay !== 0 ? <div className="mb-3 flex flex-wrap items-baseline justify-between gap-x-4 gap-y-1">
                 <h1 className="font-display text-xl text-ink">{text.title}</h1>
-                <span className="text-xs font-semibold text-soft">{guideDay < 1 ? (guideDay === -3 ? "Budget check" : "Trip agent") : isFranceGuide && guideDay === 8 ? (lang === "sk" ? "Rezervácie" : "Reservations") : isFranceGuide && guideDay === 9 ? (lang === "sk" ? "Posledné slová" : "Last words") : `${lang === "sk" ? "Deň" : "Day"} ${guideDay} / ${itinerary.days}`}</span>
+                <span className="text-xs font-semibold text-soft">{guideDay < 1 ? (guideDay === -3 ? "Budget check" : "Trip agent") : guideDay === reservationChapter ? (lang === "sk" ? "Rezervácie" : "Reservations") : guideDay === lastWordsChapter ? (lang === "sk" ? "Posledné slová" : "Last words") : `${lang === "sk" ? "Deň" : "Day"} ${guideDay} / ${itinerary.days}`}</span>
               </div> : null}
               <div className="flex gap-2 overflow-x-auto pb-1">
                 <Button className="shrink-0" data-guide-day={0} variant={guideDay === 0 ? "default" : "outline"} aria-pressed={guideDay === 0} onClick={() => selectGuideDay(0)}>{lang === "sk" ? "Úvod" : "Overview"}</Button>
@@ -154,12 +158,12 @@ export function TripRoomPage({ itinerary, lang }: { itinerary: Itinerary; lang: 
                 {[{ id: -1, label: "Trip agent" }, { id: -3, label: "Budget check" }].map(({ id, label }) => (
                   <Button key={id} className="shrink-0" data-guide-day={id} variant={guideDay === id ? "default" : "outline"} aria-pressed={guideDay === id} onClick={() => selectGuideDay(id)}>{label}</Button>
                 ))}
-                {isFranceGuide ? <><Button className="shrink-0" data-guide-day={8} variant={guideDay === 8 ? "default" : "outline"} aria-pressed={guideDay === 8} onClick={() => selectGuideDay(8)}>
+                <Button className="shrink-0" data-guide-day={reservationChapter} variant={guideDay === reservationChapter ? "default" : "outline"} aria-pressed={guideDay === reservationChapter} onClick={() => selectGuideDay(reservationChapter)}>
                   {lang === "sk" ? "Rezervácie" : "Reservations"}
                 </Button>
-                <Button className="shrink-0" data-guide-day={9} variant={guideDay === 9 ? "default" : "outline"} aria-pressed={guideDay === 9} onClick={() => selectGuideDay(9)}>
+                <Button className="shrink-0" data-guide-day={lastWordsChapter} variant={guideDay === lastWordsChapter ? "default" : "outline"} aria-pressed={guideDay === lastWordsChapter} onClick={() => selectGuideDay(lastWordsChapter)}>
                   {lang === "sk" ? "Posledné slová" : "Last words"}
-                </Button></> : null}
+                </Button>
               </div>
             </nav>
           ) : null}
@@ -220,11 +224,11 @@ export function TripRoomPage({ itinerary, lang }: { itinerary: Itinerary; lang: 
             </div>
           ) : null}
 
-          {isOktoberfestGuide && availableDays.includes(guideDay) ? <>
-            {guideDay === 1 ? <OktoberfestDayOneGuide /> : guideDay === 2 ? <OktoberfestDayTwoGuide /> : guideDay === 3 ? <OktoberfestDayThreeGuide /> : guideDay === 4 ? <OktoberfestDayFourGuide /> : guideDay === 5 ? <OktoberfestDayFiveGuide /> : guideDay === 6 ? <OktoberfestDaySixGuide /> : guideDay === 7 ? <OktoberfestDaySevenGuide /> : <OktoberfestDayEightGuide />}
+          {isOktoberfestGuide && guideDay > 0 ? <>
+            {guideDay === 1 ? <OktoberfestDayOneGuide /> : guideDay === 2 ? <OktoberfestDayTwoGuide /> : guideDay === 3 ? <OktoberfestDayThreeGuide /> : guideDay === 4 ? <OktoberfestDayFourGuide /> : guideDay === 5 ? <OktoberfestDayFiveGuide /> : guideDay === 6 ? <OktoberfestDaySixGuide /> : guideDay === 7 ? <OktoberfestDaySevenGuide /> : guideDay === 8 ? <OktoberfestDayEightGuide /> : guideDay === reservationChapter ? <OktoberfestReservationOverview /> : <OktoberfestLastWords />}
             <div aria-label="Continue itinerary" className="mt-8 flex items-center justify-between gap-3 border-t border-border py-6">
-              <Button variant="outline" onClick={() => selectGuideDay(guideDay - 1)}><ArrowLeft />{guideDay === 1 ? (lang === "sk" ? "Úvod" : "Overview") : (lang === "sk" ? "Predchádzajúci deň" : "Previous day")}</Button>
-              {availableDays.includes(guideDay + 1) ? <Button onClick={() => selectGuideDay(guideDay + 1)}>{lang === "sk" ? "Ďalší deň" : "Next day"} · {guideDay + 1}<ArrowRight /></Button> : null}
+              <Button variant="outline" onClick={() => selectGuideDay(guideDay - 1)}><ArrowLeft />{guideDay === 1 ? (lang === "sk" ? "Úvod" : "Overview") : guideDay === lastWordsChapter ? (lang === "sk" ? "Rezervácie" : "Reservations") : (lang === "sk" ? "Predchádzajúci deň" : "Previous day")}</Button>
+              {guideDay < lastWordsChapter ? <Button onClick={() => selectGuideDay(guideDay + 1)}>{guideDay === reservationChapter ? (lang === "sk" ? "Posledné slová" : "Last words") : guideDay === 8 ? (lang === "sk" ? "Rezervácie" : "Reservations") : `${lang === "sk" ? "Ďalší deň" : "Next day"} · ${guideDay + 1}`}<ArrowRight /></Button> : null}
             </div>
           </> : null}
 

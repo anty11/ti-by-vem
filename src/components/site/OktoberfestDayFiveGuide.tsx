@@ -3,10 +3,11 @@ import { Button } from "@/components/ui/button";
 import secedaPhoto from "@/assets/oktoberfest-day5-seceda.jpg";
 import routeArtwork from "@/assets/oktoberfest-day5-map.jpg";
 import { oktoberfestDayFiveTimes as times } from "@/lib/oktoberfest-day-five-timing";
+import { ChaletAlFossExperiences } from "@/components/site/ChaletAlFossExperiences";
 
 const maps = (query: string) => `https://www.google.com/maps/search/?api=1&query=${encodeURIComponent(query)}`;
 const drive = (origin: string, destination: string) => `https://www.google.com/maps/dir/?api=1&origin=${encodeURIComponent(origin)}&destination=${encodeURIComponent(destination)}&travelmode=driving`;
-const alpacaExperience = "https://www.hotelchaletalfoss.it/it/component/pacchetti/365-colazione-con-happy-bernard-i-nostri-alpaca.html";
+const alpacaExperience = "https://www.hotelchaletalfoss.it/en/experience-brunch";
 
 function PlaceLink({ href, children }: { href: string; children: React.ReactNode }) {
   return <Button asChild variant="outline" size="sm"><a href={href} target="_blank" rel="noreferrer">{children}<ArrowUpRight /></a></Button>;
@@ -52,11 +53,12 @@ export function OktoberfestDayFiveGuide() {
         <p><strong className="text-ink">This was a real bucket-list moment.</strong> Just the two of us in our bathrobes, with two alpacas wandering around and joining our breakfast. The staff gave us grass to feed them, and the Alpine views were right there around us.</p>
         <p>After the previous day, we woke up to beautiful sunshine. For eM, it remains one of her loveliest experiences, even though the white alpaca managed to spill orange juice all over her. Apparently, even a dream breakfast needs a little chaos.</p>
         <p>Our slot was <strong className="text-ink">{times.breakfastStart}–{times.breakfastEnd}</strong>, roughly an hour. Everything was prepared, everyone was helpful and the staff were happy to take photos of us. It felt genuinely special, not just like another thing to tick off.</p>
-        <p>The hotel calls this <strong className="text-ink">breakfast with Happy & Bernard</strong>, its resident alpacas. Reserve with the concierge before arriving. Confirm your time, current price, weather arrangements and what is included. Feed them only what staff provide and follow their handling instructions.</p>
+        <p>Meet <strong className="text-ink">Happy & Bernie</strong>, the resident alpacas joining this very special breakfast. Reserve with the concierge before arriving. Confirm your time, current price, weather arrangements and what is included. Feed them only what staff provide and follow their handling instructions.</p>
       </div>
       <h4 className="mt-6 flex items-center gap-2 font-semibold"><ParkingCircle className="size-5 text-royal" />Keep the car at Chalet al Foss</h4>
       <p className="mt-3 text-sm leading-relaxed text-soft">Breakfast is at the hotel. Leave the car in the guest parking space agreed with reception, then change out of your bathrobes, pack and settle check-out before setting off. Confirm when your parking access ends.</p>
       <div className="mt-4 flex flex-wrap gap-2"><PlaceLink href={alpacaExperience}>Official alpaca breakfast</PlaceLink><PlaceLink href={maps("Chalet al Foss Alp Resort Vermiglio")}>Hotel & parking</PlaceLink><PlaceLink href="https://www.hotelchaletalfoss.it/en/">Official hotel</PlaceLink><PlaceLink href="https://www.booking.com/hotel/it/chalet-al-foss.html">Booking.com</PlaceLink></div>
+      <ChaletAlFossExperiences />
     </div>
 
     <div className="border-t border-border py-8">

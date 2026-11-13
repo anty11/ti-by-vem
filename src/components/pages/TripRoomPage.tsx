@@ -27,6 +27,7 @@ import { FranceLastWords } from "@/components/site/FranceLastWords";
 import { ArrowLeft, ArrowRight } from "lucide-react";
 import { FranceRouteArtwork } from "@/components/site/FranceRouteArtwork";
 import { OktoberfestDayOneGuide } from "@/components/site/OktoberfestDayOneGuide";
+import { OktoberfestDayTwoGuide } from "@/components/site/OktoberfestDayTwoGuide";
 
 export function TripRoomPage({ itinerary, lang }: { itinerary: Itinerary; lang: Lang }) {
   const t = tripCopy[lang];
@@ -42,7 +43,7 @@ export function TripRoomPage({ itinerary, lang }: { itinerary: Itinerary; lang: 
   const isFranceGuide = itinerary.slug === "riviera" && view === "read";
   const isOktoberfestGuide = itinerary.slug === "oktoberfest-dolomites" && view === "read";
   const hasDetailedGuide = isFranceGuide || isOktoberfestGuide;
-  const availableDays = isFranceGuide ? [1, 2, 3, 4, 5, 6, 7] : [1];
+  const availableDays = isFranceGuide ? [1, 2, 3, 4, 5, 6, 7] : [1, 2];
   const selectGuideDay = (day: number) => {
     setGuideDay(day);
     requestAnimationFrame(() => {
@@ -213,9 +214,12 @@ export function TripRoomPage({ itinerary, lang }: { itinerary: Itinerary; lang: 
             </div>
           ) : null}
 
-          {isOktoberfestGuide && guideDay === 1 ? <>
-            <OktoberfestDayOneGuide />
-            <div className="mt-8 flex justify-start border-t border-border py-6"><Button variant="outline" onClick={() => selectGuideDay(0)}><ArrowLeft />{lang === "sk" ? "Úvod" : "Overview"}</Button></div>
+          {isOktoberfestGuide && availableDays.includes(guideDay) ? <>
+            {guideDay === 1 ? <OktoberfestDayOneGuide /> : <OktoberfestDayTwoGuide />}
+            <div aria-label="Continue itinerary" className="mt-8 flex items-center justify-between gap-3 border-t border-border py-6">
+              <Button variant="outline" onClick={() => selectGuideDay(guideDay - 1)}><ArrowLeft />{guideDay === 1 ? (lang === "sk" ? "Úvod" : "Overview") : (lang === "sk" ? "Predchádzajúci deň" : "Previous day")}</Button>
+              {availableDays.includes(guideDay + 1) ? <Button onClick={() => selectGuideDay(guideDay + 1)}>{lang === "sk" ? "Ďalší deň" : "Next day"} · {guideDay + 1}<ArrowRight /></Button> : null}
+            </div>
           </> : null}
 
           <div className="mt-8" hidden={hasDetailedGuide && guideDay !== -3}>

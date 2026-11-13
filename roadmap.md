@@ -1,5 +1,8 @@
 # Roadmap
 
+- [x] Add paid Oktoberfest day 2: early departure, Vaduz (castle, Städtle, St. Florin Cathedral, Red House), Susch and St. Moritz (lake, Via Serlas, leaning tower, Alpine views), Bellagio dinner at Ristoro Forma e Gusto and Hotel Florence, practical parking, reservations, rain advice, artwork and next-day checklist. Isolated desktop/mobile, images and checkbox interaction verified.
+- [ ] Verify day 2 switching through the unlocked trip room (blocked: requesting user's injected session has the trip locked).
+- [ ] Add dated verified Google rating snapshots for day 2 restaurants (blocked: Google Maps lookup failed validation, linked current Maps reviews provided without invented scores).
 - [x] Add paid Oktoberfest day 1 from Monika's notes, with evening arrival, honest festival experience, verified hotel and parking, map and next-day checklist; verify isolated desktop/mobile rendering and checklist interaction.
 - [ ] Verify Oktoberfest day 1 through the unlocked trip room (blocked: the requesting user's minted session signs in but the trip room remains locked).
 - [x] Include the missed dirndl experience and eM's wish to return even though she does not drink beer.

@@ -21,3 +21,5 @@
 - Keep recorded Oktoberfest timings and dated access tariffs in day-specific planning modules with concrete tests, distinguishing walking estimates from recorded durations to avoid inventing travel history.
 - Keep proposed hiking routes explicitly separate from recorded walks and cancelled plans, using official trail references so hut locations and transport requirements stay accurate.
 - Keep Oktoberfest Reservations and Last words as paid chapters after the eight daily guides, and reuse ChaletAlFossExperiences for day 5 and reservation planning so seasonal experience guidance stays consistent.
+- Keep Oktoberfest provisional allowances in oktoberfest-budget and reuse them in catalogue and new budgets without replacing saved expenses, so the estimate remains consistent and customer records survive revisions.
+- Keep hiking circuit artwork separate from driving artwork, linked to published trail maps and labelled as suggestions rather than recorded GPS tracks, so scenic diagrams cannot masquerade as navigation or travel history.

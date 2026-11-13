@@ -1,29 +1,34 @@
 # Roadmap
 
+- [x] Apply Monika's Oktoberfest corrections: no Seceda lift reservation, first-night doorstep parking and road noise, personally used Vaduz and St. Moritz parking, Flüela Pass instead of Susch including artwork, Bellagio restaurant wait and shopping space in the car boot. Compared remaining differences with France.
+- [x] Add a separate full-day Seceda hiking circuit with durations, huts, parking, published route status and schematic map. Add the suggested Adolf Munkel circuit map for day 6, distinct from recorded walking duration and driving artwork.
+- [x] Add premium whole-journey Oktoberfest artwork below the paid introduction with day-labelled drives and weather-dependent day 8.
+- [x] Set provisional bespoke Oktoberfest allowances to €4,800 for two, excluding flights, car hire, journey to/from the itinerary and shopping. Saved expenses unchanged. All 37 budget/timing tests pass. Unlocked overview, all eight days, Reservations, Last words and Budget check verified at 1280, 782 and 390px without page errors or overflow.
+
 - [x] Correct Oktoberfest introduction to five countries, one Como night, two Chalet al Foss nights and Tux finale. Add Happy & Bernie and the hotel's experience selection checked 13 November 2026 to day 5. Add paid Reservations and Last words chapters using Monika's notes, with shared seasonal experience guidance. All 28 existing hiking/timing tests pass and new content renders at desktop, 782px and 390px without overflow or page errors.
-- [ ] Verify new Reservations and Last words switching through the unlocked Oktoberfest trip room (blocked: the injected user's trip is locked after dismissing the launch countdown, no access/security changes requested).
+- [x] Verify new Reservations and Last words switching through the unlocked Oktoberfest trip room with the injected session, without access/security changes.
 
 - [x] Add paid Oktoberfest day 8: optional Olpererhütte bridge hike with route, duration, huts and parking, honest snow cancellation, hotel breakfast, optional Zenz'n Stub'n lunch and airport alternatives. Add route/duration/hut guidance to days 5–7, correcting Geisler Alm to Val di Funes and its Zans trailhead. Twenty-eight tests pass, days 6–8 isolated desktop/mobile rendering, images and checkboxes verified without overflow or page errors.
 - [x] Correct day 7 lunch to the personally visited Ristorante Lago Antorno beside Lago d’Antorno, not Misurina, including map and route labels.
-- [ ] Verify day 8 through the unlocked trip room (blocked: the current coming-soon screen replaces the trip room even with the injected session).
+- [x] Verify day 8 through the unlocked trip room after dismissing the launch countdown.
 - [ ] Add current verified Google rating snapshots for day 8 dining (blocked: no direct verified Maps score retrieved, current review links provided).
 
 - [x] Add paid Oktoberfest day 7: Tre Cime morning parking, 2026 toll and booking rules, loop and cave viewpoint, packed supplies, Misurina lunch, Hotel Hohlenstein in Juns, artwork, navigation and next-day checklist. Sixteen timing/tariff tests pass, isolated desktop/mobile images and checkbox verified without overflow or page errors.
-- [ ] Verify day 7 through the unlocked trip room (blocked: the current coming-soon screen replaces the trip room even with the injected session).
+- [x] Verify day 7 through the unlocked trip room after dismissing the launch countdown.
 - [ ] Add verified Google rating snapshots for day 7 dining (blocked: no verified Google scores retrieved). Monika confirmed Ristorante Lago Antorno as her actual lunch venue, official and current review links provided.
 
 - [x] Add paid Oktoberfest day 5: eM's favourite, 08:30–09:30 alpaca breakfast, Seceda at 13:30, Ortisei parking, Santa Maddalena sunset walk, Fallerhof and dinner, artwork and next-day checklist. Isolated desktop/mobile, both images, checklist and five timing tests verified. Hotel confirms alpacas Happy & Bernard, but not which is white. Use verified Apple presentation connection instead of unconfirmed emoji origin. Fallerhof official URL provided from tourism listing, but its domain did not resolve during verification.
-- [ ] Verify day 5 switching through the unlocked trip room (blocked: requesting user's injected session has the trip locked).
+- [x] Verify day 5 switching through the unlocked trip room.
 - [ ] Confirm the white alpaca's name and add dated day 5 dining Google rating snapshots (blocked: sources confirm the pair Happy & Bernard without colour identity, and no verified Maps rating retrieved). Current Maps review links provided without invented scores.
 - [x] Add paid Oktoberfest day 4 at Chalet al Foss: breakfast, friends not a couple, romantic boutique atmosphere, photography, wellness, drinks, honest Italian dinner note, early hotel and experience reservations, map and next-day checklist. Clarify day 3's classic hotel dinner. Isolated desktop/mobile, images and checklist verified.
-- [ ] Verify day 4 switching through the unlocked trip room (blocked: requesting user's injected session has the trip locked).
+- [x] Verify day 4 switching through the unlocked trip room.
 - [x] Add paid Oktoberfest day 3 from Monika's notes: Bellagio walk, Varenna and Villa Monastero, Fuentes lunch and shopping, Chalet al Foss in Vermiglio with dinner, practical parking, map, opening photo and next-day checklist. Isolated desktop/mobile, loaded images and checklist verified.
-- [ ] Verify day 3 switching through the unlocked trip room (blocked: requesting user's injected session has the trip locked).
+- [x] Verify day 3 switching through the unlocked trip room.
 - [x] Add paid Oktoberfest day 2: early departure, Vaduz (castle, Städtle, St. Florin Cathedral, Red House), Susch and St. Moritz (lake, Via Serlas, leaning tower, Alpine views), Bellagio dinner at Ristoro Forma e Gusto and Hotel Florence, practical parking, reservations, rain advice, artwork and next-day checklist. Isolated desktop/mobile, images and checkbox interaction verified.
-- [ ] Verify day 2 switching through the unlocked trip room (blocked: requesting user's injected session has the trip locked).
+- [x] Verify day 2 switching through the unlocked trip room.
 - [ ] Add dated verified Google rating snapshots for day 2 restaurants (blocked: Google Maps lookup failed validation, linked current Maps reviews provided without invented scores).
 - [x] Add paid Oktoberfest day 1 from Monika's notes, with evening arrival, honest festival experience, verified hotel and parking, map and next-day checklist; verify isolated desktop/mobile rendering and checklist interaction.
-- [ ] Verify Oktoberfest day 1 through the unlocked trip room (blocked: the requesting user's minted session signs in but the trip room remains locked).
+- [x] Verify Oktoberfest day 1 through the unlocked trip room.
 - [x] Include the missed dirndl experience and eM's wish to return even though she does not drink beer.
 - [x] Add the Munich garage closing-time warning and V & eM's 21:00 closure / after-22:00 departure experience.
  

@@ -1,6 +1,8 @@
 import { test } from "node:test";
 import assert from "node:assert/strict";
-import { oktoberfestDayFiveTimes as times } from "./oktoberfest-day-five-timing";
+import { oktoberfestDayFiveTimes as times, secedaLiftRequiresReservation } from "./oktoberfest-day-five-timing";
+
+test("Seceda lift does not require an advance reservation", () => assert.equal(secedaLiftRequiresReservation, false));
 
 test("alpaca breakfast starts at the recorded 08:30", () => assert.equal(times.breakfastStart, "08:30"));
 test("alpaca breakfast ends at the recorded 09:30", () => assert.equal(times.breakfastEnd, "09:30"));

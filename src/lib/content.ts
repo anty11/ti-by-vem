@@ -1,5 +1,6 @@
 import type { Lang } from "./i18n";
 import { franceBudget } from "./france-budget";
+import { oktoberfestBudget } from "./oktoberfest-budget";
 
 export type ItineraryText = {
   country: string;
@@ -294,7 +295,7 @@ export const itineraries: Itinerary[] = [
     title: "Oktoberfest to the Dolomites",
     days: 8,
     stops: "Munich → Dolomites → Tux",
-    budget: "~€1,600",
+    budget: `~€${oktoberfestBudget.total.toLocaleString("en-US")}`,
     chatPrice: "€9",
     chatPriceSk: "9 €",
     blurb:

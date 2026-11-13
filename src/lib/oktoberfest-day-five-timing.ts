@@ -1,3 +1,5 @@
+export const secedaLiftRequiresReservation = false;
+
 export const oktoberfestDayFiveTimes = {
   breakfastStart: "08:30",
   breakfastEnd: "09:30",

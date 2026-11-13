@@ -1,7 +1,7 @@
 import { ArrowUpRight, BedDouble, Car, CheckSquare, Clock3, ParkingCircle } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import bellagioPhoto from "@/assets/oktoberfest-day2-bellagio.jpg";
-import routeArtwork from "@/assets/oktoberfest-day2-map.jpg";
+import routeArtwork from "@/assets/oktoberfest-day2-fluela-map.jpg";
 
 const maps = (query: string) => `https://www.google.com/maps/search/?api=1&query=${encodeURIComponent(query)}`;
 const drive = (origin: string, destination: string, waypoints?: string) => `https://www.google.com/maps/dir/?api=1&origin=${encodeURIComponent(origin)}&destination=${encodeURIComponent(destination)}&travelmode=driving${waypoints ? `&waypoints=${encodeURIComponent(waypoints)}` : ""}`;
@@ -28,7 +28,7 @@ export function OktoberfestDayTwoGuide() {
       <p className="mt-3 text-sm leading-relaxed text-soft">We left fairly early. The rhythm below is a planning suggestion, not our recorded clock times. Allow roughly 7–9 hours of driving across the whole day, plus stops, parking and any border or weather delays. Check the live route before setting off.</p>
       <ol className="mt-5 divide-y divide-border">{[
         ["Early morning", "Stetten → Vaduz", "Allow around 2–2.5 hours driving. Have breakfast after arriving, then take a short sunny walk through the capital."],
-        ["Late morning", "Vaduz → Susch → St. Moritz", "Allow around 2.5–3.5 hours for the Alpine transfer, depending on the open roads. Leave a little time for the lake, centre and leaning tower."],
+        ["Late morning", "Vaduz → Flüela Pass → St. Moritz", "Allow around 2.5–3.5 hours for the Alpine transfer, depending on the open roads. Leave a little time for the lake, centre and leaning tower."],
         ["Afternoon", "St. Moritz → Bellagio", "Allow around 3–4 hours via the Maloja and Chiavenna corridor and the lake roads, depending on traffic and your chosen approach. Avoid a last-minute ferry connection."],
         ["Evening", "Dinner, tiramisu & sleep", "Check in at Hotel Florence, sort out legal parking with reception and enjoy dinner in Bellagio."],
       ].map(([time, title, note]) => <li key={title} className="grid gap-2 py-4 sm:grid-cols-[9rem_1fr]"><span className="text-sm font-semibold text-terracotta">{time}</span><div><h4 className="text-sm font-semibold">{title}</h4><p className="mt-1 text-sm leading-relaxed text-soft">{note}</p></div></li>)}</ol>
@@ -36,11 +36,11 @@ export function OktoberfestDayTwoGuide() {
 
     <div className="py-8">
       <h3 className="font-display text-2xl">From the Alps to Lake Como</h3>
-      <img src={routeArtwork} alt="Schematic topographic artwork of day 2 from Stetten through Vaduz, Susch and St. Moritz to Bellagio" width={1536} height={1024} loading="lazy" className="mt-4 h-auto w-full rounded-lg" />
+      <img src={routeArtwork} alt="Schematic topographic artwork of day 2 from Stetten through Vaduz, Flüela Pass and St. Moritz to Bellagio" width={1536} height={1024} loading="lazy" className="mt-4 h-auto w-full rounded-lg" />
       <p className="mt-2 text-xs text-soft">Schematic artwork, not a road map. Use the links for current routes, open passes and exact parking locations.</p>
       <div className="mt-4 flex flex-wrap gap-2">
         <PlaceLink href={drive("KAM Hotel Stetten Germany", "Parkhaus Marktplatz Vaduz")}>Stetten → Vaduz</PlaceLink>
-        <PlaceLink href={drive("Vaduz Liechtenstein", "Parkhaus Quadrellas St Moritz", "Susch Switzerland")}>Vaduz → Susch → St. Moritz</PlaceLink>
+        <PlaceLink href={drive("Vaduz Liechtenstein", "Parkplatz Plazza da la Staziun St Moritz", "Flüelapass Switzerland")}>Vaduz → Flüela Pass → St. Moritz</PlaceLink>
         <PlaceLink href={drive("St Moritz Switzerland", "Hotel Florence Bellagio", "Chiavenna Italy|Lecco Italy")}>St. Moritz → Bellagio · road approach</PlaceLink>
       </div>
     </div>
@@ -61,7 +61,7 @@ export function OktoberfestDayTwoGuide() {
         <li><strong className="text-ink">Red House:</strong> finish with an exterior look at this landmark in the Mitteldorf area if time allows. It is a private property, so enjoy it respectfully from public space.</li>
       </ul>
       <h4 className="mt-6 flex items-center gap-2 font-semibold"><ParkingCircle className="size-5 text-royal" />One parking stop for Vaduz</h4>
-      <p className="mt-3 text-sm leading-relaxed text-soft">A researched central option is <strong className="text-ink">Parkhaus Marktplatz</strong>. Keep the car there for breakfast, Städtle, the cathedral and your walks towards the castle and Red House. Check the current signs, access and charges before leaving the car. This is a suggested parking base, not a claim that we used this garage.</p>
+      <p className="mt-3 text-sm leading-relaxed text-soft">We parked at <strong className="text-ink">Parkhaus Marktplatz</strong>. Keep the car there for breakfast, Städtle, the cathedral and your walks towards the castle and Red House. It worked as our central parking base. Check the current signs, access and charges before leaving the car.</p>
       <div className="mt-4 flex flex-wrap gap-2">
         <PlaceLink href={maps("Parkhaus Marktplatz Vaduz")}>Parking navigation</PlaceLink>
         <PlaceLink href={maps("Städtle Vaduz")}>Städtle</PlaceLink>
@@ -74,9 +74,9 @@ export function OktoberfestDayTwoGuide() {
     </div>
 
     <div className="border-t border-border py-8">
-      <h3 className="font-display text-3xl">02 · Through Susch and into the Swiss Alps</h3>
-      <p className="mt-5 text-sm leading-relaxed text-soft">Our journey continued through Susch towards St. Moritz. Susch is a village in the Engadin, not the name of a mountain pass. If your route approaches it from Davos, the crossing is the <strong className="text-ink">Flüela Pass</strong>. Treat the navigation as a route to check, not an instruction to cross a closed or unsafe pass.</p>
-      <p className="mt-3 text-sm leading-relaxed text-soft">Check current road conditions and pass openings, even in September. Mountain weather can change quickly. Keep a warm layer and a waterproof jacket accessible, and do not let the day become a race to fit everything in. Susch is a transfer waypoint here, not a scheduled sightseeing or parking stop. For a photo break, stop only at a signed, legal pull-off with enough space, never on a bend or in the road.</p>
+      <h3 className="font-display text-3xl">02 · Over Flüela Pass and into the Swiss Alps</h3>
+      <p className="mt-5 text-sm leading-relaxed text-soft">We crossed the <strong className="text-ink">Flüela Pass</strong> on our way to St. Moritz. This Alpine crossing is part of the drive, not an extra village visit. Treat the navigation as a route to check, not an instruction to cross a closed or unsafe pass.</p>
+      <p className="mt-3 text-sm leading-relaxed text-soft">Check current road conditions and pass openings, even in September. Mountain weather can change quickly. Keep a warm layer and a waterproof jacket accessible, and do not let the day become a race to fit everything in. For a photo break, stop only at a signed, legal pull-off with enough space, never on a bend or in the road.</p>
       <aside className="mt-5 border-l-2 border-terracotta pl-4 text-sm leading-relaxed text-soft"><strong className="text-ink">Before crossing borders:</strong> confirm rental permission and insurance for every country. Swiss motorway routes require the appropriate vignette, which may already be on your rental. A route via Austria may also use vignette or separately tolled roads. Follow your actual itinerary rather than assuming a pass route avoids every charge. Check mobile roaming for Switzerland and Liechtenstein before using data, as your EU package may not cover them.</aside>
       <div className="mt-4 flex flex-wrap gap-2"><PlaceLink href="https://www.tcs.ch/en/tools/traffic-info/">Swiss road conditions</PlaceLink><PlaceLink href="https://www.bazg.admin.ch/bazg/en/home/information-individuals/travel-and-purchases--allowances-and-duty-free-limit/importation-into-switzerland/road-tax-vignette--vehicles-up-to-3-5-tonnes-.html">Swiss vignette information</PlaceLink></div>
     </div>
@@ -93,8 +93,8 @@ export function OktoberfestDayTwoGuide() {
         <li><strong className="text-ink">St. Moritzersee:</strong> head down for lake and Alpine views if the weather allows. A full circuit is roughly 5 km and about an hour, so a short waterside look is the more realistic choice on this driving day.</li>
       </ul>
       <h4 className="mt-6 flex items-center gap-2 font-semibold"><ParkingCircle className="size-5 text-royal" />Parking for the centre & lake</h4>
-      <p className="mt-3 text-sm leading-relaxed text-soft"><strong className="text-ink">Parkhaus Quadrellas</strong> is a researched central garage in St. Moritz Dorf. Leave the car there for Via Serlas, the leaning tower and your lake walk, then allow time for the uphill return from the water. Check current charges, entrance signs and access hours. The garage is our suggested base, not a confirmed detail of our own parking.</p>
-      <div className="mt-4 flex flex-wrap gap-2"><PlaceLink href={maps("Parkhaus Quadrellas St Moritz")}>Parking navigation</PlaceLink><PlaceLink href={maps("Via Serlas St Moritz")}>Via Serlas</PlaceLink><PlaceLink href={maps("Schiefer Turm St Moritz")}>Leaning tower</PlaceLink><PlaceLink href={maps("St Moritzersee")}>Lake St. Moritz</PlaceLink><PlaceLink href="https://www.stmoritz.com/en/directory/nature/lake-st-moritz">Official lake guide</PlaceLink></div>
+      <p className="mt-3 text-sm leading-relaxed text-soft">We parked at <strong className="text-ink">Parkplatz Plazza da la Staziun</strong>, by the railway station. Keep the car there for the lake and walk uphill towards Via Serlas, the centre and the leaning tower. Allow time for the walk back to the station. Check the current charges, signs and permitted parking duration before leaving the car.</p>
+      <div className="mt-4 flex flex-wrap gap-2"><PlaceLink href={maps("Parkplatz Plazza da la Staziun St Moritz")}>Parking navigation</PlaceLink><PlaceLink href={maps("Via Serlas St Moritz")}>Via Serlas</PlaceLink><PlaceLink href={maps("Schiefer Turm St Moritz")}>Leaning tower</PlaceLink><PlaceLink href={maps("St Moritzersee")}>Lake St. Moritz</PlaceLink><PlaceLink href="https://www.stmoritz.com/en/directory/nature/lake-st-moritz">Official lake guide</PlaceLink></div>
       <p className="mt-5 border-l-2 border-sage pl-4 text-sm leading-relaxed text-soft"><strong className="text-ink">Rain changing your plans?</strong> Ask the Trip agent what to shorten before your onward drive to Bellagio. Protect your energy for the mountain and lakeside roads.</p>
     </div>
 
@@ -103,7 +103,7 @@ export function OktoberfestDayTwoGuide() {
       <div className="mt-5 space-y-3 text-sm leading-relaxed text-soft">
         <p>At the end of the day we crossed into Italy and reached <strong className="text-ink">Bellagio on Lake Como</strong>. It was still raining. Those beautiful stone steps deserve a practical warning: <strong className="text-ink">please do not wear flip-flops in the rain.</strong> They were extremely slippery. Grippy shoes are a much better choice, especially with luggage.</p>
         <p>And yes, a rather imposing stork made it into our Bellagio story too. Travel is not always just the postcard moments.</p>
-        <p>After the long journey, dinner was at <strong className="text-ink">Ristoro Forma e Gusto</strong>, a pizzeria and restaurant in the old town. We finished with tiramisu and then went straight to the hotel to rest.</p>
+        <p>After the long journey, dinner was at <strong className="text-ink">Ristoro Forma e Gusto</strong>, a pizzeria and restaurant in the old town. We waited for a table, so leave some breathing room rather than expecting to sit down immediately. We finished with tiramisu and then went straight to the hotel to rest.</p>
         <p>Our first choices had been <strong className="text-ink">Trattoria San Giacomo</strong> and <strong className="text-ink">La Lanterna</strong>, but our dinner plans did not work out. Do not underestimate planning your meal after a long driving day. Check each restaurant's current seating policy before arriving.</p>
       </div>
       <aside className="mt-5 border-l-2 border-terracotta pl-4 text-sm leading-relaxed text-soft"><strong className="text-ink">Reservations are not the same everywhere.</strong> Ristoro Forma e Gusto and Trattoria San Giacomo currently state on their official websites that they do not take reservations. For those two, arrive early and allow for a queue. Contact La Lanterna directly to check its current policy. Where bookings are accepted, reserve ahead rather than relying on a late walk-in.</aside>

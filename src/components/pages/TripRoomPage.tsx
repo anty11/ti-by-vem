@@ -36,6 +36,7 @@ import { OktoberfestDaySevenGuide } from "@/components/site/OktoberfestDaySevenG
 import { OktoberfestDayEightGuide } from "@/components/site/OktoberfestDayEightGuide";
 import { OktoberfestReservationOverview } from "@/components/site/OktoberfestReservationOverview";
 import { OktoberfestLastWords } from "@/components/site/OktoberfestLastWords";
+import oktoberfestOverviewArtwork from "@/assets/oktoberfest-journey-overview-final.jpg";
 
 export function TripRoomPage({ itinerary, lang }: { itinerary: Itinerary; lang: Lang }) {
   const t = tripCopy[lang];
@@ -213,6 +214,13 @@ export function TripRoomPage({ itinerary, lang }: { itinerary: Itinerary; lang: 
               <p className="mt-3 text-xs text-soft">{lang === "sk" ? "Schematický prehľad trasy. Navigáciu a podrobné zastávky nájdeš pri jednotlivých dňoch." : "Schematic route overview. Find navigation links and detailed stops in each day."}</p>
             </section>
           ) : null}
+
+          {isOktoberfestGuide && guideDay === 0 ? <section aria-label="Oktoberfest journey overview map" className="mt-10">
+            <h2 className="font-display text-3xl text-ink">{lang === "sk" ? "Celá cesta" : "The whole journey"}</h2>
+            <img src={oktoberfestOverviewArtwork} alt="Premium schematic overview of the eight-day Oktoberfest road trip across Germany, Liechtenstein, Switzerland, Italy and Austria" width={1536} height={1024} loading="lazy" className="mt-5 h-auto w-full rounded-lg" />
+            <p className="mt-3 text-xs text-soft">{lang === "sk" ? "Schematický prehľad, nie cestná navigácia. Presuny, turistické trasy a navigačné odkazy nájdeš pri jednotlivých dňoch. Deň 8 závisí od počasia, my sme túru pre sneh vynechali." : "Schematic overview, not road navigation. Find drives, hiking routes and navigation links in each day. Day 8 is weather-dependent, we skipped the hike after snowfall."}</p>
+            <ol className="mt-4 grid gap-2 text-sm text-soft sm:grid-cols-2">{["1 · Munich → Stetten", "2 · Vaduz → Flüela Pass → St. Moritz → Bellagio", "3 · Bellagio → Varenna → Vermiglio", "4 · Chalet al Foss · a day at the hotel", "5 · Ortisei / Seceda → Santa Maddalena", "6 · Zans → Lago di Braies → Valdaora", "7 · Tre Cime → Juns / Tux", "8 · Olpererhütte if safe, or home"].map(day => <li key={day}>{day}</li>)}</ol>
+          </section> : null}
 
           {isFranceGuide && guideDay > 0 ? (
             <div>

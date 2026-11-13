@@ -1,7 +1,7 @@
 import { ArrowUpRight, BedDouble, Car, CheckSquare, Clock3, Mountain, ParkingCircle } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import treCimePhoto from "@/assets/oktoberfest-day7-trecime.jpg";
-import routeArtwork from "@/assets/oktoberfest-day7-map.jpg";
+import routeArtwork from "@/assets/oktoberfest-day7-antorno-map.jpg";
 import { oktoberfestDaySevenPlan as plan } from "@/lib/oktoberfest-day-seven-timing";
 
 const maps = (query: string) => `https://www.google.com/maps/search/?api=1&query=${encodeURIComponent(query)}`;
@@ -21,7 +21,7 @@ export function OktoberfestDaySevenGuide() {
         <p className="text-xs font-semibold uppercase">Your guide · Day 07 · Italy → Austria</p>
         <h2 className="mt-3 font-display text-4xl leading-tight sm:text-5xl">Tre Cime, one more viewpoint & a very welcome dinner.</h2>
         <p className="mt-4 max-w-xl text-sm leading-relaxed">An early alarm, the iconic three peaks and a loop we happily made longer for the views. Then into the Tux valley, where the hotel dinner turned out to be a lovely surprise.</p>
-        <div className="mt-6 flex flex-wrap gap-4 text-sm"><span className="flex items-center gap-2"><Car className="size-4" />Valdaora → Tre Cime → Misurina → Juns</span><span className="flex items-center gap-2"><BedDouble className="size-4" />Hotel Höhlenstein · Tux</span></div>
+        <div className="mt-6 flex flex-wrap gap-4 text-sm"><span className="flex items-center gap-2"><Car className="size-4" />Valdaora → Tre Cime → Lago d’Antorno → Juns</span><span className="flex items-center gap-2"><BedDouble className="size-4" />Hotel Höhlenstein · Tux</span></div>
       </div>
     </header>
 
@@ -32,17 +32,17 @@ export function OktoberfestDaySevenGuide() {
         ["Early morning", "Breakfast, check-out & the drive", "Allow roughly 1–1.5 hours from Valdaora, plus the booked entry procedure and any queues. Set your alarm around your actual road conditions and reservation."],
         [plan.parkingArrival, "Park beside Rifugio Auronzo", "On our visit, about three quarters of the spaces were already occupied, even outside peak season. Today you must reserve online, arriving early alone is not enough."],
         ["Morning", "The Tre Cime loop", `The standard loop is often described as about ${plan.standardLoopHours} hours. We added extra climbs and viewpoints, so allow 4–5 hours or longer with photos and the cave detour.`],
-        [plan.lunch, "Italian lunch near Misurina", "We stopped for lunch on the way down rather than exploring the lake. There was still a substantial drive ahead."],
-        ["Afternoon", "Drive to Juns in the Tux valley", "Allow roughly 3–4 hours from Misurina, plus breaks and traffic. Check the route, Austrian vignette and any separate motorway tolls."],
+        [plan.lunch, "Italian lunch at Lago d’Antorno", "We stopped for lunch on the way down rather than exploring the lake. There was still a substantial drive ahead."],
+        ["Afternoon", "Drive to Juns in the Tux valley", "Allow roughly 3–4 hours from Lago d’Antorno, plus breaks and traffic. Check the route, Austrian vignette and any separate motorway tolls."],
         ["Evening", "Hotel Höhlenstein & dinner", "Generous portions, a genuinely pleasant surprise and exactly what we needed after the mountains and the drive."],
       ].map(([time, title, note]) => <li key={title} className="grid gap-2 py-4 sm:grid-cols-[9rem_1fr]"><span className="text-sm font-semibold text-terracotta">{time}</span><div><h4 className="text-sm font-semibold">{title}</h4><p className="mt-1 text-sm leading-relaxed text-soft">{note}</p></div></li>)}</ol>
     </div>
 
     <div className="py-8">
       <h3 className="font-display text-2xl">From the three peaks to the Tux valley</h3>
-      <img src={routeArtwork} alt="Schematic topographic day 7 route from Valdaora to Rifugio Auronzo at 09:00, lunch near Misurina at 14:30 and Hotel Höhlenstein in Juns, with a separate hiking loop inset" width={1536} height={1024} loading="lazy" className="mt-4 h-auto w-full rounded-lg" />
+      <img src={routeArtwork} alt="Schematic topographic day 7 route from Valdaora to Rifugio Auronzo at 09:00, lunch at Lago d’Antorno at 14:30 and Hotel Höhlenstein in Juns, with a separate hiking loop inset" width={1536} height={1024} loading="lazy" className="mt-4 h-auto w-full rounded-lg" />
       <p className="mt-2 text-xs text-soft">Schematic artwork, not a road or hiking navigation map. Use the route links and an offline trail map.</p>
-      <div className="mt-4 flex flex-wrap gap-2"><PlaceLink href={drive("Hotel Chalet Olympia Valdaora", "Parcheggio Rifugio Auronzo")}>Valdaora → Tre Cime parking</PlaceLink><PlaceLink href={drive("Rifugio Auronzo", "Misurina")}>Tre Cime → Misurina</PlaceLink><PlaceLink href={drive("Misurina", "Hotel Hohlenstein Juns 586 Tux")}>Misurina → Hotel Höhlenstein</PlaceLink></div>
+      <div className="mt-4 flex flex-wrap gap-2"><PlaceLink href={drive("Hotel Chalet Olympia Valdaora", "Parcheggio Rifugio Auronzo")}>Valdaora → Tre Cime parking</PlaceLink><PlaceLink href={drive("Rifugio Auronzo", "Chalet Lago Antorno")}>Tre Cime → Lago d’Antorno</PlaceLink><PlaceLink href={drive("Chalet Lago Antorno", "Hotel Hohlenstein Juns 586 Tux")}>Lago d’Antorno → Hotel Höhlenstein</PlaceLink></div>
     </div>
 
     <div className="border-t border-border py-8">
@@ -60,6 +60,9 @@ export function OktoberfestDaySevenGuide() {
       <p className="mt-5 text-sm leading-relaxed text-soft">You can walk the loop either way. We started from <strong className="text-ink">Rifugio Auronzo towards Rifugio Lavaredo</strong>, continuing over Forcella Lavaredo towards Rifugio Locatelli. We would choose that direction again. About <strong className="text-ink">{plan.bestViewsAfterHours} hours in</strong>, some of the most beautiful views of the day open up.</p>
       <p className="mt-3 text-sm leading-relaxed text-soft">Return via the Langalm side and Forcella Col di Mezzo to complete the circuit. There is still a climb towards the end, so keep some energy for the return. The standard loop is roughly 10 km, with several hundred metres of ascent. The often-quoted <strong className="text-ink">{plan.standardLoopHours} hours</strong> is a base walking estimate, not our exact hiking duration. We extended the route for more viewpoints. Allow a generous half-day and do not turn the 14:30 lunch into a deadline you have to rush for.</p>
       <p className="mt-3 text-sm leading-relaxed text-soft">We did not find the main route particularly difficult in our conditions, but <strong className="text-ink">proper hiking shoes are a must</strong>. This is high-mountain terrain with uneven ground, climbs and exposed weather. Snow, ice, wind or poor visibility can change the difficulty completely.</p>
+      <h4 className="mt-6 font-semibold">Walking route & huts</h4>
+      <p className="mt-3 text-sm leading-relaxed text-soft">Rifugio Auronzo → trail 101 past Rifugio Lavaredo → Forcella Lavaredo → Locatelli hut detour → trail 105 via Langalm → Forcella Col di Mezzo → Auronzo. The official destination guide gives about 4 hours, 8.8 km and 550 m ascent for its circuit. Allow longer for our cave stop and extra viewpoints. Hut sequence: Auronzo, Lavaredo, Locatelli, Langalm, then back to Auronzo. Check every hut’s opening independently.</p>
+      <div className="mt-4"><PlaceLink href="https://bike.drei-zinnen.info/en/activity/summer-walk-around-the-drei-zinnen-tre-cime-three-peaks-_569">Official loop description</PlaceLink></div>
       <h4 className="mt-6 font-semibold">Our extra stop · the cave viewpoint</h4>
       <p className="mt-3 text-sm leading-relaxed text-soft">We recommend the cave viewpoint for that beautiful frame around Tre Cime. Save our pin at <strong className="text-ink">46.59931° N, 12.27048° E</strong>, near the Locatelli area. It is an optional detour, not a shortcut or a marked accessible route. Assess the ground before approaching, stay away from edges and skip it if conditions are slippery or you feel uncomfortable. Carry a torch if entering a dark opening. Do not continue into tunnels or via ferrata sections without the right equipment and experience.</p>
       <p className="mt-3 text-sm leading-relaxed text-soft"><strong className="text-ink">Parking:</strong> keep the car at Rifugio Auronzo. Reach every viewpoint on foot using a proper hiking map, not Google driving directions.</p>
@@ -70,10 +73,10 @@ export function OktoberfestDaySevenGuide() {
 
     <div className="border-t border-border py-8">
       <h3 className="font-display text-3xl">03 · A late Italian lunch, then keep moving</h3>
-      <p className="mt-5 text-sm leading-relaxed text-soft">By <strong className="text-ink">{plan.lunch}</strong> we were having lunch in an Italian restaurant near Misurina on the way down. We did not stop to explore the lake, because our next destination was the Tux valley in Austria. Allow around 20–30 minutes to descend from the upper car park towards Misurina, with extra time if traffic is slow.</p>
-      <p className="mt-3 text-sm leading-relaxed text-soft"><strong className="text-ink">A researched option to compare:</strong> Chalet Lago Antorno has a restaurant beside Lake Antorno on the descent, just before Misurina. This is a suggested stop, not a claim that it was our lunch venue. Check kitchen hours for a late lunch before you set off and compare current Google Maps reviews.</p>
+      <p className="mt-5 text-sm leading-relaxed text-soft">By <strong className="text-ink">{plan.lunch}</strong> we were having lunch at <strong className="text-ink">Ristorante Lago Antorno, at Chalet Lago Antorno beside Lago d’Antorno</strong>. This was our actual lunch stop, not at Lake Misurina. We did not stay to explore the lake because our next destination was the Tux valley in Austria. Allow around 20–30 minutes for the descent from the upper car park, depending on traffic.</p>
+      <p className="mt-3 text-sm leading-relaxed text-soft">Check the restaurant’s kitchen hours for a late lunch and compare current Google Maps reviews before setting off.</p>
       <p className="mt-3 text-sm leading-relaxed text-soft"><strong className="text-ink">Parking:</strong> use the signed Lago Antorno parking area opposite the chalet, checking the posted restrictions and charges. Walk to the restaurant and only use hotel-designated spaces if staff authorise them.</p>
-      <div className="mt-4 flex flex-wrap gap-2"><PlaceLink href="https://www.lagoantorno.it/en/restaurant/">Chalet Lago Antorno · restaurant</PlaceLink><PlaceLink href={maps("Chalet Lago Antorno restaurant")}>Current Google Maps reviews</PlaceLink><PlaceLink href={maps("Parcheggio Lago Antorno")}>Lago Antorno parking</PlaceLink></div>
+      <div className="mt-4 flex flex-wrap gap-2"><PlaceLink href="https://www.lagoantorno.it/en/restaurant/">Ristorante Lago Antorno · official</PlaceLink><PlaceLink href={maps("Chalet Lago Antorno restaurant")}>Current Google Maps reviews</PlaceLink><PlaceLink href={maps("Parcheggio Lago Antorno")}>Lago Antorno parking</PlaceLink></div>
     </div>
 
     <div className="border-t border-border py-8">

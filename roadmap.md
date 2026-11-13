@@ -1,8 +1,13 @@
 # Roadmap
 
+- [x] Add paid Oktoberfest day 8: optional Olpererhütte bridge hike with route, duration, huts and parking, honest snow cancellation, hotel breakfast, optional Zenz'n Stub'n lunch and airport alternatives. Add route/duration/hut guidance to days 5–7, correcting Geisler Alm to Val di Funes and its Zans trailhead. Twenty-eight tests pass, days 6–8 isolated desktop/mobile rendering, images and checkboxes verified without overflow or page errors.
+- [x] Correct day 7 lunch to the personally visited Ristorante Lago Antorno beside Lago d’Antorno, not Misurina, including map and route labels.
+- [ ] Verify day 8 through the unlocked trip room (blocked: the current coming-soon screen replaces the trip room even with the injected session).
+- [ ] Add current verified Google rating snapshots for day 8 dining (blocked: no direct verified Maps score retrieved, current review links provided).
+
 - [x] Add paid Oktoberfest day 7: Tre Cime morning parking, 2026 toll and booking rules, loop and cave viewpoint, packed supplies, Misurina lunch, Hotel Hohlenstein in Juns, artwork, navigation and next-day checklist. Sixteen timing/tariff tests pass, isolated desktop/mobile images and checkbox verified without overflow or page errors.
 - [ ] Verify day 7 through the unlocked trip room (blocked: the current coming-soon screen replaces the trip room even with the injected session).
-- [ ] Identify Monika's day 7 lunch restaurant and add verified Google rating snapshots (blocked: proximity alone cannot identify the venue and no verified Google scores retrieved). Chalet Lago Antorno is clearly a researched alternative, with current Maps review links.
+- [ ] Add verified Google rating snapshots for day 7 dining (blocked: no verified Google scores retrieved). Monika confirmed Ristorante Lago Antorno as her actual lunch venue, official and current review links provided.
 
 - [x] Add paid Oktoberfest day 5: eM's favourite, 08:30–09:30 alpaca breakfast, Seceda at 13:30, Ortisei parking, Santa Maddalena sunset walk, Fallerhof and dinner, artwork and next-day checklist. Isolated desktop/mobile, both images, checklist and five timing tests verified. Hotel confirms alpacas Happy & Bernard, but not which is white. Use verified Apple presentation connection instead of unconfirmed emoji origin. Fallerhof official URL provided from tourism listing, but its domain did not resolve during verification.
 - [ ] Verify day 5 switching through the unlocked trip room (blocked: requesting user's injected session has the trip locked).

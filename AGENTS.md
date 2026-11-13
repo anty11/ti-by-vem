@@ -19,3 +19,4 @@
 - Keep paid France day navigation, tool views and bottom continuation actions in TripRoomPage with one shared selection handler so all return to the same compact reading position; keep tool instances mounted when hidden to preserve unfinished input.
 - Keep Oktoberfest detailed chapters in dedicated paid-guide components and expose only completed chapters through the shared trip-room day picker, so public previews and unfinished days cannot masquerade as detailed guides.
 - Keep recorded Oktoberfest timings and dated access tariffs in day-specific planning modules with concrete tests, distinguishing walking estimates from recorded durations to avoid inventing travel history.
+- Keep proposed hiking routes explicitly separate from recorded walks and cancelled plans, using official trail references so hut locations and transport requirements stay accurate.

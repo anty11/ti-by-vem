@@ -1,7 +1,7 @@
 import { ArrowUpRight, BedDouble, Car, CheckSquare, Clock3, ParkingCircle } from "lucide-react";
 import { Button } from "@/components/ui/button";
-import seiserAlmPhoto from "@/assets/oktoberfest-day6-seiseralm.jpg";
-import routeArtwork from "@/assets/oktoberfest-day6-map.jpg";
+import geislerPhoto from "@/assets/oktoberfest-day6-geisler.jpg";
+import routeArtwork from "@/assets/oktoberfest-day6-zans-map.jpg";
 import { oktoberfestDaySixTimes as times } from "@/lib/oktoberfest-day-six-timing";
 
 const maps = (query: string) => `https://www.google.com/maps/search/?api=1&query=${encodeURIComponent(query)}`;
@@ -14,13 +14,13 @@ function PlaceLink({ href, children }: { href: string; children: React.ReactNode
 export function OktoberfestDaySixGuide() {
   return <section aria-label="Oktoberfest day 6 detailed guide" className="mt-8 text-ink">
     <header className="relative isolate overflow-hidden rounded-lg bg-ink">
-      <img src={seiserAlmPhoto} alt="Illustrative generated photograph of the Seiser Alm meadows with wooden huts and the Sassolungo peaks under moody autumn clouds" width={1536} height={1024} loading="lazy" className="absolute inset-0 h-full w-full object-cover opacity-60" />
+      <img src={geislerPhoto} alt="Illustrative generated photograph of Geisler Alm and the Odle mountains in Val di Funes under autumn clouds" width={1536} height={1024} loading="lazy" className="absolute inset-0 h-full w-full object-cover opacity-60" />
       <div className="france-day-photo-shade absolute inset-0" aria-hidden="true" />
       <div className="relative px-6 py-10 text-onink sm:px-10">
         <p className="text-xs font-semibold uppercase">Your guide · Day 06 · Italy</p>
-        <h2 className="mt-3 font-display text-4xl leading-tight sm:text-5xl">A hiking day on Seiser Alm & boats on Lago di Braies.</h2>
+        <h2 className="mt-3 font-display text-4xl leading-tight sm:text-5xl">A hiking day on Val di Funes & boats on Lago di Braies.</h2>
         <p className="mt-4 max-w-xl text-sm leading-relaxed">One of our hiking days, which is exactly why yesterday had the cable car. Mountain huts, changeable weather and one of the most famous lakes in the Dolomites.</p>
-        <div className="mt-6 flex flex-wrap gap-4 text-sm"><span className="flex items-center gap-2"><Car className="size-4" />Santa Maddalena → Seiser Alm → Lago di Braies → Valdaora</span><span className="flex items-center gap-2"><BedDouble className="size-4" />Hotel Chalet Olympia · Valdaora</span></div>
+        <div className="mt-6 flex flex-wrap gap-4 text-sm"><span className="flex items-center gap-2"><Car className="size-4" />Santa Maddalena → Val di Funes → Lago di Braies → Valdaora</span><span className="flex items-center gap-2"><BedDouble className="size-4" />Hotel Chalet Olympia · Valdaora</span></div>
       </div>
     </header>
 
@@ -29,7 +29,7 @@ export function OktoberfestDaySixGuide() {
       <p className="mt-3 text-sm leading-relaxed text-soft">Breakfast, the hike start, the first hut and the boat rental are our recorded times. Driving allowances are estimates, not our exact departure or arrival times.</p>
       <ol className="mt-5 divide-y divide-border">{[
         [times.breakfast, "Breakfast at Fallerhof", `We paid extra for breakfast, around €${times.breakfastPriceEur} in cash, and had it all to ourselves. Simple, homely and good quality, exactly how we like it on the road.`],
-        [times.hikeStart, "Seiser Alm hike from the car park", `We set off from the well-signed car park hoping the weather would clear. It did not, but the walk was still worth it. The whole hike there and back took us about ${times.hikeTotalHours} hours.`],
+        [times.hikeStart, "Val di Funes hike from the car park", `We set off from the well-signed car park hoping the weather would clear. It did not, but the walk was still worth it. The whole hike there and back took us about ${times.hikeTotalHours} hours.`],
         [times.firstHut, "First hut reached, and it was closed", "Geisler Alm, Rifugio delle Odle at 1,996 m, the hut we had looked forward to most, had a sign saying Summer is coming. A few minutes further on, a second hut was open."],
         ["Early afternoon", "Soup, a shared dessert & the walk back", "Warming soup and a dessert to share. It was full inside, so we stayed outside. The three-thousand-metre peaks around us stayed hidden in the clouds."],
         [times.braiesBoats, "Lago di Braies & the rowing boats", `One of the last boat slots of the day, and we had no idea. We rowed for ${times.rowingMinutes} minutes and caught the last rays of sunshine.`],
@@ -39,9 +39,9 @@ export function OktoberfestDaySixGuide() {
 
     <div className="py-8">
       <h3 className="font-display text-2xl">From Val di Funes to Valdaora</h3>
-      <img src={routeArtwork} alt="Schematic topographic day 6 route from Santa Maddalena to Alpe di Siusi, then Lago di Braies and Valdaora" width={1536} height={1024} loading="lazy" className="mt-4 h-auto w-full rounded-lg" />
+      <img src={routeArtwork} alt="Schematic topographic day 6 route from Santa Maddalena to Zans and Geisler Alm, then Lago di Braies and Valdaora" width={1536} height={1024} loading="lazy" className="mt-4 h-auto w-full rounded-lg" />
       <p className="mt-2 text-xs text-soft">Schematic artwork, not a road map. Follow the links for actual routes.</p>
-      <div className="mt-4 flex flex-wrap gap-2"><PlaceLink href={drive("Fallerhof Kirchweg 14 Santa Maddalena Funes", "Alpe di Siusi Compatsch parking")}>Fallerhof → Seiser Alm</PlaceLink><PlaceLink href={drive("Alpe di Siusi Compatsch", "Lago di Braies parking")}>Seiser Alm → Lago di Braies</PlaceLink><PlaceLink href={drive("Lago di Braies", "Hotel Chalet Olympia Valdaora")}>Lago di Braies → Valdaora</PlaceLink></div>
+      <div className="mt-4 flex flex-wrap gap-2"><PlaceLink href={drive("Fallerhof Kirchweg 14 Santa Maddalena Funes", "Zannes Zans parking Funes")}>Fallerhof → Val di Funes</PlaceLink><PlaceLink href={drive("Zannes Zans parking Funes", "Lago di Braies parking")}>Val di Funes → Lago di Braies</PlaceLink><PlaceLink href={drive("Lago di Braies", "Hotel Chalet Olympia Valdaora")}>Lago di Braies → Valdaora</PlaceLink></div>
     </div>
 
     <div className="border-t border-border py-8">
@@ -52,14 +52,18 @@ export function OktoberfestDaySixGuide() {
     </div>
 
     <div className="border-t border-border py-8">
-      <h3 className="font-display text-3xl">02 · Seiser Alm, even without the view</h3>
-      <p className="mt-5 text-sm leading-relaxed text-soft">The weather was not on our side, but we set off for Seiser Alm anyway, hoping it would clear. It never did. We left the well-signed car park around <strong className="text-ink">{times.hikeStart}</strong>. To our surprise, even the information centre was closed at the end of September.</p>
+      <h3 className="font-display text-3xl">02 · Val di Funes, even without the view</h3>
+      <p className="mt-5 text-sm leading-relaxed text-soft">The weather was not on our side, but we set off for Val di Funes anyway, hoping it would clear. It never did. We left the well-signed car park around <strong className="text-ink">{times.hikeStart}</strong>. To our surprise, even the information centre was closed at the end of September.</p>
       <p className="mt-3 text-sm leading-relaxed text-soft"><strong className="text-ink">Our tip: check the opening hours of the individual huts carefully.</strong> The hut we had looked forward to most was closed. Around {times.firstHut} we reached <strong className="text-ink">Geisler Alm, Rifugio delle Odle at 1,996 m</strong>, and found a sign saying Summer is coming. So we extended our route to a second hut a few minutes further on, which was open.</p>
       <p className="mt-3 text-sm leading-relaxed text-soft">There we treated ourselves to a warming soup and a dessert to share. It was full inside, so we stayed outside. We should have had three-thousand-metre peaks all around us, but sadly we saw none of them. The whole hike, there and back with the hut stop, took us <strong className="text-ink">about {times.hikeTotalHours} hours</strong>. Plan half a day and keep it flexible around hut opening times and weather.</p>
-      <aside className="mt-5 border-l-2 border-terracotta pl-4 text-sm leading-relaxed text-soft"><strong className="text-ink">Late season means limited services.</strong> Huts, lifts and information centres reduce their hours or close between the summer and winter seasons. Check current opening times on the official Seiser Alm website before building your day around a specific hut, and carry warm layers, waterproofs, water and a snack regardless.</aside>
-      <h4 className="mt-6 flex items-center gap-2 font-semibold"><ParkingCircle className="size-5 text-royal" />Seiser Alm hiking car park</h4>
-      <p className="mt-3 text-sm leading-relaxed text-soft">The car park at the trailhead was well signed and easy to find. Follow the signs for the Alpe di Siusi hiking car parks from the valley, and note that road access to the plateau itself is restricted during the day for non-guests. Check current access rules, parking charges and any shuttle options before you drive up.</p>
-      <div className="mt-4 flex flex-wrap gap-2"><PlaceLink href="https://www.seiseralm.it/en/">Official Seiser Alm & hut opening times</PlaceLink><PlaceLink href={maps("Geisler Alm Rifugio delle Odle")}>Geisler Alm · current Maps reviews</PlaceLink><PlaceLink href={maps("Alpe di Siusi hiking parking Compatsch")}>Trailhead parking</PlaceLink></div>
+      <h4 className="mt-6 font-semibold">Suggested walking route · Adolf Munkel Trail</h4>
+      <p className="mt-3 text-sm leading-relaxed text-soft">Zannes / Zans parking → trail 6 towards Tschantschenon → at the bridge turn onto trail 35, the Adolf Munkel Trail → Gschnagenhardt Alm and Geisler Alm → trail 36 via Dusleralm → Zans. The local tourism guide lists this shorter circuit at approximately 9 km and 3 hours walking. Our day took about {times.hikeTotalHours} hours including the hut stop and extra walking. This is a suggested marked route to the huts, not a reconstruction of every turn we took.</p>
+      <p className="mt-3 text-sm leading-relaxed text-soft"><strong className="text-ink">Huts to check:</strong> Geisler Alm, neighbouring Gschnagenhardt Alm and Dusleralm on the return. Geisler Alm’s direct approach via trails 6, 35 and 36A is about 1 hour 40 minutes uphill from Zans. These huts are in Val di Funes, not on the Alpe di Siusi plateau. Carry your own food and water even when a hut is listed as open.</p>
+      <div className="mt-4 flex flex-wrap gap-2"><PlaceLink href="https://www.geisleralm.com/de/almuette-villnoess/geisleralm-aktivitaeten/65-wanderungen-zur-geisler-alm.html">Official hut walking approaches</PlaceLink><PlaceLink href={maps("Gschnagenhardt Alm Funes")}>Gschnagenhardt Alm · hours</PlaceLink><PlaceLink href={maps("Dusleralm Funes")}>Dusleralm · hours</PlaceLink></div>
+      <aside className="mt-5 border-l-2 border-terracotta pl-4 text-sm leading-relaxed text-soft"><strong className="text-ink">Late season means limited services.</strong> Huts, lifts and information centres reduce their hours or close between the summer and winter seasons. Check current opening times on the official Val di Funes website before building your day around a specific hut, and carry warm layers, waterproofs, water and a snack regardless.</aside>
+      <h4 className="mt-6 flex items-center gap-2 font-semibold"><ParkingCircle className="size-5 text-royal" />Val di Funes hiking car park</h4>
+      <p className="mt-3 text-sm leading-relaxed text-soft">For this suggested Geisler Alm route, use <strong className="text-ink">Zannes / Zans car park at the end of Val di Funes</strong>. Check current charges and any reservation rules before arriving. Leave the car here for all huts and the complete walk, then return to collect it before driving to Lago di Braies.</p>
+      <div className="mt-4 flex flex-wrap gap-2"><PlaceLink href="https://www.geisleralm.com/">Official Geisler Alm & opening times</PlaceLink><PlaceLink href={maps("Geisler Alm Rifugio delle Odle")}>Geisler Alm · current Maps reviews</PlaceLink><PlaceLink href={maps("Parcheggio Zannes Zans Funes")}>Zans trailhead parking</PlaceLink></div>
     </div>
 
     <div className="border-t border-border py-8">
@@ -84,7 +88,7 @@ export function OktoberfestDaySixGuide() {
       <h3 className="flex items-center gap-2 font-display text-2xl"><CheckSquare className="size-5" />Before day 7 · don't forget</h3>
       <ul className="mt-5 space-y-3">{[
         "Settle any parking or breakfast payments at the hotel before leaving",
-        "Dry your hiking shoes and waterproofs after Seiser Alm",
+        "Dry your hiking shoes and waterproofs after Val di Funes",
         "Check tomorrow's route, tolls and any bookings in your onward plan",
         "Save your next accommodation's arrival instructions and parking details",
         "Charge your phone and camera after a full day of photos",

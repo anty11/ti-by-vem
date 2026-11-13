@@ -33,6 +33,7 @@ import { OktoberfestDayFourGuide } from "@/components/site/OktoberfestDayFourGui
 import { OktoberfestDayFiveGuide } from "@/components/site/OktoberfestDayFiveGuide";
 import { OktoberfestDaySixGuide } from "@/components/site/OktoberfestDaySixGuide";
 import { OktoberfestDaySevenGuide } from "@/components/site/OktoberfestDaySevenGuide";
+import { OktoberfestDayEightGuide } from "@/components/site/OktoberfestDayEightGuide";
 
 export function TripRoomPage({ itinerary, lang }: { itinerary: Itinerary; lang: Lang }) {
   const t = tripCopy[lang];
@@ -48,7 +49,7 @@ export function TripRoomPage({ itinerary, lang }: { itinerary: Itinerary; lang: 
   const isFranceGuide = itinerary.slug === "riviera" && view === "read";
   const isOktoberfestGuide = itinerary.slug === "oktoberfest-dolomites" && view === "read";
   const hasDetailedGuide = isFranceGuide || isOktoberfestGuide;
-  const availableDays = [1, 2, 3, 4, 5, 6, 7];
+  const availableDays = isFranceGuide ? [1, 2, 3, 4, 5, 6, 7] : [1, 2, 3, 4, 5, 6, 7, 8];
   const selectGuideDay = (day: number) => {
     setGuideDay(day);
     requestAnimationFrame(() => {
@@ -146,7 +147,7 @@ export function TripRoomPage({ itinerary, lang }: { itinerary: Itinerary; lang: 
               </div> : null}
               <div className="flex gap-2 overflow-x-auto pb-1">
                 <Button className="shrink-0" data-guide-day={0} variant={guideDay === 0 ? "default" : "outline"} aria-pressed={guideDay === 0} onClick={() => selectGuideDay(0)}>{lang === "sk" ? "Úvod" : "Overview"}</Button>
-                <select aria-label={lang === "sk" ? "Vyber deň" : "Pick a day"} className={`h-10 shrink-0 rounded-md border border-input px-3 text-sm font-medium ${guideDay >= 1 && guideDay <= 7 ? "bg-primary text-primary-foreground" : "bg-background text-ink"}`} value={guideDay >= 1 && guideDay <= 7 ? String(guideDay) : ""} onChange={(e) => e.target.value && selectGuideDay(Number(e.target.value))}>
+                <select aria-label={lang === "sk" ? "Vyber deň" : "Pick a day"} className={`h-10 shrink-0 rounded-md border border-input px-3 text-sm font-medium ${availableDays.includes(guideDay) ? "bg-primary text-primary-foreground" : "bg-background text-ink"}`} value={availableDays.includes(guideDay) ? String(guideDay) : ""} onChange={(e) => e.target.value && selectGuideDay(Number(e.target.value))}>
                   <option value="" disabled>{lang === "sk" ? "Vyber deň" : "Pick a day"}</option>
                   {availableDays.map((day) => <option key={day} value={day}>{lang === "sk" ? "Deň" : "Day"} {day}</option>)}
                 </select>
@@ -220,7 +221,7 @@ export function TripRoomPage({ itinerary, lang }: { itinerary: Itinerary; lang: 
           ) : null}
 
           {isOktoberfestGuide && availableDays.includes(guideDay) ? <>
-            {guideDay === 1 ? <OktoberfestDayOneGuide /> : guideDay === 2 ? <OktoberfestDayTwoGuide /> : guideDay === 3 ? <OktoberfestDayThreeGuide /> : guideDay === 4 ? <OktoberfestDayFourGuide /> : guideDay === 5 ? <OktoberfestDayFiveGuide /> : guideDay === 6 ? <OktoberfestDaySixGuide /> : <OktoberfestDaySevenGuide />}
+            {guideDay === 1 ? <OktoberfestDayOneGuide /> : guideDay === 2 ? <OktoberfestDayTwoGuide /> : guideDay === 3 ? <OktoberfestDayThreeGuide /> : guideDay === 4 ? <OktoberfestDayFourGuide /> : guideDay === 5 ? <OktoberfestDayFiveGuide /> : guideDay === 6 ? <OktoberfestDaySixGuide /> : guideDay === 7 ? <OktoberfestDaySevenGuide /> : <OktoberfestDayEightGuide />}
             <div aria-label="Continue itinerary" className="mt-8 flex items-center justify-between gap-3 border-t border-border py-6">
               <Button variant="outline" onClick={() => selectGuideDay(guideDay - 1)}><ArrowLeft />{guideDay === 1 ? (lang === "sk" ? "Úvod" : "Overview") : (lang === "sk" ? "Predchádzajúci deň" : "Previous day")}</Button>
               {availableDays.includes(guideDay + 1) ? <Button onClick={() => selectGuideDay(guideDay + 1)}>{lang === "sk" ? "Ďalší deň" : "Next day"} · {guideDay + 1}<ArrowRight /></Button> : null}

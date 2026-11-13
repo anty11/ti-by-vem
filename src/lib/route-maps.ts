@@ -1474,16 +1474,16 @@ export const routeMaps: Record<string, RouteMap> = {
         dateSk: "6. deň",
         x: 250,
         y: 180,
-        place: "Seiser Alm → Lago di Braies",
-        title: "The high meadow and the green lake",
+        place: "Val di Funes → Lago di Braies",
+        title: "The Odle mountains and the green lake",
         text:
-          "A morning hike across Seiser Alm, the largest high alpine meadow in Europe, with lunch at a hut up top. Then east to Lago di Braies for a rowboat on that impossibly green water and a slow walk around the shore.",
+          "A morning hike beneath the Odle peaks in Val di Funes, with a mountain hut stop. Then east to Lago di Braies for a rowboat on that impossibly green water and a slow walk around the shore.",
         notes: ["Check the hut's opening hours before you set off", "Rowboats at Lago di Braies go fast — go late afternoon", "Night at a hotel near the lake"],
         sk: {
-          place: "Seiser Alm → Lago di Braies",
-          title: "Vysoká lúka a zelené jazero",
+          place: "Val di Funes → Lago di Braies",
+          title: "Hory Odle a zelené jazero",
           text:
-            "Ranná túra po Seiser Alm, najväčšej vysokej alpskej lúke Európy, s obedom na chate hore. Potom na východ k Lago di Braies — lodička na neuveriteľne zelenej vode a pomalá prechádzka okolo brehu.",
+            "Ranná túra pod štítmi Odle vo Val di Funes so zastávkou na horskej chate. Potom na východ k Lago di Braies — lodička na neuveriteľne zelenej vode a pomalá prechádzka okolo brehu.",
           notes: ["Pred odchodom skontrolujte otváracie hodiny chaty", "Lodičky na Lago di Braies sa rýchlo vypredajú — choďte neskoro poobede", "Noc v hoteli pri jazere"],
         },
       },
@@ -1516,13 +1516,13 @@ export const routeMaps: Record<string, RouteMap> = {
         place: "Olpererhütte",
         title: "The suspension bridge — or straight home",
         text:
-          "If the weather plays along, one last hike: up to the Olpererhütte and its famous suspension bridge hanging over the valley. If it doesn't, point the car home and start planning the next one.",
+          "If the weather plays along, one last hike: up to the Olpererhütte and the small suspension bridge near the hut above a stream. If it doesn't, point the car home and start planning the next one.",
         notes: ["The bridge photo spot is a short walk past the hut", "Weather decides — have a plan B", "Long drive home"],
         sk: {
           place: "Olpererhütte",
           title: "Visutý most — alebo rovno domov",
           text:
-            "Ak bude počasie, jedna posledná túra: hore k Olpererhütte a jej slávnemu visutému mostu nad údolím. Ak nie, namierite si to domov a začnete plánovať ďalšiu.",
+            "Ak bude počasie, jedna posledná túra: hore k Olpererhütte a malému visutému mostu pri chate nad potokom. Ak nie, namierite si to domov a začnete plánovať ďalšiu.",
           notes: ["Fotomiesto pri moste je kúsok za chatou", "Rozhoduje počasie — majte plán B", "Dlhá cesta domov"],
         },
       },

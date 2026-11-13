@@ -1379,16 +1379,16 @@ export const routeMaps: Record<string, RouteMap> = {
         x: 620,
         y: 120,
         place: "Munich",
-        title: "Oktoberfest, the proper way",
+        title: "An evening at Oktoberfest",
         text:
-          "The trip opens in Munich with a full day at Oktoberfest — the big tents, the brass bands and one very long table. Dinner in town and an early night, because tomorrow the real drive begins.",
-        notes: ["Tent reservations book out months ahead", "Cash is king in the tents", "Night in Munich"],
+          "Arrive in Munich by early evening for Oktoberfest: tents, rides, stalls and a lively atmosphere. After eating, continue to your overnight stop before tomorrow's road trip.",
+        notes: ["Check the festival dates for your year", "Book ahead for a seated tent evening", "Allow time to reach your overnight stop"],
         sk: {
           place: "Mníchov",
-          title: "Oktoberfest, ako sa patrí",
+          title: "Večer na Oktoberfeste",
           text:
-            "Cesta sa začína v Mníchove celým dňom na Oktoberfeste — veľké stány, dychovky a jedno veľmi dlhé posedenie. Večera v meste a skoro spať, lebo zajtra začína skutočná jazda.",
-          notes: ["Rezervácie stánkov sa vypredávajú mesiace dopredu", "V stánkoch sa oplatí mať hotovosť", "Noc v Mníchove"],
+            "Do Mníchova príďte podvečer a užite si Oktoberfest: stany, kolotoče, stánky a výbornú atmosféru. Po jedle pokračujte na ubytovanie pred zajtrajšou cestou.",
+          notes: ["Overte termín festivalu pre váš rok", "Na posedenie v stane rezervujte vopred", "Nechajte si čas na presun na ubytovanie"],
         },
       },
       {

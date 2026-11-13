@@ -1,4 +1,9 @@
 # Roadmap
+
+- [x] Add paid Oktoberfest day 1 from Monika's notes, with evening arrival, honest festival experience, verified hotel and parking, map and next-day checklist; verify isolated desktop/mobile rendering and checklist interaction.
+- [ ] Verify Oktoberfest day 1 through the unlocked trip room (blocked: the requesting user's minted session signs in but the trip room remains locked).
+- [x] Include the missed dirndl experience and eM's wish to return even though she does not drink beer.
+- [x] Add the Munich garage closing-time warning and V & eM's 21:00 closure / after-22:00 departure experience.
  
 - [ ] When payments are set up: let travellers buy extra Trip agent messages inside a trip (blocked: payments not enabled yet).
 - [x] Match the paid France overview map to the premium daily artwork and add subtle day-labelled transfers, verified unlocked on desktop and mobile.

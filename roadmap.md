@@ -1,5 +1,7 @@
 # Roadmap
 
+- [x] Add paid Oktoberfest day 3 from Monika's notes: Bellagio walk, Varenna and Villa Monastero, Fuentes lunch and shopping, Chalet al Foss in Vermiglio with dinner, practical parking, map, opening photo and next-day checklist. Isolated desktop/mobile, loaded images and checklist verified.
+- [ ] Verify day 3 switching through the unlocked trip room (blocked: requesting user's injected session has the trip locked).
 - [x] Add paid Oktoberfest day 2: early departure, Vaduz (castle, Städtle, St. Florin Cathedral, Red House), Susch and St. Moritz (lake, Via Serlas, leaning tower, Alpine views), Bellagio dinner at Ristoro Forma e Gusto and Hotel Florence, practical parking, reservations, rain advice, artwork and next-day checklist. Isolated desktop/mobile, images and checkbox interaction verified.
 - [ ] Verify day 2 switching through the unlocked trip room (blocked: requesting user's injected session has the trip locked).
 - [ ] Add dated verified Google rating snapshots for day 2 restaurants (blocked: Google Maps lookup failed validation, linked current Maps reviews provided without invented scores).

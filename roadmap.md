@@ -1,5 +1,8 @@
 # Roadmap
 
+- [x] Add paid Oktoberfest day 5: eM's favourite, 08:30–09:30 alpaca breakfast, Seceda at 13:30, Ortisei parking, Santa Maddalena sunset walk, Fallerhof and dinner, artwork and next-day checklist. Isolated desktop/mobile, both images, checklist and five timing tests verified. Hotel confirms alpacas Happy & Bernard, but not which is white. Use verified Apple presentation connection instead of unconfirmed emoji origin. Fallerhof official URL provided from tourism listing, but its domain did not resolve during verification.
+- [ ] Verify day 5 switching through the unlocked trip room (blocked: requesting user's injected session has the trip locked).
+- [ ] Confirm the white alpaca's name and add dated day 5 dining Google rating snapshots (blocked: sources confirm the pair Happy & Bernard without colour identity, and no verified Maps rating retrieved). Current Maps review links provided without invented scores.
 - [x] Add paid Oktoberfest day 4 at Chalet al Foss: breakfast, friends not a couple, romantic boutique atmosphere, photography, wellness, drinks, honest Italian dinner note, early hotel and experience reservations, map and next-day checklist. Clarify day 3's classic hotel dinner. Isolated desktop/mobile, images and checklist verified.
 - [ ] Verify day 4 switching through the unlocked trip room (blocked: requesting user's injected session has the trip locked).
 - [x] Add paid Oktoberfest day 3 from Monika's notes: Bellagio walk, Varenna and Villa Monastero, Fuentes lunch and shopping, Chalet al Foss in Vermiglio with dinner, practical parking, map, opening photo and next-day checklist. Isolated desktop/mobile, loaded images and checklist verified.

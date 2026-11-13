@@ -32,6 +32,7 @@ import { OktoberfestDayThreeGuide } from "@/components/site/OktoberfestDayThreeG
 import { OktoberfestDayFourGuide } from "@/components/site/OktoberfestDayFourGuide";
 import { OktoberfestDayFiveGuide } from "@/components/site/OktoberfestDayFiveGuide";
 import { OktoberfestDaySixGuide } from "@/components/site/OktoberfestDaySixGuide";
+import { OktoberfestDaySevenGuide } from "@/components/site/OktoberfestDaySevenGuide";
 
 export function TripRoomPage({ itinerary, lang }: { itinerary: Itinerary; lang: Lang }) {
   const t = tripCopy[lang];
@@ -47,7 +48,7 @@ export function TripRoomPage({ itinerary, lang }: { itinerary: Itinerary; lang: 
   const isFranceGuide = itinerary.slug === "riviera" && view === "read";
   const isOktoberfestGuide = itinerary.slug === "oktoberfest-dolomites" && view === "read";
   const hasDetailedGuide = isFranceGuide || isOktoberfestGuide;
-  const availableDays = isFranceGuide ? [1, 2, 3, 4, 5, 6, 7] : [1, 2, 3, 4, 5, 6];
+  const availableDays = [1, 2, 3, 4, 5, 6, 7];
   const selectGuideDay = (day: number) => {
     setGuideDay(day);
     requestAnimationFrame(() => {
@@ -219,7 +220,7 @@ export function TripRoomPage({ itinerary, lang }: { itinerary: Itinerary; lang: 
           ) : null}
 
           {isOktoberfestGuide && availableDays.includes(guideDay) ? <>
-            {guideDay === 1 ? <OktoberfestDayOneGuide /> : guideDay === 2 ? <OktoberfestDayTwoGuide /> : guideDay === 3 ? <OktoberfestDayThreeGuide /> : guideDay === 4 ? <OktoberfestDayFourGuide /> : guideDay === 5 ? <OktoberfestDayFiveGuide /> : <OktoberfestDaySixGuide />}
+            {guideDay === 1 ? <OktoberfestDayOneGuide /> : guideDay === 2 ? <OktoberfestDayTwoGuide /> : guideDay === 3 ? <OktoberfestDayThreeGuide /> : guideDay === 4 ? <OktoberfestDayFourGuide /> : guideDay === 5 ? <OktoberfestDayFiveGuide /> : guideDay === 6 ? <OktoberfestDaySixGuide /> : <OktoberfestDaySevenGuide />}
             <div aria-label="Continue itinerary" className="mt-8 flex items-center justify-between gap-3 border-t border-border py-6">
               <Button variant="outline" onClick={() => selectGuideDay(guideDay - 1)}><ArrowLeft />{guideDay === 1 ? (lang === "sk" ? "Úvod" : "Overview") : (lang === "sk" ? "Predchádzajúci deň" : "Previous day")}</Button>
               {availableDays.includes(guideDay + 1) ? <Button onClick={() => selectGuideDay(guideDay + 1)}>{lang === "sk" ? "Ďalší deň" : "Next day"} · {guideDay + 1}<ArrowRight /></Button> : null}

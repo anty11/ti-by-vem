@@ -1,5 +1,9 @@
 # Roadmap
 
+- [x] Add paid Oktoberfest day 7: Tre Cime morning parking, 2026 toll and booking rules, loop and cave viewpoint, packed supplies, Misurina lunch, Hotel Hohlenstein in Juns, artwork, navigation and next-day checklist. Sixteen timing/tariff tests pass, isolated desktop/mobile images and checkbox verified without overflow or page errors.
+- [ ] Verify day 7 through the unlocked trip room (blocked: the current coming-soon screen replaces the trip room even with the injected session).
+- [ ] Identify Monika's day 7 lunch restaurant and add verified Google rating snapshots (blocked: proximity alone cannot identify the venue and no verified Google scores retrieved). Chalet Lago Antorno is clearly a researched alternative, with current Maps review links.
+
 - [x] Add paid Oktoberfest day 5: eM's favourite, 08:30–09:30 alpaca breakfast, Seceda at 13:30, Ortisei parking, Santa Maddalena sunset walk, Fallerhof and dinner, artwork and next-day checklist. Isolated desktop/mobile, both images, checklist and five timing tests verified. Hotel confirms alpacas Happy & Bernard, but not which is white. Use verified Apple presentation connection instead of unconfirmed emoji origin. Fallerhof official URL provided from tourism listing, but its domain did not resolve during verification.
 - [ ] Verify day 5 switching through the unlocked trip room (blocked: requesting user's injected session has the trip locked).
 - [ ] Confirm the white alpaca's name and add dated day 5 dining Google rating snapshots (blocked: sources confirm the pair Happy & Bernard without colour identity, and no verified Maps rating retrieved). Current Maps review links provided without invented scores.

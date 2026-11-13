@@ -18,3 +18,4 @@
 - Keep France planning allowances in france-budget and reuse its total in catalogue and new expense budgets, preserving existing customer records when estimates change.
 - Keep paid France day navigation, tool views and bottom continuation actions in TripRoomPage with one shared selection handler so all return to the same compact reading position; keep tool instances mounted when hidden to preserve unfinished input.
 - Keep Oktoberfest detailed chapters in dedicated paid-guide components and expose only completed chapters through the shared trip-room day picker, so public previews and unfinished days cannot masquerade as detailed guides.
+- Keep recorded Oktoberfest timings and dated access tariffs in day-specific planning modules with concrete tests, distinguishing walking estimates from recorded durations to avoid inventing travel history.

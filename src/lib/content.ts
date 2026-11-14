@@ -208,7 +208,7 @@ export const itineraries: Itinerary[] = [
     title: "French Riviera by car",
     days: 7,
     stops: "Marseille → Menton",
-    budget: `~€${franceBudget.total.toLocaleString("en-US")}`,
+    budget: `~€${franceBudget.perPerson.toLocaleString("en-US")}`,
     blurb: "One rental car from Marseille to Nice. Provence hilltop villages, the Verdon Gorge, Saint-Tropez beach clubs and a night in Monaco.",
     accent: "terracotta",
     x: 302,
@@ -295,7 +295,7 @@ export const itineraries: Itinerary[] = [
     title: "Oktoberfest to the Dolomites",
     days: 8,
     stops: "Munich → Dolomites → Tux",
-    budget: `~€${oktoberfestBudget.total.toLocaleString("en-US")}`,
+    budget: `~€${oktoberfestBudget.perPerson.toLocaleString("en-US")}`,
     chatPrice: "€9",
     chatPriceSk: "9 €",
     blurb:

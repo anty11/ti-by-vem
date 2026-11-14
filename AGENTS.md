@@ -15,11 +15,11 @@
 - Keep paid France venue links and dated verified rating snapshots in france-venues, rendered by FranceDayVenueLinks, to keep hotel and dining references consistent across days.
 - Keep the France reservation overview inside the unlocked day switcher after day 7 and reuse france-venues for hotel and dining references to avoid public paid content and duplicated venue data.
 - Consolidate only identical unused generated budget allowances through the shared estimate helper, preserving saved records and customer-entered expenses to avoid inflated estimates without losing spending.
-- Keep France planning allowances in france-budget and reuse its total in catalogue and new expense budgets, preserving existing customer records when estimates change.
+- Keep France planning allowances in france-budget, using its per-person amount in the catalogue and shared allowances in the expense ledger to preserve existing customer records.
 - Keep paid France day navigation, tool views and bottom continuation actions in TripRoomPage with one shared selection handler so all return to the same compact reading position; keep tool instances mounted when hidden to preserve unfinished input.
 - Keep Oktoberfest detailed chapters in dedicated paid-guide components and expose only completed chapters through the shared trip-room day picker, so public previews and unfinished days cannot masquerade as detailed guides.
 - Keep recorded Oktoberfest timings and dated access tariffs in day-specific planning modules with concrete tests, distinguishing walking estimates from recorded durations to avoid inventing travel history.
 - Keep proposed hiking routes explicitly separate from recorded walks and cancelled plans, using official trail references so hut locations and transport requirements stay accurate.
 - Keep Oktoberfest Reservations and Last words as paid chapters after the eight daily guides, and reuse ChaletAlFossExperiences for day 5 and reservation planning so seasonal experience guidance stays consistent.
-- Keep Oktoberfest provisional allowances in oktoberfest-budget and reuse them in catalogue and new budgets without replacing saved expenses, so the estimate remains consistent and customer records survive revisions.
+- Keep Oktoberfest provisional allowances in oktoberfest-budget, using its per-person amount in the catalogue and shared allowances in the expense ledger without replacing saved expenses.
 - Keep hiking circuit artwork separate from driving artwork, linked to published trail maps and labelled as suggestions rather than recorded GPS tracks, so scenic diagrams cannot masquerade as navigation or travel history.

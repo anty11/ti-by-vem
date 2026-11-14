@@ -220,9 +220,11 @@ export function BudgetCheck({ slug, budget, lang }: { slug: string; budget: stri
       <p className="mt-2 max-w-xl text-sm leading-relaxed text-soft">{t.lead}</p>
       {slug === "oktoberfest-dolomites" && <OktoberfestBudgetOverview />}
       {slug === "riviera" && <div className="mt-4 border-l-2 border-terracotta pl-4 text-sm leading-relaxed text-soft">
-        <p><strong className="text-ink">France · planning estimate for two · ~€6,000, excluding flights.</strong> Allow €1,800 for six hotel nights, €1,000 for the rental car, fuel, tolls, parking and taxis, €2,200 for meals and drinks, €700 for beach setups, pedal boats and the perfume workshop, and €300 as a buffer. Restaurant food is counted under meals, not again under beach activities. These are planning allowances, not our actual spending or current venue quotes. Shopping and casino play are extra.</p>
+        <p><strong className="text-ink">France · planning estimate · ~€{franceBudget.perPerson.toLocaleString("en-US")} per person, excluding flights.</strong> Based on two people sharing a room and car. Per person, allow €900 for six hotel nights, €500 for the rental car, fuel, tolls, parking and taxis, €1,100 for meals and drinks, €350 for beach setups, pedal boats and the perfume workshop, and €150 as a buffer. Restaurant food is counted under meals, not again under beach activities. These are planning allowances, not our actual spending or current venue quotes. Shopping and casino play are extra.</p>
         <p className="mt-2">Your saved expenses and plans are unchanged. The revised allowances are used for new budgets. If your older plan is still low, adjust the Planned amounts below to suit your bookings.</p>
       </div>}
+
+      <p className="mt-4 text-xs text-soft">{lang === "sk" ? "Ceny sprievodcu sú na osobu. Evidencia nižšie zachováva spoločné výdavky a ich rozdelenie medzi cestujúcich." : "Guide prices are per person. The ledger below keeps shared expenses and splits them between travellers."}</p>
 
       <div className="mt-6 grid gap-3 sm:grid-cols-3">
         {[

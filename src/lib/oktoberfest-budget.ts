@@ -2,6 +2,7 @@
 export const oktoberfestBudget = {
   travellers: 2,
   total: 4800,
+  perPerson: 2400,
   allowances: [
     { category: "stay", amount: 2300 },
     { category: "transport", amount: 800 },

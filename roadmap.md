@@ -1,7 +1,7 @@
 # Roadmap
 
 - [x] Present France and Oktoberfest planning estimates and breakdowns per person, with matching catalogue amounts, while preserving saved shared expenses. Ten tests pass and both unlocked Budget check views verified.
-- [ ] Reduce the historical look of Oktoberfest paid maps by approximately 20%, preserving routes, labels and the premium topographic character.
+- [x] Reduce the historical look of all eleven Oktoberfest paid maps by approximately 20%, preserving routes, labels and the premium topographic character. All eight daily views, both hiking maps and overview verified unlocked at 1280, 782 and 390px without overflow or page errors.
 
 - [x] Apply Monika's Oktoberfest corrections: no Seceda lift reservation, first-night doorstep parking and road noise, personally used Vaduz and St. Moritz parking, Flüela Pass instead of Susch including artwork, Bellagio restaurant wait and shopping space in the car boot. Compared remaining differences with France.
 - [x] Add a separate full-day Seceda hiking circuit with durations, huts, parking, published route status and schematic map. Add the suggested Adolf Munkel circuit map for day 6, distinct from recorded walking duration and driving artwork.

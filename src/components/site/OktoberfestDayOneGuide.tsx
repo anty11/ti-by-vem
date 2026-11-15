@@ -37,8 +37,44 @@ export function OktoberfestDayOneGuide() {
       <div className="mt-4 space-y-3 text-sm leading-relaxed text-soft">
         <p>We drove. If you fly into Munich, rent a car for the rest of the journey. You can collect it on arrival or the following morning if you are staying in Munich for the night.</p>
         <p><strong className="text-ink">Matching our overnight stop?</strong> Collect the car on arrival. KAM Hotel is in Stetten, near Mindelheim, not in Munich or its immediate outskirts. It suits the next day's westbound drive, but means a further journey after the festival. If you want to collect the car tomorrow or enjoy a beer tonight, choose accommodation in Munich instead and do not drive after drinking.</p>
-        <p>Before booking, check pickup hours, the deposit and accepted payment card, cross-border permission for Liechtenstein, Switzerland and Italy, and your return location. Ask about insurance and any country-specific charges.</p>
+        <p>Before paying for a rental, check the practical details below with the company that will actually hand you the keys, not only the booking website. Keep their written confirmation with your reservation.</p>
       </div>
+      <details className="mt-6 border-t border-border pt-5" open>
+        <summary className="cursor-pointer font-display text-2xl">Before you pick up the keys</summary>
+        <div className="mt-5 grid gap-6 text-sm leading-relaxed text-soft sm:grid-cols-2">
+          <div>
+            <h4 className="font-semibold text-ink">Pickup hours & flight delays</h4>
+            <p className="mt-2">Check the opening hours of your exact pickup branch and whether the desk is in the terminal or requires a shuttle. Your landing time is not your pickup time. Leave room for passport checks, luggage and reaching the desk before planning the drive into Munich.</p>
+            <p className="mt-2">Add your flight number to the booking and ask what happens if the flight is delayed. Confirm how long they will hold the car, whether late collection is possible and whether it costs extra. Save the branch's contact number so you can reach them before closing.</p>
+          </div>
+          <div>
+            <h4 className="font-semibold text-ink">Deposit & the right payment card</h4>
+            <p className="mt-2">The deposit is a security amount, usually held on your card rather than spent. It reduces your available card balance until released. Ask for the exact hold required for your chosen car and cover, and how long release normally takes after return. Allow for your bank's processing time too.</p>
+            <p className="mt-2">Check whether a physical credit card in the lead driver's name is required. Paying online with a debit card does not mean that same card will be accepted for the deposit at pickup. Ask about debit cards, digital wallets and prepaid cards explicitly, then bring the accepted card with enough available balance and its PIN.</p>
+          </div>
+          <div>
+            <h4 className="font-semibold text-ink">Insurance, excess & what is excluded</h4>
+            <p className="mt-2">The excess is the amount you may have to pay towards a covered damage or theft claim. Ask what the booking already includes, how much excess remains and whether any additional cover reduces it. Check glass, tyres, wheels, roof, underbody, lost keys and roadside assistance separately rather than assuming everything is covered.</p>
+            <p className="mt-2">If using credit-card insurance or cover bought through a booking website, read the eligibility, exclusions, rental-duration limit and claim procedure. Some policies reimburse you after the rental company charges you, rather than removing the deposit or excess at the desk. Confirm cover in every country on the route, and ask who to call after damage, a breakdown or an accident.</p>
+          </div>
+          <div>
+            <h4 className="font-semibold text-ink">Permission for every border</h4>
+            <p className="mt-2">Tell the rental company the whole route: Germany, Liechtenstein, Switzerland, Italy and Austria. Austria matters too, because the trip finishes in Tux. Being able to cross a border does not mean your rental agreement permits that car to go there.</p>
+            <p className="mt-2">Request written permission for every country and confirm whether your car category has restrictions, whether a cross-border fee applies and whether insurance and breakdown assistance remain valid throughout. Ask whether any documents must stay in the car. Permission to drive abroad is separate from permission to return the car abroad.</p>
+          </div>
+          <div>
+            <h4 className="font-semibold text-ink">Return location & one-way costs</h4>
+            <p className="mt-2">Choose the exact return branch before booking your flight home. The itinerary ends in Tux, not at a rental desk, so allow time for the final drive, refuelling, inspection and reaching your terminal. Ask whether returning to a different branch or country is allowed and what the one-way charge will be.</p>
+            <p className="mt-2">Check return opening hours, after-hours key-drop instructions and when responsibility for the car ends if no staff are present. Confirm the fuel or charging policy and mileage allowance. Photograph the car, fuel level or battery charge and mileage at pickup and return, report existing damage before leaving and keep the return receipt.</p>
+          </div>
+          <div>
+            <h4 className="font-semibold text-ink">Country-specific charges & mountain driving</h4>
+            <p className="mt-2">A cross-border fee is not a road toll. Check whether your chosen Swiss roads need a motorway vignette and whether the car already has a valid one. For Austria, check the vignette and any separate section tolls for the roads you will actually use. Italian motorway tolls and parking are separate costs too.</p>
+            <p className="mt-2">Ask whether a toll device is fitted and whether its use adds a daily service fee or administration charge. Confirm the car's eligibility for Munich's environmental zone and check Italian ZTL restricted-traffic zones before entering town centres. For the mountain sections, ask about suitable tyres, seasonal equipment requirements, snow chains and the company's rules for using them. Check weather and road openings before each pass.</p>
+          </div>
+        </div>
+        <div className="mt-5 flex flex-wrap gap-2"><PlaceLink href="https://www.bazg.admin.ch/bazg/en/home/information-individuals/road-taxes-and-charges/vignette--motorway-charge-.html">Swiss vignette</PlaceLink><PlaceLink href="https://www.asfinag.at/en/toll/">Austrian vignette & tolls</PlaceLink><PlaceLink href="https://www.autostrade.it/en/pedaggio">Italian motorway tolls</PlaceLink></div>
+      </details>
     </div>
 
     <div className="py-8">
@@ -79,7 +115,7 @@ export function OktoberfestDayOneGuide() {
       <h3 className="flex items-center gap-2 font-display text-2xl"><CheckSquare className="size-5" />Before tomorrow's drive</h3>
       <ul className="mt-5 space-y-3">{[
         "Have your rental car ready, or confirm tomorrow morning's pickup if staying in Munich",
-        "Check cross-border permission and insurance for Liechtenstein, Switzerland and Italy",
+        "Keep written cross-border permission and insurance confirmation for Liechtenstein, Switzerland, Italy and Austria",
         "Check whether your planned Swiss roads require a motorway vignette and whether the rental already has one",
         "Keep identity documents, driving licence and rental paperwork within reach",
         "Charge your phone, save the next route offline and pack water and an easy breakfast",

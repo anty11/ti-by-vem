@@ -37,13 +37,13 @@ export function OktoberfestDayFourGuide() {
       <h3 className="font-display text-2xl">One place, all day</h3>
       <img src={stayArtwork} alt="Schematic topographic location artwork of Chalet al Foss beside Vermiglio in Val di Sole, with no day 4 transfers" width={1536} height={1024} loading="lazy" className="mt-4 h-auto w-full rounded-lg" />
       <p className="mt-2 text-xs text-soft">Schematic location artwork, not a road map. There are no planned transfers today.</p>
-      <div className="mt-4 flex flex-wrap gap-2"><PlaceLink href={hotelMaps}>Hotel location</PlaceLink><PlaceLink href="https://www.hotelchaletalfoss.it/en/">Official hotel</PlaceLink><PlaceLink href="https://www.booking.com/hotel/it/chalet-al-foss.html">Booking.com</PlaceLink></div>
     </div>
 
     <div className="border-t border-border py-8">
       <h3 className="font-display text-3xl">01 · Yes, we came as friends</h3>
       <div className="mt-5 space-y-3 text-sm leading-relaxed text-soft">
         <p>Chalet al Foss is a small boutique hotel, so <strong className="text-ink">book your stay well ahead</strong>. It had been on our bucket list for a long time, and having a full day here was very much part of the point of this trip.</p>
+      <div className="mt-3 flex flex-wrap gap-2"><PlaceLink href={hotelMaps}>Hotel location</PlaceLink><PlaceLink href="https://www.hotelchaletalfoss.it/en/">Official hotel</PlaceLink><PlaceLink href="https://www.booking.com/hotel/it/chalet-al-foss.html">Booking.com</PlaceLink></div>
         <p>One thing we should say: <strong className="text-ink">we were two friends, not a couple.</strong> The hotel leans heavily into romance, picture-perfect moments and proposal-style experiences. You have probably already spotted it on social media. But that did not stop us enjoying a beautiful friends' getaway.</p>
         <p>We have to admit that a good part of our day also went into taking photos. It was hard to resist. Still, leave yourself time to enjoy being there without the camera too.</p>
       </div>

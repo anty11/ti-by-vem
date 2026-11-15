@@ -1,5 +1,7 @@
 # Roadmap
 
+- [x] Place Oktoberfest daily stop links directly below their matching descriptions, including walking sights, huts, dining and stays. All original URLs preserved. All eight unlocked days and mobile layout verified without page errors or overflow.
+
 - [x] Present France and Oktoberfest planning estimates and breakdowns per person, with matching catalogue amounts, while preserving saved shared expenses. Ten tests pass and both unlocked Budget check views verified.
 - [x] Reduce the historical look of all eleven Oktoberfest paid maps by approximately 20%, preserving routes, labels and the premium topographic character. All eight daily views, both hiking maps and overview verified unlocked at 1280, 782 and 390px without overflow or page errors.
 

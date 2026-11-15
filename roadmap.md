@@ -1,5 +1,9 @@
 # Roadmap
 
+- [x] Explain “The Dolomites loop” as the older 12-day rail/hiking catalogue placeholder, distinct from Oktoberfest and Dolomites in winter. No changes to that trip requested or made.
+
+- [x] Compare every paid Oktoberfest chapter against France and add missing walking/driving allowances, shared venue references with 21 directly checked Google scores, hotel links, ferry and boat explanations, reservation/payment/document guidance and next-day checklists. Preserve recorded experiences and anonymous meals without guessing identities. All eight unlocked days, Reservations, Last words and mobile layouts verified at 1280, 950 and 390px. All 68 budget/timing/venue tests pass.
+
 - [x] Place Oktoberfest daily stop links directly below their matching descriptions, including walking sights, huts, dining and stays. All original URLs preserved. All eight unlocked days and mobile layout verified without page errors or overflow.
 
 - [x] Present France and Oktoberfest planning estimates and breakdowns per person, with matching catalogue amounts, while preserving saved shared expenses. Ten tests pass and both unlocked Budget check views verified.
@@ -16,22 +20,22 @@
 - [x] Add paid Oktoberfest day 8: optional Olpererhütte bridge hike with route, duration, huts and parking, honest snow cancellation, hotel breakfast, optional Zenz'n Stub'n lunch and airport alternatives. Add route/duration/hut guidance to days 5–7, correcting Geisler Alm to Val di Funes and its Zans trailhead. Twenty-eight tests pass, days 6–8 isolated desktop/mobile rendering, images and checkboxes verified without overflow or page errors.
 - [x] Correct day 7 lunch to the personally visited Ristorante Lago Antorno beside Lago d’Antorno, not Misurina, including map and route labels.
 - [x] Verify day 8 through the unlocked trip room after dismissing the launch countdown.
-- [ ] Add current verified Google rating snapshots for day 8 dining (blocked: no direct verified Maps score retrieved, current review links provided).
+- [x] Add directly checked day 8 Google scores for Olpererhütte (4.7, whole hut) and Zenz’n Stub’n (4.7), dated 15 November 2026.
 
 - [x] Add paid Oktoberfest day 7: Tre Cime morning parking, 2026 toll and booking rules, loop and cave viewpoint, packed supplies, Misurina lunch, Hotel Hohlenstein in Juns, artwork, navigation and next-day checklist. Sixteen timing/tariff tests pass, isolated desktop/mobile images and checkbox verified without overflow or page errors.
 - [x] Verify day 7 through the unlocked trip room after dismissing the launch countdown.
-- [ ] Add verified Google rating snapshots for day 7 dining (blocked: no verified Google scores retrieved). Monika confirmed Ristorante Lago Antorno as her actual lunch venue, official and current review links provided.
+- [x] Add day 7 Google scores for all four huts, Lago Antorno and Höhlenstein/Kasskessl, dated 15 November 2026. Clearly label whole-property scores rather than presenting them as separate restaurant ratings.
 
 - [x] Add paid Oktoberfest day 5: eM's favourite, 08:30–09:30 alpaca breakfast, Seceda at 13:30, Ortisei parking, Santa Maddalena sunset walk, Fallerhof and dinner, artwork and next-day checklist. Isolated desktop/mobile, both images, checklist and five timing tests verified. Hotel confirms alpacas Happy & Bernard, but not which is white. Use verified Apple presentation connection instead of unconfirmed emoji origin. Fallerhof official URL provided from tourism listing, but its domain did not resolve during verification.
 - [x] Verify day 5 switching through the unlocked trip room.
-- [ ] Confirm the white alpaca's name and add dated day 5 dining Google rating snapshots (blocked: sources confirm the pair Happy & Bernard without colour identity, and no verified Maps rating retrieved). Current Maps review links provided without invented scores.
+- [x] Add dated Google scores and official links for seven named day 5 hut/dining suggestions. Retain Monika's Happy & Bernie names without assigning an unconfirmed colour identity.
 - [x] Add paid Oktoberfest day 4 at Chalet al Foss: breakfast, friends not a couple, romantic boutique atmosphere, photography, wellness, drinks, honest Italian dinner note, early hotel and experience reservations, map and next-day checklist. Clarify day 3's classic hotel dinner. Isolated desktop/mobile, images and checklist verified.
 - [x] Verify day 4 switching through the unlocked trip room.
 - [x] Add paid Oktoberfest day 3 from Monika's notes: Bellagio walk, Varenna and Villa Monastero, Fuentes lunch and shopping, Chalet al Foss in Vermiglio with dinner, practical parking, map, opening photo and next-day checklist. Isolated desktop/mobile, loaded images and checklist verified.
 - [x] Verify day 3 switching through the unlocked trip room.
 - [x] Add paid Oktoberfest day 2: early departure, Vaduz (castle, Städtle, St. Florin Cathedral, Red House), Susch and St. Moritz (lake, Via Serlas, leaning tower, Alpine views), Bellagio dinner at Ristoro Forma e Gusto and Hotel Florence, practical parking, reservations, rain advice, artwork and next-day checklist. Isolated desktop/mobile, images and checkbox interaction verified.
 - [x] Verify day 2 switching through the unlocked trip room.
-- [ ] Add dated verified Google rating snapshots for day 2 restaurants (blocked: Google Maps lookup failed validation, linked current Maps reviews provided without invented scores).
+- [x] Add directly checked day 2 Google scores for Forma e Gusto (4.0, shared Barchetta listing), San Giacomo (4.2) and La Lanterna (4.1), dated 15 November 2026.
 - [x] Add paid Oktoberfest day 1 from Monika's notes, with evening arrival, honest festival experience, verified hotel and parking, map and next-day checklist; verify isolated desktop/mobile rendering and checklist interaction.
 - [x] Verify Oktoberfest day 1 through the unlocked trip room.
 - [x] Include the missed dirndl experience and eM's wish to return even though she does not drink beer.

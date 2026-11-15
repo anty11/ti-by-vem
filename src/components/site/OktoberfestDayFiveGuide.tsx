@@ -1,3 +1,4 @@
+import { OktoberfestVenueLinks } from "@/components/site/OktoberfestVenueLinks";
 import { ArrowUpRight, BedDouble, Car, CheckSquare, Clock3, Heart, ParkingCircle } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import secedaPhoto from "@/assets/oktoberfest-day5-seceda.jpg";
@@ -84,10 +85,10 @@ export function OktoberfestDayFiveGuide() {
       <h4 className="mt-6 font-semibold">Walking route · keep it short, or allow a longer circuit</h4>
       <p className="mt-3 text-sm leading-relaxed text-soft"><strong className="text-ink">Our simple visit:</strong> Seceda upper cable station → marked summit panorama paths and ridge viewpoint → return to the upper station. We walked for about {times.mountainWalkMinutes} minutes. Turn back in time rather than adding a long descent before the final cabin.</p>
       <p className="mt-3 text-sm leading-relaxed text-soft"><strong className="text-ink">A researched alternative:</strong> the lift operator lists a 4.2 km, approximately one-hour panoramic itinerary past Trojer Hut, Lech da Iman and Fermeda Hut. This includes the Fermeda chairlift back uphill, followed by about ten minutes walking to the cable station. It is not a one-hour walking-only loop. Check both lifts are operating before choosing it. Trojer and Fermeda are on-route dining options, not our confirmed lunch venue.</p>
-      <div className="mt-3 flex flex-wrap gap-2"><PlaceLink href="https://www.seceda.it/en/hiking">Official walking routes & lift returns</PlaceLink><PlaceLink href={maps("Trojer Hutte Seceda")}>Trojer Hut · hours</PlaceLink><PlaceLink href={maps("Fermeda Hutte Seceda")}>Fermeda Hut · hours</PlaceLink></div>
+      <div className="mt-3"><PlaceLink href="https://www.seceda.it/en/hiking">Official walking routes & lift returns</PlaceLink></div><OktoberfestVenueLinks id="troier" /><OktoberfestVenueLinks id="fermeda" />
       <h4 className="mt-6 font-semibold">Lunch with a mountain view</h4>
       <p className="mt-3 text-sm leading-relaxed text-soft">An open hut gave us the chance to eat before going down. It was idyllic up there. For a practical option to compare, the <strong className="text-ink">Mountain Restaurant Seceda at the upper station</strong> is listed on the official lift website. This is a researched suggestion, not the name of our lunch stop. Check seasonal opening and serving times before relying on it.</p>
-      <div className="mt-3 flex flex-wrap gap-2"><PlaceLink href="https://www.seceda.it/en/eat-drink">Official mountain dining</PlaceLink><PlaceLink href={maps("Mountain Restaurant Seceda Ortisei")}>Restaurant · current Maps reviews</PlaceLink></div>
+      <div className="mt-3"><PlaceLink href="https://www.seceda.it/en/eat-drink">Official mountain dining</PlaceLink></div><OktoberfestVenueLinks id="seceda" />
       <p className="mt-3 text-sm leading-relaxed text-soft"><strong className="text-ink">Parking for the walk and lunch:</strong> keep the car in the same Ortisei parking space. Everything up here is reached by lift and on foot.</p>
       <h4 className="mt-8 font-display text-2xl">Prefer a proper hike? Seceda without the lifts</h4>
       <p className="mt-3 text-sm leading-relaxed text-soft"><strong className="text-ink">A separate full-day alternative, not the walk we did.</strong> Start and finish at Cristauta / Praplan above Santa Cristina, rather than the Ortisei lift parking. The published summit circuit is approximately 16.2 km, 842 m ascent and 5 hours 45 minutes of walking. Allow 7–8 hours with lunch, ridge photos and breaks. It needs good fitness, hiking boots and dry, snow-free conditions.</p>
@@ -97,7 +98,7 @@ export function OktoberfestDayFiveGuide() {
         <li><strong className="text-ink">Return to your car:</strong> trails 2 and 4 lead towards Col Raiser / Odles, then trail 4 returns to Cristauta. This is a walking circuit, not a lift return.</li>
       </ol>
       <p className="mt-3 text-sm leading-relaxed text-soft"><strong className="text-ink">Huts on this option:</strong> Gamsblut, Fermeda, Pieralongia, Rifugio Firenze and Odles. Check seasonal opening and kitchen hours individually. Carry food and water even if planning a hut lunch. Verify every junction against the official trail map, not Google driving navigation.</p>
-      <div className="mt-3 flex flex-wrap gap-2"><PlaceLink href={maps("Rifugio Firenze")}>Rifugio Firenze · hours</PlaceLink><PlaceLink href={maps("Pieralongia hut")}>Pieralongia · hours</PlaceLink></div>
+      <div className="mt-4 divide-y divide-border">{(["gamsblut", "fermeda", "pieralongia", "firenze", "odles"] as const).map(id => <div key={id} className="py-3"><OktoberfestVenueLinks id={id} /></div>)}</div>
       <p className="mt-3 text-sm leading-relaxed text-soft"><strong className="text-ink">Parking:</strong> Cristauta / Praplan, also listed as P6. It has limited spaces and seasonal charges. Leave the car here for the whole circuit. Bus 358 is an alternative approach, subject to its current timetable.</p>
       <div className="mt-3 flex flex-wrap gap-2"><PlaceLink href={maps("Cristauta Praplan parking Santa Cristina")}>Cristauta trailhead parking</PlaceLink></div>
       <aside className="mt-4 border-l-2 border-terracotta pl-4 text-sm leading-relaxed text-soft"><strong className="text-ink">This changes day 5 significantly.</strong> Do not add it after our 08:30–09:30 alpaca breakfast and a long drive as if it were the same one-hour summit stroll. Keep the lift version to preserve our day, or move the full hike to another morning with an early trailhead start and enough daylight. The published community circuit currently carries a closed status, so do not use it unless local authorities confirm the complete route is open. The ridge may have separate paid access. Avoid snow, ice and closed paths.</aside>
@@ -117,6 +118,7 @@ export function OktoberfestDayFiveGuide() {
 
     <div className="border-t border-border py-8">
       <h3 className="font-display text-3xl">05 · Santa Maddalena, without rushing the view</h3>
+      <p className="mt-3 text-sm leading-relaxed text-soft">Use sunset as a planning limit, not a fixed appointment. Check today's sunset time before leaving Ortisei and allow for the descent, drive and farm check-in. If you arrive late, keep the village walk short and return before dark rather than chasing a viewpoint across private fields.</p>
       <p className="mt-5 text-sm leading-relaxed text-soft">Once we had settled in, we went out towards one of Santa Maddalena's best-known views. On Maps, look for <strong className="text-ink">St. Magdalena Sunset Viewpoint</strong>. Our walk took about 1.5 hours because we were enjoying the surroundings, taking photos and not rushing anywhere.</p>
       <div className="mt-3 flex flex-wrap gap-2"><PlaceLink href={maps("St. Magdalena Sunset Viewpoint Funes")}>Sunset viewpoint</PlaceLink><PlaceLink href={maps("Chiesa di Santa Maddalena Funes")}>Santa Maddalena church</PlaceLink></div>
       <p className="mt-3 text-sm leading-relaxed text-soft">Walk from Fallerhof through the village towards the signed panorama paths above the church. Ask your hosts to confirm the currently open walking approach to the viewpoint pin. Enjoy the church, meadows and Odle backdrop from permitted paths, without entering private farm roads or fields. The viewpoint name is not a promise of sunset light on every visit, so check daylight and cloud cover.</p>
@@ -131,7 +133,8 @@ export function OktoberfestDayFiveGuide() {
       <ul className="mt-5 space-y-3">{[
         "Confirm breakfast and check-out with your Fallerhof hosts",
         "Dry your walking shoes and keep hiking layers and waterproofs easy to reach",
-        "Check tomorrow's mountain weather, road conditions and any bookings in your onward plan",
+        "Check Zans trail access and the opening of Geisler Alm, Gschnagenhardt Alm and Dusleralm, then pack a lunch even if a hut is open",
+        "Check Lago di Braies valley access, parking reservations and the final rowing-boat rental time",
         "Save your onward route and accommodation arrival instructions before leaving",
         "Charge your phone and camera, refill water and pack a small snack",
         "Check that your luggage, purchases and travel documents are all back in the car",

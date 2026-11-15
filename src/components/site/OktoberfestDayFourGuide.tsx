@@ -1,3 +1,4 @@
+import { OktoberfestVenueLinks } from "@/components/site/OktoberfestVenueLinks";
 import { ArrowUpRight, BedDouble, CheckSquare, Clock3, ParkingCircle } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import chaletPhoto from "@/assets/oktoberfest-day4-chalet.jpg";
@@ -43,7 +44,7 @@ export function OktoberfestDayFourGuide() {
       <h3 className="font-display text-3xl">01 · Yes, we came as friends</h3>
       <div className="mt-5 space-y-3 text-sm leading-relaxed text-soft">
         <p>Chalet al Foss is a small boutique hotel, so <strong className="text-ink">book your stay well ahead</strong>. It had been on our bucket list for a long time, and having a full day here was very much part of the point of this trip.</p>
-      <div className="mt-3 flex flex-wrap gap-2"><PlaceLink href={hotelMaps}>Hotel location</PlaceLink><PlaceLink href="https://www.hotelchaletalfoss.it/en/">Official hotel</PlaceLink><PlaceLink href="https://www.booking.com/hotel/it/chalet-al-foss.html">Booking.com</PlaceLink></div>
+      <OktoberfestVenueLinks id="chalet" />
         <p>One thing we should say: <strong className="text-ink">we were two friends, not a couple.</strong> The hotel leans heavily into romance, picture-perfect moments and proposal-style experiences. You have probably already spotted it on social media. But that did not stop us enjoying a beautiful friends' getaway.</p>
         <p>We have to admit that a good part of our day also went into taking photos. It was hard to resist. Still, leave yourself time to enjoy being there without the camera too.</p>
       </div>
@@ -60,6 +61,7 @@ export function OktoberfestDayFourGuide() {
     <aside className="border-y border-border py-8">
       <h3 className="font-display text-2xl">Book experiences before you arrive</h3>
       <p className="mt-4 border-l-2 border-terracotta pl-4 text-sm leading-relaxed text-soft"><strong className="text-ink">Do not leave your chosen hotel experiences until check-in.</strong> Plan and book them ahead, ideally before arriving. Slots are limited and the experience you have your heart set on may already be sold out. Contact the hotel with your dates, confirm the time and price, and keep the confirmation handy.</p>
+      <p className="mt-4 text-sm leading-relaxed text-soft">Ask whether your selected experience is private or shared, how long it lasts, what food and drinks it includes, and whether photography or a special setup costs extra. Confirm the total per-person price and cancellation terms, including what happens in rain. A beautiful photograph on the hotel's website is not a promise that every room rate includes that setup.</p>
       <p className="mt-4 text-sm leading-relaxed text-soft">This is advice for individually bookable experiences, not a claim that ordinary wellness access requires a timed slot. Special setups, dining experiences and other extras may have separate conditions and charges. Choose what genuinely appeals to you, rather than filling the whole rest day with bookings.</p>
       <div className="mt-4 flex flex-wrap gap-2"><PlaceLink href="https://www.hotelchaletalfoss.it/en/experience">Explore hotel experiences</PlaceLink><PlaceLink href="https://www.hotelchaletalfoss.it/en/all-day-experience">Experience reservations</PlaceLink></div>
     </aside>

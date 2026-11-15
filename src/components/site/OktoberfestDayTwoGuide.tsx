@@ -1,3 +1,4 @@
+import { OktoberfestVenueLinks } from "@/components/site/OktoberfestVenueLinks";
 import { ArrowUpRight, BedDouble, Car, CheckSquare, Clock3, ParkingCircle } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import bellagioPhoto from "@/assets/oktoberfest-day2-bellagio.jpg";
@@ -54,6 +55,7 @@ export function OktoberfestDayTwoGuide() {
         <p><strong className="text-ink">Vaduz did not take us long.</strong> We had breakfast, walked in the sunshine, bought our magnets and moved on. For this route, it works beautifully as a short capital-city stop rather than a whole sightseeing day.</p>
       </div>
       <h4 className="mt-6 font-semibold">A compact Vaduz walk</h4>
+      <p className="mt-3 text-sm leading-relaxed text-soft">Allow 45–60 minutes for Städtle and the cathedral, including browsing. Walking uphill towards the castle exterior and adding the Red House can turn this into a 1.5–2 hour visit. These are suggested allowances. On this long driving day, keep breakfast and the central walk first, then add the uphill extension only if time and energy allow. Keep the car at Parkhaus Marktplatz for every stop.</p>
       <ul className="mt-3 space-y-3 text-sm leading-relaxed text-soft">
         <li><p><strong className="text-ink">Städtle:</strong> begin with the pedestrian centre, breakfast and souvenir shops.</p><div className="mt-3"><PlaceLink href={maps("Städtle Vaduz")}>Städtle</PlaceLink></div></li>
         <li><p><strong className="text-ink">St. Florin Cathedral:</strong> continue south through the centre to the neo-Gothic cathedral. Respect services and any visitor restrictions.</p><div className="mt-3"><PlaceLink href={maps("Kathedrale St Florin Vaduz")}>St. Florin Cathedral</PlaceLink></div></li>
@@ -79,6 +81,7 @@ export function OktoberfestDayTwoGuide() {
 
     <div className="border-t border-border py-8">
       <h3 className="font-display text-3xl">03 · St. Moritz, minus the sunshine</h3>
+      <p className="mt-3 text-sm leading-relaxed text-soft">A practical short visit is station parking → a lakeside look → uphill to Via Serlas → leaning tower → back to the station. Allow around 60–90 minutes with photos, longer for shopping or a full lake circuit. These are suggested walking allowances, not our recorded duration. Keep the car at Plazza da la Staziun throughout.</p>
       <div className="mt-5 space-y-3 text-sm leading-relaxed text-soft">
         <p>Have you heard the line about St. Moritz having <strong className="text-ink">300 days of sunshine a year</strong>? The destination's own travel guide says it too. Well, on our visit it absolutely poured. Looking back at the photos, we almost look as if the wind was about to carry us away.</p>
         <p>We visited in September, outside the main season, and were surprised by how many shops and restaurants were closed. We still saw the main sights and fitted in a little shopping, but this was not the sunlit Alpine postcard we had imagined. Check seasonal opening hours before building your stop around a particular shop or restaurant.</p>
@@ -104,10 +107,10 @@ export function OktoberfestDayTwoGuide() {
       </div>
       <aside className="mt-5 border-l-2 border-terracotta pl-4 text-sm leading-relaxed text-soft"><strong className="text-ink">Reservations are not the same everywhere.</strong> Ristoro Forma e Gusto and Trattoria San Giacomo currently state on their official websites that they do not take reservations. For those two, arrive early and allow for a queue. Contact La Lanterna directly to check its current policy. Where bookings are accepted, reserve ahead rather than relying on a late walk-in.</aside>
       <div className="mt-5 divide-y divide-border">{[
-        { name: "Ristoro Forma e Gusto · where we ate", official: "https://www.ristorantebarchetta.com/ristoro-forma-gusto/?lang=en", query: "Ristoro Forma e Gusto Bellagio" },
-        { name: "Trattoria San Giacomo · our first-choice option", official: "https://trattoriabellagio.it/", query: "Trattoria San Giacomo Bellagio" },
-        { name: "La Lanterna · our other first-choice option", official: "http://www.lalanternabellagio.com/", query: "La Lanterna Salita Serbelloni 15 Bellagio" },
-      ].map((venue) => <div key={venue.name} className="py-4"><h4 className="text-sm font-semibold">{venue.name}</h4><div className="mt-3 flex flex-wrap gap-2"><PlaceLink href={venue.official}>Restaurant website</PlaceLink><PlaceLink href={maps(venue.query)}>Google Maps & current reviews</PlaceLink></div></div>)}</div>
+        { id: "forma" as const, name: "Ristoro Forma e Gusto · where we ate", official: "https://www.ristorantebarchetta.com/ristoro-forma-gusto/?lang=en", query: "Ristoro Forma e Gusto Bellagio" },
+        { id: "sanGiacomo" as const, name: "Trattoria San Giacomo · our first-choice option", official: "https://trattoriabellagio.it/", query: "Trattoria San Giacomo Bellagio" },
+        { id: "lanterna" as const, name: "La Lanterna · our other first-choice option", official: "http://www.lalanternabellagio.com/", query: "La Lanterna Salita Serbelloni 15 Bellagio" },
+      ].map((venue) => <div key={venue.name} className="py-4"><h4 className="text-sm font-semibold">{venue.name}</h4><OktoberfestVenueLinks id={venue.id} /></div>)}</div>
       <p className="mt-3 text-sm leading-relaxed text-soft"><strong className="text-ink">Parking for dinner & the steps:</strong> keep the car in the legal visitor parking arranged on arrival, then walk to all three restaurant options from the lakefront. Do not drive into the old-town lanes to reach dinner.</p>
     </div>
 

@@ -1,3 +1,4 @@
+import { OktoberfestVenueLinks } from "@/components/site/OktoberfestVenueLinks";
 import { ArrowUpRight, BedDouble, Car, CheckSquare, Clock3, ParkingCircle } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import munichPhoto from "@/assets/oktoberfest-day1-munich.jpg";
@@ -108,7 +109,7 @@ export function OktoberfestDayOneGuide() {
       <p className="mt-3 text-sm leading-relaxed text-soft">The official address is Im Gewerbepark Unterallgäu 6, 87778 Stetten. The hotel has free on-site parking and no staffed reception, with self check-in using a door code. Save the code from your email or SMS before arriving and check your booking's arrival instructions.</p>
       <p className="mt-3 text-sm leading-relaxed text-soft"><strong className="text-ink">Parking:</strong> our car was parked directly in front of our room, about 1.5 metres from the door. Unloading could hardly have been easier. Use the hotel's own parking area and keep the car there overnight. The A96 transfer is normally a toll-free motorway drive for an ordinary passenger car, but fuel and parking or public transport in Munich still belong in Budget check.</p>
       <aside className="mt-4 border-l-2 border-terracotta pl-4 text-sm leading-relaxed text-soft"><strong className="text-ink">Travelling with small children?</strong> There may be noise from the main road nearby. Keep that in mind if your children are light sleepers and ask about room position before booking.</aside>
-      <div className="mt-5 flex flex-wrap gap-2"><PlaceLink href="https://kam-hotel.de/en/">Official hotel</PlaceLink><PlaceLink href="https://www.booking.com/hotel/de/kam.html">Booking.com</PlaceLink><PlaceLink href={maps(hotel)}>Hotel & parking navigation</PlaceLink></div>
+      <OktoberfestVenueLinks id="kam" />
     </div>
 
     <div className="border-y border-border py-8">

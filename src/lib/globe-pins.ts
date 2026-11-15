@@ -7,7 +7,6 @@ export const globePins: Record<string, [number, number]> = {
   "oslo-tromso": [64.8, 13.6],
   switzerland: [46.8, 7.4],
   riviera: [43.5, 6.2],
-  italy: [45.55, 11.0], // "The Dolomites loop", starting in Verona
   scotland: [56.9, -4.8],
   "oktoberfest-dolomites": [48.1, 11.6],
   lapland: [66.9, 26.3],
@@ -22,7 +21,6 @@ export const globePins: Record<string, [number, number]> = {
 export const globeColors: Record<string, string> = {
   riviera: "oklch(0.66 0.15 45)", // terracotta orange
   "dolomites-winter": "oklch(0.74 0.14 85)", // gold
-  italy: "oklch(0.64 0.13 140)", // olive green
   switzerland: "oklch(0.62 0.12 215)", // glacier blue
   "oktoberfest-dolomites": "oklch(0.6 0.16 350)", // raspberry
   scotland: "oklch(0.58 0.13 300)", // heather

@@ -5,7 +5,6 @@ import { Button } from "@/components/ui/button";
 import { copy } from "@/lib/copy";
 import { Countdown } from "@/components/site/Countdown";
 import { contactEmail, detailPath, type Lang } from "@/lib/i18n";
-import italy from "@/assets/italy.jpg";
 import switzerland from "@/assets/switzerland.jpg";
 import riviera from "@/assets/riviera.jpg";
 import scotland from "@/assets/scotland.jpg";
@@ -17,7 +16,6 @@ import oktoberfestDolomites from "@/assets/oktoberfest-dolomites.jpg";
 import lapland from "@/assets/lapland.jpg";
 
 const images: Record<string, string> = {
-  italy,
   switzerland,
   riviera,
   scotland,

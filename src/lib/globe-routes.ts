@@ -72,8 +72,6 @@ export const globeRoutes: Record<string, RoutePoint[]> = {
     p("Menton", 43.78, 7.5),
     p("Nice", 43.7, 7.27),
   ],
-  // "Verona → Bolzano by rail" is all the description states; no day-by-day plan yet.
-  italy: [p("Verona", 45.44, 10.99), p("Bolzano", 46.5, 11.35)],
   scotland: [
     p("Edinburgh", 55.95, -3.19),
     p("Pitlochry", 56.7, -3.73),

@@ -55,19 +55,15 @@ export function OktoberfestDayTwoGuide() {
       </div>
       <h4 className="mt-6 font-semibold">A compact Vaduz walk</h4>
       <ul className="mt-3 space-y-3 text-sm leading-relaxed text-soft">
-        <li><strong className="text-ink">Städtle:</strong> begin with the pedestrian centre, breakfast and souvenir shops.</li>
-        <li><strong className="text-ink">St. Florin Cathedral:</strong> continue south through the centre to the neo-Gothic cathedral. Respect services and any visitor restrictions.</li>
-        <li><strong className="text-ink">Vaduz Castle:</strong> admire it above the town. It is the princely family's residence, not a castle with public interior tours. If you want the uphill walk for the exterior views, allow extra time and wear comfortable shoes.</li>
-        <li><strong className="text-ink">Red House:</strong> finish with an exterior look at this landmark in the Mitteldorf area if time allows. It is a private property, so enjoy it respectfully from public space.</li>
+        <li><p><strong className="text-ink">Städtle:</strong> begin with the pedestrian centre, breakfast and souvenir shops.</p><div className="mt-3"><PlaceLink href={maps("Städtle Vaduz")}>Städtle</PlaceLink></div></li>
+        <li><p><strong className="text-ink">St. Florin Cathedral:</strong> continue south through the centre to the neo-Gothic cathedral. Respect services and any visitor restrictions.</p><div className="mt-3"><PlaceLink href={maps("Kathedrale St Florin Vaduz")}>St. Florin Cathedral</PlaceLink></div></li>
+        <li><p><strong className="text-ink">Vaduz Castle:</strong> admire it above the town. It is the princely family's residence, not a castle with public interior tours. If you want the uphill walk for the exterior views, allow extra time and wear comfortable shoes.</p><div className="mt-3"><PlaceLink href={maps("Schloss Vaduz")}>Vaduz Castle</PlaceLink></div></li>
+        <li><p><strong className="text-ink">Red House:</strong> finish with an exterior look at this landmark in the Mitteldorf area if time allows. It is a private property, so enjoy it respectfully from public space.</p><div className="mt-3"><PlaceLink href={maps("Rotes Haus Vaduz")}>Red House</PlaceLink></div></li>
       </ul>
       <h4 className="mt-6 flex items-center gap-2 font-semibold"><ParkingCircle className="size-5 text-royal" />One parking stop for Vaduz</h4>
       <p className="mt-3 text-sm leading-relaxed text-soft">We parked at <strong className="text-ink">Parkhaus Marktplatz</strong>. Keep the car there for breakfast, Städtle, the cathedral and your walks towards the castle and Red House. It worked as our central parking base. Check the current signs, access and charges before leaving the car.</p>
       <div className="mt-4 flex flex-wrap gap-2">
         <PlaceLink href={maps("Parkhaus Marktplatz Vaduz")}>Parking navigation</PlaceLink>
-        <PlaceLink href={maps("Städtle Vaduz")}>Städtle</PlaceLink>
-        <PlaceLink href={maps("Kathedrale St Florin Vaduz")}>St. Florin Cathedral</PlaceLink>
-        <PlaceLink href={maps("Schloss Vaduz")}>Vaduz Castle</PlaceLink>
-        <PlaceLink href={maps("Rotes Haus Vaduz")}>Red House</PlaceLink>
         <PlaceLink href="https://www.vaduz.li/wohnen-umwelt/umwelt-mobilitaet/parken-ladestationen">Official parking guidance</PlaceLink>
         <PlaceLink href="https://en.tourismus.li/reiseland/unser-land/zahlen-fakten.html">Meet Liechtenstein</PlaceLink>
       </div>

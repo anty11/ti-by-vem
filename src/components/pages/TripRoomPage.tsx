@@ -26,6 +26,7 @@ import { FranceReservationOverview } from "@/components/site/FranceReservationOv
 import { FranceLastWords } from "@/components/site/FranceLastWords";
 import { ArrowLeft, ArrowRight } from "lucide-react";
 import { FranceRouteArtwork } from "@/components/site/FranceRouteArtwork";
+import { FranceMiniBookDownload } from "@/components/site/FranceMiniBookDownload";
 import { OktoberfestDayOneGuide } from "@/components/site/OktoberfestDayOneGuide";
 import { OktoberfestDayTwoGuide } from "@/components/site/OktoberfestDayTwoGuide";
 import { OktoberfestDayThreeGuide } from "@/components/site/OktoberfestDayThreeGuide";
@@ -214,6 +215,8 @@ export function TripRoomPage({ itinerary, lang }: { itinerary: Itinerary; lang: 
               <p className="mt-3 text-xs text-soft">{lang === "sk" ? "Schematický prehľad trasy. Navigáciu a podrobné zastávky nájdeš pri jednotlivých dňoch." : "Schematic route overview. Find navigation links and detailed stops in each day."}</p>
             </section>
           ) : null}
+
+          {isFranceGuide && guideDay === 0 ? <FranceMiniBookDownload lang={lang} /> : null}
 
           {isOktoberfestGuide && guideDay === 0 ? <section aria-label="Oktoberfest journey overview map" className="mt-10">
             <h2 className="font-display text-3xl text-ink">{lang === "sk" ? "Celá cesta" : "The whole journey"}</h2>

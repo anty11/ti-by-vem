@@ -1,4 +1,4 @@
-import { EuropeMap } from "@/components/site/EuropeMap";
+import { Globe } from "@/components/site/Globe";
 import { ItineraryCard } from "@/components/site/ItineraryCard";
 import { itineraries } from "@/lib/content";
 import { copy } from "@/lib/copy";
@@ -15,7 +15,7 @@ export function ItinerariesPage({ lang }: { lang: Lang }) {
           <h1 className="mt-2 font-display text-5xl leading-[1.05] text-ink">{t.h1}</h1>
           <p className="mt-4 max-w-md text-soft text-lg leading-relaxed">{t.lead}</p>
         </div>
-        <EuropeMap lang={lang} />
+        <Globe lang={lang} />
       </div>
 
       {([

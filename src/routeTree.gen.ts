@@ -18,7 +18,7 @@ import { Route as LettersRouteImport } from './routes/letters'
 import { Route as PricingRouteImport } from './routes/pricing'
 import { Route as PrivacyRouteImport } from './routes/privacy'
 import { Route as TermsRouteImport } from './routes/terms'
-import { Route as TmpDay15RouteImport } from './routes/tmp-day15'
+import { Route as TmpDay16RouteImport } from './routes/tmp-day16'
 import { Route as ApiChatRouteImport } from './routes/api/chat'
 import { Route as ItinerariesIndexRouteImport } from './routes/itineraries.index'
 import { Route as ItinerariesSlugRouteImport } from './routes/itineraries.$slug'
@@ -81,9 +81,9 @@ const TermsRoute = TermsRouteImport.update({
   path: '/terms',
   getParentRoute: () => rootRouteImport,
 } as any)
-const TmpDay15Route = TmpDay15RouteImport.update({
-  id: '/tmp-day15',
-  path: '/tmp-day15',
+const TmpDay16Route = TmpDay16RouteImport.update({
+  id: '/tmp-day16',
+  path: '/tmp-day16',
   getParentRoute: () => rootRouteImport,
 } as any)
 const ApiChatRoute = ApiChatRouteImport.update({
@@ -178,7 +178,7 @@ export interface FileRoutesByFullPath {
   '/pricing': typeof PricingRoute
   '/privacy': typeof PrivacyRoute
   '/terms': typeof TermsRoute
-  '/tmp-day15': typeof TmpDay15Route
+  '/tmp-day16': typeof TmpDay16Route
   '/api/chat': typeof ApiChatRoute
   '/itineraries/$slug': typeof ItinerariesSlugRoute
   '/sk/about': typeof SkAboutRoute
@@ -206,7 +206,7 @@ export interface FileRoutesByTo {
   '/pricing': typeof PricingRoute
   '/privacy': typeof PrivacyRoute
   '/terms': typeof TermsRoute
-  '/tmp-day15': typeof TmpDay15Route
+  '/tmp-day16': typeof TmpDay16Route
   '/api/chat': typeof ApiChatRoute
   '/itineraries/$slug': typeof ItinerariesSlugRoute
   '/sk/about': typeof SkAboutRoute
@@ -235,7 +235,7 @@ export interface FileRoutesById {
   '/pricing': typeof PricingRoute
   '/privacy': typeof PrivacyRoute
   '/terms': typeof TermsRoute
-  '/tmp-day15': typeof TmpDay15Route
+  '/tmp-day16': typeof TmpDay16Route
   '/api/chat': typeof ApiChatRoute
   '/itineraries/$slug': typeof ItinerariesSlugRoute
   '/sk/about': typeof SkAboutRoute
@@ -265,7 +265,7 @@ export interface FileRouteTypes {
     | '/pricing'
     | '/privacy'
     | '/terms'
-    | '/tmp-day15'
+    | '/tmp-day16'
     | '/api/chat'
     | '/itineraries/$slug'
     | '/sk/about'
@@ -293,7 +293,7 @@ export interface FileRouteTypes {
     | '/pricing'
     | '/privacy'
     | '/terms'
-    | '/tmp-day15'
+    | '/tmp-day16'
     | '/api/chat'
     | '/itineraries/$slug'
     | '/sk/about'
@@ -321,7 +321,7 @@ export interface FileRouteTypes {
     | '/pricing'
     | '/privacy'
     | '/terms'
-    | '/tmp-day15'
+    | '/tmp-day16'
     | '/api/chat'
     | '/itineraries/$slug'
     | '/sk/about'
@@ -350,7 +350,7 @@ export interface RootRouteChildren {
   PricingRoute: typeof PricingRoute
   PrivacyRoute: typeof PrivacyRoute
   TermsRoute: typeof TermsRoute
-  TmpDay15Route: typeof TmpDay15Route
+  TmpDay16Route: typeof TmpDay16Route
   ApiChatRoute: typeof ApiChatRoute
   ItinerariesSlugRoute: typeof ItinerariesSlugRoute
   SkAboutRoute: typeof SkAboutRoute
@@ -434,11 +434,11 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof TermsRouteImport
       parentRoute: typeof rootRouteImport
     }
-    '/tmp-day15': {
-      id: '/tmp-day15'
-      path: '/tmp-day15'
-      fullPath: '/tmp-day15'
-      preLoaderRoute: typeof TmpDay15RouteImport
+    '/tmp-day16': {
+      id: '/tmp-day16'
+      path: '/tmp-day16'
+      fullPath: '/tmp-day16'
+      preLoaderRoute: typeof TmpDay16RouteImport
       parentRoute: typeof rootRouteImport
     }
     '/api/chat': {
@@ -566,7 +566,7 @@ const rootRouteChildren: RootRouteChildren = {
   PricingRoute: PricingRoute,
   PrivacyRoute: PrivacyRoute,
   TermsRoute: TermsRoute,
-  TmpDay15Route: TmpDay15Route,
+  TmpDay16Route: TmpDay16Route,
   ApiChatRoute: ApiChatRoute,
   ItinerariesSlugRoute: ItinerariesSlugRoute,
   SkAboutRoute: SkAboutRoute,

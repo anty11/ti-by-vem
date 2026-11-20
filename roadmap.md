@@ -124,3 +124,4 @@
 - [x] Japan day 13: teamLab Planets (and Borderless), HARRY Harajuku Terrace otters, Ralph's Coffee, Omotesando shopping, three top ramen dinners
 - [x] Japan day 14: Ichinohashi and Shiba Park walk, Meguro River boutiques, Starbucks Reserve Roastery, MEGA Don Quijote Shibuya cosmetics, international driving permit and street-kart secret tip, two Nakameguro dinners
 - [x] Japan day 15: a whole day at Tokyo Disneyland, the recorded breakfast at Tokyo Disneyland Hotel and how to book it, tickets, Premier Access, park tips and dining
+- [x] Japan day 16: Hakone day trip from Tokyo, the full loop with ropeway, Owakudani black eggs and souvenir, lake cruise and the Peace Torii photo queue

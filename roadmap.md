@@ -1,5 +1,7 @@
 # Roadmap
 
+- [x] Add Japan day 4 from Monika's notes: honest Osaka impression, Namba sweets, clothing-focused BOOKOFF shopping, Shinsaibashi, Yakiniku Gorichan and Octave, Nara/Kyoto/Himeji alternatives, map, navigation and checklist. Eleven Japan tests pass. Unlocked day 3 → 4 → 3, loaded map, checkbox and 1280/855/390px layouts verified without errors or access changes. Waffle-cake suggestion remains separate from the recorded unidentified vanilla waffle, pending Monika's clarification.
+
 - [x] Add Japan day 3: Hiroshima museum and family testimony experience, Kurashiki walk/boat/denim/café, Kobe evening and three researched beef restaurants, practical trains, artwork and checklist. Nine Japan tests pass. Unlocked switching, images, checkbox and 1280/855/390px layouts verified without errors or access changes. Former Café Kobo Bikan listing is closed, Honmachi café offered as a researched replacement.
 - [x] Monika confirmed the personally visited Miyake café was in Bikan, not Sakazu. Keep the former Café Kobo visit distinct from the researched Honmachi replacement, without implying the same branch.
 

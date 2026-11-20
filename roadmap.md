@@ -113,3 +113,4 @@
 - [ ] Publish the project so travelintelligencebyvem.com serves the site
 - [x] Link the real social profiles (Instagram, Threads, TikTok @travelintelligencebyvem)
 - [x] Try a more colourful version of the main Europe map (country tints, flat background)
+- [x] Japan day 5: Kyoto arrival, Hotel Sequence Kyoto Gojo, Panel pancakes, Higashiyama walk, hotel onsen, three dinner options near Gojo

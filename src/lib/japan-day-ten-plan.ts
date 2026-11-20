@@ -5,6 +5,7 @@ export const japanDayTenPlan = {
     hotel: "An absolutely amazing hotel in a great neighbourhood that we recommend.",
     journey: "The journey was long, so we only wandered around the hotel and had dinner nearby.",
     transfer: "We travelled to Tokyo by bus.",
+    pagoda: "The pagoda looked like a prop, as if it did not quite belong on the hillside, and the whole building was nothing like the photographs. It made us laugh.",
   },
   chureito: { steps: 398, admissionYen: 0, openAllDay: true, trainFromKawaguchikoYen: 310, trainMinutes: 13, walkFromShimoyoshidaMinutes: 25 },
   toTokyo: {

@@ -21,6 +21,10 @@ test("Tokyo transfer options keep dated per-person fares", () => {
 test("our recorded transfer was by bus", () => {
   assert.match(plan.recordedImpression.transfer, /by bus/);
 });
+test("our recorded pagoda impression says it looked like a prop", () => {
+  assert.match(plan.recordedImpression.pagoda, /looked like a prop/);
+  assert.match(plan.recordedImpression.pagoda, /nothing like the photographs/);
+});
 test("there are three dinner options near the hotel, each with a sourced score", () => {
   assert.equal(plan.dinners.length, 3);
   for (const id of plan.dinners) assert.ok(japanVenues[id].rating);

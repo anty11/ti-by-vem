@@ -130,3 +130,4 @@
 - [x] Japan trip room like France: Reservations, Last words and a per-person budget estimate in Budget check
 - [x] Remove the Kamakura postcard line from Japan Last words
 - [x] Japan Last words: add the ring and perfume workshops to the book-early advice
+- [x] Japan Last words: rewrite the opening around slowing down, Japanese habits and the trip verdict

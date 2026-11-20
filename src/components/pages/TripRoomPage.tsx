@@ -36,6 +36,7 @@ import { OktoberfestDaySevenGuide } from "@/components/site/OktoberfestDaySevenG
 import { OktoberfestDayEightGuide } from "@/components/site/OktoberfestDayEightGuide";
 import { OktoberfestReservationOverview } from "@/components/site/OktoberfestReservationOverview";
 import { OktoberfestLastWords } from "@/components/site/OktoberfestLastWords";
+import { JapanDayOneGuide } from "@/components/site/JapanDayOneGuide";
 import oktoberfestOverviewArtwork from "@/assets/oktoberfest-journey-overview-final.jpg";
 
 export function TripRoomPage({ itinerary, lang }: { itinerary: Itinerary; lang: Lang }) {
@@ -51,8 +52,9 @@ export function TripRoomPage({ itinerary, lang }: { itinerary: Itinerary; lang: 
   const guideAnchor = useRef<HTMLDivElement>(null);
   const isFranceGuide = itinerary.slug === "riviera" && view === "read";
   const isOktoberfestGuide = itinerary.slug === "oktoberfest-dolomites" && view === "read";
-  const hasDetailedGuide = isFranceGuide || isOktoberfestGuide;
-  const availableDays = isFranceGuide ? [1, 2, 3, 4, 5, 6, 7] : [1, 2, 3, 4, 5, 6, 7, 8];
+  const isJapanGuide = itinerary.slug === "japan" && view === "read";
+  const hasDetailedGuide = isFranceGuide || isOktoberfestGuide || isJapanGuide;
+  const availableDays = isFranceGuide ? [1, 2, 3, 4, 5, 6, 7] : isJapanGuide ? [1] : [1, 2, 3, 4, 5, 6, 7, 8];
   const reservationChapter = isFranceGuide ? 8 : 9;
   const lastWordsChapter = reservationChapter + 1;
   const selectGuideDay = (day: number) => {
@@ -159,12 +161,14 @@ export function TripRoomPage({ itinerary, lang }: { itinerary: Itinerary; lang: 
                 {[{ id: -1, label: "Trip agent" }, { id: -3, label: "Budget check" }].map(({ id, label }) => (
                   <Button key={id} className="shrink-0" data-guide-day={id} variant={guideDay === id ? "default" : "outline"} aria-pressed={guideDay === id} onClick={() => selectGuideDay(id)}>{label}</Button>
                 ))}
+                {isJapanGuide ? null : <>
                 <Button className="shrink-0" data-guide-day={reservationChapter} variant={guideDay === reservationChapter ? "default" : "outline"} aria-pressed={guideDay === reservationChapter} onClick={() => selectGuideDay(reservationChapter)}>
                   {lang === "sk" ? "Rezervácie" : "Reservations"}
                 </Button>
                 <Button className="shrink-0" data-guide-day={lastWordsChapter} variant={guideDay === lastWordsChapter ? "default" : "outline"} aria-pressed={guideDay === lastWordsChapter} onClick={() => selectGuideDay(lastWordsChapter)}>
                   {lang === "sk" ? "Posledné slová" : "Last words"}
                 </Button>
+                </>}
               </div>
             </nav>
           ) : null}
@@ -237,6 +241,13 @@ export function TripRoomPage({ itinerary, lang }: { itinerary: Itinerary; lang: 
             <div aria-label="Continue itinerary" className="mt-8 flex items-center justify-between gap-3 border-t border-border py-6">
               <Button variant="outline" onClick={() => selectGuideDay(guideDay - 1)}><ArrowLeft />{guideDay === 1 ? (lang === "sk" ? "Úvod" : "Overview") : guideDay === lastWordsChapter ? (lang === "sk" ? "Rezervácie" : "Reservations") : (lang === "sk" ? "Predchádzajúci deň" : "Previous day")}</Button>
               {guideDay < lastWordsChapter ? <Button onClick={() => selectGuideDay(guideDay + 1)}>{guideDay === reservationChapter ? (lang === "sk" ? "Posledné slová" : "Last words") : guideDay === 8 ? (lang === "sk" ? "Rezervácie" : "Reservations") : `${lang === "sk" ? "Ďalší deň" : "Next day"} · ${guideDay + 1}`}<ArrowRight /></Button> : null}
+            </div>
+          </> : null}
+
+          {isJapanGuide && guideDay > 0 ? <>
+            <JapanDayOneGuide />
+            <div aria-label="Continue itinerary" className="mt-8 flex items-center justify-between gap-3 border-t border-border py-6">
+              <Button variant="outline" onClick={() => selectGuideDay(0)}><ArrowLeft />{lang === "sk" ? "Úvod" : "Overview"}</Button>
             </div>
           </> : null}
 

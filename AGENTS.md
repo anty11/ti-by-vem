@@ -24,3 +24,4 @@
 - Keep Oktoberfest provisional allowances in oktoberfest-budget, using its per-person amount in the catalogue and shared allowances in the expense ledger without replacing saved expenses.
 - Keep hiking circuit artwork separate from driving artwork, linked to published trail maps and labelled as suggestions rather than recorded GPS tracks, so scenic diagrams cannot masquerade as navigation or travel history.
 - Keep Oktoberfest venue URLs and dated Google scores in oktoberfest-venues, rendered directly below the matching stop by OktoberfestVenueLinks and reused in Reservations, to prevent conflicting references and clearly distinguish whole-property ratings from dining-only scores.
+- Keep Japan paid day guides and venue links in japan-venues and JapanVenueLinks, exposing only completed days in the trip-room picker so unfinished days and chapters stay hidden.

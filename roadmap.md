@@ -126,3 +126,4 @@
 - [x] Japan day 15: a whole day at Tokyo Disneyland, the recorded breakfast at Tokyo Disneyland Hotel and how to book it, tickets, Premier Access, park tips and dining
 - [x] Japan day 16: Hakone day trip from Tokyo, the full loop with ropeway, Owakudani black eggs and souvenir, lake cruise and the Peace Torii photo queue
 - [x] Japan day 17: teamLab Borderless with EN TEA HOUSE, brunch upstairs at Azabudai Hills, last shopping and what to bring home from Japan, Uobei Shibuya running sushi
+- [x] Japan day 18: flight home, packing, luggage limits, tax-free customs check, EU allowances

@@ -120,3 +120,4 @@
 - [x] Japan day 9: Fushimi Inari at dawn, Kyoto to Kawaguchiko via Mishima Hirokojicho, Ubuya onsen and Fuji view, dinner-choice warning, Fuji cookies and white strawberries
 - [x] Japan day 10: Chureito Pagoda, Kawaguchiko to Tokyo options, THE LIVELY Azabujuban, three dinners nearby
 - [x] Japan day 11: Honolulu Coffee breakfast, Harajuku and Shibuya shopping, I'm donut?, SHIBUYA SKY sunset, three dinners
+- [x] Japan day 12: Kamakura PIGPARK, walk and beach, the Japan and Hawaii story, MAHALO Enoshima lunch, Shonan Monorail to Ofuna, Yokohama Chinatown, Yamashita Park, SAVOY Azabujuban dinner

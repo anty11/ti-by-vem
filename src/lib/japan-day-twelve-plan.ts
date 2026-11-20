@@ -1,0 +1,21 @@
+export const japanDayTwelvePlan = {
+  cities: ["Kamakura", "Enoshima", "Yokohama", "Tokyo"],
+  recordedStops: ["Kamakura", "Kamakura PIGPARK", "Walk through town", "Beach", "MAHALO Enoshima", "Shonan Monorail to Ofuna", "Yokohama Chinatown", "Yamashita Park", "SAVOY Azabujuban"],
+  recordedImpression: {
+    kamakura: "Kamakura was a top trip, a little town by the sea.",
+    hawaii: "This is where we understood the connection between Japan and Hawaii.",
+    pigs: "We went to see the little pigs in a café and it was adorable.",
+    monorail: "We took a metro that hangs upside down, it was so interesting that we also looked at it from outside.",
+    savoy: "For us it was not the best pizza in the world, but it was worth trying.",
+  },
+  toKamakura: { fromShinagawa: { icYen: 803, minutes: 46 }, fromTokyo: { icYen: 1034, minutes: 56 } },
+  pigPark: { venue: "kamakuraPigPark", yenPer30Min: 1100, snackYen: 300, opens: "11:00", lastEntry: "17:30", onlineBookingUntil: "the day before" },
+  enoden: { kamakuraToEnoshimaYen: 260, minutes: 23 },
+  monorail: { enoshimaToOfunaYen: 340, minutes: 14, suspended: true, japanRailPassValid: false },
+  ofunaToIshikawacho: { line: "JR Negishi Line", changes: 0, minutes: 30 },
+  hawaii: { kingVisitedJapan: 1881, contractMigrantsArrived: 1885, japaneseShareOfHawaii1920Percent: 42.7 },
+  lunchVenue: "mahaloEnoshima",
+  dinnerVenue: "savoyAzabujuban",
+  savoyClosedOn: "Wednesday",
+  checkedOn: "20 November 2026",
+} as const;

@@ -29,7 +29,7 @@
 - Keep Japan day-three rail interchanges and dated admission/pass values in japan-day-three-plan with concrete tests, so regional-pass rules and Kurashiki station choices remain distinct from recorded travel experiences.
 - Keep Japan day-four alternatives in japan-day-four-plan and clothing-store categories tied to official listings, so suggested excursions and branches cannot be mistaken for recorded visits or book-only shops.
 - Keep Japan day-four alternatives away from destinations the travellers already visit later in their own journey, so a suggested day trip cannot cost them a repeat day.
-- Keep Japan guides reachable by train, metro and walking only, with no car or parking references, because the travellers did not drive in Japan.
+- Keep Japan guides reachable by train, metro and walking only, with no car or parking references, because the travellers did not drive in Japan. A street-kart tour may appear only as a bookable activity tip that needs a 1949 Geneva permit, never as transport.
 - Keep Japan day-six workshop prices, booking rules and Arashiyama rail fares in japan-day-six-plan with concrete tests, so recorded impressions stay separate from dated, changeable facts.
 - Keep Japan day-seven deer-safety rules, Nara rail fares and temple admissions in japan-day-seven-plan with concrete tests, so recorded impressions stay separate from dated facts.
 - Keep Japan day-eight tea-ceremony, rooftop and dinner charges in japan-day-eight-plan with concrete tests, so recorded impressions stay separate from dated facts.
@@ -38,3 +38,4 @@
 - Keep Japan day-eleven observation-deck tickets, tax-free rules and nearby dinner options in japan-day-eleven-plan with concrete tests, so recorded impressions stay separate from dated facts.
 - Keep Japan day-twelve rail fares, micro-pig café charges and the Japan–Hawaii history in japan-day-twelve-plan with concrete tests, so recorded impressions stay separate from dated facts.
 - Keep Japan day-thirteen teamLab ticket rules, animal-café charges and ramen options in japan-day-thirteen-plan with concrete tests, so recorded impressions stay separate from dated facts.
+- Keep Japan day-fourteen Roastery entry rules, driving-permit requirements and street-kart terms in japan-day-fourteen-plan with concrete tests, so the recorded missed kart ride stays separate from dated booking facts.

@@ -122,3 +122,4 @@
 - [x] Japan day 11: Honolulu Coffee breakfast, Harajuku and Shibuya shopping, I'm donut?, SHIBUYA SKY sunset, three dinners
 - [x] Japan day 12: Kamakura PIGPARK, walk and beach, the Japan and Hawaii story, MAHALO Enoshima lunch, Shonan Monorail to Ofuna, Yokohama Chinatown, Yamashita Park, SAVOY Azabujuban dinner
 - [x] Japan day 13: teamLab Planets (and Borderless), HARRY Harajuku Terrace otters, Ralph's Coffee, Omotesando shopping, three top ramen dinners
+- [x] Japan day 14: Ichinohashi and Shiba Park walk, Meguro River boutiques, Starbucks Reserve Roastery, MEGA Don Quijote Shibuya cosmetics, international driving permit and street-kart secret tip, two Nakameguro dinners

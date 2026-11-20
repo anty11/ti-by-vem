@@ -37,3 +37,4 @@
 - Keep Japan day-ten Fuji-to-Tokyo transfer fares, pagoda access facts and nearby dinner options in japan-day-ten-plan with concrete tests, so recorded impressions stay separate from dated facts.
 - Keep Japan day-eleven observation-deck tickets, tax-free rules and nearby dinner options in japan-day-eleven-plan with concrete tests, so recorded impressions stay separate from dated facts.
 - Keep Japan day-twelve rail fares, micro-pig café charges and the Japan–Hawaii history in japan-day-twelve-plan with concrete tests, so recorded impressions stay separate from dated facts.
+- Keep Japan day-thirteen teamLab ticket rules, animal-café charges and ramen options in japan-day-thirteen-plan with concrete tests, so recorded impressions stay separate from dated facts.

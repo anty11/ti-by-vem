@@ -31,3 +31,4 @@
 - Keep Japan day-four alternatives away from destinations the travellers already visit later in their own journey, so a suggested day trip cannot cost them a repeat day.
 - Keep Japan guides reachable by train, metro and walking only, with no car or parking references, because the travellers did not drive in Japan.
 - Keep Japan day-six workshop prices, booking rules and Arashiyama rail fares in japan-day-six-plan with concrete tests, so recorded impressions stay separate from dated, changeable facts.
+- Keep Japan day-seven deer-safety rules, Nara rail fares and temple admissions in japan-day-seven-plan with concrete tests, so recorded impressions stay separate from dated facts.

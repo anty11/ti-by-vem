@@ -116,3 +116,4 @@
 - [x] Japan day 5: Kyoto arrival, Hotel Sequence Kyoto Gojo, Panel pancakes, Higashiyama walk, hotel onsen, three dinner options near Gojo
 - [x] Japan day 6: Arashiyama bamboo grove (honest take), Tenryu-ji, % Arabica, glänta Ninenzaka ring workshop, Masuyacho walk, My Only Fragrance, three dinners nearby
 - [x] Japan day 7: Nara (deer warning, Todai-ji, Kasuga, Naramachi), return to Kyoto, Le Labo coffee, Lupicia Teramachi Sanjo, koisus dinner
+- [x] Japan day 8: MAIKOYA kimono tea ceremony, Kiyomizu-dera and Komatsucho in kimono, Rokujuan flower warabi mochi, K36 sunset, MATT RESTAURANT 2.0 dinner

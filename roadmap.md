@@ -1,5 +1,8 @@
 # Roadmap
 
+- [x] Remove every car and parking reference from the Japan guides: the trip is reached by train, metro and walking only. Day 2 heading and eight passages, day 3 seven passages and day 4 nine passages rewritten; the day 4 parking paragraph became a metro and luggage note. Verified no car, parking or driving word remains in any Japan guide or plan file, day 4 renders unlocked with the taiyaki section, three dated ratings, the redrawn map and no mobile overflow. Thirteen Japan tests pass.
+- [x] Correct Japan day 4's recorded vanilla sweet to taiyaki (たい焼き), fish-shaped pastry with vanilla custard cream. Replaced the invented Umeda waffle detour with a taiyaki section, three dated venue snapshots and a redrawn map without Umeda.
+
 - [x] Add Japan day 4 from Monika's notes: honest Osaka impression, Namba sweets, clothing-focused BOOKOFF shopping, Shinsaibashi, Yakiniku Gorichan and Octave, Nara/Kyoto/Himeji alternatives, map, navigation and checklist. Eleven Japan tests pass. Unlocked day 3 → 4 → 3, loaded map, checkbox and 1280/855/390px layouts verified without errors or access changes. Waffle-cake suggestion remains separate from the recorded unidentified vanilla waffle, pending Monika's clarification.
 
 - [x] Add Japan day 3: Hiroshima museum and family testimony experience, Kurashiki walk/boat/denim/café, Kobe evening and three researched beef restaurants, practical trains, artwork and checklist. Nine Japan tests pass. Unlocked switching, images, checkbox and 1280/855/390px layouts verified without errors or access changes. Former Café Kobo Bikan listing is closed, Honmachi café offered as a researched replacement.

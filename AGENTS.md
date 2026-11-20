@@ -28,3 +28,4 @@
 - Keep Japan day-two suggested stops and avoided districts in japan-day-two-plan, with sourced venue-rating snapshots separate from recorded experiences, so ended events and unsafe detours are not offered as current programme stops.
 - Keep Japan day-three rail interchanges and dated admission/pass values in japan-day-three-plan with concrete tests, so regional-pass rules and Kurashiki station choices remain distinct from recorded travel experiences.
 - Keep Japan day-four alternatives in japan-day-four-plan and clothing-store categories tied to official listings, so suggested excursions and branches cannot be mistaken for recorded visits or book-only shops.
+- Keep Japan guides reachable by train, metro and walking only, with no car or parking references, because the travellers did not drive in Japan.

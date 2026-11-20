@@ -1,5 +1,13 @@
 export const japanDayFourPlan = {
   recordedStops: ["Namba", "BOOKOFF shopping", "Shinsaibashi", "Yakiniku Gorichan", "Octave"],
+  recordedSweets: ["Rikuro Ojisan cheesecake", "fruit daifuku", "taiyaki with vanilla custard cream"],
+  taiyaki: {
+    name: "Taiyaki",
+    japanese: "たい焼き",
+    shape: "warm fish-shaped pastry",
+    filling: "vanilla custard cream",
+    askFor: "custard (カスタード)",
+  },
   dayTrips: [
     { id: "nara", name: "Nara", mood: "Deer, temples & a slower day", train: "From Osaka-Namba, take the Kintetsu Nara Line towards Kintetsu-Nara. A direct Rapid Express typically takes 35–45 minutes. Ordinary rapid/express trains do not need a limited-express supplement. From Kitahama, allow about 60–80 minutes door to door including the metro change and walk.", walk: "Walk from Kintetsu-Nara to Nara Park, then Todai-ji and the wooded approach to Kasuga Taisha. Allow 5–6 hours in town. Feed deer only the designated crackers, put food away and keep children close. Deer are wild animals and can nip or push.", start: "Osaka-Namba Station", end: "Kintetsu-Nara Station", official: "https://www.visitnara.jp/", railway: "https://www.kintetsu.co.jp/foreign/english/", stops: ["Nara Park", "Todai-ji Temple", "Kasuga Taisha"] },
     { id: "kyoto", name: "Kyoto", mood: "Shrine paths & old streets", train: "From Osaka Station, a JR Kyoto Line Special Rapid usually takes 30 minutes to Kyoto Station. From Kitahama, another useful option is Keihan from Kitahama towards Gion-Shijo, around 50–60 minutes depending on service. Allow 60–90 minutes from the hotel to your first sightseeing stop.", walk: "Pick one side of the city rather than trying to see everything. One manageable option is Fushimi Inari early, then the Higashiyama lanes and Gion. Take the JR Nara Line from Kyoto Station to Inari, or the Keihan line to Fushimi-Inari. Allow 6–8 hours, expect crowds and respect no-photography and private-lane signs in Gion.", start: "Kitahama Station", end: "Gion-Shijo Station", official: "https://kyoto.travel/en/", railway: "https://www.keihan.co.jp/travel/en/", stops: ["Fushimi Inari Taisha", "Higashiyama Kyoto", "Gion Kyoto"] },

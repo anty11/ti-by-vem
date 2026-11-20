@@ -119,3 +119,4 @@
 - [x] Japan day 8: MAIKOYA kimono tea ceremony, Kiyomizu-dera and Komatsucho in kimono, Rokujuan flower warabi mochi, K36 sunset, MATT RESTAURANT 2.0 dinner
 - [x] Japan day 9: Fushimi Inari at dawn, Kyoto to Kawaguchiko via Mishima Hirokojicho, Ubuya onsen and Fuji view, dinner-choice warning, Fuji cookies and white strawberries
 - [x] Japan day 10: Chureito Pagoda, Kawaguchiko to Tokyo options, THE LIVELY Azabujuban, three dinners nearby
+- [x] Japan day 11: Honolulu Coffee breakfast, Harajuku and Shibuya shopping, I'm donut?, SHIBUYA SKY sunset, three dinners

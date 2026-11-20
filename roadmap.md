@@ -1,5 +1,7 @@
 # Roadmap
 
+- [x] Replace Kyoto and Nara in Japan day 4's alternatives with two different day trips, keeping Himeji, because the travellers visit Kyoto and Nara later in their own itinerary. Redraw the map inset to match. Day four now offers Himeji, Koya-san and Arima Onsen with Nankai, Hankyu bus and bath prices per person, the inset shows Himeji, Arima and Koya-san around Osaka, and the guide explains why Kyoto and Nara are left out. Fifteen Japan tests pass and the unlocked day renders on desktop and 390px without overflow or page errors.
+
 - [x] Remove every car and parking reference from the Japan guides: the trip is reached by train, metro and walking only. Day 2 heading and eight passages, day 3 seven passages and day 4 nine passages rewritten; the day 4 parking paragraph became a metro and luggage note. Verified no car, parking or driving word remains in any Japan guide or plan file, day 4 renders unlocked with the taiyaki section, three dated ratings, the redrawn map and no mobile overflow. Thirteen Japan tests pass.
 - [x] Correct Japan day 4's recorded vanilla sweet to taiyaki (たい焼き), fish-shaped pastry with vanilla custard cream. Replaced the invented Umeda waffle detour with a taiyaki section, three dated venue snapshots and a redrawn map without Umeda.
 

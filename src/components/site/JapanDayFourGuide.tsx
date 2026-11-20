@@ -37,7 +37,7 @@ export function JapanDayFourGuide() {
         ["18:30–20:00", "Yakiniku Gorichan", "Book the branch you actually intend to visit."],
         ["After dinner", "Octave, or back to the hotel", "An optional adults-only shisha finish, with your return journey checked."],
       ].map(([time, title, note]) => <li key={title} className="grid gap-2 py-4 sm:grid-cols-[9rem_1fr]"><span className="text-sm font-semibold text-terracotta">{time}</span><div><h4 className="text-sm font-semibold">{title}</h4><p className="mt-1 text-sm leading-relaxed text-soft">{note}</p></div></li>)}</ol>
-      <img src={artwork} alt="Schematic Kitahama to Namba, Dotonbori and Shinsaibashi walking route with a taiyaki stop and separate Nara, Kyoto and Himeji excursions" width={1536} height={1024} className="mt-6 h-auto w-full rounded-lg" />
+      <img src={artwork} alt="Schematic Kitahama to Namba, Dotonbori and Shinsaibashi walking route with a taiyaki stop and separate Himeji, Koya-san and Arima Onsen excursions" width={1536} height={1024} className="mt-6 h-auto w-full rounded-lg" />
       <p className="mt-3 text-xs leading-relaxed text-soft">Schematic overview, not street or railway navigation. The walking loop links Namba, Dotonbori and Shinsaibashi. The regional inset shows three separate alternatives, not a single route.</p>
     </div>
 
@@ -129,7 +129,7 @@ export function JapanDayFourGuide() {
 
     <div className="border-b border-border py-8">
       <h3 className="flex items-center gap-2 font-display text-3xl"><TrainFront className="size-6" />Or trade the city day for one of these</h3>
-      <p className={copy}>Three researched alternatives if, like us, you feel ready to leave Osaka for the day. These are not additional trips we claim to have made on day 4. Choose one and check whether it appears later in your Japan itinerary before repeating it. All rail times are approximate, verify your date and the return train. An Osaka Metro ticket does not cover every regional railway and an IC card alone is not a Shinkansen ticket.</p>
+      <p className={copy}>Three researched alternatives if, like us, you feel ready to leave Osaka for the day. Kyoto and Nara are deliberately not on this list, because they belong to a later part of your journey and repeating them here would cost you a day you could spend somewhere new. These are not additional trips we claim to have made on day 4. Choose one and check whether it appears later in your Japan itinerary before repeating it. All rail and bus times are approximate, verify your date and the return service. An Osaka Metro ticket does not cover every regional railway and an IC card alone is not a Shinkansen ticket.</p>
       {plan.dayTrips.map(trip => <article key={trip.id} className="border-t border-border py-6">
         <p className="text-xs font-semibold uppercase text-terracotta">{trip.mood}</p>
         <h4 className="mt-2 font-display text-3xl">{trip.name}</h4>

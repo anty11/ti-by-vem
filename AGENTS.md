@@ -25,3 +25,4 @@
 - Keep hiking circuit artwork separate from driving artwork, linked to published trail maps and labelled as suggestions rather than recorded GPS tracks, so scenic diagrams cannot masquerade as navigation or travel history.
 - Keep Oktoberfest venue URLs and dated Google scores in oktoberfest-venues, rendered directly below the matching stop by OktoberfestVenueLinks and reused in Reservations, to prevent conflicting references and clearly distinguish whole-property ratings from dining-only scores.
 - Keep Japan paid day guides and venue links in japan-venues and JapanVenueLinks, exposing only completed days in the trip-room picker so unfinished days and chapters stay hidden.
+- Keep Japan day-two suggested stops and avoided districts in japan-day-two-plan, with sourced venue-rating snapshots separate from recorded experiences, so ended events and unsafe detours are not offered as current programme stops.

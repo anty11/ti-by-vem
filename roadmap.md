@@ -1,5 +1,7 @@
 # Roadmap
 
+- [x] Add Japan day 2 with a researched morning replacing the ended EXPO, recorded castle/Shinsekai walk, Sanno avoidance guidance, teamLab evening, three nearby dinner options, map and checklist. Verified unlocked day switching, loaded images, checkbox and layouts at 1280, 855 and 390px without changing access. Four new tests pass.
+
 - [x] Explain “The Dolomites loop” as the older 12-day rail/hiking catalogue placeholder, distinct from Oktoberfest and Dolomites in winter. No changes to that trip requested or made.
 
 - [x] Compare every paid Oktoberfest chapter against France and add missing walking/driving allowances, shared venue references with 21 directly checked Google scores, hotel links, ferry and boat explanations, reservation/payment/document guidance and next-day checklists. Preserve recorded experiences and anonymous meals without guessing identities. All eight unlocked days, Reservations, Last words and mobile layouts verified at 1280, 950 and 390px. All 68 budget/timing/venue tests pass.

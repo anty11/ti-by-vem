@@ -127,3 +127,4 @@
 - [x] Japan day 16: Hakone day trip from Tokyo, the full loop with ropeway, Owakudani black eggs and souvenir, lake cruise and the Peace Torii photo queue
 - [x] Japan day 17: teamLab Borderless with EN TEA HOUSE, brunch upstairs at Azabudai Hills, last shopping and what to bring home from Japan, Uobei Shibuya running sushi
 - [x] Japan day 18: flight home, packing, luggage limits, tax-free customs check, EU allowances
+- [x] Japan trip room like France: Reservations, Last words and a per-person budget estimate in Budget check

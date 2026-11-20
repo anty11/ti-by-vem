@@ -18,6 +18,7 @@ import { Route as LettersRouteImport } from './routes/letters'
 import { Route as PricingRouteImport } from './routes/pricing'
 import { Route as PrivacyRouteImport } from './routes/privacy'
 import { Route as TermsRouteImport } from './routes/terms'
+import { Route as TmpJapanExtraRouteImport } from './routes/tmp-japan-extra'
 import { Route as ApiChatRouteImport } from './routes/api/chat'
 import { Route as ItinerariesIndexRouteImport } from './routes/itineraries.index'
 import { Route as ItinerariesSlugRouteImport } from './routes/itineraries.$slug'
@@ -78,6 +79,11 @@ const PrivacyRoute = PrivacyRouteImport.update({
 const TermsRoute = TermsRouteImport.update({
   id: '/terms',
   path: '/terms',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const TmpJapanExtraRoute = TmpJapanExtraRouteImport.update({
+  id: '/tmp-japan-extra',
+  path: '/tmp-japan-extra',
   getParentRoute: () => rootRouteImport,
 } as any)
 const ApiChatRoute = ApiChatRouteImport.update({
@@ -172,6 +178,7 @@ export interface FileRoutesByFullPath {
   '/pricing': typeof PricingRoute
   '/privacy': typeof PrivacyRoute
   '/terms': typeof TermsRoute
+  '/tmp-japan-extra': typeof TmpJapanExtraRoute
   '/api/chat': typeof ApiChatRoute
   '/itineraries/$slug': typeof ItinerariesSlugRoute
   '/sk/about': typeof SkAboutRoute
@@ -199,6 +206,7 @@ export interface FileRoutesByTo {
   '/pricing': typeof PricingRoute
   '/privacy': typeof PrivacyRoute
   '/terms': typeof TermsRoute
+  '/tmp-japan-extra': typeof TmpJapanExtraRoute
   '/api/chat': typeof ApiChatRoute
   '/itineraries/$slug': typeof ItinerariesSlugRoute
   '/sk/about': typeof SkAboutRoute
@@ -227,6 +235,7 @@ export interface FileRoutesById {
   '/pricing': typeof PricingRoute
   '/privacy': typeof PrivacyRoute
   '/terms': typeof TermsRoute
+  '/tmp-japan-extra': typeof TmpJapanExtraRoute
   '/api/chat': typeof ApiChatRoute
   '/itineraries/$slug': typeof ItinerariesSlugRoute
   '/sk/about': typeof SkAboutRoute
@@ -256,6 +265,7 @@ export interface FileRouteTypes {
     | '/pricing'
     | '/privacy'
     | '/terms'
+    | '/tmp-japan-extra'
     | '/api/chat'
     | '/itineraries/$slug'
     | '/sk/about'
@@ -283,6 +293,7 @@ export interface FileRouteTypes {
     | '/pricing'
     | '/privacy'
     | '/terms'
+    | '/tmp-japan-extra'
     | '/api/chat'
     | '/itineraries/$slug'
     | '/sk/about'
@@ -310,6 +321,7 @@ export interface FileRouteTypes {
     | '/pricing'
     | '/privacy'
     | '/terms'
+    | '/tmp-japan-extra'
     | '/api/chat'
     | '/itineraries/$slug'
     | '/sk/about'
@@ -338,6 +350,7 @@ export interface RootRouteChildren {
   PricingRoute: typeof PricingRoute
   PrivacyRoute: typeof PrivacyRoute
   TermsRoute: typeof TermsRoute
+  TmpJapanExtraRoute: typeof TmpJapanExtraRoute
   ApiChatRoute: typeof ApiChatRoute
   ItinerariesSlugRoute: typeof ItinerariesSlugRoute
   SkAboutRoute: typeof SkAboutRoute
@@ -419,6 +432,13 @@ declare module '@tanstack/react-router' {
       path: '/terms'
       fullPath: '/terms'
       preLoaderRoute: typeof TermsRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/tmp-japan-extra': {
+      id: '/tmp-japan-extra'
+      path: '/tmp-japan-extra'
+      fullPath: '/tmp-japan-extra'
+      preLoaderRoute: typeof TmpJapanExtraRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/api/chat': {
@@ -546,6 +566,7 @@ const rootRouteChildren: RootRouteChildren = {
   PricingRoute: PricingRoute,
   PrivacyRoute: PrivacyRoute,
   TermsRoute: TermsRoute,
+  TmpJapanExtraRoute: TmpJapanExtraRoute,
   ApiChatRoute: ApiChatRoute,
   ItinerariesSlugRoute: ItinerariesSlugRoute,
   SkAboutRoute: SkAboutRoute,

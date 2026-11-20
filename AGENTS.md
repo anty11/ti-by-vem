@@ -31,3 +31,4 @@
 - Keep Japan day-four alternatives away from destinations the travellers already visit later in their own journey, so a suggested day trip cannot cost them a repeat day.
 - Keep Japan guides reachable by train, metro and walking only, with no car or parking references, because the travellers did not drive in Japan. A street-kart tour may appear only as a bookable activity tip that needs a 1949 Geneva permit, never as transport.
 - Keep each Japan day from day six onward in its own japan-day-<n>-plan module with concrete tests for dated fares, tickets, booking rules and charges, so recorded impressions and missed plans stay separate from changeable facts.
+- Keep Japan Reservations and Last words as paid chapters after the final day, reading prices and booking windows from the day plan modules and allowances from japan-budget, so figures never diverge.

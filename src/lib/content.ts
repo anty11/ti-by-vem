@@ -1,6 +1,7 @@
 import type { Lang } from "./i18n";
 import { franceBudget } from "./france-budget";
 import { oktoberfestBudget } from "./oktoberfest-budget";
+import { japanBudget } from "./japan-budget";
 
 export type ItineraryText = {
   country: string;
@@ -76,7 +77,7 @@ export const itineraries: Itinerary[] = [
     title: "Japan, from Osaka to Tokyo",
     days: 18,
     stops: "Osaka → Tokyo",
-    budget: "~€4,800",
+    budget: `~€${japanBudget.perPerson.toLocaleString("en-US")}`,
     chatPrice: "€39",
     chatPriceSk: "39 €",
     blurb:

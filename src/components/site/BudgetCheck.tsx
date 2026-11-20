@@ -5,6 +5,8 @@ import { unifyEstimates } from "@/lib/budget-estimates";
 import { franceBudget } from "@/lib/france-budget";
 import { oktoberfestBudget } from "@/lib/oktoberfest-budget";
 import { OktoberfestBudgetOverview } from "@/components/site/OktoberfestBudgetOverview";
+import { japanBudget } from "@/lib/japan-budget";
+import { JapanBudgetOverview } from "@/components/site/JapanBudgetOverview";
 
 type Expense = {
   id: string;
@@ -141,7 +143,7 @@ export function BudgetCheck({ slug, budget, lang }: { slug: string; budget: stri
       if (list.length === 0) {
         const total = Number(budget.replace(/[^\d]/g, "")) || 0;
         if (total > 0) {
-          const allowances = slug === "riviera" ? franceBudget.allowances : slug === "oktoberfest-dolomites" ? oktoberfestBudget.allowances : SPLIT.map(([category, share]) => ({ category, amount: Math.round(total * share) }));
+          const allowances = slug === "riviera" ? franceBudget.allowances : slug === "oktoberfest-dolomites" ? oktoberfestBudget.allowances : slug === "japan" ? japanBudget.allowances : SPLIT.map(([category, share]) => ({ category, amount: Math.round(total * share) }));
           const seed = allowances.map(({ category: cat, amount }, i) => ({
             itinerary_slug: slug,
             label: `${t.ourEstimate} · ${catLabel[lang][cat]}`,
@@ -219,6 +221,7 @@ export function BudgetCheck({ slug, budget, lang }: { slug: string; budget: stri
       <h2 className="font-display text-3xl text-ink">{t.title}</h2>
       <p className="mt-2 max-w-xl text-sm leading-relaxed text-soft">{t.lead}</p>
       {slug === "oktoberfest-dolomites" && <OktoberfestBudgetOverview />}
+      {slug === "japan" && <JapanBudgetOverview />}
       {slug === "riviera" && <div className="mt-4 border-l-2 border-terracotta pl-4 text-sm leading-relaxed text-soft">
         <p><strong className="text-ink">France · planning estimate · ~€{franceBudget.perPerson.toLocaleString("en-US")} per person, excluding flights.</strong> Based on two people sharing a room and car. Per person, allow €900 for six hotel nights, €500 for the rental car, fuel, tolls, parking and taxis, €1,100 for meals and drinks, €350 for beach setups, pedal boats and the perfume workshop, and €150 as a buffer. Restaurant food is counted under meals, not again under beach activities. These are planning allowances, not our actual spending or current venue quotes. Shopping and casino play are extra.</p>
         <p className="mt-2">Your saved expenses and plans are unchanged. The revised allowances are used for new budgets. If your older plan is still low, adjust the Planned amounts below to suit your bookings.</p>

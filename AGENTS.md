@@ -34,3 +34,4 @@
 - Keep Japan day-seven deer-safety rules, Nara rail fares and temple admissions in japan-day-seven-plan with concrete tests, so recorded impressions stay separate from dated facts.
 - Keep Japan day-eight tea-ceremony, rooftop and dinner charges in japan-day-eight-plan with concrete tests, so recorded impressions stay separate from dated facts.
 - Keep Japan day-nine transfer fares, ryokan dinner rules and seasonal souvenir facts in japan-day-nine-plan with concrete tests, so recorded mistakes and impressions stay separate from dated facts.
+- Keep Japan day-ten Fuji-to-Tokyo transfer fares, pagoda access facts and nearby dinner options in japan-day-ten-plan with concrete tests, so recorded impressions stay separate from dated facts.

@@ -118,3 +118,4 @@
 - [x] Japan day 7: Nara (deer warning, Todai-ji, Kasuga, Naramachi), return to Kyoto, Le Labo coffee, Lupicia Teramachi Sanjo, koisus dinner
 - [x] Japan day 8: MAIKOYA kimono tea ceremony, Kiyomizu-dera and Komatsucho in kimono, Rokujuan flower warabi mochi, K36 sunset, MATT RESTAURANT 2.0 dinner
 - [x] Japan day 9: Fushimi Inari at dawn, Kyoto to Kawaguchiko via Mishima Hirokojicho, Ubuya onsen and Fuji view, dinner-choice warning, Fuji cookies and white strawberries
+- [x] Japan day 10: Chureito Pagoda, Kawaguchiko to Tokyo options, THE LIVELY Azabujuban, three dinners nearby

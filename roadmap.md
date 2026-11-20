@@ -114,3 +114,4 @@
 - [x] Link the real social profiles (Instagram, Threads, TikTok @travelintelligencebyvem)
 - [x] Try a more colourful version of the main Europe map (country tints, flat background)
 - [x] Japan day 5: Kyoto arrival, Hotel Sequence Kyoto Gojo, Panel pancakes, Higashiyama walk, hotel onsen, three dinner options near Gojo
+- [x] Japan day 6: Arashiyama bamboo grove (honest take), Tenryu-ji, % Arabica, glänta Ninenzaka ring workshop, Masuyacho walk, My Only Fragrance, three dinners nearby

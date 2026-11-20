@@ -23,7 +23,7 @@ export function JapanDaySixGuide() {
 
     <aside className="my-8 border-l-2 border-terracotta pl-5">
       <h3 className="font-display text-2xl">Our honest take</h3>
-      <p className={copy}>We will be honest. The bamboo grove felt overrated to us. Everyone recommends going very early, and clearly everyone reads the same advice, because even before the usual opening hours it was full of people. It did not feel special or exceptional, a small disappointment. It is in every itinerary for a reason, and if you love forests you may feel differently. The coffee at % Arabica was worth the queue.</p>
+      <p className={copy}>We will be honest. The bamboo grove felt overrated to us. Everyone recommends going very early, and clearly everyone reads the same advice, because even before the usual opening hours it was full of people. It did not feel special or exceptional, a small disappointment. It is in every itinerary for a reason, and if you love forests you may feel differently. The coffee at % Arabica was worth the queue.</p>
       <p className={copy}>The afternoon is the real reason for this day. Making our own rings at glänta and our own perfume at My Only Fragrance was unique, perfect and worth every euro. Book both ahead, because slots sell out fast.</p>
     </aside>
 
@@ -41,7 +41,7 @@ export function JapanDaySixGuide() {
         ["15:00–15:30", "Perfume at My Only Fragrance", "Around 30 minutes to mix and name your scent."],
         ["Evening", "Dinner nearby", "Three options a few minutes from the workshops."],
       ].map(([time, title, note]) => <li key={title} className="grid gap-2 py-4 sm:grid-cols-[9rem_1fr]"><span className="text-sm font-semibold text-terracotta">{time}</span><div><h4 className="text-sm font-semibold">{title}</h4><p className="mt-1 text-sm leading-relaxed text-soft">{note}</p></div></li>)}</ol>
-      <img src={artwork} alt="Schematic Kyoto map linking Saga-Arashiyama Station, the Bamboo Grove, Tenryu-ji and % Arabica in the west with glänta Ninenzaka, the Masuyacho lanes, Yasaka Pagoda, Kodai-ji and My Only Fragrance in Higashiyama" width={1536} height={1024} className="mt-6 h-auto w-full rounded-lg" />
+      <img src={artwork} alt="Schematic Kyoto map linking Saga-Arashiyama Station, the Bamboo Grove, Tenryu-ji and % Arabica in the west with glänta Ninenzaka, the Masuyacho lanes, Yasaka Pagoda, Kodai-ji and My Only Fragrance in Higashiyama" width={1536} height={1024} className="mt-6 h-auto w-full rounded-lg" />
       <p className="mt-3 text-xs leading-relaxed text-soft">Schematic overview, not street navigation. Arashiyama sits on the western edge of the city and the workshops sit in the Higashiyama hills on the east side, about 45 minutes apart by rail and on foot.</p>
     </div>
 
@@ -70,11 +70,11 @@ export function JapanDaySixGuide() {
       <h3 className="font-display text-3xl">03 · Tenryu-ji, the Zen garden</h3>
       <p className={copy}>A UNESCO World Heritage Zen temple whose Sogen pond garden frames the Arashiyama hills. The north gate opens straight onto the bamboo path, so you can step from the grove into the garden. Garden hours are {plan.tenryuji.gardenHours}, last entry {plan.tenryuji.lastAdmission}. Admission is ¥{plan.tenryuji.gardenYen} per adult for the garden, plus ¥{plan.tenryuji.buildingsExtraYen} for the main halls, and the Cloud Dragon ceiling painting in the Dharma Hall is a separate ¥{plan.tenryuji.dharmaHallYen}, open on weekends, holidays and special spring and autumn periods. Checked {plan.tenryuji.checkedOn} on the temple's official site.</p>
       <p className={copy}>In the second half of November, the garden opens early at 07:30 for the autumn colours. Check the official page for special openings and closures during ceremonies.</p>
-      <Links><PlaceLink href="https://www.tenryuji.com/en/visit/">Tenryu-ji · hours & admission</PlaceLink><PlaceLink href={maps("Tenryu-ji North Gate Kyoto")}>Tenryu-ji north gate · Maps</PlaceLink><PlaceLink href={route("Tenryu-ji Kyoto", "% Arabica Kyoto Arashiyama", "walking")}>Tenryu-ji → % Arabica · walking</PlaceLink></Links>
+      <Links><PlaceLink href="https://www.tenryuji.com/en/visit/">Tenryu-ji · hours & admission</PlaceLink><PlaceLink href={maps("Tenryu-ji North Gate Kyoto")}>Tenryu-ji north gate · Maps</PlaceLink><PlaceLink href={route("Tenryu-ji Kyoto", "% Arabica Kyoto Arashiyama", "walking")}>Tenryu-ji → % Arabica · walking</PlaceLink></Links>
     </div>
 
     <div className="border-b border-border py-8">
-      <h3 className="flex items-center gap-2 font-display text-3xl"><Coffee className="size-6" />04 · Coffee at % Arabica</h3>
+      <h3 className="flex items-center gap-2 font-display text-3xl"><Coffee className="size-6" />04 · Coffee at % Arabica</h3>
       <p className={copy}>The global flagship of the Kyoto-born coffee brand, a small white counter on the river bank beside Togetsukyo Bridge. The coffee was excellent and worth the long queue. It opens at 09:00, the line peaks late morning, and there is very little seating, so take your cup for a slow walk along the river.</p>
       <JapanVenueLinks id="arabicaArashiyama" />
       <h4 className="mt-6 font-display text-2xl">Togetsukyo Bridge</h4>

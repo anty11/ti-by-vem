@@ -117,3 +117,4 @@
 - [x] Japan day 6: Arashiyama bamboo grove (honest take), Tenryu-ji, % Arabica, glänta Ninenzaka ring workshop, Masuyacho walk, My Only Fragrance, three dinners nearby
 - [x] Japan day 7: Nara (deer warning, Todai-ji, Kasuga, Naramachi), return to Kyoto, Le Labo coffee, Lupicia Teramachi Sanjo, koisus dinner
 - [x] Japan day 8: MAIKOYA kimono tea ceremony, Kiyomizu-dera and Komatsucho in kimono, Rokujuan flower warabi mochi, K36 sunset, MATT RESTAURANT 2.0 dinner
+- [x] Japan day 9: Fushimi Inari at dawn, Kyoto to Kawaguchiko via Mishima Hirokojicho, Ubuya onsen and Fuji view, dinner-choice warning, Fuji cookies and white strawberries

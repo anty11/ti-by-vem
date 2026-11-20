@@ -1,7 +1,7 @@
 # Roadmap
 
 - [x] Add Japan day 3: Hiroshima museum and family testimony experience, Kurashiki walk/boat/denim/café, Kobe evening and three researched beef restaurants, practical trains, artwork and checklist. Nine Japan tests pass. Unlocked switching, images, checkbox and 1280/855/390px layouts verified without errors or access changes. Former Café Kobo Bikan listing is closed, Honmachi café offered as a researched replacement.
-- [ ] Confirm the personally visited Miyake branch (waiting for Monika's answer to the café question, current alternative is explicitly researched).
+- [x] Monika confirmed the personally visited Miyake café was in Bikan, not Sakazu. Keep the former Café Kobo visit distinct from the researched Honmachi replacement, without implying the same branch.
 
 - [x] Add Japan day 2 with a researched morning replacing the ended EXPO, recorded castle/Shinsekai walk, Sanno avoidance guidance, teamLab evening, three nearby dinner options, map and checklist. Verified unlocked day switching, loaded images, checkbox and layouts at 1280, 855 and 390px without changing access. Four new tests pass.
 

@@ -22,6 +22,10 @@ export const japanVenues = {
   shushuNagai: { name: "Yakiniku Shushu Nagai", official: "https://tabelog.com/en/osaka/A2701/A270404/R6919/rstLst/", linkLabel: "Nagai restaurant listings", maps: maps("炭火焼肉ホルモン 秀彬 長居3-13-7"), rating: 4.7, checkedOn: "20 November 2026", ratingSource: "https://exa.ai/library/place/jk7qxd880xq" },
   matasaburo: { name: "Matasaburo", official: "https://www.matasaburo.com/", linkLabel: "Restaurant website", maps: maps("又三郎 長居2-13-13"), rating: 4.5, checkedOn: "20 November 2026", ratingSource: "https://exa.ai/library/place/yb0kgf0745g" },
   utageNagai: { name: "Utage · Nagai", maps: maps("宴 大阪市住吉区長居3-8-3"), rating: 4.8, checkedOn: "20 November 2026", ratingSource: "https://exa.ai/library/place/m65p9v6jjd9" },
+  miyakeHonmachi: { name: "Machiya Café Miyake Shoten", official: "https://miyakeshouten.com/", linkLabel: "Café website", maps: maps("町家喫茶 三宅商店 倉敷市本町3-11"), rating: 4.3, checkedOn: "20 November 2026", ratingSource: "https://exa.ai/library/place/srzj3v3lqp3" },
+  royalMouriya: { name: "Royal Mouriya", official: "https://www.mouriya.co.jp/en/royal", linkLabel: "Menu & reservations", maps: maps("Royal Mouriya Kobe 1-9-9 Kitanagasadori"), rating: 4.8, checkedOn: "20 November 2026", ratingSource: "https://wanderlog.com/place/details/409769/kobe-beef-steak-restaurant-royal-mouriya" },
+  ishidaMain: { name: "Kobe Beef Steak Ishida · Main Shop", official: "https://kobe-ishidaya.com/access/steak-ishida-main/", linkLabel: "Main shop & reservations", maps: maps("Kobe Beef Steak Ishida Main Shop 1-21-21 Kitanagasadori"), rating: 4.8, checkedOn: "20 November 2026", ratingSource: "https://wanderlog.com/place/details/867211/kobe-beef-steak-ishidamain-shop" },
+  steaklandKobe: { name: "Steakland · Kobe shop", official: "https://steakland.jp/", linkLabel: "Restaurant website", maps: maps("Steakland Kobe 1-8-2 Kitanagasadori"), rating: 4.2, checkedOn: "20 November 2026", ratingSource: "https://www.taveri.jp/store/ChIJrcaMfSyPAGARiRaaEHKAvVA" },
 } satisfies Record<string, JapanVenue>;
 
 export type JapanVenueId = keyof typeof japanVenues;

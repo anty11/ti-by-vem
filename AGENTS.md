@@ -26,3 +26,4 @@
 - Keep Oktoberfest venue URLs and dated Google scores in oktoberfest-venues, rendered directly below the matching stop by OktoberfestVenueLinks and reused in Reservations, to prevent conflicting references and clearly distinguish whole-property ratings from dining-only scores.
 - Keep Japan paid day guides and venue links in japan-venues and JapanVenueLinks, exposing only completed days in the trip-room picker so unfinished days and chapters stay hidden.
 - Keep Japan day-two suggested stops and avoided districts in japan-day-two-plan, with sourced venue-rating snapshots separate from recorded experiences, so ended events and unsafe detours are not offered as current programme stops.
+- Keep Japan day-three rail interchanges and dated admission/pass values in japan-day-three-plan with concrete tests, so regional-pass rules and Kurashiki station choices remain distinct from recorded travel experiences.
